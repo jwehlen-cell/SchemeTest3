@@ -1,0 +1,94 @@
+flowchart LR
+  %% ---------- Legacy Schema ----------
+  subgraph LEGACY_CSS["Legacy Schema (CSS)"]
+    class LEGACY_CSS legacy;
+    L_EVENT[LEG_EVENT]:::legacy
+    L_ORIGIN[LEG_ORIGIN]:::legacy
+    L_ARRIVAL[LEG_ARRIVAL]:::legacy
+    L_AMPL[LEG_AMPLITUDE]:::legacy
+    L_ASSOC[LEG_ASSOC]:::legacy
+    L_NETMAG[LEG_NETMAG]:::legacy
+    L_STAMAG[LEG_STAMAG]:::legacy
+    L_WFDISC[LEG_WFDISC]:::legacy
+    L_QCMASK[LEG_QCMASK]:::legacy
+    L_REMARK[LEG_REMARK]:::legacy
+    L_ORIGERR[LEG_ORIGERR]:::legacy
+    L_AID[LEG_ACTIVE_ID]:::legacy
+    L_WFTAG[LEG_WFTAG]:::legacy
+  end
+
+  %% ---------- NDC Plus Schema ----------
+  subgraph NDC_PLUS["NDC Plus Schema"]
+    class NDC_PLUS plus;
+    P_EVENT[PLUS_EVENT]:::plus
+    P_EH[PLUS_EVENT_HYPOTHESIS]:::plus
+    P_LOC[PLUS_LOCATION_SOLUTION]:::plus
+    P_LU[PLUS_LOCATION_UNCERTAINTY]:::plus
+    P_SDH[PLUS_SIGNAL_DETECTION_HYPOTHESIS]:::plus
+    P_FM_AT[PLUS_FEATURE_MEASUREMENT_ARRIVAL_TIME]:::plus
+    P_FM_AMP[PLUS_FEATURE_MEASUREMENT_AMPLITUDE]:::plus
+    P_NMS[PLUS_NETWORK_MAGNITUDE_SOLUTION]:::plus
+    P_SMS[PLUS_STATION_MAGNITUDE_SOLUTION]:::plus
+    P_SM[PLUS_STAGE_METRICS]:::plus
+    P_REM[PLUS_REMARK]:::plus
+    P_CHSEG[PLUS_CHANNEL_SEGMENT]:::plus
+    P_QC[PLUS_QC_MASK]:::plus
+  end
+
+  %% ---------- NDC Plus 2 Schema ----------
+  subgraph NDC_PLUS2["NDC Plus 2 Schema"]
+    class NDC_PLUS2 plus2;
+    P2_EVENT[EVENT]:::plus2
+    P2_LOC[LOCATION_SOLUTION]:::plus2
+    P2_SDH[SIGNAL_DETECTION_HYPOTHESIS]:::plus2
+    P2_AMP[AMPLITUDE]:::plus2
+    P2_LB[LOCATION_BEHAVIOR]:::plus2
+    P2_NMS[NETWORK_MAGNITUDE_SOLUTION]:::plus2
+    P2_SMS[STATION_MAGNITUDE_SOLUTION]:::plus2
+    P2_CSW[CHANNEL_SEGMENT_WAVEFORM]:::plus2
+    P2_QC[QC_SEGMENT_VERSION]:::plus2
+    P2_REM[REMARK]:::plus2
+    P2_LU[LOCATION_UNCERTAINTY]:::plus2
+    P2_CS[CHANNEL_SEGMENT]:::plus2
+    P2_SM[STAGE_METRICS]:::plus2
+  end
+
+  %% ---------- Legacy to NDC Plus Mapping ----------
+  L_EVENT -.->|"EVID ↔ EVID"| P_EVENT
+  L_ORIGIN -.->|"ORID → ORID"| P_LOC
+  L_ARRIVAL -.->|"ARID → ARID"| P_SDH
+  L_AMPL -.->|"AMPID → AMPID"| P_FM_AMP
+  L_NETMAG -.->|"MAGID → MAGID"| P_NMS
+  L_STAMAG -.->|"MAGID → MAGID"| P_SMS
+  L_REMARK -.->|"COMMID ↔ REMARK_GID"| P_REM
+  L_WFDISC -.->|"WFID → TAGID"| P_CHSEG
+  L_QCMASK -.->|"QCMASKID → QCMASKID"| P_QC
+  L_ORIGERR -.->|"covariance → uncertainty"| P_LU
+
+  %% ---------- Legacy to NDC Plus 2 Mapping ----------
+  L_EVENT ==>|"EVID ↔ EVID"| P2_EVENT
+  L_ORIGIN ==>|"ORID → ORID"| P2_LOC
+  L_ARRIVAL ==>|"ARID → ARID"| P2_SDH
+  L_AMPL ==>|"AMPID → AMPID"| P2_AMP
+  L_ASSOC ==>|"ORID+ARID → LOCATION_BEHAVIOR"| P2_LB
+  L_NETMAG ==>|"MAGID → NETMAGID"| P2_NMS
+  L_STAMAG ==>|"MAGID → MAGID"| P2_SMS
+  L_WFDISC ==>|"WFID → WFID"| P2_CSW
+  L_QCMASK ==>|"QCMASKID → QCMASKID"| P2_QC
+  L_REMARK ==>|"COMMID ↔ REMARK_GID"| P2_REM
+
+  %% ---------- NDC Plus to NDC Plus 2 Evolution ----------
+  P_EVENT -->|"Enhanced"| P2_EVENT
+  P_LOC -->|"Extended"| P2_LOC
+  P_SDH -->|"Modernized"| P2_SDH
+  P_FM_AMP -->|"Simplified"| P2_AMP
+  P_NMS -->|"Refined"| P2_NMS
+  P_SMS -->|"Enhanced"| P2_SMS
+  P_REM -->|"Streamlined"| P2_REM
+  P_CHSEG -->|"Restructured"| P2_CS
+  P_QC -->|"Advanced"| P2_QC
+
+  %% ---------- Color Classes ----------
+  classDef legacy fill:#e8f3ff,stroke:#5b8def,color:#0b3a74,stroke-width:2px;
+  classDef plus fill:#fff3e0,stroke:#f39c12,color:#5c3b00,stroke-width:2px;
+  classDef plus2 fill:#e8f5e8,stroke:#27ae60,color:#0e4b0e,stroke-width:2px;

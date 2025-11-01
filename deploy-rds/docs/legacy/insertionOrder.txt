@@ -1,0 +1,17 @@
+remark
+active_id
+arrival
+event
+origin
+amplitude
+netmag
+amplitude_dyn_pars_int
+arrival_dyn_pars_int
+wftag
+ar_info
+event_control
+origerr
+assoc
+event_correlation
+stamag
+qcmaskinfo

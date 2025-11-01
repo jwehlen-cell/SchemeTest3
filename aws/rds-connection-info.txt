@@ -1,0 +1,5 @@
+# RDS Connection Information
+LEGACY_DB_HOST=ndc-legacy-schema.c0320kayk04f.us-east-1.rds.amazonaws.com
+NDC_PLUS_DB_HOST=ndc-plus-schema.c0320kayk04f.us-east-1.rds.amazonaws.com
+DB_USER=schemaadmin
+DB_PASS=SchemaTest2024!

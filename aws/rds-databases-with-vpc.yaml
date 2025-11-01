@@ -1,0 +1,222 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'NDC Schema Browser - PostgreSQL RDS Databases with VPC for Legacy and NDC PLUS schemas'
+
+Parameters:
+  DatabaseUsername:
+    Type: String
+    Default: schemaadmin
+    Description: Master username for both databases
+    
+  DatabasePassword:
+    Type: String
+    NoEcho: true
+    MinLength: 8
+    Description: Master password for both databases
+    Default: SchemaTest2024!
+
+Resources:
+  # VPC
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: ndc-schema-vpc
+        - Key: Project
+          Value: NDC-Schema-Browser
+
+  # Internet Gateway
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: ndc-schema-igw
+
+  # Attach Gateway
+  InternetGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref InternetGateway
+      VpcId: !Ref VPC
+
+  # Public Subnet 1
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [0, !GetAZs '']
+      CidrBlock: 10.0.1.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: ndc-schema-public-subnet-1
+
+  # Public Subnet 2 (required for RDS subnet group)
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [1, !GetAZs '']
+      CidrBlock: 10.0.2.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: ndc-schema-public-subnet-2
+
+  # Route Table
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: ndc-schema-public-routes
+
+  # Default Route
+  DefaultPublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: InternetGatewayAttachment
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  # Subnet Route Table Associations
+  PublicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet1
+
+  PublicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet2
+
+  # Database Subnet Group
+  DatabaseSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: Subnet group for NDC Schema databases
+      SubnetIds:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      Tags:
+        - Key: Name
+          Value: ndc-schema-db-subnet-group
+
+  # Security Group for database access
+  DatabaseSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for NDC Schema databases
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          CidrIp: 0.0.0.0/0
+          Description: PostgreSQL access from anywhere
+      Tags:
+        - Key: Name
+          Value: ndc-schema-db-sg
+        - Key: Project
+          Value: NDC-Schema-Browser
+
+  # Legacy Schema Database
+  LegacyDatabase:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: ndc-legacy-schema
+      DBName: legacy_schema
+      Engine: postgres
+      EngineVersion: '15.14'
+      DBInstanceClass: db.t3.micro  # Free tier eligible
+      AllocatedStorage: 20          # Free tier: 20GB
+      StorageType: gp2
+      MasterUsername: !Ref DatabaseUsername
+      MasterUserPassword: !Ref DatabasePassword
+      VPCSecurityGroups:
+        - !Ref DatabaseSecurityGroup
+      DBSubnetGroupName: !Ref DatabaseSubnetGroup
+      BackupRetentionPeriod: 0      # Disable backups for free tier
+      DeleteAutomatedBackups: true
+      DeletionProtection: false
+      PubliclyAccessible: true
+      Tags:
+        - Key: Name
+          Value: NDC-Legacy-Schema-DB
+        - Key: Project
+          Value: NDC-Schema-Browser
+        - Key: Schema
+          Value: Legacy
+
+  # NDC PLUS Schema Database  
+  NDCPlusDatabase:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: ndc-plus-schema
+      DBName: ndc_plus_schema
+      Engine: postgres
+      EngineVersion: '15.14'
+      DBInstanceClass: db.t3.micro  # Free tier eligible
+      AllocatedStorage: 20          # Free tier: 20GB
+      StorageType: gp2
+      MasterUsername: !Ref DatabaseUsername
+      MasterUserPassword: !Ref DatabasePassword
+      VPCSecurityGroups:
+        - !Ref DatabaseSecurityGroup
+      DBSubnetGroupName: !Ref DatabaseSubnetGroup
+      BackupRetentionPeriod: 0      # Disable backups for free tier
+      DeleteAutomatedBackups: true
+      DeletionProtection: false
+      PubliclyAccessible: true
+      Tags:
+        - Key: Name
+          Value: NDC-Plus-Schema-DB
+        - Key: Project
+          Value: NDC-Schema-Browser
+        - Key: Schema
+          Value: NDC-Plus
+
+Outputs:
+  VPCId:
+    Description: VPC ID for the schema databases
+    Value: !Ref VPC
+    Export:
+      Name: !Sub '${AWS::StackName}-VPCId'
+
+  LegacyDatabaseEndpoint:
+    Description: Legacy Schema Database Endpoint
+    Value: !GetAtt LegacyDatabase.Endpoint.Address
+    Export:
+      Name: !Sub '${AWS::StackName}-LegacyDBEndpoint'
+      
+  NDCPlusDatabaseEndpoint:
+    Description: NDC PLUS Schema Database Endpoint
+    Value: !GetAtt NDCPlusDatabase.Endpoint.Address
+    Export:
+      Name: !Sub '${AWS::StackName}-NDCPlusDBEndpoint'
+      
+  DatabaseUsername:
+    Description: Database master username
+    Value: !Ref DatabaseUsername
+    Export:
+      Name: !Sub '${AWS::StackName}-DBUsername'
+      
+  LegacyConnectionString:
+    Description: Legacy database connection string
+    Value: !Sub 'postgresql://${DatabaseUsername}:${DatabasePassword}@${LegacyDatabase.Endpoint.Address}:5432/legacy_schema'
+    
+  NDCPlusConnectionString:
+    Description: NDC PLUS database connection string  
+    Value: !Sub 'postgresql://${DatabaseUsername}:${DatabasePassword}@${NDCPlusDatabase.Endpoint.Address}:5432/ndc_plus_schema'
+    
+  EstimatedMonthlyCost:
+    Description: Estimated monthly cost (Free Tier)
+    Value: '$0.00 (Free Tier - first 750 hours/month for 12 months)'

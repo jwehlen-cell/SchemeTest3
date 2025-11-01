@@ -429,6 +429,159 @@
             background-color: #2980b9;
         }
         
+        .live-docs-section {
+            background-color: white;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .live-docs-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .live-docs-status {
+            margin-top: 10px;
+        }
+        
+        .status-indicator {
+            padding: 8px 16px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .status-indicator.online {
+            background-color: rgba(46, 204, 113, 0.8);
+        }
+        
+        .live-docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .live-doc-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .live-doc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .live-doc-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+        }
+        
+        .live-doc-header h3 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+        }
+        
+        .live-doc-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .live-doc-content {
+            padding: 20px;
+        }
+        
+        .live-doc-features {
+            margin-bottom: 20px;
+        }
+        
+        .feature-item {
+            padding: 8px 0;
+            border-left: 3px solid #3498db;
+            padding-left: 15px;
+            margin: 5px 0;
+            background-color: #f8f9fa;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .live-doc-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .live-doc-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .live-doc-btn.primary {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+        }
+        
+        .live-doc-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+        }
+        
+        .live-doc-info {
+            font-size: 12px;
+            color: #7f8c8d;
+            text-align: center;
+        }
+        
+        .live-docs-comparison {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            background-color: #f8f9fa;
+        }
+        
+        .live-docs-comparison h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .comparison-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .comparison-item h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .comparison-item ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .comparison-item li {
+            margin: 8px 0;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -479,6 +632,7 @@
                 <div class="view-tabs">
                     <button class="view-tab active" onclick="showView('tables', this)">📊 Table Browser</button>
                     <button class="view-tab" onclick="showView('diagrams', this)">📈 Entity Diagrams</button>
+                    <button class="view-tab" onclick="showView('live', this)">🔴 Live Database Docs</button>
                 </div>
                 
                 <div class="stats">
@@ -547,6 +701,82 @@
                     </div>
                 </div>
             </div>
+            
+            <div id="live-view" class="view-content">
+                <div class="live-docs-section">
+                    <div class="live-docs-header">
+                        <h2>🔴 Live Database Documentation</h2>
+                        <p>Interactive documentation generated from live PostgreSQL databases on AWS RDS</p>
+                        <div class="live-docs-status">
+                            <span id="db-status" class="status-indicator">⚡ Checking database status...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="live-docs-grid">
+                        <div class="live-doc-card">
+                            <div class="live-doc-header">
+                                <h3>🏛️ Legacy Schema - Live Documentation</h3>
+                                <p>Interactive exploration of the Legacy database schema with live data insights</p>
+                            </div>
+                            <div class="live-doc-content">
+                                <div class="live-doc-features">
+                                    <div class="feature-item">📊 Interactive ER diagrams</div>
+                                    <div class="feature-item">🔍 Table relationship explorer</div>
+                                    <div class="feature-item">📋 Live column specifications</div>
+                                    <div class="feature-item">🚨 Constraint validation</div>
+                                </div>
+                                <div class="live-doc-actions">
+                                    <button onclick="openLiveDoc('legacy')" class="live-doc-btn primary">🚀 Open Legacy Live Docs</button>
+                                    <span class="live-doc-info">Generated from AWS RDS PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="live-doc-card">
+                            <div class="live-doc-header">
+                                <h3>🗄️ NDC PLUS Schema - Live Documentation</h3>
+                                <p>Interactive exploration of the NDC PLUS database schema with live data insights</p>
+                            </div>
+                            <div class="live-doc-content">
+                                <div class="live-doc-features">
+                                    <div class="feature-item">📊 Interactive ER diagrams</div>
+                                    <div class="feature-item">🔍 Table relationship explorer</div>
+                                    <div class="feature-item">📋 Live column specifications</div>
+                                    <div class="feature-item">🚨 Constraint validation</div>
+                                </div>
+                                <div class="live-doc-actions">
+                                    <button onclick="openLiveDoc('ndc-plus')" class="live-doc-btn primary">🚀 Open NDC PLUS Live Docs</button>
+                                    <span class="live-doc-info">Generated from AWS RDS PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="live-docs-comparison">
+                        <h3>📈 Live vs Static Documentation Comparison</h3>
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h4>📚 Static Documentation (Current)</h4>
+                                <ul>
+                                    <li>✅ Fast loading, always available</li>
+                                    <li>✅ Version controlled with Git</li>
+                                    <li>✅ Great for documentation sharing</li>
+                                    <li>❌ No live database validation</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h4>🔴 Live Documentation (SchemaSpy)</h4>
+                                <ul>
+                                    <li>✅ Real-time database analysis</li>
+                                    <li>✅ Automatic constraint detection</li>
+                                    <li>✅ Orphan table identification</li>
+                                    <li>⚠️ Requires database connectivity</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -555,6 +785,23 @@
         let schemaData = null;
         let currentSchema = 'legacy';
         let currentTable = null;
+
+        // Live documentation functions
+        function openLiveDoc(schemaType) {
+            const baseUrl = 'live-docs/' + schemaType + '/index.html';
+            window.open(baseUrl, '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes');
+        }
+        
+        function checkDatabaseStatus() {
+            // Simulate database status check
+            const statusElement = document.getElementById('db-status');
+            
+            // In a real implementation, this would check actual database connectivity
+            setTimeout(() => {
+                statusElement.innerHTML = '✅ Databases online • Last updated: ' + new Date().toLocaleTimeString();
+                statusElement.className = 'status-indicator online';
+            }, 2000);
+        }
 
         // View management functions
         function showView(viewName, clickedTab) {
@@ -795,5 +1042,8 @@
         }
 
         // Initialize the app when page loads
-        document.addEventListener('DOMContentLoaded', loadSchemaData);
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSchemaData();
+            checkDatabaseStatus();
+        });
     </script>

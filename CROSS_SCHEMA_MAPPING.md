@@ -16,6 +16,7 @@ Legacy Schema (CSS) → NDC Plus Schema → NDC Plus 2 Schema
 **Purpose**: Direct migration mapping from Legacy to NDC Plus 2
 **Format**: Mermaid ERD
 **Use Case**: Organizations wanting to migrate directly from Legacy to NDC Plus 2
+**Static Image**: Available at `images/legacy_to_plus2_mapping.png`
 
 **Key Mappings**:
 - `LEG_EVENT` → `EVENT` (EVID preservation)

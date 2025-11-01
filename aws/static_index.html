@@ -225,10 +225,40 @@
             </div>
 
             <div style="margin-top: 40px; padding: 25px; background: #f8f9fa; border-radius: 12px;">
-                <h3>Cross-Schema Analysis</h3>
-                <p>Compare and analyze relationships between different schema versions:</p>
-                <div style="margin-top: 15px;">
-                    <a href="images/cross_schema_mapping.png" target="_blank" class="view-button static" style="display: inline-block; margin-right: 15px;">🔗 Cross-Schema Mapping</a>
+                <h3>Cross-Schema Analysis & Migration Mapping</h3>
+                <p>Compare and analyze relationships between different schema versions. These diagrams show evolution paths and migration mappings between Legacy, NDC Plus, and NDC Plus 2 schemas.</p>
+                
+                <div style="margin-top: 20px;">
+                    <h4 style="color: #333; margin-bottom: 15px;">Available Mapping Diagrams:</h4>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                        <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6;">
+                            <strong>Legacy ↔ NDC Plus Mapping</strong>
+                            <p style="margin: 8px 0; font-size: 0.9rem; color: #666;">Original cross-schema mapping flowchart</p>
+                            <a href="images/cross_schema_mapping.png" target="_blank" class="view-button static" style="font-size: 0.9rem; padding: 8px 16px;">🔗 View Original Mapping</a>
+                        </div>
+                        
+                        <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6;">
+                            <strong>Legacy → NDC Plus 2 Direct</strong>
+                            <p style="margin: 8px 0; font-size: 0.9rem; color: #666;">Direct migration mapping (ERD format)</p>
+                            <a href="https://github.com/jwehlen-cell/SchemaTest2/blob/main/Legacy_to_Plus2_Mapping.mmd" target="_blank" class="view-button static" style="font-size: 0.9rem; padding: 8px 16px;">📋 View Mermaid Source</a>
+                        </div>
+                        
+                        <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6;">
+                            <strong>Three-Schema Evolution</strong>
+                            <p style="margin: 8px 0; font-size: 0.9rem; color: #666;">Complete evolution flowchart (all schemas)</p>
+                            <a href="https://github.com/jwehlen-cell/SchemaTest2/blob/main/Three_Schema_Mapping.mmd" target="_blank" class="view-button static" style="font-size: 0.9rem; padding: 8px 16px;">🌐 View Mermaid Source</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; border-left: 4px solid #2196f3;">
+                    <strong>� Migration Path Information:</strong>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>Legacy → NDC Plus 2:</strong> Direct migration with 1:1 table mappings</li>
+                        <li><strong>Legacy → NDC Plus → NDC Plus 2:</strong> Evolution through intermediate NDC Plus</li>
+                        <li><strong>Key Changes:</strong> Enhanced event tracking, improved location solutions, advanced quality control</li>
+                    </ul>
                 </div>
             </div>
         </div>

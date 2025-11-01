@@ -1,0 +1,332 @@
+erDiagram
+  EVENT {
+    int EVID PK
+    string MONITORING_ORGANIZATION
+    string REMARK_GID
+    date LDDATE
+  }
+
+  LOCATION_SOLUTION {
+    int ORID PK
+    int EVID
+    float LAT
+    float LON
+    float DEPTH
+    date TIME
+    int GRN
+    int SRN
+    string ALGORITHM
+    string AUTHOR
+    string STAGE
+    boolean ISCURRENT
+    date MODDATE
+    date LDDATE
+    string ETYPE
+    float DEPDP
+    string DTYPE
+  }
+
+  LOCATION_UNCERTAINTY {
+    int ORID PK
+    float XX
+    float YY
+    float ZZ
+    float TT
+    float XY
+    float XZ
+    float YZ
+    float TX
+    float TY
+    float TZ
+    float STD_DEV_TRAVEL_TIME_RESIDUALS
+    string STAGE
+    boolean ISCURRENT
+    date MODDATE
+    date LDDATE
+    string REMARK_GID
+  }
+
+  LOCATION_RESTRAINT {
+    int LOCATION_RESTRAINT_ID PK
+    int ORID
+    string DEPTH_RESTRAINT_TYPE
+    float DEPTH_RESTRAINT_KM
+    string DEPTH_RESTRAINT_REASON
+    string EPICENTER_RESTRAINT_TYPE
+    float LATITUDE_RESTRAINT_DEG
+    float LONGITUDE_RESTRAINT_DEG
+    string TIME_RESTRAINT_TYPE
+    date TIME_RESTRAINT
+    string RESTRAINER
+    date LDDATE
+  }
+
+  LOCATION_BEHAVIOR {
+    int LOCATION_BEHAVIOR_ID PK
+    int ORID
+    int ARID
+    int FMID
+    int FPID
+    string VALUE_TYPE
+    boolean DEFINING
+    boolean REQUESTED_DEFINING
+    float RESIDUAL
+    float WEIGHT
+    date LDDATE
+  }
+
+  SIGNAL_DETECTION_HYPOTHESIS {
+    int ARID PK
+    string STA_NAME
+    date STA_EFFECTIVE_AT
+    string MONITORING_ORGANIZATION
+    boolean DELETED
+    string AUTHOR
+    string STAGE
+    boolean ISCURRENT
+    date MODDATE
+    date LDDATE
+    string CHAN
+    int STASSID
+    string REMARK_GID
+  }
+
+  AMPLITUDE {
+    int AMPID PK
+    int ARID
+    float AMPLITUDE
+    string UNITS
+    float SNR
+    date LDDATE
+    int FILTERID
+    string FILTER_USAGE
+    string CHAN_CANONICAL_NAME
+    date CHAN_EFFECTIVE_AT
+    string MEASUREMENT_TYPE
+  }
+
+  FEATURE_MEASUREMENT_NUMERIC {
+    int FMNUM_ID PK
+    int ARID
+    int FILTERID
+    string FILTER_USAGE
+    string CHAN_CANONICAL_NAME
+    date CHAN_EFFECTIVE_AT
+    string MEASUREMENT_TYPE
+    float MEASURED_VALUE
+    float STANDARD_DEVIATION
+    date LDDATE
+  }
+
+  FEATURE_MEASUREMENT_ENUMERATED {
+    int FMENUM_ID PK
+    int ARID
+    int FILTERID
+    string FILTER_USAGE
+    string CHAN_CANONICAL_NAME
+    date CHAN_EFFECTIVE_AT
+    string MEASUREMENT_TYPE
+    string ENUMERATION
+    date LDDATE
+  }
+
+  FEATURE_PREDICTION_COMPONENT {
+    int FPCID PK
+    string PHASE
+    int CHANNEL_OBJECT_ID
+    string METHOD
+    float SCATTER
+    date LDDATE
+  }
+
+  FEATURE_PREDICTION_ARRIVAL_TIME {
+    int FPATID PK
+    int ORID
+    string CHAN_CANONICAL_NAME
+    date CHAN_EFFECTIVE_AT
+    string MEASUREMENT_TYPE
+    date ARRIVAL_TIME
+    float STANDARD_DEVIATION
+    date LDDATE
+    int ARID
+    int FPCID
+  }
+
+  FEATURE_PREDICTION_NUMERIC {
+    int FPNID PK
+    int ORID
+    string CHAN_CANONICAL_NAME
+    date CHAN_EFFECTIVE_AT
+    string MEASUREMENT_TYPE
+    float VALUE
+    float STANDARD_DEVIATION
+    date LDDATE
+    int FPCID
+  }
+
+  CHANNEL_SEGMENT {
+    int CHANSEG_ID PK
+    string CHAN_CANONICAL_NAME
+    date CHAN_EFFECTIVE_AT
+    string TIME_SERIES_TYPE
+    date START_TIME
+    date END_TIME
+    date CREATION_TIME
+    date LDDATE
+    int REFERENCE_ID
+  }
+
+  CHANNEL_SEGMENT_WAVEFORM {
+    int WFID PK
+    int CHANSEG_ID
+    int SEGMENT
+    int SAMPLES
+    int SAMP_RATE_HZ
+    date START_TIME
+    date END_TIME
+    int STORAGE_OFFSET
+    int STORAGE_LENGTH
+    int SEQUENCE_NUMBER
+    int QC_SEGMENT_VERSION
+    date LDDATE
+  }
+
+  PROCESSING_MASK {
+    int PMID PK
+    string PROCESSING_OPERATION
+    string RAW_CHAN_CANONICAL_NAME
+    date RAW_CHAN_EFFECTIVE_AT
+    date START_TIME
+    date END_TIME
+    date EFFECTIVE_AT
+    date LDDATE
+  }
+
+  CHANNEL_SEGMENT_PROC_MASK_XREF {
+    int CHANMASK_XREF_ID PK
+    int CHANSEG_ID
+    int PMID
+    boolean ISCURRENT
+    date MODDATE
+    date LDDATE
+  }
+
+  QC_SEGMENT_VERSION {
+    int QCMASKID PK
+    int QC_SEGMENT_GID
+    string CHAN_CANONICAL_NAME
+    date CHAN_EFFECTIVE_AT
+    date START_TIME
+    date END_TIME
+    string CATEGORY
+    string TYPE
+    string RATIONALE
+    boolean REJECTED
+    string AUTHOR
+    string STAGE
+    boolean ISCURRENT
+    date EFFECTIVE_AT
+    date MODDATE
+    date LDDATE
+  }
+
+  PROCESSING_MASK_QC_SEGMENT_VERSION {
+    int PM_QCSV_ID PK
+    int PMID
+    int QCMASKID
+    date LDDATE
+  }
+
+  NETWORK_MAGNITUDE_SOLUTION {
+    int NETMAGID PK
+    int ORID
+    string REMARK_GID
+    string MAGTYPE
+    float MAGNITUDE
+    float UNCERTAINTY
+    string STATUS
+    string AUTHOR
+    string STAGE
+    boolean ISCURRENT
+    date MODDATE
+    date LDDATE
+  }
+
+  STATION_MAGNITUDE_SOLUTION {
+    int MAGID PK
+    int NETMAGID
+    int AMPID
+    string REMARK_GID
+    string STA_NAME
+    date STA_EFFECTIVE_AT
+    string PHASE
+    float DELTA
+    string MAGTYPE
+    float MAGNITUDE
+    float UNCERTAINTY
+    float RESIDUAL
+    float WEIGHT
+    string DEFINING
+    string REQUESTED_DEFINING
+    string ATTENUATION_MODEL
+    float MODEL_CORRECTION
+    float STATION_CORRECTION
+    string AUTHOR
+    string STAGE
+    boolean ISCURRENT
+    date MODDATE
+    date LDDATE
+  }
+
+  REMARK {
+    int REMARK_ID PK
+    string REMARK_GID
+    string REMARK
+    string AUTHOR
+    date LDDATE
+  }
+
+  STAGE_METRICS {
+    int METRIC_ID PK
+    string ENTITY_TABLE
+    int ENTITY_ID
+    string STATE
+    string STATE_REASON
+    string STATUS
+    date START_TIME
+    date END_TIME
+    date PROCESSING_START_TIME
+    date PROCESSING_END_TIME
+    int ARID
+    int ORID
+    int EVID
+    int AMPID
+    int MAGID
+    date LDDATE
+  }
+
+  %% Relationships
+  LOCATION_SOLUTION }o--|| EVENT : "EVID"
+  LOCATION_UNCERTAINTY }o--|| LOCATION_SOLUTION : "ORID"
+  LOCATION_RESTRAINT }o--|| LOCATION_SOLUTION : "ORID"
+  LOCATION_BEHAVIOR }o--|| LOCATION_SOLUTION : "ORID"
+  LOCATION_BEHAVIOR }o--|| SIGNAL_DETECTION_HYPOTHESIS : "ARID"
+
+  AMPLITUDE }o--|| SIGNAL_DETECTION_HYPOTHESIS : "ARID"
+  FEATURE_MEASUREMENT_NUMERIC }o--|| SIGNAL_DETECTION_HYPOTHESIS : "ARID"
+  FEATURE_MEASUREMENT_ENUMERATED }o--|| SIGNAL_DETECTION_HYPOTHESIS : "ARID"
+
+  FEATURE_PREDICTION_ARRIVAL_TIME }o--|| LOCATION_SOLUTION : "ORID"
+  FEATURE_PREDICTION_NUMERIC }o--|| LOCATION_SOLUTION : "ORID"
+  FEATURE_PREDICTION_ARRIVAL_TIME }o--|| FEATURE_PREDICTION_COMPONENT : "FPCID"
+  FEATURE_PREDICTION_NUMERIC }o--|| FEATURE_PREDICTION_COMPONENT : "FPCID"
+
+  CHANNEL_SEGMENT_WAVEFORM }o--|| CHANNEL_SEGMENT : "CHANSEG_ID"
+  CHANNEL_SEGMENT_PROC_MASK_XREF }o--|| CHANNEL_SEGMENT : "CHANSEG_ID"
+  CHANNEL_SEGMENT_PROC_MASK_XREF }o--|| PROCESSING_MASK : "PMID"
+  PROCESSING_MASK_QC_SEGMENT_VERSION }o--|| PROCESSING_MASK : "PMID"
+  PROCESSING_MASK_QC_SEGMENT_VERSION }o--|| QC_SEGMENT_VERSION : "QCMASKID"
+
+  NETWORK_MAGNITUDE_SOLUTION }o--|| LOCATION_SOLUTION : "ORID"
+  STATION_MAGNITUDE_SOLUTION }o--|| NETWORK_MAGNITUDE_SOLUTION : "NETMAGID"
+  STATION_MAGNITUDE_SOLUTION }o--|| AMPLITUDE : "AMPID"

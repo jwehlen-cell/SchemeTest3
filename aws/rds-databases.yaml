@@ -1,17 +1,17 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'NDC Schema Browser - PostgreSQL RDS Databases for Legacy and NDC PLUS schemas'
+Description: 'NDC Schema Browser - PostgreSQL RDS Databases for Legacy, NDC PLUS, and NDC PLUS 2 schemas'
 
 Parameters:
   DatabaseUsername:
     Type: String
     Default: schemaadmin
-    Description: Master username for both databases
+    Description: Master username for all databases
     
   DatabasePassword:
     Type: String
     NoEcho: true
     MinLength: 8
-    Description: Master password for both databases
+    Description: Master password for all databases
     Default: SchemaTest2024!
 
 Resources:
@@ -186,6 +186,34 @@ Resources:
         - Key: Schema
           Value: NDC-Plus
 
+  # NDC PLUS 2 Schema Database  
+  NDCPlus2Database:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: ndc-plus2-schema
+      DBName: ndc_plus2_schema
+      Engine: postgres
+      EngineVersion: '15.8'
+      DBInstanceClass: db.t3.micro  # Free tier eligible
+      AllocatedStorage: 20          # Free tier: 20GB
+      StorageType: gp2
+      MasterUsername: !Ref DatabaseUsername
+      MasterUserPassword: !Ref DatabasePassword
+      DBSubnetGroupName: !Ref DatabaseSubnetGroup
+      VPCSecurityGroups:
+        - !Ref DatabaseSecurityGroup
+      BackupRetentionPeriod: 0      # Disable backups for free tier
+      DeleteAutomatedBackups: true
+      DeletionProtection: false
+      PubliclyAccessible: true
+      Tags:
+        - Key: Name
+          Value: NDC-Plus2-Schema-DB
+        - Key: Project
+          Value: NDC-Schema-Browser
+        - Key: Schema
+          Value: NDC-Plus2
+
 Outputs:
   LegacyDatabaseEndpoint:
     Description: Legacy Schema Database Endpoint
@@ -198,6 +226,12 @@ Outputs:
     Value: !GetAtt NDCPlusDatabase.Endpoint.Address
     Export:
       Name: !Sub '${AWS::StackName}-NDCPlusDBEndpoint'
+      
+  NDCPlus2DatabaseEndpoint:
+    Description: NDC PLUS 2 Schema Database Endpoint
+    Value: !GetAtt NDCPlus2Database.Endpoint.Address
+    Export:
+      Name: !Sub '${AWS::StackName}-NDCPlus2DBEndpoint'
       
   DatabaseUsername:
     Description: Database master username
@@ -212,6 +246,10 @@ Outputs:
   NDCPlusConnectionString:
     Description: NDC PLUS database connection string  
     Value: !Sub 'postgresql://${DatabaseUsername}:${DatabasePassword}@${NDCPlusDatabase.Endpoint.Address}:5432/ndc_plus_schema'
+    
+  NDCPlus2ConnectionString:
+    Description: NDC PLUS 2 database connection string  
+    Value: !Sub 'postgresql://${DatabaseUsername}:${DatabasePassword}@${NDCPlus2Database.Endpoint.Address}:5432/ndc_plus2_schema'
     
   EstimatedMonthlyCost:
     Description: Estimated monthly cost (Free Tier)

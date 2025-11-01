@@ -30,19 +30,7 @@ Legacy Schema (CSS) → NDC Plus Schema → NDC Plus 2 Schema
 - `LEG_QCMASK` → `QC_SEGMENT_VERSION` (quality control)
 - `LEG_REMARK` → `REMARK` (comments/remarks)
 
-### 2. Three_Schema_Mapping.mmd
-**Purpose**: Comprehensive evolution diagram showing all three schemas
-**Format**: Mermaid Flowchart
-**Use Case**: Understanding the complete evolution path and relationships
-
-**Features**:
-- Visual representation of all three schemas
-- Legacy → NDC Plus mapping (dotted lines)
-- Legacy → NDC Plus 2 mapping (thick lines)
-- NDC Plus → NDC Plus 2 evolution (solid lines)
-- Color-coded schema groups
-
-### 3. Cross_Schema_Mapping.mmd (Original)
+### 2. Cross_Schema_Mapping.mmd (Original)
 **Purpose**: Original Legacy to NDC Plus mapping
 **Format**: Mermaid Flowchart
 **Use Case**: Organizations migrating from Legacy to NDC Plus

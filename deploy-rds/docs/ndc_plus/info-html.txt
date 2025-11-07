@@ -1,5 +1,0 @@
-date=2025-11-01 17:18:16-0400
-os=Mac OS X 10.16
-schemaspy-version=6.2.4
-schemaspy-build=6.2.4.41 2023-07-21 11:15:12
-renderer=Graphviz dot 14.0.2 

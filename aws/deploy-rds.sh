@@ -5,7 +5,7 @@ echo "==========================================="
 
 # Wait for CloudFormation stack to complete
 echo "⏳ Waiting for RDS stack creation to complete..."
-aws cloudformation wait stack-create-complete --stack-name ndc-schema-databases
+aws cloudformation wait stack-create-complete --stack-name ndc-schema3-databases
 
 if [ $? -ne 0 ]; then
     echo "❌ CloudFormation stack creation failed!"
@@ -17,12 +17,12 @@ echo "✅ CloudFormation stack created successfully!"
 # Get database endpoints
 echo "🔗 Getting database endpoints..."
 LEGACY_ENDPOINT=$(aws cloudformation describe-stacks \
-    --stack-name ndc-schema-databases \
+    --stack-name ndc-schema3-databases \
     --query 'Stacks[0].Outputs[?OutputKey==`LegacyDatabaseEndpoint`].OutputValue' \
     --output text)
 
 NDC_PLUS_ENDPOINT=$(aws cloudformation describe-stacks \
-    --stack-name ndc-schema-databases \
+    --stack-name ndc-schema3-databases \
     --query 'Stacks[0].Outputs[?OutputKey==`NDCPlusDatabaseEndpoint`].OutputValue' \
     --output text)
 

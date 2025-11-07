@@ -1,4 +1,6 @@
-# SchemaTest2 - NDC PLUS and Legacy Database Schema Documentation
+# SchemaTest3 - NDC PLUS and Legacy Database Schema Documentation (CLONE)
+
+⚠️ **IMPORTANT: This is a clone/fork repository with modified AWS resource names to prevent conflicts with the original deployment.**
 
 A comprehensive database schema management system with visual documentation for both the **Legacy** and **NDC PLUS** seismic monitoring systems, presented with GitHub integration similar to Swagger for APIs.
 

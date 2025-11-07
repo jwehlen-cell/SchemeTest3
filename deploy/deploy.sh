@@ -6,14 +6,27 @@
 set -e  # Exit on any error
 
 # Configuration
-BUCKET_NAME="ndc-schematest"
+BUCKET_NAME="ndc-schematest3-clone"
 REGION="us-east-1"
 DEPLOY_DIR="deploy"
 
-echo "🚀 NDC Schema Browser - AWS S3 Deployment"
-echo "==========================================="
+echo "🚀 NDC Schema Browser - AWS S3 Deployment (CLONE)"
+echo "================================================="
+echo "⚠️  WARNING: This is a CLONE repository"
 echo "Bucket: $BUCKET_NAME"
 echo "Region: $REGION"
+echo ""
+
+# Safety check
+echo "🛡️  Running safety check..."
+if ! ./check-deployment-safety.sh; then
+    echo ""
+    echo "❌ SAFETY CHECK FAILED - Deployment aborted"
+    echo "   Fix the issues reported above before deploying"
+    exit 1
+fi
+
+echo "✅ Safety check passed - proceeding with deployment"
 echo ""
 
 # Check if AWS CLI is installed

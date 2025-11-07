@@ -23,7 +23,7 @@ fi
 
 # Step 3: Deploy to S3
 echo "🌐 Step 3: Deploying to S3..."
-aws s3 sync deploy-rds/ s3://ndc-schema-rds --delete
+aws s3 sync deploy-rds/ s3://ndc-schema3-rds --delete
 
 if [ $? -ne 0 ]; then
     echo "❌ S3 deployment failed!"
@@ -44,9 +44,9 @@ echo "   🏛️  Legacy Schema: $LEGACY_DB_HOST (PostgreSQL)"
 echo "   🚀 NDC PLUS Schema: $NDC_PLUS_DB_HOST (PostgreSQL)"
 echo ""
 echo "🌐 Live Documentation URLs:"
-echo "   📱 Main Site: http://ndc-schema-rds.s3-website-us-east-1.amazonaws.com"
-echo "   🏛️  Legacy: http://ndc-schema-rds.s3-website-us-east-1.amazonaws.com/docs/legacy/"
-echo "   🚀 NDC PLUS: http://ndc-schema-rds.s3-website-us-east-1.amazonaws.com/docs/ndc_plus/"
+echo "   📱 Main Site: http://ndc-schema3-rds.s3-website-us-east-1.amazonaws.com"
+echo "   🏛️  Legacy: http://ndc-schema3-rds.s3-website-us-east-1.amazonaws.com/docs/legacy/"
+echo "   🚀 NDC PLUS: http://ndc-schema3-rds.s3-website-us-east-1.amazonaws.com/docs/ndc_plus/"
 echo ""
 echo "✨ Features Available:"
 echo "   • Live relationship diagrams from AWS RDS PostgreSQL"
@@ -65,9 +65,9 @@ cat > DEPLOYMENT_INFO.md << EOF
 ## 🎯 Deployment Status: ✅ ACTIVE
 
 ### 🌐 Live Documentation
-- **Main Site**: http://ndc-schema-rds.s3-website-us-east-1.amazonaws.com
-- **Legacy Schema**: http://ndc-schema-rds.s3-website-us-east-1.amazonaws.com/docs/legacy/
-- **NDC PLUS Schema**: http://ndc-schema-rds.s3-website-us-east-1.amazonaws.com/docs/ndc_plus/
+- **Main Site**: http://ndc-schema3-rds.s3-website-us-east-1.amazonaws.com
+- **Legacy Schema**: http://ndc-schema3-rds.s3-website-us-east-1.amazonaws.com/docs/legacy/
+- **NDC PLUS Schema**: http://ndc-schema3-rds.s3-website-us-east-1.amazonaws.com/docs/ndc_plus/
 
 ### 📊 Database Details
 - **Legacy Database**: $LEGACY_DB_HOST
@@ -81,10 +81,10 @@ cat > DEPLOYMENT_INFO.md << EOF
   - Tables: 35 with full relationships
 
 ### 🔧 Infrastructure
-- **CloudFormation Stack**: ndc-schema-databases
+- **CloudFormation Stack**: ndc-schema3-databases
 - **VPC**: Custom VPC with public subnets
 - **Security**: PostgreSQL access (port 5432) from anywhere
-- **S3 Bucket**: ndc-schema-rds (static website hosting)
+- **S3 Bucket**: ndc-schema3-rds (static website hosting)
 
 ### 💰 Cost Information
 - **Free Tier Eligible**: Yes (both RDS instances)
@@ -97,16 +97,16 @@ cat > DEPLOYMENT_INFO.md << EOF
 ./aws/generate-live-docs-rds.sh
 
 # Deploy to S3
-aws s3 sync deploy-rds/ s3://ndc-schema-rds --delete
+aws s3 sync deploy-rds/ s3://ndc-schema3-rds --delete
 
 # Check database status
 aws rds describe-db-instances --db-instance-identifier ndc-legacy-schema
 aws rds describe-db-instances --db-instance-identifier ndc-plus-schema
 
 # Delete deployment
-aws cloudformation delete-stack --stack-name ndc-schema-databases
-aws s3 rm s3://ndc-schema-rds --recursive
-aws s3 rb s3://ndc-schema-rds
+aws cloudformation delete-stack --stack-name ndc-schema3-databases
+aws s3 rm s3://ndc-schema3-rds --recursive
+aws s3 rb s3://ndc-schema3-rds
 \`\`\`
 
 Generated: $(date)

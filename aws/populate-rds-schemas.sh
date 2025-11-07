@@ -5,11 +5,11 @@ echo "==============================================="
 
 # Check if CloudFormation stack is complete
 echo "🔍 Checking CloudFormation stack status..."
-STACK_STATUS=$(aws cloudformation describe-stacks --stack-name ndc-schema-databases --query 'Stacks[0].StackStatus' --output text 2>/dev/null)
+STACK_STATUS=$(aws cloudformation describe-stacks --stack-name ndc-schema3-databases --query 'Stacks[0].StackStatus' --output text 2>/dev/null)
 
 if [ "$STACK_STATUS" != "CREATE_COMPLETE" ]; then
     echo "⏳ Waiting for CloudFormation stack to complete..."
-    aws cloudformation wait stack-create-complete --stack-name ndc-schema-databases
+    aws cloudformation wait stack-create-complete --stack-name ndc-schema3-databases
     
     if [ $? -ne 0 ]; then
         echo "❌ CloudFormation stack creation failed!"
@@ -22,12 +22,12 @@ echo "✅ CloudFormation stack is ready!"
 # Get database endpoints
 echo "🔗 Getting database endpoints..."
 LEGACY_ENDPOINT=$(aws cloudformation describe-stacks \
-    --stack-name ndc-schema-databases \
+    --stack-name ndc-schema3-databases \
     --query 'Stacks[0].Outputs[?OutputKey==`LegacyDatabaseEndpoint`].OutputValue' \
     --output text)
 
 NDC_PLUS_ENDPOINT=$(aws cloudformation describe-stacks \
-    --stack-name ndc-schema-databases \
+    --stack-name ndc-schema3-databases \
     --query 'Stacks[0].Outputs[?OutputKey==`NDCPlusDatabaseEndpoint`].OutputValue' \
     --output text)
 

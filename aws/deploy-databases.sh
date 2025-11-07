@@ -6,17 +6,33 @@
 set -e  # Exit on any error
 
 # Configuration
-STACK_NAME="ndc-schema-databases"
+STACK_NAME="ndc-schema3-databases"
 TEMPLATE_FILE="aws/rds-databases.yaml"
 REGION="us-east-1"
 DB_USERNAME="schemaadmin"
 DB_PASSWORD="SchemaTest2024!"
 
-echo "🚀 AWS RDS Database Deployment"
-echo "==============================="
+echo "🚀 AWS RDS Database Deployment (CLONE)"
+echo "======================================"
+echo "⚠️  WARNING: This is a CLONE repository"
 echo "Stack Name: $STACK_NAME"
 echo "Region: $REGION"
 echo "Template: $TEMPLATE_FILE"
+echo ""
+
+# Safety confirmation
+echo "🛡️  SAFETY CONFIRMATION REQUIRED"
+echo "You are about to deploy AWS resources for a CLONE repository."
+echo "Stack name: $STACK_NAME"
+echo ""
+read -p "Are you sure you want to proceed? (yes/no): " confirmation
+
+if [ "$confirmation" != "yes" ]; then
+    echo "❌ Deployment cancelled by user"
+    exit 1
+fi
+
+echo "✅ Proceeding with deployment..."
 echo ""
 
 # Check if AWS CLI is installed and configured

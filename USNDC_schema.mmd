@@ -1,0 +1,1170 @@
+erDiagram
+
+    ACTIVE_ID {
+        NUMBER(18) TAGID
+        string ... "+5 more"
+    }
+
+    AFFILIATION {
+        VARCHAR2(8) NET
+        VARCHAR2(6) STA
+        string ... "+3 more"
+    }
+
+    ALGORITHM {
+        NUMBER(18) ALGORITHM_ID
+        string ... "+7 more"
+    }
+
+    ALPHASITE {
+        VARCHAR2(6) STA
+        NUMBER(18) PREFDLID
+        NUMBER(18) DLID
+        NUMBER(18) COMMID
+        string ... "+5 more"
+    }
+
+    AMP3C {
+        NUMBER(18) ARID
+        VARCHAR2(8) RID
+        string ... "+7 more"
+    }
+
+    AMPDESCRIPT {
+        string ... "+8 more"
+    }
+
+    AMPLITUDE {
+        NUMBER(18) AMPID
+        NUMBER(18) ARID
+        NUMBER(18) PARID
+        VARCHAR2(8) CHAN
+        string ... "+13 more"
+    }
+
+    AMPLITUDE_DYN_PARS_DBL {
+        NUMBER(18) AMPID
+        string ... "+4 more"
+    }
+
+    AMPLITUDE_DYN_PARS_INT {
+        NUMBER(18) AMPID
+        string ... "+4 more"
+    }
+
+    AMPLITUDE_DYN_PARS_STR {
+        NUMBER(18) AMPID
+        string ... "+4 more"
+    }
+
+    AOI {
+        string ... "+10 more"
+    }
+
+    APMA {
+        NUMBER(18) ARID
+        NUMBER(18) APMARID
+        NUMBER(18) COMMID
+        string ... "+21 more"
+    }
+
+    ARRIVAL {
+        VARCHAR2(6) STA
+        NUMBER(18) ARID
+        NUMBER(18) STASSID
+        NUMBER(18) CHANID
+        VARCHAR2(8) CHAN
+        string ... "+20 more"
+    }
+
+    ARRIVAL_DYN_PARS_DBL {
+        NUMBER(18) ARID
+        string ... "+4 more"
+    }
+
+    ARRIVAL_DYN_PARS_INT {
+        NUMBER(18) ARID
+        string ... "+4 more"
+    }
+
+    ARRIVAL_DYN_PARS_STR {
+        NUMBER(18) ARID
+        string ... "+4 more"
+    }
+
+    ARRIVAL_TAG {
+        NUMBER(18) ARID
+        string ... "+3 more"
+    }
+
+    AR_INFO {
+        NUMBER(18) ORID
+        NUMBER(18) ARID
+        string ... "+27 more"
+    }
+
+    ASSOC {
+        NUMBER(18) ARID
+        NUMBER(18) ORID
+        VARCHAR2(6) STA
+        NUMBER(18) COMMID
+        string ... "+15 more"
+    }
+
+    ASSOC_GA {
+        NUMBER(18) ARID
+        NUMBER(18) ORID
+        VARCHAR2(6) STA
+        NUMBER(18) COMMID
+        string ... "+15 more"
+    }
+
+    ASSOC_GA_DEL {
+        NUMBER(18) ARID
+        NUMBER(18) ORID
+        VARCHAR2(6) STA
+        NUMBER(18) COMMID
+        string ... "+15 more"
+    }
+
+    BEAM {
+        NUMBER(18) WFID
+        NUMBER(18) FILTERID
+        string ... "+4 more"
+    }
+
+    BULLETIN_RELEASE {
+        NUMBER(18) ERPID
+        NUMBER(18) ORID
+        NUMBER(18) EVID
+        NUMBER(18) MAGID
+        string ... "+8 more"
+    }
+
+    BULLETIN_RELEASE_EXPORT {
+        NUMBER(18) MAX_ERPID
+        string ... "+4 more"
+    }
+
+    BUTTERWORTH_FILTER {
+        NUMBER(18) FILTERID
+        string ... "+7 more"
+    }
+
+    CHANNAME {
+        NUMBER(18) INTERN_CHANID
+        NUMBER(18) COMMID
+        string ... "+6 more"
+    }
+
+    CHAN_GROUPS {
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        string ... "+7 more"
+    }
+
+    CLASSIFICATION {
+        NUMBER(18) CLASSIFICATION_ID
+        NUMBER(18) CLASS_LEVEL_ID
+        NUMBER(18) CLASS_DISSEM_ID
+        NUMBER(18) CLASS_DERIVED_ID
+        NUMBER(18) CLASS_DECLASS_ID
+        string ... "+6 more"
+    }
+
+    CLASSIFICATION_LEVEL {
+        NUMBER(18) CLASS_LEVEL_ID
+        string ... "+4 more"
+    }
+
+    CLASSIFICATION_LOOKUP {
+        NUMBER(18) CLASS_LOOKUP_ID
+        NUMBER(18) CLASSIFICATION_ID
+        string ... "+6 more"
+    }
+
+    CLASSIFICATION_OPR {
+        NUMBER(18) CLASS_OPR_ID
+        string ... "+3 more"
+    }
+
+    CLASSIFICATION_REFER_TO {
+        NUMBER(18) CLASS_REFER_ID
+        string ... "+3 more"
+    }
+
+    CLASS_DECLASS_ID {
+        NUMBER(18) CLASS_DECLASS_ID
+        string ... "+3 more"
+    }
+
+    CLASS_DERIVED_ID {
+        NUMBER(18) CLASS_DERIVED_ID
+        string ... "+3 more"
+    }
+
+    CLASS_DISSEM_ID {
+        NUMBER(18) CLASS_DISSEM_ID
+        string ... "+4 more"
+    }
+
+    CLUSTER_INFO {
+        NUMBER(18) CLUID
+        string ... "+4 more"
+    }
+
+    CLUSTER_MAGREF {
+        NUMBER(18) CLUSTAID
+        NUMBER(18) ORID
+        NUMBER(18) FILTERID
+        string ... "+8 more"
+    }
+
+    CLUSTER_MEC {
+        NUMBER(18) CLUSTAID
+        VARCHAR2(6) STA
+        string ... "+8 more"
+    }
+
+    CLUSTER_ORID {
+        NUMBER(18) CLUSTAID
+        NUMBER(18) ORID
+        string ... "+2 more"
+    }
+
+    CLUSTER_OVERRIDE {
+        NUMBER(18) CLUSTAID
+        VARCHAR2(32) PHASE_SPECIFIC_OVERRIDE_REC
+        string ... "+18 more"
+    }
+
+    CLUSTER_PHASE_OVERRIDE {
+        NUMBER(18) CLUSTAID
+        VARCHAR2(32) PHASE_SPECIFIC_OVERRIDE_REC
+        string ... "+9 more"
+    }
+
+    CLUSTER_STATION {
+        NUMBER(18) CLUSTAID
+        NUMBER(18) CLUID
+        VARCHAR2(6) STA
+        string ... "+11 more"
+    }
+
+    CLUSTER_THRESHOLD {
+        NUMBER(18) CLUSTAID
+        NUMBER(18) ORID
+        string ... "+9 more"
+    }
+
+    CODAMAG_INPUT {
+        NUMBER(18) AMPID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) ORID
+        NUMBER(18) ARID
+        string ... "+33 more"
+    }
+
+    CODAMAG_OUTPUT {
+        NUMBER(18) AMPID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) ORID
+        NUMBER(18) ARID
+        string ... "+12 more"
+    }
+
+    CONTINUOUS_DATA_STATUS {
+        NUMBER(18) STATUS_ID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        string ... "+6 more"
+    }
+
+    DATAUSER {
+        NUMBER(18) USERID
+        NUMBER(18) POCID
+        NUMBER(18) COMMID
+        string ... "+8 more"
+    }
+
+    DA_INTERVAL {
+        NUMBER(18) INTVLID
+        string ... "+11 more"
+    }
+
+    DA_REFSTA_LATENCY {
+        NUMBER(18) LATENCY_ID
+        VARCHAR2(6) STA
+        string ... "+8 more"
+    }
+
+    DA_REFSTA_SUMMARY {
+        NUMBER(18) SUMMARY_ID
+        VARCHAR2(6) STA
+        string ... "+6 more"
+    }
+
+    DA_SITECHAN_LATENCY {
+        NUMBER(18) LATENCY_ID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        string ... "+8 more"
+    }
+
+    DECONVOLUTION {
+        NUMBER(18) DECONID
+        string ... "+9 more"
+    }
+
+    DEFINING_OBSTYPES {
+        NUMBER(18) OBSTYPE_ID
+        string ... "+6 more"
+    }
+
+    DEFINING_RULES {
+        NUMBER(18) RULE_ID
+        VARCHAR2(8) NET
+        NUMBER(18) OBSTYPE_ID
+        NUMBER(18) VALUE_ID
+        string ... "+10 more"
+    }
+
+    DEFINING_VALUES {
+        NUMBER(18) VALUE_ID
+        string ... "+5 more"
+    }
+
+    DETECTION {
+        NUMBER(18) ARID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) SPROID
+        NUMBER(18) COMMID
+        string ... "+15 more"
+    }
+
+    DETECTION_THRESHOLD {
+        NUMBER(18) CLUSTAID
+        NUMBER(18) ORID
+        VARCHAR2(6) STA
+        string ... "+15 more"
+    }
+
+    DISCRIMUSE {
+        NUMBER(18) ORID
+        VARCHAR2(6) STA
+        NUMBER(18) COMMID
+        string ... "+3 more"
+    }
+
+    DISCRIMVOTE {
+        NUMBER(18) ORID
+        VARCHAR2(6) STA
+        NUMBER(18) COMMID
+        NUMBER(8) OVERRIDE
+        string ... "+4 more"
+    }
+
+    DISCRIM_PARAM {
+        NUMBER(18) POLYID
+        NUMBER(18) AMPCOR_VERID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) PARAMSETID
+        string ... "+19 more"
+    }
+
+    DLMAN {
+        NUMBER(18) DLID
+        NUMBER(18) COMMID
+        string ... "+7 more"
+    }
+
+    DOPPLER_DETECTION {
+        NUMBER(18) DOPPLERID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        string ... "+20 more"
+    }
+
+    ECM_CHAN_AMPLITUDE {
+        NUMBER(18) ORID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) AMPCOR_VERID
+        string ... "+16 more"
+    }
+
+    ECM_CONSTANT {
+        string ... "+3 more"
+    }
+
+    ECM_COV {
+        NUMBER(18) POLYID
+        NUMBER(18) COV_VERID
+        string ... "+8 more"
+    }
+
+    ECM_DISCRIMINANTS {
+        NUMBER(18) ORID
+        NUMBER(18) COV_VERID
+        string ... "+6 more"
+    }
+
+    ECM_EVENT_RESULTS {
+        NUMBER(18) ORID
+        NUMBER(18) EVID
+        NUMBER(18) COV_VERID
+        NUMBER(18) RDA_VERID
+        string ... "+5 more"
+    }
+
+    ECM_REF_CHAN_AMPLITUDE {
+        NUMBER(18) EVID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) AMPCOR_VERID
+        NUMBER(18) POLYID
+        string ... "+17 more"
+    }
+
+    ECM_REF_DISCRIM {
+        NUMBER(18) EVID
+        NUMBER(18) COV_VERID
+        string ... "+4 more"
+    }
+
+    ECM_REF_EVENT {
+        NUMBER(18) EVID
+        NUMBER(18) POLYID
+        string ... "+11 more"
+    }
+
+    ECM_REGION_PREF_VERSION {
+        NUMBER(18) POLYID
+        NUMBER(18) COV_VERID
+        NUMBER(18) RDA_VERID
+        string ... "+3 more"
+    }
+
+    ECM_SOURCES {
+        NUMBER(18) ORID
+        NUMBER(18) COV_VERID
+        NUMBER(18) RDA_VERID
+        string ... "+5 more"
+    }
+
+    ECM_STA_PREF_VERSION {
+        NUMBER(18) POLYID
+        VARCHAR2(6) STA
+        NUMBER(18) AMPCOR_VERID
+        string ... "+3 more"
+    }
+
+    ENVELOPE_CONTRIBUTION {
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) ORID
+        NUMBER(18) ARID
+        string ... "+5 more"
+    }
+
+    EVENT {
+        NUMBER(18) EVID
+        NUMBER(18) COMMID
+        string ... "+4 more"
+    }
+
+    EVENT_CONTROL {
+        NUMBER(18) ORID
+        NUMBER(18) EVID
+        string ... "+24 more"
+    }
+
+    EVENT_CORRELATION {
+        NUMBER(18) CORR_ID
+        NUMBER(18) SOURCE_ORID
+        NUMBER(18) SOURCE_EVID
+        NUMBER(18) REFERENCE_ORID
+        NUMBER(18) REFERENCE_EVID
+        string ... "+13 more"
+    }
+
+    EVENT_QUALITY {
+        NUMBER(18) EQID
+        NUMBER(18) ORID
+        string ... "+13 more"
+    }
+
+    FEEDBACK {
+        NUMBER(18) FEEDBACK_ID
+        NUMBER(18) EVID
+        NUMBER(18) ORID
+        string ... "+10 more"
+    }
+
+    FEEDBACK_CATAFFILIATION {
+        NUMBER(18) FBAFFILIATION_ID
+        NUMBER(18) FEEDBACK_ID
+        NUMBER(18) FBCATEGORY_ID
+        string ... "+3 more"
+    }
+
+    FEEDBACK_CATEGORIES {
+        NUMBER(18) FBCATEGORY_ID
+        string ... "+5 more"
+    }
+
+    FEEDBACK_SCREENSHOTS {
+        NUMBER(18) FBSCREENSHOT_ID
+        NUMBER(18) FEEDBACK_ID
+        string ... "+6 more"
+    }
+
+    FEEDBACK_STATE {
+        NUMBER(18) FBSTATE_ID
+        NUMBER(18) FEEDBACK_ID
+        NUMBER(18) FBSTATECATEGORY_ID
+        string ... "+3 more"
+    }
+
+    FEEDBACK_STATE_CATEGORIES {
+        NUMBER(18) FBSTATECATEGORY_ID
+        string ... "+5 more"
+    }
+
+    FILTER {
+        NUMBER(18) FILTERID
+        string ... "+4 more"
+    }
+
+    FILTER_COEFFICIENTS {
+        NUMBER(18) FILTERID
+        string ... "+4 more"
+    }
+
+    FILTER_GROUP {
+        NUMBER(18) PARENT_FILTERID
+        NUMBER(18) CHILD_FILTERID
+        string ... "+2 more"
+    }
+
+    FILTER_VALUES_DOUBLE {
+        NUMBER(18) FILTERID
+        string ... "+3 more"
+    }
+
+    FILTER_VALUES_INTEGER {
+        NUMBER(18) FILTERID
+        string ... "+3 more"
+    }
+
+    FILTER_VALUES_STRING {
+        NUMBER(18) FILTERID
+        string ... "+3 more"
+    }
+
+    FK_PROCESSING {
+        NUMBER(18) ARID
+        NUMBER(18) PROCID
+        string ... "+6 more"
+    }
+
+    FTPFAILED {
+        NUMBER(18) MSGID
+        string ... "+5 more"
+    }
+
+    FTPLOGIN {
+        string ... "+4 more"
+    }
+
+    GA_TAG {
+        NUMBER(18) ID
+        NUMBER(18) EVID_REJECT
+        string ... "+7 more"
+    }
+
+    GREGION {
+        string ... "+3 more"
+    }
+
+    HISTORIC_INFO_CYLINDER {
+        NUMBER(18) HISTORIC_INFO_CYLINDER_ID
+        string ... "+9 more"
+    }
+
+    HISTORIC_INFO_SHELL {
+        NUMBER(18) HISTORIC_INFO_SHELL_ID
+        NUMBER(18) ALGORITHM_ID
+        string ... "+21 more"
+    }
+
+    HISTORIC_INFO_STA_PHASE {
+        NUMBER(18) HISTORIC_INFO_STA_PHASE_ID
+        NUMBER(18) HISTORIC_INFO_CYLINDER_ID
+        NUMBER(18) ALGORITHM_ID
+        string ... "+12 more"
+    }
+
+    HYDRO_ARRIVAL {
+        NUMBER(18) ARID
+        VARCHAR2(6) STA
+        NUMBER(18) COMMID
+        string ... "+17 more"
+    }
+
+    HYDRO_ARR_GROUP {
+        NUMBER(18) HYDRO_ID
+        VARCHAR2(8) NET
+        string ... "+7 more"
+    }
+
+    HYDRO_ASSOC {
+        NUMBER(18) ARID
+        NUMBER(18) HYDRO_ID
+        string ... "+2 more"
+    }
+
+    HYDRO_ORIGIN {
+        NUMBER(18) ORID
+        NUMBER(18) SERID
+        NUMBER(18) COMMID
+        string ... "+6 more"
+    }
+
+    INSTRUMENT {
+        NUMBER(18) INID
+        string ... "+11 more"
+    }
+
+    INTERVAL {
+        NUMBER(18) INTVLID
+        NUMBER(18) COMMID
+        string ... "+11 more"
+    }
+
+    MDAC_FD {
+        NUMBER(18) FDID
+        NUMBER(18) AMPCOR_VERID
+        NUMBER(18) CORRID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        string ... "+7 more"
+    }
+
+    MDAC_FI {
+        NUMBER(18) CORRID
+        NUMBER(18) AMPCOR_VERID
+        NUMBER(18) POLYID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        string ... "+30 more"
+    }
+
+    MSGAUX {
+        NUMBER(18) MSGID
+        string ... "+5 more"
+    }
+
+    MSGDATATYPE {
+        NUMBER(18) MSGID
+        string ... "+6 more"
+    }
+
+    MSGDEST {
+        NUMBER(18) MSGDID
+        NUMBER(18) MSGID
+        string ... "+6 more"
+    }
+
+    MSGDISC {
+        NUMBER(18) MSGID
+        NUMBER(18) USERID
+        VARCHAR2(20) EXTMSGID
+        NUMBER(18) INTID
+        VARCHAR2(16) INTIDTYPE
+        string ... "+19 more"
+    }
+
+    MSVMAX_DESCRIPT {
+        NUMBER(18) AMPID
+        VARCHAR2(6) STA
+        NUMBER(18) ORID
+        NUMBER(18) ARID
+        string ... "+3 more"
+    }
+
+    MSVMAX_RESULTS {
+        NUMBER(18) AMPID
+        string ... "+11 more"
+    }
+
+    NETMAG {
+        NUMBER(18) MAGID
+        VARCHAR2(8) NET
+        NUMBER(18) ORID
+        NUMBER(18) EVID
+        NUMBER(18) COMMID
+        string ... "+6 more"
+    }
+
+    NETWORK {
+        NUMBER(18) NETWORKID
+        VARCHAR2(8) NET
+        string ... "+8 more"
+    }
+
+    NETYIELD {
+        NUMBER(18) YIELDID
+        VARCHAR2(8) NET
+        NUMBER(18) ORID
+        NUMBER(18) EVID
+        NUMBER(18) COMMID
+        string ... "+6 more"
+    }
+
+    NET_CODA_SPECTRUM {
+        NUMBER(18) MAGID
+        string ... "+4 more"
+    }
+
+    OMITTED_CHANNELS {
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) COMMID
+        string ... "+4 more"
+    }
+
+    ORIGERR {
+        NUMBER(18) ORID
+        NUMBER(18) COMMID
+        string ... "+18 more"
+    }
+
+    ORIGERR_GA {
+        NUMBER(18) ORID
+        NUMBER(18) COMMID
+        string ... "+18 more"
+    }
+
+    ORIGERR_GA_DEL {
+        NUMBER(18) ORID
+        NUMBER(18) COMMID
+        string ... "+18 more"
+    }
+
+    ORIGIN {
+        NUMBER(18) ORID
+        NUMBER(18) EVID
+        NUMBER(18) MBID
+        NUMBER(18) MSID
+        NUMBER(18) MLID
+        string ... "+19 more"
+    }
+
+    ORIGIN_GA {
+        NUMBER(18) ORID
+        NUMBER(18) EVID
+        NUMBER(18) MBID
+        NUMBER(18) MSID
+        NUMBER(18) MLID
+        string ... "+19 more"
+    }
+
+    ORIGIN_GA_DEL {
+        NUMBER(18) ORID
+        NUMBER(18) EVID
+        NUMBER(18) MBID
+        NUMBER(18) MSID
+        NUMBER(18) MLID
+        string ... "+19 more"
+    }
+
+    ORIGIN_MEA_TRACE {
+        NUMBER(18) ORID
+        NUMBER(18) CLUSTAID
+        NUMBER(18) BEST_REF_MATCH_ORID
+        string ... "+3 more"
+    }
+
+    ORIGIN_SDO {
+        NUMBER(18) ORID
+    }
+
+    ORIGIN_TAG {
+        NUMBER(18) ORID
+        string ... "+4 more"
+    }
+
+    OUTAGE_STATION_DATA {
+        NUMBER(18) OUTAGE_ID
+        VARCHAR2(6) STA
+        string ... "+5 more"
+    }
+
+    OUTAGE_STATION_RECEIVE {
+        NUMBER(18) OUTAGE_ID
+        VARCHAR2(6) STA
+        string ... "+6 more"
+    }
+
+    POLYGON {
+        NUMBER(18) POLYID
+        VARCHAR2(1) INSIDEFLAG
+        VARCHAR2(1) OUTSIDEFLAG
+        string ... "+6 more"
+    }
+
+    POLYPOINT {
+        NUMBER(18) POLYID
+        string ... "+4 more"
+    }
+
+    PROCESSING_RECIPE {
+        NUMBER(18) PROCID
+        VARCHAR2(15) IDNAME
+        NUMBER(18) IDVALUE
+        string ... "+4 more"
+    }
+
+    PROCESS_TRACKING {
+        NUMBER(18) TRACKINGID
+        string ... "+10 more"
+    }
+
+    QCMASKDEF {
+        NUMBER(18) QCDEFID
+        string ... "+22 more"
+    }
+
+    QCMASKINFO {
+        NUMBER(18) QCMASKID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) QCDEFID
+        string ... "+6 more"
+    }
+
+    QCMASKSEG {
+        NUMBER(18) QCMASKID
+        string ... "+5 more"
+    }
+
+    QSHELL_INTERVAL {
+        NUMBER(18) QSHELL_INTVLID
+        NUMBER(18) INTVLID
+        string ... "+8 more"
+    }
+
+    RDA_PARAM {
+        NUMBER(18) POLYID
+        NUMBER(18) RDA_VERID
+        string ... "+6 more"
+    }
+
+    REG_RATIO_DISCRIM {
+        NUMBER(18) POLYID
+        NUMBER(18) COV_VERID
+        string ... "+12 more"
+    }
+
+    REMAP {
+        VARCHAR2(12) ID_NAME
+        NUMBER(18) ORIGINAL_ID
+        NUMBER(18) CURRENT_ID
+        string ... "+2 more"
+    }
+
+    REMARK {
+        NUMBER(18) COMMID
+        string ... "+3 more"
+    }
+
+    REMOVED_BEAM_DFILE {
+        string ... "+2 more"
+    }
+
+    REQUEST {
+        NUMBER(18) REQID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) ORID
+        NUMBER(18) EVID
+        string ... "+11 more"
+    }
+
+    SADO_EMAIL_HISTORY {
+        NUMBER(18) SADO_EMAIL_ID
+        NUMBER(18) REPORT_ID
+        string ... "+5 more"
+    }
+
+    SADO_PDF_REPORTS {
+        NUMBER(18) SADO_PDF_REPORT_ID
+        NUMBER(18) REPORT_ID
+        string ... "+3 more"
+    }
+
+    SADO_REPORT {
+        NUMBER(18) REPORT_ID
+        NUMBER(18) EVID
+        NUMBER(18) ORID
+        string ... "+22 more"
+    }
+
+    SADO_REPORT_LANDMARKS {
+        NUMBER(18) REPORT_LANDMARKS_ID
+        NUMBER(18) REPORT_ID
+        NUMBER(18) LOCATION_ID
+        string ... "+8 more"
+    }
+
+    SADO_SCREENSHOTS {
+        NUMBER(18) SADO_SCREENSHOT_ID
+        NUMBER(18) REPORT_ID
+        string ... "+4 more"
+    }
+
+    SADO_STATE {
+        NUMBER(18) SADO_STATE_ID
+        NUMBER(18) REPORT_ID
+        NUMBER(18) SADO_STATE_CATEGORY_ID
+        string ... "+3 more"
+    }
+
+    SADO_STATE_CATEGORIES {
+        NUMBER(18) SADO_STATE_CATEGORY_ID
+        string ... "+4 more"
+    }
+
+    SADO_USERS {
+        NUMBER(18) SADO_USERS_ID
+        string ... "+5 more"
+    }
+
+    SENSOR {
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) INID
+        NUMBER(18) CHANID
+        string ... "+8 more"
+    }
+
+    SITE {
+        VARCHAR2(6) STA
+        string ... "+11 more"
+    }
+
+    SITEAUX {
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) COMMID
+        string ... "+14 more"
+    }
+
+    SITECHAN {
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) CHANID
+        string ... "+8 more"
+    }
+
+    SNR_PHASE {
+        NUMBER(18) POLYID
+        NUMBER(18) AMPCOR_VERID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        string ... "+5 more"
+    }
+
+    SREGION {
+        string ... "+3 more"
+    }
+
+    STAMAG {
+        NUMBER(18) MAGID
+        NUMBER(18) AMPID
+        VARCHAR2(6) STA
+        NUMBER(18) ARID
+        NUMBER(18) ORID
+        string ... "+10 more"
+    }
+
+    STANET {
+        VARCHAR2(8) NET
+        VARCHAR2(6) STA
+        string ... "+3 more"
+    }
+
+    STAQUAL_DNAMES {
+        NUMBER(18) ID
+        VARCHAR2(6) STA
+        string ... "+6 more"
+    }
+
+    STATION_PROCESSING {
+        NUMBER(18) CLUSTAID
+        NUMBER(18) PROCID
+        string ... "+3 more"
+    }
+
+    STATION_QUALITY {
+        NUMBER(18) SQID
+        VARCHAR2(6) STA
+        string ... "+17 more"
+    }
+
+    STAYIELD {
+        NUMBER(18) YIELDID
+        NUMBER(18) AMPID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) ORID
+        string ... "+5 more"
+    }
+
+    STA_CODA_SPECTRUM {
+        NUMBER(18) AMPID
+        string ... "+4 more"
+    }
+
+    SVDDISC {
+        NUMBER(18) LSVID
+        NUMBER(18) CLUSTAID
+        VARCHAR2(6) STA
+        NUMBER(18) COMMID
+        string ... "+10 more"
+    }
+
+    SVDDISC_CHAN_ORDER {
+        NUMBER(18) CLUSTAID
+        VARCHAR2(6) STA
+        VARCHAR2(6) CHAN
+        string ... "+2 more"
+    }
+
+    TAPER {
+        NUMBER(18) TAPERID
+        string ... "+6 more"
+    }
+
+    TIMESTAMP {
+        string ... "+4 more"
+    }
+
+    TOMO_INFO {
+        NUMBER(18) TOMOID
+        string ... "+11 more"
+    }
+
+    USER_FILTER {
+        NUMBER(18) FILTERID
+        string ... "+4 more"
+    }
+
+    USER_PRIVILEGES {
+        string ... "+4 more"
+    }
+
+    WFACTIVITY {
+        string ... "+8 more"
+    }
+
+    WFAUDIT {
+        NUMBER(18) WFAUDITID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        string ... "+5 more"
+    }
+
+    WFCONV {
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) CHANID
+        NUMBER(18) COMMID
+        string ... "+10 more"
+    }
+
+    WFDISC {
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) WFID
+        NUMBER(18) CHANID
+        NUMBER(18) COMMID
+        string ... "+15 more"
+    }
+
+    WFFILE {
+        NUMBER(18) WFFID
+        VARCHAR2(6) STA
+        VARCHAR2(8) CHAN
+        NUMBER(18) CHANID
+        NUMBER(18) WFMID
+        string ... "+10 more"
+    }
+
+    WFTAG {
+        NUMBER(18) TAGID
+        NUMBER(18) WFID
+        string ... "+2 more"
+    }
+
+    XTAG {
+        NUMBER(18) THISID
+        NUMBER(18) THATID
+        string ... "+5 more"
+    }
+
+    ACTIVE_ID ||--o{ WFTAG : "TAGID"
+    AFFILIATION ||--o{ DEFINING_RULES : "NET"
+    AFFILIATION ||--o{ HYDRO_ARR_GROUP : "NET"
+    AFFILIATION ||--o{ NETMAG : "NET"
+    AFFILIATION ||--o{ NETWORK : "NET"
+    AFFILIATION ||--o{ NETYIELD : "NET"
+    AFFILIATION ||--o{ STANET : "NET"
+    AFFILIATION ||--o{ ALPHASITE : "STA"
+    AFFILIATION ||--o{ ARRIVAL : "STA"
+    AFFILIATION ||--o{ ASSOC : "STA"
+    AFFILIATION ||--o{ ASSOC_GA : "STA"
+    AFFILIATION ||--o{ ASSOC_GA_DEL : "STA"
+    AFFILIATION ||--o{ CHAN_GROUPS : "STA"
+    AFFILIATION ||--o{ CLUSTER_MEC : "STA"
+    AFFILIATION ||--o{ CLUSTER_STATION : "STA"
+    AFFILIATION ||--o{ CODAMAG_INPUT : "STA"
+    AFFILIATION ||--o{ CODAMAG_OUTPUT : "STA"
+    AFFILIATION ||--o{ CONTINUOUS_DATA_STATUS : "STA"
+    AFFILIATION ||--o{ DA_REFSTA_LATENCY : "STA"
+    AFFILIATION ||--o{ DA_REFSTA_SUMMARY : "STA"
+    AFFILIATION ||--o{ DA_SITECHAN_LATENCY : "STA"
+    AFFILIATION ||--o{ DETECTION : "STA"
+    AFFILIATION ||--o{ DETECTION_THRESHOLD : "STA"
+    AFFILIATION ||--o{ DISCRIMUSE : "STA"
+    AFFILIATION ||--o{ DISCRIMVOTE : "STA"
+    AFFILIATION ||--o{ DISCRIM_PARAM : "STA"
+    AFFILIATION ||--o{ DOPPLER_DETECTION : "STA"
+    AFFILIATION ||--o{ ECM_CHAN_AMPLITUDE : "STA"
+    AFFILIATION ||--o{ ECM_REF_CHAN_AMPLITUDE : "STA"
+    AFFILIATION ||--o{ ECM_STA_PREF_VERSION : "STA"
+    AFFILIATION ||--o{ ENVELOPE_CONTRIBUTION : "STA"
+    AFFILIATION ||--o{ EVENT_CORRELATION : "STA"
+    AFFILIATION ||--o{ HYDRO_ARRIVAL : "STA"
+    AFFILIATION ||--o{ MDAC_FD : "STA"
+    AFFILIATION ||--o{ MDAC_FI : "STA"
+    AFFILIATION ||--o{ MSVMAX_DESCRIPT : "STA"
+    AFFILIATION ||--o{ OMITTED_CHANNELS : "STA"
+    AFFILIATION ||--o{ OUTAGE_STATION_DATA : "STA"
+    AFFILIATION ||--o{ OUTAGE_STATION_RECEIVE : "STA"
+    AFFILIATION ||--o{ QCMASKINFO : "STA"
+    AFFILIATION ||--o{ REQUEST : "STA"
+    AFFILIATION ||--o{ SENSOR : "STA"
+    AFFILIATION ||--o{ SITE : "STA"
+    AFFILIATION ||--o{ SITEAUX : "STA"
+    AFFILIATION ||--o{ SITECHAN : "STA"
+    AFFILIATION ||--o{ SNR_PHASE : "STA"
+    AFFILIATION ||--o{ STAMAG : "STA"
+    AFFILIATION ||--o{ STAQUAL_DNAMES : "STA"
+    AFFILIATION ||--o{ STATION_QUALITY : "STA"
+    AFFILIATION ||--o{ STAYIELD : "STA"

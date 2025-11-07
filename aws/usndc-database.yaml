@@ -1,0 +1,207 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'USNDC Schema Browser - PostgreSQL RDS Database for United States National Data Center schema'
+
+Parameters:
+  DatabaseUsername:
+    Type: String
+    Default: schemaadmin
+    Description: Master username for USNDC database
+    
+  DatabasePassword:
+    Type: String
+    NoEcho: true
+    MinLength: 8
+    Description: Master password for USNDC database
+    Default: SchemaTest2024!
+
+Resources:
+  # VPC for database
+  DatabaseVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: usndc-schema-vpc
+        - Key: Project
+          Value: USNDC-Schema-Browser
+
+  # Internet Gateway
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: usndc-schema-igw
+        - Key: Project
+          Value: USNDC-Schema-Browser
+
+  # Attach Internet Gateway to VPC
+  InternetGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref InternetGateway
+      VpcId: !Ref DatabaseVPC
+
+  # Public Subnet 1
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref DatabaseVPC
+      AvailabilityZone: !Select [0, !GetAZs '']
+      CidrBlock: 10.0.1.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: usndc-schema-subnet-1
+        - Key: Project
+          Value: USNDC-Schema-Browser
+
+  # Public Subnet 2
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref DatabaseVPC
+      AvailabilityZone: !Select [1, !GetAZs '']
+      CidrBlock: 10.0.2.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: usndc-schema-subnet-2
+        - Key: Project
+          Value: USNDC-Schema-Browser
+
+  # Route Table for public subnets
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref DatabaseVPC
+      Tags:
+        - Key: Name
+          Value: usndc-schema-public-rt
+        - Key: Project
+          Value: USNDC-Schema-Browser
+
+  # Route to Internet Gateway
+  DefaultPublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: InternetGatewayAttachment
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  # Associate public subnets with route table
+  PublicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet1
+
+  PublicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet2
+
+  # Security Group for database
+  DatabaseSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: usndc-schema-db-sg
+      GroupDescription: Security group for USNDC schema database
+      VpcId: !Ref DatabaseVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          CidrIp: 0.0.0.0/0  # Allow from anywhere (restrict for production)
+          Description: PostgreSQL access
+      Tags:
+        - Key: Name
+          Value: usndc-schema-db-sg
+        - Key: Project
+          Value: USNDC-Schema-Browser
+
+  # DB Subnet Group
+  DatabaseSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: Subnet group for USNDC schema database
+      SubnetIds:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      Tags:
+        - Key: Name
+          Value: usndc-schema-subnet-group
+        - Key: Project
+          Value: USNDC-Schema-Browser
+
+  # USNDC Schema Database  
+  USNDCDatabase:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: !Sub 'usndc-schema-${AWS::StackName}'
+      DBName: usndc_schema
+      Engine: postgres
+      EngineVersion: '15.8'
+      DBInstanceClass: db.t3.micro  # Free tier eligible
+      AllocatedStorage: 20          # Free tier: 20GB
+      StorageType: gp2
+      MasterUsername: !Ref DatabaseUsername
+      MasterUserPassword: !Ref DatabasePassword
+      DBSubnetGroupName: !Ref DatabaseSubnetGroup
+      VPCSecurityGroups:
+        - !Ref DatabaseSecurityGroup
+      BackupRetentionPeriod: 7      # 7 days backup retention
+      DeleteAutomatedBackups: false
+      DeletionProtection: false     # Set to true for production
+      PubliclyAccessible: true
+      MultiAZ: false               # Single AZ for cost optimization
+      StorageEncrypted: true
+      Tags:
+        - Key: Name
+          Value: USNDC-Schema-DB
+        - Key: Project
+          Value: USNDC-Schema-Browser
+        - Key: Schema
+          Value: USNDC
+
+Outputs:
+  USNDCDatabaseEndpoint:
+    Description: USNDC Schema Database Endpoint
+    Value: !GetAtt USNDCDatabase.Endpoint.Address
+    Export:
+      Name: !Sub '${AWS::StackName}-USNDCDBEndpoint'
+      
+  USNDCDatabasePort:
+    Description: USNDC Schema Database Port
+    Value: !GetAtt USNDCDatabase.Endpoint.Port
+    Export:
+      Name: !Sub '${AWS::StackName}-USNDCDBPort'
+      
+  DatabaseUsername:
+    Description: Database master username
+    Value: !Ref DatabaseUsername
+    Export:
+      Name: !Sub '${AWS::StackName}-DBUsername'
+
+  VPCId:
+    Description: VPC ID for the database
+    Value: !Ref DatabaseVPC
+    Export:
+      Name: !Sub '${AWS::StackName}-VPCId'
+
+  DatabaseSecurityGroupId:
+    Description: Security Group ID for database access
+    Value: !Ref DatabaseSecurityGroup
+    Export:
+      Name: !Sub '${AWS::StackName}-DBSecurityGroup'
+
+  USNDCDatabaseConnectionString:
+    Description: Connection string for USNDC database
+    Value: !Sub 'postgresql://${DatabaseUsername}:${DatabasePassword}@${USNDCDatabase.Endpoint.Address}:${USNDCDatabase.Endpoint.Port}/usndc_schema'
+    Export:
+      Name: !Sub '${AWS::StackName}-USNDCConnectionString'

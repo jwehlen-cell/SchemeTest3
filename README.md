@@ -1,356 +1,456 @@
-# SchemaTest3 - NDC PLUS and Legacy Database Schema Documentation (CLONE)
+# SchemaTest3 - United States National Data Center (USNDC) Database Schema
 
-⚠️ **IMPORTANT: This is a clone/fork repository with modified AWS resource names to prevent conflicts with the original deployment.**
-
-A comprehensive database schema management system with visual documentation for both the **Legacy** and **NDC PLUS** seismic monitoring systems, presented with GitHub integration similar to Swagger for APIs.
+A comprehensive database schema management system with visual documentation for the **United States National Data Center (USNDC)** seismic monitoring system, featuring AWS deployment infrastructure and interactive documentation.
 
 ## 📊 Overview
 
-This repository maintains both Legacy and NDC PLUS Oracle database schemas with rich visual documentation rendered directly in GitHub. The schemas support seismic event monitoring, waveform analysis, and location determination with clear separation and cross-schema integration mapping.
+This repository provides a complete USNDC database schema with 177 tables supporting comprehensive seismic event monitoring, waveform analysis, location determination, and global seismic network operations. The system is designed for production deployment on AWS RDS with full constraint integrity and automated documentation generation.
 
 **Key Features**:
-- 📄 **Dual Source Schemas**: Legacy (17 tables) and NDC PLUS (35 tables) table definitions
-- 🔄 **Enhanced Parser**: Python tool to extract and process both schema formats
-- 📋 **Unified JSON Schema**: Machine-readable schema specification for both systems
-- 📊 **Dual Visual Documentation**: Mermaid diagrams showing relationships within and between schemas
-- 🎨 **Enhanced Browser Interface**: Tabbed schema viewer with cross-schema navigation
-- 🔗 **Cross-Schema Mapping**: Clear identification of conceptual relationships between Legacy and NDC PLUS tables
+- 📄 **Complete USNDC Schema**: 177-table comprehensive seismic monitoring database
+- 🔄 **Advanced Parser**: Python tools to extract and process USNDC schema from HTML documentation
+- 📋 **PostgreSQL Ready**: Production-ready schema with constraints and foreign keys for AWS RDS
+- 📊 **Visual Documentation**: Mermaid diagrams and SchemaSpy integration for relationship visualization
+- 🚀 **AWS Infrastructure**: CloudFormation templates and deployment scripts for scalable production setup
+- 🔗 **Constraint Management**: 31 primary keys and 210 foreign key relationships for data integrity
 
 ## 🗂️ Repository Structure
 
 ```
-SchemaTest2/
-├── Legacy_tables.txt           # Legacy schema definition (17 tables)
-├── NDC_PLUS_tables.txt         # NDC PLUS schema definition (35 tables)
+SchemaTest3/
+├── USNDC_Tables_A_to_Z.html     # Original USNDC schema documentation (HTML)
+├── USNDC_tables.txt             # Parsed USNDC schema definition (177 tables)
+├── USNDC_schema.mmd             # Mermaid entity relationship diagram
 ├── tools/
-│   └── parse_schema.py         # Enhanced dual-schema parser and doc generator
+│   ├── parse_usndc_html.py      # HTML parser for USNDC documentation
+│   ├── parse_usndc_schema.py    # Schema documentation generator
+│   └── generate_usndc_sql.py    # PostgreSQL schema generator with constraints
+├── aws/
+│   ├── usndc_schema.sql         # PostgreSQL schema with full constraints
+│   ├── usndc-database.yaml      # CloudFormation template for RDS deployment
+│   ├── deploy-usndc-database.sh # Database deployment script
+│   ├── setup-usndc-schema.sh    # Schema population script
+│   └── generate-usndc-docs.sh   # SchemaSpy documentation generator
 ├── schema/
-│   ├── docs/
-│   │   ├── DUAL_SCHEMA.md      # Comprehensive dual-schema documentation
-│   │   └── dual-schema-viewer.html # Interactive dual-schema browser
-│   └── dual_schema.json        # Machine-readable dual-schema specification
+│   ├── usndc_schema.json        # Machine-readable USNDC specification
+│   └── docs/
+│       └── USNDC_SCHEMA.md      # Comprehensive USNDC documentation
 └── README.md                    # This file
 ```
 
 ## 📖 Documentation
 
-### 🔍 View Complete Dual Schema Documentation
+### 🔍 View Complete USNDC Schema Documentation
 
-**[📊 Dual Schema Documentation](schema/docs/DUAL_SCHEMA.md)**
+**[📊 USNDC Schema Documentation](schema/docs/USNDC_SCHEMA.md)**
 
-The documentation includes:
-- ✅ **Schema Comparison**: Side-by-side comparison of Legacy vs NDC PLUS
-- ✅ **Cross-Schema Integration**: Mermaid diagrams showing conceptual mappings
-- ✅ **Separated Table Categories**: Organized by functional area for each schema
-- ✅ **Detailed Specifications**: Complete column information for all 52 tables
-- ✅ **Relationship Diagrams**: Both intra-schema and inter-schema relationships
-- ✅ **Oracle-Specific Support**: Handles different Oracle data type formats
+The comprehensive documentation includes:
+- ✅ **Complete Schema Overview**: All 177 tables with detailed specifications
+- ✅ **Entity Relationships**: Mermaid diagrams showing primary and foreign key relationships
+- ✅ **Functional Categories**: Tables organized by seismic monitoring domains
+- ✅ **Column Specifications**: Complete data types, constraints, and descriptions
+- ✅ **PostgreSQL Ready**: Production-ready schema with proper constraint definitions
+- ✅ **AWS Integration**: Deployment-ready with CloudFormation and RDS support
 
-### 🎨 Interactive Dual Schema Browser
+### � Interactive Schema Documentation
 
-**[🌐 Open Dual Schema Viewer](schema/docs/dual-schema-viewer.html)** (requires local server)
+**SchemaSpy Generated Documentation** (after deployment)
 
-A enhanced Swagger-like interface for browsing both schemas:
-- **Tabbed Interface**: Switch between Legacy and NDC PLUS schemas
-- **Categorized Navigation**: Tables organized by functional groups
-- **Search Functionality**: Find tables quickly across both schemas
-- **Cross-Schema References**: Clear indication of table mappings
-- **Professional Styling**: Modern, responsive design
+Professional database documentation automatically generated during deployment:
+- **Visual ERD**: Complete entity relationship diagrams
+- **Table Navigation**: Searchable table and column browser  
+- **Constraint Analysis**: Primary keys, foreign keys, and indexes
+- **Data Dictionary**: Comprehensive column specifications
+- **Relationship Tracking**: Visual foreign key relationship mapping
 
-![Schema Viewer Overview](docs/images/schema-viewer-overview.png)
+### 📊 USNDC Schema Statistics
 
-![Table Detail View](https://github.com/user-attachments/assets/4bec93f9-5c13-4a67-8390-1d8007f38fb4)
+- **Total Tables**: 177 (comprehensive seismic monitoring system)
+- **Primary Keys**: 31 tables with identified primary key constraints
+- **Foreign Keys**: 210 relationship constraints for data integrity
+- **Categories**: Event processing, waveform analysis, location determination, magnitude calculation
+- **Database Type**: PostgreSQL (AWS RDS compatible)
 
-### 📊 Updated Schema Statistics
+## 🔗 USNDC Schema Categories
 
-- **Legacy Tables**: 17 (traditional seismic analysis)
-- **NDC PLUS Tables**: 35 (modern event processing)
-- **Total Combined**: 52 tables
-- **Cross-Schema Mappings**: 8 conceptual relationships
-- **Database Type**: Oracle (both systems)
+The USNDC database schema is organized into functional categories supporting comprehensive seismic monitoring operations:
 
-## 🔗 Cross-Schema Integration
+### Core Seismic Event Processing
 
-The repository provides clear separation between Legacy and NDC PLUS schemas while highlighting their relationships:
+| Category | Key Tables | Purpose |
+|----------|------------|---------|
+| **Events** | ARRIVAL, EVENT, ORIGERR, ORIGIN | Core seismic event detection and characterization |
+| **Waveform Analysis** | WFDISC, WFTAPE, WAVEFORM | Seismic waveform data management and analysis |
+| **Magnitude** | STAMAG, NETMAG, MAGNITUDE | Station and network magnitude calculations |
+| **Location** | ORIGIN, ASSOC, ORIGERR | Event location determination and uncertainty |
 
-### Schema Mapping Overview
+### Network Operations & Monitoring
 
-| Legacy System | NDC PLUS System | Relationship Type |
-|---------------|-----------------|-------------------|
-| EVENT | EVENT | Direct conceptual mapping |
-| ARRIVAL | FEATURE_MEASUREMENT_ARRIVAL_TIME | Enhanced measurement system |
-| AMPLITUDE | FEATURE_MEASUREMENT_AMPLITUDE | Enhanced measurement system |
-| ORIGIN | LOCATION_SOLUTION | Enhanced location processing |
-| ASSOC | SIGNAL_DETECTION_HYPOTHESIS | Advanced signal detection |
-| STAMAG/NETMAG | STATION/NETWORK_MAGNITUDE_SOLUTION | Enhanced magnitude calculation |
+| Category | Key Tables | Purpose |
+|----------|------------|---------|
+| **Station Networks** | SITE, SITECHAN, NETWORK | Seismic station configuration and network management |
+| **Instrument Response** | INSTRUMENT, SENSOR, CALIBRATION | Equipment specifications and calibration data |
+| **Data Quality** | DETECTION, FILTER, PROCESSING | Signal processing and data quality control |
 
-### Key Differences
+### Advanced Analysis & Research
 
-- **Legacy**: Traditional ID-based foreign keys (NUMBER types)
-- **NDC PLUS**: Modern UUID-based relationships (RAW(16) types)
-- **Legacy**: 17 tables focused on core seismic analysis
-- **NDC PLUS**: 35 tables with advanced processing capabilities
+| Category | Key Tables | Purpose |
+|----------|------------|---------|
+| **Specialized Analysis** | BEAM, SLOWNESS, AZIMUTH | Advanced array processing and beamforming |
+| **Historical Data** | REMARK, LASTID, HISTORY | Data provenance and historical tracking |
+| **Cross-Reference** | XREF tables, ID mapping | Entity relationship management |
 
-### Updated Relationship Overview
+### Schema Architecture Overview
 
 ```mermaid
-graph LR
-    subgraph Legacy["Legacy Schema"]
-        L1[EVENT]
-        L2[ARRIVAL]
-        L3[AMPLITUDE]
-        L4[ORIGIN]
-        L5[STAMAG]
-        L6[NETMAG]
+graph TD
+    subgraph Core["Core Event Processing"]
+        E[EVENT] --> O[ORIGIN]
+        O --> A[ARRIVAL]
+        A --> W[WFDISC]
+        O --> M[MAGNITUDE]
     end
     
-    subgraph NDC["NDC PLUS Schema"]
-        N1[EVENT]
-        N2[FEATURE_MEASUREMENT_ARRIVAL_TIME]
-        N3[FEATURE_MEASUREMENT_AMPLITUDE]
-        N4[LOCATION_SOLUTION]
-        N5[STATION_MAGNITUDE_SOLUTION]
-        N6[NETWORK_MAGNITUDE_SOLUTION]
+    subgraph Network["Network Operations"]
+        S[SITE] --> SC[SITECHAN]
+        SC --> I[INSTRUMENT]
+        I --> C[CALIBRATION]
     end
     
-    L1 -.->|"Maps to"| N1
-    L2 -.->|"Maps to"| N2
-    L3 -.->|"Maps to"| N3
-    L4 -.->|"Maps to"| N4
-    L5 -.->|"Maps to"| N5
-    L6 -.->|"Maps to"| N6
+    subgraph Analysis["Advanced Analysis"]
+        B[BEAM] --> SL[SLOWNESS]
+        B --> AZ[AZIMUTH]
+        D[DETECTION] --> F[FILTER]
+    end
+    
+    Core --> Network
+    Network --> Analysis
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Python 3.6+ (for schema parser)
-- Oracle Database (for deploying the schema)
-- Git (for version control)
+- **Python 3.8+** (for schema processing tools)
+- **AWS CLI** configured with appropriate permissions
+- **PostgreSQL** (local testing) or **AWS RDS** (production deployment)
+- **Java 8+** (for SchemaSpy documentation generation)
 
-### Regenerating Documentation
+### Quick Deployment to AWS
 
 ```bash
-# Run the enhanced dual-schema parser
-python tools/parse_schema.py
+# 1. Deploy RDS infrastructure
+cd aws
+chmod +x *.sh
+./deploy-usndc-database.sh
 
-# This generates:
-# - schema/dual_schema.json (machine-readable dual schema)
-# - schema/docs/DUAL_SCHEMA.md (comprehensive documentation)  
-# - schema/docs/dual-schema-viewer.html (interactive browser)
+# 2. Setup schema and constraints
+./setup-usndc-schema.sh
+
+# 3. Generate interactive documentation
+./generate-usndc-docs.sh
 ```
 
-### View Documentation
+### Local Development Setup
 
 ```bash
-# Option 1: View Markdown documentation
-open schema/docs/DUAL_SCHEMA.md
+# 1. Parse USNDC schema from HTML source
+python tools/parse_usndc_html.py
 
-# Option 2: Launch interactive dual-schema HTML viewer
-cd schema/docs
-python3 -m http.server 8000
-# Then visit: http://localhost:8000/dual-schema-viewer.html
+# 2. Generate PostgreSQL schema
+python tools/generate_usndc_sql.py
+
+# 3. Generate documentation
+python tools/parse_usndc_schema.py
+```
+
+### Regenerating Schema Components
+
+```bash
+# Parse original USNDC HTML documentation
+python tools/parse_usndc_html.py
+# Outputs: USNDC_tables.txt
+
+# Generate PostgreSQL schema with constraints
+python tools/generate_usndc_sql.py
+# Outputs: aws/usndc_schema.sql
+
+# Generate JSON schema and documentation
+python tools/parse_usndc_schema.py
+# Outputs: schema/usndc_schema.json, schema/docs/USNDC_SCHEMA.md
 ```
 
 ## 🔧 Technical Details
 
-### Enhanced Parser Features
+### USNDC Schema Processing Pipeline
 
-The enhanced parser (`tools/parse_schema.py`) now supports:
-- **Dual Schema Processing**: Handles both Legacy and NDC PLUS formats
-- **Cross-Schema Relationship Detection**: Identifies conceptual mappings
-- **Enhanced JSON Output**: Structured format with schema separation
-- **Comprehensive Documentation**: Detailed markdown with visual diagrams
-- **Format Support**: Different table definition formats for each schema
+The USNDC processing tools provide comprehensive schema extraction and deployment:
 
----
+- **HTML Parser** (`tools/parse_usndc_html.py`): Extracts 177 tables from SQL*Plus HTML output
+- **SQL Generator** (`tools/generate_usndc_sql.py`): Creates PostgreSQL schema with 31 PKs and 210 FKs
+- **Documentation Generator** (`tools/parse_usndc_schema.py`): Produces JSON schema and Markdown docs
+- **AWS Deployment**: CloudFormation templates and automated deployment scripts
 
-*This repository demonstrates modern database documentation practices with clear schema evolution tracking and comprehensive cross-system integration mapping.*
+### Constraint Detection & Management
 
-If you modify the schema or need to regenerate documentation:
+The schema generator intelligently identifies database constraints:
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/jwehlen-cell/SchemaTest1.git
-   cd SchemaTest1
-   ```
+```python
+# Primary Key Detection Patterns
+pk_patterns = [
+    r'.*id$', r'.*_id$', r'orid', r'evid', r'arid', r'wfid',
+    r'chanid', r'commid', r'magid', r'stassid'
+]
 
-2. **Update the source schema** (if needed):
-   ```bash
-   # Edit NDC_PLUS_tables.txt with your changes
-   nano NDC_PLUS_tables.txt
-   ```
-
-3. **Run the schema parser**:
-   ```bash
-   python3 tools/parse_schema.py
-   ```
-
-4. **View generated documentation**:
-   - JSON Schema: `schema/ndc_plus_schema.json`
-   - Markdown Docs: `schema/docs/NDC_PLUS_SCHEMA.md`
-
-### Using the Schema Parser
-
-The `parse_schema.py` tool automatically:
-- ✅ Parses the text-based schema file
-- ✅ Extracts table and column definitions
-- ✅ Identifies foreign key relationships
-- ✅ Generates JSON schema documentation
-- ✅ Creates comprehensive Markdown documentation with diagrams
-
-```bash
-# Run the parser
-cd SchemaTest1
-python3 tools/parse_schema.py
-
-# Output:
-# ✓ Found 35 tables
-# ✓ Found 35 relationships
-# ✓ Generated JSON schema
-# ✓ Generated Markdown documentation
+# Foreign Key Analysis
+# Detects relationships through naming conventions:
+# - EVID fields link to EVENT table
+# - ORID fields link to ORIGIN table  
+# - ARID fields link to ARRIVAL table
 ```
 
-## 📋 Schema Organization
+### Database Architecture Features
 
-### Table Categories
+- **PostgreSQL Optimized**: Native data types and constraint syntax
+- **Production Ready**: Full constraint integrity for AWS RDS deployment
+- **Scalable Design**: Optimized for high-volume seismic data processing
+- **Standards Compliant**: Follows seismic data management best practices
 
-#### 1️⃣ Channel & Waveform Data
-Tables for managing seismic waveform data and channel segments:
-- `CHANNEL_SEGMENT` - Time series channel segment information
-- `CHANNEL_SEGMENT_CREATION` - Creation metadata
-- `CHANNEL_SEGMENT_PROC_MASK_XREF` - Processing mask cross-references
-- `CHANNEL_SEGMENT_WAVEFORM` - Waveform ID linkage
-- `STATION_CHANNEL` - Station and channel configuration
+## 🚀 AWS Deployment
 
-#### 2️⃣ Event Management
-Core tables for seismic event tracking:
-- `EVENT` - Master event table
-- `EVENT_HYPOTHESIS` - Event characteristic hypotheses
-- `EVENT_HYPOTHESIS_TAG` - Event classifications
-- `EVENT_STATUS_INFO` - Workflow status
-- `EVENT_CORRELATION` - Event correlation analysis
-- `EVENT_CORRELATION_CHANNEL_SEGMENT` - Correlation channel data
+### CloudFormation Infrastructure
 
-#### 3️⃣ Feature Measurements & Predictions
-Signal analysis and predictions:
-- Measurement tables for amplitude, arrival time, numeric, and enumerated features
-- Prediction tables for arrival time, components, and numeric features
+The repository includes complete AWS infrastructure as code:
 
-#### 4️⃣ Location & Magnitude
-Geographic location and magnitude calculations:
-- Location solutions with uncertainty representations
-- Network and station-level magnitude solutions
+```yaml
+# aws/usndc-database.yaml
+# - VPC with public/private subnets
+# - RDS PostgreSQL instance with proper security groups
+# - Parameter store for connection management
+# - S3 bucket for documentation hosting
+```
+
+### Deployment Process
+
+1. **Infrastructure Deployment**:
+   ```bash
+   ./aws/deploy-usndc-database.sh
+   # Creates RDS instance, VPC, security groups
+   ```
+
+2. **Schema Population**:
+   ```bash
+   ./aws/setup-usndc-schema.sh
+   # Applies schema, creates constraints, populates metadata
+   ```
+
+3. **Documentation Generation**:
+   ```bash  
+   ./aws/generate-usndc-docs.sh
+   # Generates SchemaSpy docs, uploads to S3
+   ```
+
+### Environment Configuration
+
+```bash
+# Set required environment variables
+export AWS_REGION="us-east-1"
+export DB_NAME="usndc"
+export DB_USERNAME="postgres"
+export DB_PASSWORD="your-secure-password"
+```
+
+## 📋 USNDC Table Organization
+
+### Core Seismic Processing (40+ tables)
+
+#### 1️⃣ Event & Arrival Processing
+Primary seismic event detection and analysis:
+- `EVENT` - Master seismic event records
+- `ORIGIN` - Event location solutions with uncertainty
+- `ARRIVAL` - P/S wave arrival time measurements
+- `ASSOC` - Event-arrival phase associations
+- `ORIGERR` - Location error estimates and uncertainties
+
+#### 2️⃣ Waveform Data Management
+Seismic waveform storage and metadata:
+- `WFDISC` - Waveform file descriptors and metadata
+- `WFTAPE` - Tape/storage medium information  
+- `WAVEFORM` - Digital waveform segment references
+- `CLIP` - Waveform clipping and saturation tracking
+
+#### 3️⃣ Magnitude Calculations  
+Multi-scale magnitude determination:
+- `STAMAG` - Station-level magnitude measurements
+- `NETMAG` - Network-averaged magnitude solutions
+- `MAGNITUDE` - Final magnitude determinations
+- `MAGTYPE` - Magnitude scale definitions
+
+#### 4️⃣ Network Operations
+Station networks and instrumentation:
+- `SITE` - Seismic station location and metadata
+- `SITECHAN` - Station-channel configuration 
+- `NETWORK` - Seismic network definitions
+- `INSTRUMENT` - Instrumentation specifications
+- `SENSOR` - Sensor calibration and response
 
 ## 🔍 Key Features
 
-### Visual Documentation (Swagger-like)
+### Production-Ready Database Schema
 
-Similar to how Swagger provides interactive API documentation, this repository provides:
+This repository provides enterprise-grade database schema management:
 
-- ✅ **Entity Relationship Diagrams**: Visual representation using Mermaid
-- ✅ **Categorized Tables**: Organized by functional domain
-- ✅ **Detailed Specifications**: Complete column information with types
-- ✅ **Relationship Tracking**: Foreign key identification and visualization
-- ✅ **Machine-Readable Format**: JSON schema for automation
-- ✅ **GitHub Native Rendering**: No external tools needed to view
+- ✅ **Complete Constraint Management**: 31 primary keys and 210 foreign key relationships
+- ✅ **PostgreSQL Optimized**: Native data types and performance optimizations  
+- ✅ **AWS Ready**: CloudFormation templates for scalable RDS deployment
+- ✅ **Automated Documentation**: SchemaSpy integration for interactive schema browsing
+- ✅ **Data Integrity**: Comprehensive constraint validation for production workloads
+- ✅ **Deployment Automation**: One-command deployment to AWS infrastructure
 
-### GitHub Integration Benefits
+### Advanced Schema Analysis
 
-- **Native Rendering**: Mermaid diagrams render directly in GitHub
-- **Version Control**: Full history of schema changes
-- **Pull Requests**: Review schema modifications before merging
-- **Search**: Find tables and columns using GitHub search
-- **Issues**: Track schema enhancements and bugs
-- **Automation**: CI/CD can validate schema changes
+- **Intelligent Parsing**: Extracts schema from SQL*Plus HTML documentation
+- **Relationship Detection**: Automatically identifies primary/foreign key patterns
+- **Constraint Generation**: Creates production-ready PostgreSQL constraints
+- **Documentation Pipeline**: Automated generation of interactive schema documentation
+- **AWS Integration**: Complete infrastructure-as-code for cloud deployment
+- **Version Control**: Full schema evolution tracking and change management
 
 ## 🛠️ Usage Examples
 
 ### For Developers
 
 ```python
-# Load and use the JSON schema
+# Load and use the USNDC JSON schema
 import json
 
-with open('schema/ndc_plus_schema.json', 'r') as f:
+with open('schema/usndc_schema.json', 'r') as f:
     schema = json.load(f)
 
-# Get table information
+# Get comprehensive table information
 for table_name, table_info in schema['tables'].items():
     print(f"Table: {table_name}")
     print(f"Description: {table_info['description']}")
     print(f"Columns: {len(table_info['columns'])}")
+    print(f"Primary Key: {table_info.get('primary_key', 'None')}")
 ```
 
-### For DBAs
+### For Database Administrators
 
 ```sql
--- The schema uses Oracle-specific types
--- Example: UUID columns use RAW(16)
--- Example: Timestamps use TIMESTAMP(6)
+-- PostgreSQL schema with comprehensive constraints
+-- Connect to deployed RDS instance
+psql -h your-rds-endpoint -U postgres -d usndc
 
 -- Review table structure
-DESC CHANNEL_SEGMENT;
+\d+ event;
+\d+ origin;
+\d+ arrival;
 
--- Check relationships
-SELECT * FROM USER_CONSTRAINTS 
-WHERE CONSTRAINT_TYPE = 'R';
+-- Check all foreign key relationships
+SELECT 
+    tc.table_name, 
+    kcu.column_name, 
+    ccu.table_name AS foreign_table_name,
+    ccu.column_name AS foreign_column_name 
+FROM information_schema.table_constraints AS tc 
+JOIN information_schema.key_column_usage AS kcu
+    ON tc.constraint_name = kcu.constraint_name
+JOIN information_schema.constraint_column_usage AS ccu
+    ON ccu.constraint_name = tc.constraint_name
+WHERE constraint_type = 'FOREIGN KEY';
 ```
 
-### For Documentation
+### For Operations Teams
 
-- Link to `schema/docs/NDC_PLUS_SCHEMA.md` in project docs
-- Reference JSON schema for API contract validation
-- Embed Mermaid diagrams in wiki pages or presentations
+```bash
+# Deploy complete USNDC infrastructure
+cd aws
+./deploy-usndc-database.sh
 
-## 📈 Schema Evolution
+# Monitor deployment status
+aws cloudformation describe-stacks --stack-name usndc-database
 
-To modify the NDC PLUS schema:
+# Access generated documentation
+# Visit: https://your-bucket.s3.amazonaws.com/index.html
+```
 
-1. **Update source file**: Edit `NDC_PLUS_tables.txt` with table changes
-2. **Regenerate docs**: Run `python3 tools/parse_schema.py`
-3. **Review changes**: Check generated JSON and Markdown
-4. **Commit changes**: Use git to track modifications
-5. **Submit PR**: Request review of schema changes
-6. **Document**: Update version history in documentation
+## 📈 Schema Management
+
+### Updating the USNDC Schema
+
+1. **Update source**: Modify `USNDC_tables.txt` with table/column changes
+2. **Regenerate SQL**: Run `python3 tools/generate_usndc_sql.py` 
+3. **Update docs**: Run `python3 tools/parse_usndc_schema.py`
+4. **Test locally**: Validate schema changes in local PostgreSQL
+5. **Deploy to AWS**: Use deployment scripts for production updates
+6. **Generate docs**: Run `./aws/generate-usndc-docs.sh` for updated documentation
+
+### Version Control & Change Management
+
+```bash
+# Track schema changes
+git add USNDC_tables.txt aws/usndc_schema.sql
+git commit -m "feat: add new seismic processing tables"
+
+# Review constraint changes  
+git diff HEAD~1 aws/usndc_schema.sql
+
+# Tag schema versions
+git tag -a v2.1.0 -m "USNDC Schema v2.1.0 - Enhanced magnitude processing"
+```
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/add-table`)
-3. Make your schema changes to `NDC_PLUS_tables.txt`
-4. Regenerate documentation: `python3 tools/parse_schema.py`
-5. Commit your changes with clear messages
-6. Submit a pull request
+1. **Fork the repository** and create a feature branch
+2. **Make schema changes** to `USNDC_tables.txt`
+3. **Regenerate components**:
+   ```bash
+   python3 tools/generate_usndc_sql.py
+   python3 tools/parse_usndc_schema.py
+   ```
+4. **Test deployment** using local PostgreSQL or AWS sandbox
+5. **Submit pull request** with detailed change description
+6. **Update documentation** and deployment guides as needed
 
-## 🔧 Schema Parser Features
+## 🔧 USNDC Processing Tools
 
-The `parse_schema.py` tool provides:
-- **Smart Parsing**: Handles Oracle-specific formatting
-- **Relationship Detection**: Identifies foreign keys by naming patterns
-- **Category Assignment**: Groups tables by functional domain
-- **Description Generation**: Provides meaningful table descriptions
-- **Type Mapping**: Maps Oracle types to JSON schema types
-- **Validation**: Ensures consistency in schema structure
+### HTML Parser (`parse_usndc_html.py`)
+- **SQL*Plus HTML Processing**: Extracts table definitions from HTML documentation
+- **Column Analysis**: Parses data types, constraints, and descriptions
+- **Format Standardization**: Converts to consistent text format
+- **Error Handling**: Robust parsing of complex HTML structures
 
-## 📝 Oracle Data Types
+### SQL Generator (`generate_usndc_sql.py`)  
+- **PostgreSQL Translation**: Converts Oracle types to PostgreSQL equivalents
+- **Constraint Detection**: Identifies primary keys through pattern analysis
+- **Relationship Mapping**: Creates foreign key constraints based on naming conventions
+- **Production Ready**: Generates deployment-ready schema with proper indexing
 
-The schema uses standard Oracle data types:
-- `RAW(16)` - Binary UUIDs for primary/foreign keys
-- `VARCHAR2(n)` - Variable-length character strings
-- `TIMESTAMP(6)` - High-precision timestamps
-- `NUMBER(18)` - Large numeric values
-- `BINARY_FLOAT` - Single-precision floating point
-- `CLOB` - Large text objects
+### Documentation Generator (`parse_usndc_schema.py`)
+- **JSON Schema**: Machine-readable schema specification  
+- **Mermaid Diagrams**: Visual entity relationship representations
+- **Markdown Documentation**: Comprehensive human-readable specifications
+- **Category Organization**: Groups tables by functional domains
+
+## 📝 PostgreSQL Data Types
+
+The USNDC schema uses PostgreSQL-optimized data types:
+- `SERIAL` / `BIGSERIAL` - Auto-incrementing primary keys
+- `VARCHAR(n)` - Variable-length character strings  
+- `TIMESTAMP` - Date and time with timezone support
+- `NUMERIC(p,s)` - High-precision decimal numbers
+- `REAL` / `DOUBLE PRECISION` - Floating point numbers
+- `TEXT` - Variable unlimited length text
 
 ## 🔗 Related Resources
 
-- [Mermaid Diagram Syntax](https://mermaid.js.org/)
-- [JSON Schema Specification](https://json-schema.org/)
-- [Oracle Database Documentation](https://docs.oracle.com/en/database/)
-- [GitHub Markdown Guide](https://guides.github.com/features/mastering-markdown/)
+- [AWS RDS PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)  
+- [CloudFormation Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/)
+- [SchemaSpy Documentation](http://schemaspy.org/)
+- [Seismic Data Standards](https://www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf)
 
 ---
 
-**About NDC PLUS**: The National Data Center PLUS system is designed for comprehensive seismic event monitoring, waveform analysis, and location determination. This schema supports real-time and historical analysis of seismic data.
+**About USNDC**: The United States National Data Center is responsible for monitoring global seismic activity, nuclear explosion detection, and earthquake analysis. This comprehensive schema supports real-time seismic monitoring, historical data analysis, and advanced research applications.

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?><database name="usndc_schema" schema="public" type="PostgreSQL - 15.8">
+   <sequences>
+      <sequence increment="1" name="test_usndc_id_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="active_id" remarks="The active_id table is used to track events or arrivals bein g actively worked interactively to prevent the same event/ar rival from being worked by more than one individual." schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="tagname" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="tagid" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="client_info" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="author" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="moddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+      </table>
+      <table name="affiliation" remarks="The affiliation table groups stations into networks." schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="net" nullable="false" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="sta" nullable="false" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="time" nullable="false" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="endtime" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="net" sequenceNumberInPK="1"/>
+         <primaryKey column="sta" sequenceNumberInPK="2"/>
+         <primaryKey column="time" sequenceNumberInPK="3"/>
+         <index name="pk_affiliation" unique="true">
+            <column ascending="true" name="net"/>
+            <column ascending="true" name="sta"/>
+            <column ascending="true" name="time"/>
+         </index>
+      </table>
+      <table name="algorithm" remarks="The algorithm table describes the algorithm and valid time p eriod" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="algorithm_id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="algorithm_name" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="description" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="3" name="on_date" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="off_date" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="author" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="6" name="moddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="7" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="algorithm_id" sequenceNumberInPK="1"/>
+         <index name="pk_algorithm" unique="true">
+            <column ascending="true" name="algorithm_id"/>
+         </index>
+      </table>
+      <table name="arrival" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="sta" nullable="true" remarks="" size="6" type="varchar" typeCode="12">
+            <parent column="sta" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="1" name="time" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="arid" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <child column="arid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="stamag"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="jdate" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="stassid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="chanid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="chan" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="iphase" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="stype" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="9" name="deltim" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="10" name="azimuth" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="11" name="delaz" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="12" name="slow" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="13" name="delslo" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="14" name="ema" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="15" name="rect" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="16" name="amp" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="17" name="per" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="18" name="logat" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="clip" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="fm" nullable="true" remarks="" size="2" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="21" name="snr" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="qual" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="auth" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="commid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="25" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="arid" sequenceNumberInPK="1"/>
+         <index name="arrival_pkey" unique="true">
+            <column ascending="true" name="arid"/>
+         </index>
+      </table>
+      <table name="assoc" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="arid" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="orid" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sta" nullable="true" remarks="" size="6" type="varchar" typeCode="12">
+            <parent column="sta" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="phase" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="4" name="belief" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="5" name="delta" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="6" name="seaz" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="7" name="esaz" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="8" name="timeres" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="timedef" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="10" name="azres" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="azdef" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="12" name="slores" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="slodef" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="14" name="emares" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="15" name="wgt" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="vmodel" nullable="true" remarks="" size="15" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="commid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="18" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="arid" sequenceNumberInPK="1"/>
+         <primaryKey column="orid" sequenceNumberInPK="2"/>
+         <index name="assoc_pkey" unique="true">
+            <column ascending="true" name="arid"/>
+            <column ascending="true" name="orid"/>
+         </index>
+      </table>
+      <table name="instrument" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="inid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <child column="inid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="sensor"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="insname" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="instype" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="band" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="digital" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="5" name="samprate" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="6" name="ncalib" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="7" name="ncalper" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="dir" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="dfile" nullable="true" remarks="" size="32" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="rsptype" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="inid" sequenceNumberInPK="1"/>
+         <index name="instrument_pkey" unique="true">
+            <column ascending="true" name="inid"/>
+         </index>
+      </table>
+      <table name="netmag" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="magid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="net" nullable="true" remarks="" size="8" type="varchar" typeCode="12">
+            <parent column="net" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="network"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="orid" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="orid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="origin"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="evid" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="magtype" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="nsta" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="6" name="magnitude" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="7" name="uncertainty" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="auth" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="commid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="magid" sequenceNumberInPK="1"/>
+         <index name="netmag_pkey" unique="true">
+            <column ascending="true" name="magid"/>
+         </index>
+      </table>
+      <table name="network" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="net" nullable="false" remarks="" size="8" type="varchar" typeCode="12">
+            <child column="net" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="netmag"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="netname" nullable="true" remarks="" size="80" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="nettype" nullable="true" remarks="" size="4" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="auth" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="commid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="net" sequenceNumberInPK="1"/>
+         <index name="network_pkey" unique="true">
+            <column ascending="true" name="net"/>
+         </index>
+      </table>
+      <table name="origin" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="17" id="0" name="lat" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="1" name="lon" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="2" name="depth" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="time" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="orid" nullable="false" remarks="" size="19" type="int8" typeCode="-5">
+            <child column="orid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="netmag"/>
+            <child column="orid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="stamag"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="evid" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="jdate" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="nass" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="ndef" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="ndfs" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="grname" nullable="true" remarks="" size="40" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="srname" nullable="true" remarks="" size="40" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="etype" nullable="true" remarks="" size="7" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="review" nullable="true" remarks="" size="4" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="14" name="depdp" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="dtype" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="16" name="mb" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="mbid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="18" name="ms" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="msid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="20" name="ml" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="mlid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="algorithm" nullable="true" remarks="" size="15" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="auth" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="commid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="25" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="orid" sequenceNumberInPK="1"/>
+         <index name="origin_pkey" unique="true">
+            <column ascending="true" name="orid"/>
+         </index>
+      </table>
+      <table name="sensor" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="sta" nullable="false" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="chan" nullable="false" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="time" nullable="false" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="endtime" nullable="false" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="inid" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="inid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="instrument"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="chanid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="jdate" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="7" name="calratio" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="8" name="calper" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="9" name="tshift" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="instant" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="sta" sequenceNumberInPK="1"/>
+         <primaryKey column="chan" sequenceNumberInPK="2"/>
+         <primaryKey column="time" sequenceNumberInPK="3"/>
+         <primaryKey column="endtime" sequenceNumberInPK="4"/>
+         <index name="sensor_pkey" unique="true">
+            <column ascending="true" name="sta"/>
+            <column ascending="true" name="chan"/>
+            <column ascending="true" name="time"/>
+            <column ascending="true" name="endtime"/>
+         </index>
+      </table>
+      <table name="site" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="sta" nullable="false" remarks="" size="6" type="varchar" typeCode="12">
+            <child column="sta" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="arrival"/>
+            <child column="sta" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="assoc"/>
+            <child column="sta" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="stamag"/>
+            <child column="sta" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="wfdisc"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ondate" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="offdate" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="3" name="lat" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="lon" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="5" name="elev" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="staname" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="statype" nullable="true" remarks="" size="4" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="refsta" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="9" name="dnorth" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="10" name="deast" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="sta" sequenceNumberInPK="1"/>
+         <index name="site_pkey" unique="true">
+            <column ascending="true" name="sta"/>
+         </index>
+      </table>
+      <table name="sitechan" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="sta" nullable="false" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="chan" nullable="false" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ondate" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="chanid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="offdate" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="ctype" nullable="true" remarks="" size="4" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="6" name="edepth" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="7" name="hang" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="8" name="vang" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="descrip" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="10" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="sta" sequenceNumberInPK="1"/>
+         <primaryKey column="chan" sequenceNumberInPK="2"/>
+         <primaryKey column="ondate" sequenceNumberInPK="3"/>
+         <index name="sitechan_pkey" unique="true">
+            <column ascending="true" name="sta"/>
+            <column ascending="true" name="chan"/>
+            <column ascending="true" name="ondate"/>
+         </index>
+      </table>
+      <table name="stamag" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="magid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="sta" nullable="true" remarks="" size="6" type="varchar" typeCode="12">
+            <parent column="sta" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="arid" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="arid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="arrival"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="orid" nullable="true" remarks="" size="19" type="int8" typeCode="-5">
+            <parent column="orid" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="origin"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="evid" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="phase" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="magtype" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="7" name="magnitude" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="8" name="uncertainty" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="auth" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="commid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="11" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="magid" sequenceNumberInPK="1"/>
+         <index name="stamag_pkey" unique="true">
+            <column ascending="true" name="magid"/>
+         </index>
+      </table>
+      <table name="test_table" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="test_table_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="test_usndc" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('test_usndc_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="true" remarks="" size="100" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="test_usndc_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="wfdisc" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="sta" nullable="true" remarks="" size="6" type="varchar" typeCode="12">
+            <parent column="sta" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="public" table="site"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="chan" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="2" name="time" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="wfid" nullable="false" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="chanid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="jdate" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="endtime" nullable="true" remarks="" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="nsamp" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="8" name="samprate" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="9" name="calib" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="10" name="calper" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="instype" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="segtype" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="datatype" nullable="true" remarks="" size="2" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="clip" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="dir" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="dfile" nullable="true" remarks="" size="32" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="foff" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="commid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="19" name="lddate" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="wfid" sequenceNumberInPK="1"/>
+         <index name="wfdisc_pkey" unique="true">
+            <column ascending="true" name="wfid"/>
+         </index>
+      </table>
+   </tables>
+</database>

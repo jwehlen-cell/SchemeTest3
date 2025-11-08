@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>event_quality - usndc_schema.public</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>usndc_schema</b></a><span class="navbar-brand" style="padding-left: 0">.public</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>event_quality</h1><p><span id="recordNumber">-1</span> rows</p><br />
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-file-text-o"></i>
+                            <h3 id="Description" class="box-title">Description</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-body clearfix">
+                            <p>The event_quality table holds the event quality attributes t hat are calculated by various processes such as EvLoc, ARS, and GAConflict using the Event Quality Generator.</p>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="eqid">eqid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Event quality identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="orid">orid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="event_quality.orid references origin.orid via event_quality_origin_orid_fk"><a href='origin.html'>origin</a><span class='relatedKey'>.orid</span></td>
+                                                <td class="constraint detail">event_quality_origin_orid_fk</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Origin identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="evqual">evqual</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Event quality</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="netprob">netprob</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Network probability</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="detprob">detprob</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Detection probability</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="histprob">histprob</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Historic probability</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="nndef">nndef</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Normalized number of defining phases</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="nsmajax">nsmajax</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Normalized semi-major axis of error ellipse</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ndelta_sta">ndelta_sta</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Normalized distance to the closest station</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ntimeres">ntimeres</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Normalized time residual</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="nazres">nazres</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Normalized azimuth residual</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="nslores">nslores</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Normalized slowness residual</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="nampres">nampres</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Normalized amplitude residual</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="auth">auth</span></td>
+                                    <td>varchar</td>
+                                    <td>15</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="event_quality.auth&#39;s name implies that it&#39;s a child of user_privileges.auth, but it doesn&#39;t reference that column."><a href='user_privileges.html'>user_privileges</a><span class='relatedKey'>.auth</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Author</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="lddate">lddate</span></td>
+                                    <td>timestamp</td>
+                                    <td>29,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="event_quality.lddate&#39;s name implies that it&#39;s a child of removed_beam_dfile.lddate, but it doesn&#39;t reference that column."><a href='removed_beam_dfile.html'>removed_beam_dfile</a><span class='relatedKey'>.lddate</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Load date</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> event_quality_pkey</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>eqid</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 class="box-title">Check Constraints</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="check_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Constraint</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>event_quality__nsmajax__ck</td>
+                                    <td>(((nsmajax &gt;&#61; (0.0)::double precision) AND (nsmajax &lt;&#61; (1.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__evqual__ck</td>
+                                    <td>(((evqual &gt;&#61; (0.0)::double precision) AND (evqual &lt;&#61; (1.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__nndef__ck</td>
+                                    <td>(((nndef &gt;&#61; (0.0)::double precision) AND (nndef &lt;&#61; (1.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__detprob__ck</td>
+                                    <td>((((detprob &gt;&#61; (0.0)::double precision) AND (detprob &lt;&#61; (1.0)::double precision)) OR (detprob &#61; (&#39;-999&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__ntimeres__ck</td>
+                                    <td>(((ntimeres &gt;&#61; (0.0)::double precision) AND (ntimeres &lt;&#61; (1.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__nslores__ck</td>
+                                    <td>((((nslores &gt;&#61; (0.0)::double precision) AND (nslores &lt;&#61; (1.0)::double precision)) OR (nslores &#61; (&#39;-999&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__netprob__ck</td>
+                                    <td>((((netprob &gt;&#61; (0.0)::double precision) AND (netprob &lt;&#61; (1.0)::double precision)) OR (netprob &#61; (&#39;-999&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__nampres__ck</td>
+                                    <td>((((nampres &gt;&#61; (0.0)::double precision) AND (nampres &lt;&#61; (1.0)::double precision)) OR (nampres &#61; (&#39;-999&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__nazres__ck</td>
+                                    <td>((((nazres &gt;&#61; (0.0)::double precision) AND (nazres &lt;&#61; (1.0)::double precision)) OR (nazres &#61; (&#39;-999&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__orid__ck</td>
+                                    <td>((orid &gt; 0))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__histprob__ck</td>
+                                    <td>((((histprob &gt;&#61; (0.0)::double precision) AND (histprob &lt;&#61; (1.0)::double precision)) OR (histprob &#61; (&#39;-999&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__ndelta_sta__ck</td>
+                                    <td>(((ndelta_sta &gt;&#61; (0.0)::double precision) AND (ndelta_sta &lt;&#61; (1.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>event_quality__eqid__ck</td>
+                                    <td>((eqid &gt; 0))</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
+                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="event_quality.html" target="_top" title="event_quality" alt="" coords="171,32,437,541">
+<area shape="rect" id="node2" href="origin.html" target="_top" title="origin" alt="" coords="5,5,127,299">
+</map>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/event_quality.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="ar_info.html" target="_top" title="ar_info" alt="" coords="240,5,367,93">
+<area shape="rect" id="node2" href="origin.html" target="_top" title="origin" alt="" coords="5,787,127,1080">
+<area shape="rect" id="node3" href="assoc.html" target="_top" title="assoc" alt="" coords="244,111,363,199">
+<area shape="rect" id="node4" href="discrimuse.html" target="_top" title="discrimuse" alt="" coords="225,216,382,304">
+<area shape="rect" id="node5" href="discrimvote.html" target="_top" title="discrimvote" alt="" coords="222,321,385,409">
+<area shape="rect" id="node6" href="ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="186,427,422,515">
+<area shape="rect" id="node7" href="ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="195,532,412,620">
+<area shape="rect" id="node8" href="ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="195,637,412,725">
+<area shape="rect" id="node9" href="ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="216,743,391,831">
+<area shape="rect" id="node10" href="envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="182,848,426,936">
+<area shape="rect" id="node11" href="event_control.html" target="_top" title="event_control" alt="" coords="215,953,392,1041">
+<area shape="rect" id="node12" href="event_quality.html" target="_top" title="event_quality" alt="" coords="171,1059,437,1568">
+<area shape="rect" id="node13" href="netmag.html" target="_top" title="netmag" alt="" coords="239,1585,368,1673">
+<area shape="rect" id="node14" href="netyield.html" target="_top" title="netyield" alt="" coords="237,1691,370,1779">
+<area shape="rect" id="node15" href="origerr.html" target="_top" title="origerr" alt="" coords="242,1796,366,1884">
+<area shape="rect" id="node16" href="origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="201,1901,406,1989">
+<area shape="rect" id="node17" href="origin_tag.html" target="_top" title="origin_tag" alt="" coords="228,2007,379,2095">
+<area shape="rect" id="node18" href="stamag.html" target="_top" title="stamag" alt="" coords="239,2112,368,2200">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/event_quality.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="event_quality.html" target="_top" title="event_quality" alt="" coords="682,5,948,515">
+<area shape="rect" id="node2" href="user_privileges.html" target="_top" title="user_privileges" alt="" coords="282,295,473,441">
+<area shape="rect" id="node3" href="removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,324,238,441">
+<area shape="rect" id="node4" href="origin.html" target="_top" title="origin" alt="" coords="517,43,638,336">
+</map>
+                                        <a name='diagram'><img id="oneimpliedDegreeImg" src="../diagrams/tables/event_quality.implied1degrees.png" usemap="#oneDegreeRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="active_id.html" target="_top" title="active_id" alt="" coords="1276,1729,1417,1817">
+<area shape="rect" id="node2" href="removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,4851,238,4939">
+<area shape="rect" id="node3" href="wftag.html" target="_top" title="wftag" alt="" coords="978,3543,1093,3631">
+<area shape="rect" id="node32" href="wfdisc.html" target="_top" title="wfdisc" alt="" coords="669,6388,792,6476">
+<area shape="rect" id="node4" href="affiliation.html" target="_top" title="affiliation" alt="" coords="659,140,803,228">
+<area shape="rect" id="node5" href="stanet.html" target="_top" title="stanet" alt="" coords="360,492,481,580">
+<area shape="rect" id="node6" href="algorithm.html" target="_top" title="algorithm" alt="" coords="348,988,493,1076">
+<area shape="rect" id="node7" href="alphasite.html" target="_top" title="alphasite" alt="" coords="659,669,802,757">
+<area shape="rect" id="node8" href="dlman.html" target="_top" title="dlman" alt="" coords="360,669,481,757">
+<area shape="rect" id="node9" href="amp3c.html" target="_top" title="amp3c" alt="" coords="1889,6028,2013,6116">
+<area shape="rect" id="node10" href="arrival.html" target="_top" title="arrival" alt="" coords="1597,3936,1718,4024">
+<area shape="rect" id="node13" href="user_privileges.html" target="_top" title="user_privileges" alt="" coords="325,4165,516,4253">
+<area shape="rect" id="node14" href="msvmax_results.html" target="_top" title="msvmax_results" alt="" coords="1247,4008,1446,4096">
+<area shape="rect" id="node11" href="ampdescript.html" target="_top" title="ampdescript" alt="" coords="336,1523,505,1611">
+<area shape="rect" id="node12" href="amplitude.html" target="_top" title="amplitude" alt="" coords="657,1345,805,1433">
+<area shape="rect" id="node114" href="msvmax_descript.html" target="_top" title="msvmax_descript" alt="" coords="931,4008,1140,4096">
+<area shape="rect" id="node15" href="amplitude_dyn_pars_dbl.html" target="_top" title="amplitude_dyn_pars_dbl" alt="" coords="904,951,1166,1039">
+<area shape="rect" id="node16" href="amplitude_dyn_pars_int.html" target="_top" title="amplitude_dyn_pars_int" alt="" coords="906,1128,1164,1216">
+<area shape="rect" id="node17" href="amplitude_dyn_pars_str.html" target="_top" title="amplitude_dyn_pars_str" alt="" coords="906,1233,1164,1321">
+<area shape="rect" id="node18" href="aoi.html" target="_top" title="aoi" alt="" coords="369,5997,472,6085">
+<area shape="rect" id="node19" href="apma.html" target="_top" title="apma" alt="" coords="1894,3900,2009,3988">
+<area shape="rect" id="node20" href="ar_info.html" target="_top" title="ar_info" alt="" coords="972,2081,1099,2169">
+<area shape="rect" id="node21" href="origin.html" target="_top" title="origin" alt="" coords="672,3681,790,3769">
+<area shape="rect" id="node100" href="gregion.html" target="_top" title="gregion" alt="" coords="355,3717,486,3805">
+<area shape="rect" id="node123" href="sregion.html" target="_top" title="sregion" alt="" coords="355,3612,486,3700">
+<area shape="rect" id="node22" href="arrival_dyn_pars_dbl.html" target="_top" title="arrival_dyn_pars_dbl" alt="" coords="1834,1088,2068,1176">
+<area shape="rect" id="node23" href="arrival_dyn_pars_int.html" target="_top" title="arrival_dyn_pars_int" alt="" coords="1836,2213,2066,2301">
+<area shape="rect" id="node24" href="arrival_dyn_pars_str.html" target="_top" title="arrival_dyn_pars_str" alt="" coords="1836,4276,2067,4364">
+<area shape="rect" id="node25" href="arrival_tag.html" target="_top" title="arrival_tag" alt="" coords="1874,4543,2028,4631">
+<area shape="rect" id="node26" href="origin_tag.html" target="_top" title="origin_tag" alt="" coords="960,4543,1111,4631">
+<area shape="rect" id="node27" href="assoc.html" target="_top" title="assoc" alt="" coords="1892,4041,2011,4129">
+<area shape="rect" id="node28" href="assoc_ga.html" target="_top" title="assoc_ga" alt="" coords="348,1381,493,1469">
+<area shape="rect" id="node29" href="assoc_ga_del.html" target="_top" title="assoc_ga_del" alt="" coords="946,5932,1124,6020">
+<area shape="rect" id="node30" href="origin_ga_del.html" target="_top" title="origin_ga_del" alt="" coords="642,5152,820,5240">
+<area shape="rect" id="node31" href="beam.html" target="_top" title="beam" alt="" coords="978,7103,1093,7191">
+<area shape="rect" id="node112" href="msgdatatype.html" target="_top" title="msgdatatype" alt="" coords="334,6851,507,6939">
+<area shape="rect" id="node33" href="bulletin_release.html" target="_top" title="bulletin_release" alt="" coords="634,3077,828,3165">
+<area shape="rect" id="node34" href="bulletin_release_export.html" target="_top" title="bulletin_release_export" alt="" coords="909,2559,1162,2647">
+<area shape="rect" id="node35" href="butterworth_filter.html" target="_top" title="butterworth_filter" alt="" coords="628,1631,834,1719">
+<area shape="rect" id="node36" href="chan_groups.html" target="_top" title="chan_groups" alt="" coords="334,1808,507,1896">
+<area shape="rect" id="node37" href="channame.html" target="_top" title="channame" alt="" coords="344,1913,497,2001">
+<area shape="rect" id="node38" href="classification.html" target="_top" title="classification" alt="" coords="948,5080,1123,5168">
+<area shape="rect" id="node39" href="classification_opr.html" target="_top" title="classification_opr" alt="" coords="626,4975,836,5063">
+<area shape="rect" id="node40" href="classification_level.html" target="_top" title="classification_level" alt="" coords="621,1736,840,1824">
+<area shape="rect" id="node41" href="classification_lookup.html" target="_top" title="classification_lookup" alt="" coords="613,1985,849,2073">
+<area shape="rect" id="node42" href="classification_refer_to.html" target="_top" title="classification_refer_to" alt="" coords="609,2199,852,2287">
+<area shape="rect" id="node43" href="cluster_info.html" target="_top" title="cluster_info" alt="" coords="649,3255,813,3343">
+<area shape="rect" id="node44" href="cluster_magref.html" target="_top" title="cluster_magref" alt="" coords="1252,2580,1441,2668">
+<area shape="rect" id="node45" href="cluster_station.html" target="_top" title="cluster_station" alt="" coords="942,3296,1129,3384">
+<area shape="rect" id="node46" href="cluster_override.html" target="_top" title="cluster_override" alt="" coords="1559,3579,1756,3667">
+<area shape="rect" id="node47" href="cluster_phase_override.html" target="_top" title="cluster_phase_override" alt="" coords="1220,3327,1473,3415">
+<area shape="rect" id="node48" href="cluster_threshold.html" target="_top" title="cluster_threshold" alt="" coords="1243,4113,1450,4201">
+<area shape="rect" id="node49" href="codamag_input.html" target="_top" title="codamag_input" alt="" coords="940,1339,1131,1427">
+<area shape="rect" id="node50" href="codamag_output.html" target="_top" title="codamag_output" alt="" coords="630,2304,832,2392">
+<area shape="rect" id="node51" href="continuous_data_status.html" target="_top" title="continuous_data_status" alt="" coords="292,2627,549,2715">
+<area shape="rect" id="node52" href="da_interval.html" target="_top" title="da_interval" alt="" coords="652,2409,810,2497">
+<area shape="rect" id="node53" href="da_refsta_latency.html" target="_top" title="da_refsta_latency" alt="" coords="316,2768,525,2856">
+<area shape="rect" id="node54" href="da_refsta_summary.html" target="_top" title="da_refsta_summary" alt="" coords="308,2873,533,2961">
+<area shape="rect" id="node55" href="da_sitechan_latency.html" target="_top" title="da_sitechan_latency" alt="" coords="306,2979,535,3067">
+<area shape="rect" id="node56" href="datauser.html" target="_top" title="datauser" alt="" coords="350,8799,491,8887">
+<area shape="rect" id="node57" href="deconvolution.html" target="_top" title="deconvolution" alt="" coords="640,2515,822,2603">
+<area shape="rect" id="node58" href="defining_obstypes.html" target="_top" title="defining_obstypes" alt="" coords="313,315,528,403">
+<area shape="rect" id="node59" href="defining_rules.html" target="_top" title="defining_rules" alt="" coords="639,245,822,333">
+<area shape="rect" id="node60" href="defining_values.html" target="_top" title="defining_values" alt="" coords="324,209,517,297">
+<area shape="rect" id="node61" href="detection.html" target="_top" title="detection" alt="" coords="2146,3968,2290,4056">
+<area shape="rect" id="node62" href="detection_threshold.html" target="_top" title="detection_threshold" alt="" coords="618,2620,844,2708">
+<area shape="rect" id="node63" href="discrim_param.html" target="_top" title="discrim_param" alt="" coords="1253,7232,1440,7320">
+<area shape="rect" id="node64" href="mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="968,7529,1102,7617">
+<area shape="rect" id="node65" href="polygon.html" target="_top" title="polygon" alt="" coords="663,7457,798,7545">
+<area shape="rect" id="node71" href="ecm_constant.html" target="_top" title="ecm_constant" alt="" coords="330,7704,511,7792">
+<area shape="rect" id="node66" href="discrimuse.html" target="_top" title="discrimuse" alt="" coords="1268,4219,1425,4307">
+<area shape="rect" id="node67" href="discrimvote.html" target="_top" title="discrimvote" alt="" coords="954,4185,1117,4273">
+<area shape="rect" id="node68" href="doppler_detection.html" target="_top" title="doppler_detection" alt="" coords="2112,7749,2324,7837">
+<area shape="rect" id="node69" href="ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="1228,7443,1465,7531">
+<area shape="rect" id="node70" href="ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="1525,7460,1790,7548">
+<area shape="rect" id="node78" href="ecm_ref_event.html" target="_top" title="ecm_ref_event" alt="" coords="638,6072,824,6160">
+<area shape="rect" id="node72" href="ecm_cov.html" target="_top" title="ecm_cov" alt="" coords="1587,5828,1728,5916">
+<area shape="rect" id="node73" href="ecm_ref_discrim.html" target="_top" title="ecm_ref_discrim" alt="" coords="935,5755,1136,5843">
+<area shape="rect" id="node74" href="ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="1259,5828,1434,5916">
+<area shape="rect" id="node77" href="rda_param.html" target="_top" title="rda_param" alt="" coords="958,6607,1113,6695">
+<area shape="rect" id="node75" href="ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="1238,5024,1455,5112">
+<area shape="rect" id="node76" href="ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="1238,5579,1455,5667">
+<area shape="rect" id="node79" href="ecm_region_pref_version.html" target="_top" title="ecm_region_pref_version" alt="" coords="1212,6607,1481,6695">
+<area shape="rect" id="node80" href="ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="1226,7337,1467,7425">
+<area shape="rect" id="node81" href="envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="913,3401,1158,3489">
+<area shape="rect" id="node82" href="event.html" target="_top" title="event" alt="" coords="673,2761,788,2849">
+<area shape="rect" id="node83" href="event_control.html" target="_top" title="event_control" alt="" coords="946,2255,1124,2343">
+<area shape="rect" id="node84" href="event_correlation.html" target="_top" title="event_correlation" alt="" coords="317,5011,524,5099">
+<area shape="rect" id="node85" href="event_quality.html" target="_top" title="event_quality" alt="" coords="902,2769,1168,3279">
+<area shape="rect" id="node86" href="feedback_cataffiliation.html" target="_top" title="feedback_cataffiliation" alt="" coords="298,5152,543,5240">
+<area shape="rect" id="node87" href="feedback_categories.html" target="_top" title="feedback_categories" alt="" coords="305,5257,536,5345">
+<area shape="rect" id="node88" href="feedback_state.html" target="_top" title="feedback_state" alt="" coords="326,5363,515,5451">
+<area shape="rect" id="node89" href="feedback_state_categories.html" target="_top" title="feedback_state_categories" alt="" coords="282,5468,559,5556">
+<area shape="rect" id="node90" href="filter_coefficients.html" target="_top" title="filter_coefficients" alt="" coords="628,7915,834,8003">
+<area shape="rect" id="node91" href="user_filter.html" target="_top" title="user_filter" alt="" coords="345,7915,496,8003">
+<area shape="rect" id="node92" href="filter_values_double.html" target="_top" title="filter_values_double" alt="" coords="306,5645,535,5733">
+<area shape="rect" id="node93" href="filter_values_integer.html" target="_top" title="filter_values_integer" alt="" coords="306,5751,535,5839">
+<area shape="rect" id="node94" href="filter_values_string.html" target="_top" title="filter_values_string" alt="" coords="310,5856,531,5944">
+<area shape="rect" id="node95" href="fk_processing.html" target="_top" title="fk_processing" alt="" coords="1860,3795,2042,3883">
+<area shape="rect" id="node96" href="ftpfailed.html" target="_top" title="ftpfailed" alt="" coords="968,8124,1103,8212">
+<area shape="rect" id="node97" href="ftplogin.html" target="_top" title="ftplogin" alt="" coords="665,8056,796,8144">
+<area shape="rect" id="node98" href="msgdisc.html" target="_top" title="msgdisc" alt="" coords="662,8664,800,8752">
+<area shape="rect" id="node99" href="ga_tag.html" target="_top" title="ga_tag" alt="" coords="669,5861,793,5949">
+<area shape="rect" id="node101" href="historic_info_cylinder.html" target="_top" title="historic_info_cylinder" alt="" coords="611,883,850,971">
+<area shape="rect" id="node102" href="historic_info_shell.html" target="_top" title="historic_info_shell" alt="" coords="623,1024,838,1112">
+<area shape="rect" id="node103" href="historic_info_sta_phase.html" target="_top" title="historic_info_sta_phase" alt="" coords="907,811,1164,899">
+<area shape="rect" id="node104" href="hydro_arr_group.html" target="_top" title="hydro_arr_group" alt="" coords="630,351,832,439">
+<area shape="rect" id="node105" href="hydro_arrival.html" target="_top" title="hydro_arrival" alt="" coords="333,6391,508,6479">
+<area shape="rect" id="node106" href="hydro_assoc.html" target="_top" title="hydro_assoc" alt="" coords="334,6496,507,6584">
+<area shape="rect" id="node107" href="hydro_origin.html" target="_top" title="hydro_origin" alt="" coords="335,6601,506,6689">
+<area shape="rect" id="node108" href="instrument.html" target="_top" title="instrument" alt="" coords="342,8305,499,8393">
+<area shape="rect" id="node109" href="interval.html" target="_top" title="interval" alt="" coords="666,6283,796,6371">
+<area shape="rect" id="node110" href="mdac_fd.html" target="_top" title="mdac_fd" alt="" coords="1882,7495,2021,7583">
+<area shape="rect" id="node111" href="msgaux.html" target="_top" title="msgaux" alt="" coords="968,9044,1102,9132">
+<area shape="rect" id="node113" href="msgdest.html" target="_top" title="msgdest" alt="" coords="966,8601,1105,8689">
+<area shape="rect" id="node115" href="net_coda_spectrum.html" target="_top" title="net_coda_spectrum" alt="" coords="1234,1624,1459,1712">
+<area shape="rect" id="node116" href="netmag.html" target="_top" title="netmag" alt="" coords="970,1621,1100,1709">
+<area shape="rect" id="node117" href="network.html" target="_top" title="network" alt="" coords="663,528,798,616">
+<area shape="rect" id="node118" href="netyield.html" target="_top" title="netyield" alt="" coords="968,1835,1102,1923">
+<area shape="rect" id="node119" href="omitted_channels.html" target="_top" title="omitted_channels" alt="" coords="626,2867,836,2955">
+<area shape="rect" id="node120" href="origerr.html" target="_top" title="origerr" alt="" coords="973,2391,1098,2479">
+<area shape="rect" id="node121" href="origerr_ga.html" target="_top" title="origerr_ga" alt="" coords="344,7244,497,7332">
+<area shape="rect" id="node122" href="origerr_ga_del.html" target="_top" title="origerr_ga_del" alt="" coords="943,6180,1128,6268">
+<area shape="rect" id="node124" href="origin_ga.html" target="_top" title="origin_ga" alt="" coords="658,3360,804,3448">
+<area shape="rect" id="node125" href="origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="932,2664,1138,2752">
+<area shape="rect" id="node126" href="outage_station_data.html" target="_top" title="outage_station_data" alt="" coords="306,7493,535,7581">
+<area shape="rect" id="node127" href="outage_station_receive.html" target="_top" title="outage_station_receive" alt="" coords="295,7599,546,7687">
+<area shape="rect" id="node128" href="polypoint.html" target="_top" title="polypoint" alt="" coords="963,7208,1108,7296">
+<area shape="rect" id="node129" href="process_tracking.html" target="_top" title="process_tracking" alt="" coords="318,7809,523,7897">
+<area shape="rect" id="node130" href="processing_recipe.html" target="_top" title="processing_recipe" alt="" coords="623,2972,838,3060">
+<area shape="rect" id="node131" href="qcmaskdef.html" target="_top" title="qcmaskdef" alt="" coords="653,6177,809,6265">
+<area shape="rect" id="node132" href="qcmaskinfo.html" target="_top" title="qcmaskinfo" alt="" coords="954,6712,1116,6800">
+<area shape="rect" id="node133" href="qcmaskseg.html" target="_top" title="qcmaskseg" alt="" coords="1266,6712,1427,6800">
+<area shape="rect" id="node134" href="qshell_interval.html" target="_top" title="qshell_interval" alt="" coords="942,6853,1128,6941">
+<area shape="rect" id="node135" href="reg_ratio_discrim.html" target="_top" title="reg_ratio_discrim" alt="" coords="1243,7797,1450,7885">
+<area shape="rect" id="node136" href="remark.html" target="_top" title="remark" alt="" coords="357,8200,484,8288">
+<area shape="rect" id="node137" href="request.html" target="_top" title="request" alt="" coords="1281,9116,1412,9204">
+<area shape="rect" id="node138" href="sado_email_history.html" target="_top" title="sado_email_history" alt="" coords="309,8411,532,8499">
+<area shape="rect" id="node139" href="sado_report_landmarks.html" target="_top" title="sado_report_landmarks" alt="" coords="603,6529,858,6617">
+<area shape="rect" id="node140" href="sado_state.html" target="_top" title="sado_state" alt="" coords="342,8552,499,8640">
+<area shape="rect" id="node141" href="sado_users.html" target="_top" title="sado_users" alt="" coords="340,8657,501,8745">
+<area shape="rect" id="node142" href="sensor.html" target="_top" title="sensor" alt="" coords="668,8252,794,8340">
+<area shape="rect" id="node143" href="site.html" target="_top" title="site" alt="" coords="681,6635,781,6723">
+<area shape="rect" id="node144" href="siteaux.html" target="_top" title="siteaux" alt="" coords="667,5401,795,5489">
+<area shape="rect" id="node145" href="sitechan.html" target="_top" title="sitechan" alt="" coords="352,8940,489,9028">
+<area shape="rect" id="node146" href="snr_phase.html" target="_top" title="snr_phase" alt="" coords="1270,7620,1423,7708">
+<area shape="rect" id="node147" href="sta_coda_spectrum.html" target="_top" title="sta_coda_spectrum" alt="" coords="924,1480,1147,1568">
+<area shape="rect" id="node148" href="stamag.html" target="_top" title="stamag" alt="" coords="970,1976,1100,2064">
+<area shape="rect" id="node149" href="staqual_dnames.html" target="_top" title="staqual_dnames" alt="" coords="321,9153,520,9241">
+<area shape="rect" id="node150" href="station_processing.html" target="_top" title="station_processing" alt="" coords="1236,4417,1457,4505">
+<area shape="rect" id="node151" href="station_quality.html" target="_top" title="station_quality" alt="" coords="638,5615,824,5703">
+<area shape="rect" id="node152" href="stayield.html" target="_top" title="stayield" alt="" coords="1280,1835,1413,1923">
+<area shape="rect" id="node153" href="taper.html" target="_top" title="taper" alt="" coords="675,5756,787,5844">
+<area shape="rect" id="node154" href="timestamp.html" target="_top" title="timestamp" alt="" coords="344,9403,497,9491">
+<area shape="rect" id="node155" href="tomo_info.html" target="_top" title="tomo_info" alt="" coords="656,5967,806,6055">
+<area shape="rect" id="node156" href="wfactivity.html" target="_top" title="wfactivity" alt="" coords="348,9544,493,9632">
+<area shape="rect" id="node157" href="wfconv.html" target="_top" title="wfconv" alt="" coords="356,9649,485,9737">
+<area shape="rect" id="node158" href="wffile.html" target="_top" title="wffile" alt="" coords="364,9755,477,9843">
+<area shape="rect" id="node159" href="xtag.html" target="_top" title="xtag" alt="" coords="368,9860,473,9948">
+</map>
+                                        <a name='diagram'><img id="twoimpliedDegreeImg" src="../diagrams/tables/event_quality.implied2degrees.png" usemap="#twoDegreesRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

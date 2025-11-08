@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>alphasite - usndc_schema.public</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>usndc_schema</b></a><span class="navbar-brand" style="padding-left: 0">.public</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>alphasite</h1><p><span id="recordNumber">-1</span> rows</p><br />
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-file-text-o"></i>
+                            <h3 id="Description" class="box-title">Description</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-body clearfix">
+                            <p>The alphasite table is used for tracking continuous data con nections by the DLMan application. For a given station, ther e must be a row in the table for each address from which the station may send continuous data. The columns prefdlid and prefport describe the preferred DLMan connection for the sta tion. DLMan fills in dlid and time while a station is active ly connected. The column dlid indicates to which dlid the st ation is currently connected (may be different from prefdlid ) and the column time is the system time for the last activi ty on the station&rsquo;s connection (not the time of any data rec eived). For stations that are not connected, time and dlid a re zero.</p>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="sta">sta</span></td>
+                                    <td>varchar</td>
+                                    <td>6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Station code</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="address">address</span></td>
+                                    <td>varchar</td>
+                                    <td>16</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Source internet address</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="prefdlid">prefdlid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>dlid for preferred DLMan</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="prefport">prefport</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Preferred network port</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="con_allowed">con_allowed</span></td>
+                                    <td>varchar</td>
+                                    <td>1</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Status on whether DLMAN is allowed to connect to this channel or not</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="dlid">dlid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="alphasite.dlid&#39;s name implies that it&#39;s a child of dlman.dlid, but it doesn&#39;t reference that column."><a href='dlman.html'>dlman</a><span class='relatedKey'>.dlid</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>dlid handling station</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="time">time</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Clock time of most recent activity</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="commid">commid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Comment identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="lddate">lddate</span></td>
+                                    <td>timestamp</td>
+                                    <td>29,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="alphasite.lddate&#39;s name implies that it&#39;s a child of removed_beam_dfile.lddate, but it doesn&#39;t reference that column."><a href='removed_beam_dfile.html'>removed_beam_dfile</a><span class='relatedKey'>.lddate</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Load date</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> alphasite_pkey</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>sta</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 class="box-title">Check Constraints</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="check_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Constraint</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>alphasite__con_allowed__ck</td>
+                                    <td>(((con_allowed)::text &#61; ANY ((ARRAY[&#39;y&#39;::character varying, &#39;n&#39;::character varying, &#39;-&#39;::character varying])::text[])))</td>
+                                </tr>
+                                <tr>
+                                    <td>alphasite__dlid__ck</td>
+                                    <td>((dlid &gt;&#61; 0))</td>
+                                </tr>
+                                <tr>
+                                    <td>alphasite__prefport__ck</td>
+                                    <td>((((prefport &gt;&#61; 0) AND (prefport &lt;&#61; 16383)) OR (prefport &#61; &#39;-1&#39;::integer)))</td>
+                                </tr>
+                                <tr>
+                                    <td>alphasite__sta__ck</td>
+                                    <td>(((sta)::text &#61; upper((sta)::text)))</td>
+                                </tr>
+                                <tr>
+                                    <td>alphasite__time__ck</td>
+                                    <td>((&quot;time&quot; &gt;&#61; (&#39;-9999999999.999&#39;::numeric)::double precision))</td>
+                                </tr>
+                                <tr>
+                                    <td>alphasite__prefdlid__ck</td>
+                                    <td>((prefdlid &gt; 0))</td>
+                                </tr>
+                                <tr>
+                                    <td>alphasite__commid__ck</td>
+                                    <td>(((commid &gt; 0) OR (commid &#61; &#39;-1&#39;::integer)))</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
+                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="alphasite.html" target="_top" title="alphasite" alt="" coords="5,5,266,339">
+</map>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/alphasite.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="alphasite.html" target="_top" title="alphasite" alt="" coords="476,5,737,339">
+<area shape="rect" id="node2" href="dlman.html" target="_top" title="dlman" alt="" coords="282,136,432,283">
+<area shape="rect" id="node3" href="removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,213,238,331">
+</map>
+                                        <a name='diagram'><img id="oneimpliedDegreeImg" src="../diagrams/tables/alphasite.implied1degrees.png" usemap="#oneDegreeRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="active_id.html" target="_top" title="active_id" alt="" coords="1277,1583,1419,1671">
+<area shape="rect" id="node2" href="removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,5202,238,5290">
+<area shape="rect" id="node3" href="wftag.html" target="_top" title="wftag" alt="" coords="981,4107,1096,4195">
+<area shape="rect" id="node32" href="wfdisc.html" target="_top" title="wfdisc" alt="" coords="672,6670,795,6758">
+<area shape="rect" id="node4" href="affiliation.html" target="_top" title="affiliation" alt="" coords="662,140,806,228">
+<area shape="rect" id="node5" href="stanet.html" target="_top" title="stanet" alt="" coords="360,492,481,580">
+<area shape="rect" id="node6" href="algorithm.html" target="_top" title="algorithm" alt="" coords="348,1163,493,1251">
+<area shape="rect" id="node7" href="alphasite.html" target="_top" title="alphasite" alt="" coords="603,670,864,1003">
+<area shape="rect" id="node8" href="dlman.html" target="_top" title="dlman" alt="" coords="360,843,481,931">
+<area shape="rect" id="node9" href="amp3c.html" target="_top" title="amp3c" alt="" coords="1890,6396,2015,6484">
+<area shape="rect" id="node10" href="arrival.html" target="_top" title="arrival" alt="" coords="1598,4428,1720,4516">
+<area shape="rect" id="node13" href="user_privileges.html" target="_top" title="user_privileges" alt="" coords="325,4374,516,4462">
+<area shape="rect" id="node14" href="msvmax_results.html" target="_top" title="msvmax_results" alt="" coords="1248,4428,1447,4516">
+<area shape="rect" id="node11" href="ampdescript.html" target="_top" title="ampdescript" alt="" coords="336,1768,505,1856">
+<area shape="rect" id="node12" href="amplitude.html" target="_top" title="amplitude" alt="" coords="660,1519,808,1607">
+<area shape="rect" id="node114" href="msvmax_descript.html" target="_top" title="msvmax_descript" alt="" coords="935,4428,1143,4516">
+<area shape="rect" id="node15" href="amplitude_dyn_pars_dbl.html" target="_top" title="amplitude_dyn_pars_dbl" alt="" coords="908,1027,1170,1115">
+<area shape="rect" id="node16" href="amplitude_dyn_pars_int.html" target="_top" title="amplitude_dyn_pars_int" alt="" coords="910,1168,1168,1256">
+<area shape="rect" id="node17" href="amplitude_dyn_pars_str.html" target="_top" title="amplitude_dyn_pars_str" alt="" coords="910,1274,1168,1362">
+<area shape="rect" id="node18" href="aoi.html" target="_top" title="aoi" alt="" coords="369,6348,472,6436">
+<area shape="rect" id="node19" href="apma.html" target="_top" title="apma" alt="" coords="1895,4762,2010,4850">
+<area shape="rect" id="node20" href="ar_info.html" target="_top" title="ar_info" alt="" coords="975,2194,1102,2282">
+<area shape="rect" id="node21" href="origin.html" target="_top" title="origin" alt="" coords="675,3644,792,3732">
+<area shape="rect" id="node100" href="gregion.html" target="_top" title="gregion" alt="" coords="355,3608,486,3696">
+<area shape="rect" id="node123" href="sregion.html" target="_top" title="sregion" alt="" coords="355,3750,486,3838">
+<area shape="rect" id="node22" href="arrival_dyn_pars_dbl.html" target="_top" title="arrival_dyn_pars_dbl" alt="" coords="1836,387,2069,475">
+<area shape="rect" id="node23" href="arrival_dyn_pars_int.html" target="_top" title="arrival_dyn_pars_int" alt="" coords="1838,2512,2067,2600">
+<area shape="rect" id="node24" href="arrival_dyn_pars_str.html" target="_top" title="arrival_dyn_pars_str" alt="" coords="1837,4867,2068,4955">
+<area shape="rect" id="node25" href="arrival_tag.html" target="_top" title="arrival_tag" alt="" coords="1876,4972,2029,5060">
+<area shape="rect" id="node26" href="origin_tag.html" target="_top" title="origin_tag" alt="" coords="963,4891,1114,4979">
+<area shape="rect" id="node27" href="assoc.html" target="_top" title="assoc" alt="" coords="1893,4426,2012,4514">
+<area shape="rect" id="node28" href="assoc_ga.html" target="_top" title="assoc_ga" alt="" coords="348,1627,493,1715">
+<area shape="rect" id="node29" href="assoc_ga_del.html" target="_top" title="assoc_ga_del" alt="" coords="950,6274,1128,6362">
+<area shape="rect" id="node30" href="origin_ga_del.html" target="_top" title="origin_ga_del" alt="" coords="645,5472,822,5560">
+<area shape="rect" id="node31" href="beam.html" target="_top" title="beam" alt="" coords="981,7240,1096,7328">
+<area shape="rect" id="node112" href="msgdatatype.html" target="_top" title="msgdatatype" alt="" coords="334,7418,507,7506">
+<area shape="rect" id="node33" href="bulletin_release.html" target="_top" title="bulletin_release" alt="" coords="637,3999,830,4087">
+<area shape="rect" id="node34" href="bulletin_release_export.html" target="_top" title="bulletin_release_export" alt="" coords="913,3966,1165,4054">
+<area shape="rect" id="node35" href="butterworth_filter.html" target="_top" title="butterworth_filter" alt="" coords="631,2020,836,2108">
+<area shape="rect" id="node36" href="chan_groups.html" target="_top" title="chan_groups" alt="" coords="334,2054,507,2142">
+<area shape="rect" id="node37" href="channame.html" target="_top" title="channame" alt="" coords="344,2159,497,2247">
+<area shape="rect" id="node38" href="classification.html" target="_top" title="classification" alt="" coords="951,6070,1126,6158">
+<area shape="rect" id="node39" href="classification_opr.html" target="_top" title="classification_opr" alt="" coords="629,6248,838,6336">
+<area shape="rect" id="node40" href="classification_level.html" target="_top" title="classification_level" alt="" coords="624,2126,843,2214">
+<area shape="rect" id="node41" href="classification_lookup.html" target="_top" title="classification_lookup" alt="" coords="616,2303,852,2391">
+<area shape="rect" id="node42" href="classification_refer_to.html" target="_top" title="classification_refer_to" alt="" coords="612,2444,855,2532">
+<area shape="rect" id="node43" href="cluster_info.html" target="_top" title="cluster_info" alt="" coords="652,3750,816,3838">
+<area shape="rect" id="node44" href="cluster_magref.html" target="_top" title="cluster_magref" alt="" coords="1254,2687,1442,2775">
+<area shape="rect" id="node45" href="cluster_station.html" target="_top" title="cluster_station" alt="" coords="945,3575,1132,3663">
+<area shape="rect" id="node46" href="cluster_override.html" target="_top" title="cluster_override" alt="" coords="1560,3574,1758,3662">
+<area shape="rect" id="node47" href="cluster_phase_override.html" target="_top" title="cluster_phase_override" alt="" coords="1222,3540,1474,3628">
+<area shape="rect" id="node48" href="cluster_threshold.html" target="_top" title="cluster_threshold" alt="" coords="1244,4534,1451,4622">
+<area shape="rect" id="node49" href="codamag_input.html" target="_top" title="codamag_input" alt="" coords="943,1628,1134,1716">
+<area shape="rect" id="node50" href="codamag_output.html" target="_top" title="codamag_output" alt="" coords="633,2550,834,2638">
+<area shape="rect" id="node51" href="continuous_data_status.html" target="_top" title="continuous_data_status" alt="" coords="292,2971,549,3059">
+<area shape="rect" id="node52" href="da_interval.html" target="_top" title="da_interval" alt="" coords="655,2655,812,2743">
+<area shape="rect" id="node53" href="da_refsta_latency.html" target="_top" title="da_refsta_latency" alt="" coords="316,3112,525,3200">
+<area shape="rect" id="node54" href="da_refsta_summary.html" target="_top" title="da_refsta_summary" alt="" coords="308,3218,533,3306">
+<area shape="rect" id="node55" href="da_sitechan_latency.html" target="_top" title="da_sitechan_latency" alt="" coords="306,3323,535,3411">
+<area shape="rect" id="node56" href="datauser.html" target="_top" title="datauser" alt="" coords="350,9150,491,9238">
+<area shape="rect" id="node57" href="deconvolution.html" target="_top" title="deconvolution" alt="" coords="643,2796,824,2884">
+<area shape="rect" id="node58" href="defining_obstypes.html" target="_top" title="defining_obstypes" alt="" coords="313,315,528,403">
+<area shape="rect" id="node59" href="defining_rules.html" target="_top" title="defining_rules" alt="" coords="642,246,825,334">
+<area shape="rect" id="node60" href="defining_values.html" target="_top" title="defining_values" alt="" coords="324,210,517,298">
+<area shape="rect" id="node61" href="detection.html" target="_top" title="detection" alt="" coords="2147,4494,2292,4582">
+<area shape="rect" id="node62" href="detection_threshold.html" target="_top" title="detection_threshold" alt="" coords="621,2938,846,3026">
+<area shape="rect" id="node63" href="discrim_param.html" target="_top" title="discrim_param" alt="" coords="1254,7638,1441,7726">
+<area shape="rect" id="node64" href="mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="972,7916,1106,8004">
+<area shape="rect" id="node65" href="polygon.html" target="_top" title="polygon" alt="" coords="666,7843,801,7931">
+<area shape="rect" id="node71" href="ecm_constant.html" target="_top" title="ecm_constant" alt="" coords="330,8055,511,8143">
+<area shape="rect" id="node66" href="discrimuse.html" target="_top" title="discrimuse" alt="" coords="1269,4639,1427,4727">
+<area shape="rect" id="node67" href="discrimvote.html" target="_top" title="discrimvote" alt="" coords="957,4606,1120,4694">
+<area shape="rect" id="node68" href="doppler_detection.html" target="_top" title="doppler_detection" alt="" coords="2113,8108,2326,8196">
+<area shape="rect" id="node69" href="ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="1230,7848,1466,7936">
+<area shape="rect" id="node70" href="ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="1526,7848,1792,7936">
+<area shape="rect" id="node78" href="ecm_ref_event.html" target="_top" title="ecm_ref_event" alt="" coords="641,6354,826,6442">
+<area shape="rect" id="node72" href="ecm_cov.html" target="_top" title="ecm_cov" alt="" coords="1588,5458,1730,5546">
+<area shape="rect" id="node73" href="ecm_ref_discrim.html" target="_top" title="ecm_ref_discrim" alt="" coords="939,5356,1139,5444">
+<area shape="rect" id="node74" href="ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="1260,5390,1435,5478">
+<area shape="rect" id="node77" href="rda_param.html" target="_top" title="rda_param" alt="" coords="961,6816,1116,6904">
+<area shape="rect" id="node75" href="ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="1239,5106,1457,5194">
+<area shape="rect" id="node76" href="ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="1239,5284,1457,5372">
+<area shape="rect" id="node79" href="ecm_region_pref_version.html" target="_top" title="ecm_region_pref_version" alt="" coords="1214,6816,1482,6904">
+<area shape="rect" id="node80" href="ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="1227,7743,1469,7831">
+<area shape="rect" id="node81" href="envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="917,3860,1161,3948">
+<area shape="rect" id="node82" href="event.html" target="_top" title="event" alt="" coords="676,3043,791,3131">
+<area shape="rect" id="node83" href="event_control.html" target="_top" title="event_control" alt="" coords="950,2299,1128,2387">
+<area shape="rect" id="node84" href="event_correlation.html" target="_top" title="event_correlation" alt="" coords="317,5362,524,5450">
+<area shape="rect" id="node85" href="event_quality.html" target="_top" title="event_quality" alt="" coords="951,3470,1126,3558">
+<area shape="rect" id="node86" href="feedback_cataffiliation.html" target="_top" title="feedback_cataffiliation" alt="" coords="298,5503,543,5591">
+<area shape="rect" id="node87" href="feedback_categories.html" target="_top" title="feedback_categories" alt="" coords="305,5608,536,5696">
+<area shape="rect" id="node88" href="feedback_state.html" target="_top" title="feedback_state" alt="" coords="326,5714,515,5802">
+<area shape="rect" id="node89" href="feedback_state_categories.html" target="_top" title="feedback_state_categories" alt="" coords="282,5819,559,5907">
+<area shape="rect" id="node90" href="filter_coefficients.html" target="_top" title="filter_coefficients" alt="" coords="631,8248,836,8336">
+<area shape="rect" id="node91" href="user_filter.html" target="_top" title="user_filter" alt="" coords="345,8266,496,8354">
+<area shape="rect" id="node92" href="filter_values_double.html" target="_top" title="filter_values_double" alt="" coords="306,5996,535,6084">
+<area shape="rect" id="node93" href="filter_values_integer.html" target="_top" title="filter_values_integer" alt="" coords="306,6102,535,6190">
+<area shape="rect" id="node94" href="filter_values_string.html" target="_top" title="filter_values_string" alt="" coords="310,6207,531,6295">
+<area shape="rect" id="node95" href="fk_processing.html" target="_top" title="fk_processing" alt="" coords="1862,4319,2043,4407">
+<area shape="rect" id="node96" href="ftpfailed.html" target="_top" title="ftpfailed" alt="" coords="971,8458,1106,8546">
+<area shape="rect" id="node97" href="ftplogin.html" target="_top" title="ftplogin" alt="" coords="668,8390,799,8478">
+<area shape="rect" id="node98" href="msgdisc.html" target="_top" title="msgdisc" alt="" coords="665,8990,802,9078">
+<area shape="rect" id="node99" href="ga_tag.html" target="_top" title="ga_tag" alt="" coords="672,6002,796,6090">
+<area shape="rect" id="node101" href="historic_info_cylinder.html" target="_top" title="historic_info_cylinder" alt="" coords="614,1092,853,1180">
+<area shape="rect" id="node102" href="historic_info_shell.html" target="_top" title="historic_info_shell" alt="" coords="626,1270,841,1358">
+<area shape="rect" id="node103" href="historic_info_sta_phase.html" target="_top" title="historic_info_sta_phase" alt="" coords="911,922,1167,1010">
+<area shape="rect" id="node104" href="hydro_arr_group.html" target="_top" title="hydro_arr_group" alt="" coords="633,351,834,439">
+<area shape="rect" id="node105" href="hydro_arrival.html" target="_top" title="hydro_arrival" alt="" coords="333,6742,508,6830">
+<area shape="rect" id="node106" href="hydro_assoc.html" target="_top" title="hydro_assoc" alt="" coords="334,6847,507,6935">
+<area shape="rect" id="node107" href="hydro_origin.html" target="_top" title="hydro_origin" alt="" coords="335,6952,506,7040">
+<area shape="rect" id="node108" href="instrument.html" target="_top" title="instrument" alt="" coords="342,8656,499,8744">
+<area shape="rect" id="node109" href="interval.html" target="_top" title="interval" alt="" coords="669,6564,798,6652">
+<area shape="rect" id="node110" href="mdac_fd.html" target="_top" title="mdac_fd" alt="" coords="1883,7900,2022,7988">
+<area shape="rect" id="node111" href="msgaux.html" target="_top" title="msgaux" alt="" coords="972,9395,1106,9483">
+<area shape="rect" id="node113" href="msgdest.html" target="_top" title="msgdest" alt="" coords="969,8950,1108,9038">
+<area shape="rect" id="node115" href="net_coda_spectrum.html" target="_top" title="net_coda_spectrum" alt="" coords="1236,1415,1460,1503">
+<area shape="rect" id="node116" href="netmag.html" target="_top" title="netmag" alt="" coords="974,1415,1104,1503">
+<area shape="rect" id="node117" href="network.html" target="_top" title="network" alt="" coords="666,528,801,616">
+<area shape="rect" id="node118" href="netyield.html" target="_top" title="netyield" alt="" coords="972,1875,1106,1963">
+<area shape="rect" id="node119" href="omitted_channels.html" target="_top" title="omitted_channels" alt="" coords="629,3148,838,3236">
+<area shape="rect" id="node120" href="origerr.html" target="_top" title="origerr" alt="" coords="977,2404,1101,2492">
+<area shape="rect" id="node121" href="origerr_ga.html" target="_top" title="origerr_ga" alt="" coords="344,7595,497,7683">
+<area shape="rect" id="node122" href="origerr_ga_del.html" target="_top" title="origerr_ga_del" alt="" coords="947,6576,1131,6664">
+<area shape="rect" id="node124" href="origin_ga.html" target="_top" title="origin_ga" alt="" coords="661,3359,806,3447">
+<area shape="rect" id="node125" href="origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="936,2546,1142,2634">
+<area shape="rect" id="node126" href="outage_station_data.html" target="_top" title="outage_station_data" alt="" coords="306,7844,535,7932">
+<area shape="rect" id="node127" href="outage_station_receive.html" target="_top" title="outage_station_receive" alt="" coords="295,7950,546,8038">
+<area shape="rect" id="node128" href="polypoint.html" target="_top" title="polypoint" alt="" coords="967,7454,1111,7542">
+<area shape="rect" id="node129" href="process_tracking.html" target="_top" title="process_tracking" alt="" coords="318,8160,523,8248">
+<area shape="rect" id="node130" href="processing_recipe.html" target="_top" title="processing_recipe" alt="" coords="626,3254,841,3342">
+<area shape="rect" id="node131" href="qcmaskdef.html" target="_top" title="qcmaskdef" alt="" coords="656,6459,812,6547">
+<area shape="rect" id="node132" href="qcmaskinfo.html" target="_top" title="qcmaskinfo" alt="" coords="958,6958,1120,7046">
+<area shape="rect" id="node133" href="qcmaskseg.html" target="_top" title="qcmaskseg" alt="" coords="1268,6958,1428,7046">
+<area shape="rect" id="node134" href="qshell_interval.html" target="_top" title="qshell_interval" alt="" coords="946,7063,1132,7151">
+<area shape="rect" id="node135" href="reg_ratio_discrim.html" target="_top" title="reg_ratio_discrim" alt="" coords="1244,8203,1451,8291">
+<area shape="rect" id="node136" href="remark.html" target="_top" title="remark" alt="" coords="357,8551,484,8639">
+<area shape="rect" id="node137" href="request.html" target="_top" title="request" alt="" coords="1282,9467,1413,9555">
+<area shape="rect" id="node138" href="sado_email_history.html" target="_top" title="sado_email_history" alt="" coords="309,8762,532,8850">
+<area shape="rect" id="node139" href="sado_report_landmarks.html" target="_top" title="sado_report_landmarks" alt="" coords="606,6811,861,6899">
+<area shape="rect" id="node140" href="sado_state.html" target="_top" title="sado_state" alt="" coords="342,8903,499,8991">
+<area shape="rect" id="node141" href="sado_users.html" target="_top" title="sado_users" alt="" coords="340,9008,501,9096">
+<area shape="rect" id="node142" href="sensor.html" target="_top" title="sensor" alt="" coords="671,8586,796,8674">
+<area shape="rect" id="node143" href="site.html" target="_top" title="site" alt="" coords="684,6916,784,7004">
+<area shape="rect" id="node144" href="siteaux.html" target="_top" title="siteaux" alt="" coords="670,5686,798,5774">
+<area shape="rect" id="node145" href="sitechan.html" target="_top" title="sitechan" alt="" coords="352,9291,489,9379">
+<area shape="rect" id="node146" href="snr_phase.html" target="_top" title="snr_phase" alt="" coords="1271,8026,1425,8114">
+<area shape="rect" id="node147" href="sta_coda_spectrum.html" target="_top" title="sta_coda_spectrum" alt="" coords="927,1734,1150,1822">
+<area shape="rect" id="node148" href="stamag.html" target="_top" title="stamag" alt="" coords="974,2052,1104,2140">
+<area shape="rect" id="node149" href="staqual_dnames.html" target="_top" title="staqual_dnames" alt="" coords="321,9504,520,9592">
+<area shape="rect" id="node150" href="station_processing.html" target="_top" title="station_processing" alt="" coords="1238,4744,1458,4832">
+<area shape="rect" id="node151" href="station_quality.html" target="_top" title="station_quality" alt="" coords="641,5791,826,5879">
+<area shape="rect" id="node152" href="stayield.html" target="_top" title="stayield" alt="" coords="1282,1751,1414,1839">
+<area shape="rect" id="node153" href="taper.html" target="_top" title="taper" alt="" coords="678,5896,790,5984">
+<area shape="rect" id="node154" href="timestamp.html" target="_top" title="timestamp" alt="" coords="344,9754,497,9842">
+<area shape="rect" id="node155" href="tomo_info.html" target="_top" title="tomo_info" alt="" coords="659,6143,808,6231">
+<area shape="rect" id="node156" href="wfactivity.html" target="_top" title="wfactivity" alt="" coords="348,9895,493,9983">
+<area shape="rect" id="node157" href="wfconv.html" target="_top" title="wfconv" alt="" coords="356,10000,485,10088">
+<area shape="rect" id="node158" href="wffile.html" target="_top" title="wffile" alt="" coords="364,10106,477,10194">
+<area shape="rect" id="node159" href="xtag.html" target="_top" title="xtag" alt="" coords="368,10211,473,10299">
+</map>
+                                        <a name='diagram'><img id="twoimpliedDegreeImg" src="../diagrams/tables/alphasite.implied2degrees.png" usemap="#twoDegreesRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

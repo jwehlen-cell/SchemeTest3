@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CODAMAG_INPUT - ORCL.ORACLEADMIN</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>ORCL</b></a><span class="navbar-brand" style="padding-left: 0">.ORACLEADMIN</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>CODAMAG_INPUT</h1><br />
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-file-text-o"></i>
+                            <h3 id="Description" class="box-title">Description</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-body clearfix">
+                            <p>The codamag_input table contains key input parameters that a re used to calculate coda amplitudes, including the boundari es of the noise and signal windows and the path and site cor rection values.</p>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="AMPID">AMPID</span></td>
+                                    <td>NUMBER</td>
+                                    <td>18</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="CODAMAG_INPUT.AMPID references AMPLITUDE.AMPID via CODAMAGIN_AMPLITUDE_AMPID_FK"><a href='AMPLITUDE.html'>AMPLITUDE</a><span class='relatedKey'>.AMPID</span></td>
+                                                <td class="constraint detail">CODAMAGIN_AMPLITUDE_AMPID_FK</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Amplitude identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="FLO">FLO</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="CODAMAG_OUTPUT.FLO references CODAMAG_INPUT.FLO via CODAMAG_OUTPUT_FK_006"><a href='CODAMAG_OUTPUT.html'>CODAMAG_OUTPUT</a><span class='relatedKey'>.FLO</span></td>
+                                                <td class="constraint detail">CODAMAG_OUTPUT_FK_006</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Low corner freq for filter</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="FHI">FHI</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>High corner freq for filter</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="STA">STA</span></td>
+                                    <td>VARCHAR2</td>
+                                    <td>6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Station code</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="CHAN">CHAN</span></td>
+                                    <td>VARCHAR2</td>
+                                    <td>8</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Channel code</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ORID">ORID</span></td>
+                                    <td>NUMBER</td>
+                                    <td>18</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Origin identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ARID">ARID</span></td>
+                                    <td>NUMBER</td>
+                                    <td>18</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>LR arrival identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="AMPDEF">AMPDEF</span></td>
+                                    <td>VARCHAR2</td>
+                                    <td>1</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>d or n flag indicating if station/element is included (d,D) or excluded (n,N) from coda magnitude processing</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="DELTA">DELTA</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Source-receiver distance</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="BWRATIO">BWRATIO</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Pre-filter bandwidth to Nyquist ratio</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SAMPRATE">SAMPRATE</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>The sample rate of the data corresponding to this record</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ENVSLOW">ENVSLOW</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Slowness for envelope stacking</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="HWIDE">HWIDE</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Smoothing half-width for boxcar smoothing</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="POLYID">POLYID</span></td>
+                                    <td>NUMBER</td>
+                                    <td>18</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Polygon identifier for calibrated region</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TIME">TIME</span></td>
+                                    <td>FLOAT</td>
+                                    <td>53</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Epoch start time of signal window</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ENDTIME">ENDTIME</span></td>
+                                    <td>FLOAT</td>
+                                    <td>53</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Epoch end time of signal window</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="NOISE_START_TIME">NOISE_START_TIME</span></td>
+                                    <td>FLOAT</td>
+                                    <td>53</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Epoch start time of noise window</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="NOISE_END_TIME">NOISE_END_TIME</span></td>
+                                    <td>FLOAT</td>
+                                    <td>53</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Epoch end time of noise window</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TMEAS">TMEAS</span></td>
+                                    <td>FLOAT</td>
+                                    <td>53</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Time of coda amplitude measurement</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SHAPE_SPREADING">SHAPE_SPREADING</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Coda shape spreading factor</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SHAPE_DECAY">SHAPE_DECAY</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Coda shape attenuation decay factor</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SHAPEDMIN">SHAPEDMIN</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Minimum 1-D calibration distance for coda decay and spreading</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SHAPEDMAX">SHAPEDMAX</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Maximum 1-D calibration distance for coda decay and spreading</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="PEAK_VELOCITY">PEAK_VELOCITY</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Synthetic envelope peak velocity</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="VGDMIN">VGDMIN</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Minimum 1-D calibration distance for peak velocity</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="VGDMAX">VGDMAX</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Maximum 1-D calibration distance for peak velocity</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="PATH_COR_TYPE">PATH_COR_TYPE</span></td>
+                                    <td>VARCHAR2</td>
+                                    <td>8</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Path correction type (1D or 2D)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="PATH_COR">PATH_COR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Path correction (log10)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SITE_COR">SITE_COR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Site correction (log10)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SITEUNIT">SITEUNIT</span></td>
+                                    <td>VARCHAR2</td>
+                                    <td>9</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Unit for site correction term</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="WMODEL_NAME">WMODEL_NAME</span></td>
+                                    <td>VARCHAR2</td>
+                                    <td>50</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Yield model name</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="YINTERCEPT">YINTERCEPT</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Yield line fit intercept</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="YSLOPE">YSLOPE</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Yield line fit slope</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="FFACTOR">FFACTOR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Yield F factor (log 10)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SRC_REGION">SRC_REGION</span></td>
+                                    <td>VARCHAR2</td>
+                                    <td>50</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Source region name</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="MBINTERCEPT">MBINTERCEPT</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>mb line fit intercept</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="MBSLOPE">MBSLOPE</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>mb line fit slope</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="MBSIGMA">MBSIGMA</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>mb misfit for weighting</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="AUTH">AUTH</span></td>
+                                    <td>VARCHAR2</td>
+                                    <td>15</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Author</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="LDDATE">LDDATE</span></td>
+                                    <td>DATE</td>
+                                    <td>7</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Load Date</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> CODAMAG_INPUT_PK</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>FLO</td>
+                                </tr>
+                                <tr>
+                                    <td class='uniqueKey' title='Unique Key'><i class='icon ion-key iconkey'></i> CODAMAG_INPUT_COMPOSITE_UK</td>
+                                    <td>Must be unique</td>
+                                    <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
+                                    <td>AMPID + FLO + FHI</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 class="box-title">Check Constraints</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="check_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Constraint</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>CODAMAG_INPUT__SITECOR__CK</td>
+                                    <td>site_cor &gt; 0.0 OR site_cor &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__VGDMIN__CK</td>
+                                    <td>vgdmin &gt; 0.0 OR vgdmin &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__PATHCORTYPE__CK</td>
+                                    <td>path_cor_type in (&#39;none&#39;, &#39;1D&#39;, &#39;2D&#39;,&#39;-&#39;)</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__DELTA__CK</td>
+                                    <td>(delta &gt;&#61; 0.0 AND delta &lt;&#61; 180.0) OR delta &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__SHAPESPREAD__CK</td>
+                                    <td>shape_spreading &gt; 0.0 OR shape_spreading &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__TIME__CK</td>
+                                    <td>time &gt; -9999999999.999</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__ARID__CK</td>
+                                    <td>arid &gt; 0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__ENDTIME__CK</td>
+                                    <td>endtime &lt; 9999999999.999</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__HWIDE__CK</td>
+                                    <td>hwide &gt;&#61; 0.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__TMEAS__CK</td>
+                                    <td>tmeas &gt;&#61; -9999999999.999</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__PEAKVEL__CK</td>
+                                    <td>peak_velocity &gt; 0.0 OR peak_velocity &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__VGDMAX__CK</td>
+                                    <td>vgdmax &gt; 0.0 OR vgdmax &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__AMPID__CK</td>
+                                    <td>ampid &gt; 0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__ORID__CK</td>
+                                    <td>orid &gt; 0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__PATHCOR__CK</td>
+                                    <td>path_cor &gt;&#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__MBSLOPE__CK</td>
+                                    <td>mbslope &gt; 0.0 OR mbslope &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__NSTART_TIME__CK</td>
+                                    <td>noise_start_time &gt; -9999999999.999</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__FFACTOR__CK</td>
+                                    <td>ffactor &gt; 0.0 OR ffactor &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__SHAPEDMAX__CK</td>
+                                    <td>shapedmax &gt; 0.0 OR shapedmax &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__SAMPRATE__CK</td>
+                                    <td>samprate &gt; 0.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__AMPDEF__CK</td>
+                                    <td>ampdef IN ( &#39;d&#39;,&#39;n&#39;,&#39;D&#39;,&#39;N&#39; )</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__YSLOPE__CK</td>
+                                    <td>yslope &gt; 0.0 OR yslope &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__NEND_TIME__CK</td>
+                                    <td>noise_end_time &lt; 9999999999.999</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__POLYID__CK</td>
+                                    <td>polyid &gt; 0 OR polyid &#61; -1</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__SHAPEDECAY__CK</td>
+                                    <td>shape_decay &gt; 0.0 OR shape_decay &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__MBSIGMA__CK</td>
+                                    <td>mbsigma &gt; 0.0 OR mbsigma &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__SHAPEDMIN__CK</td>
+                                    <td>shapedmin &gt;&#61; 0.0 OR shapedmin &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__YINTERCEPT__CK</td>
+                                    <td>yintercept &gt;&#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__ENVSLOW__CK</td>
+                                    <td>envslow &gt;&#61; 0.0 OR envslow &#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__STA__CK</td>
+                                    <td>sta &#61; UPPER(sta)</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__MBINTERCEPT__CK</td>
+                                    <td>mbintercept &gt;&#61; -999.0</td>
+                                </tr>
+                                <tr>
+                                    <td>CODAMAG_INPUT__BWRATIO__CK</td>
+                                    <td>bwratio &gt; 0.0 OR bwratio &#61; -999.0</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="CODAMAG_INPUT.html" target="_top" title="CODAMAG_INPUT" alt="" coords="215,5,547,1248">
+<area shape="rect" id="node2" href="AMPLITUDE.html" target="_top" title="AMPLITUDE" alt="" coords="5,8,171,125">
+<area shape="rect" id="node3" href="CODAMAG_OUTPUT.html" target="_top" title="CODAMAG_OUTPUT" alt="" coords="591,37,823,155">
+</map>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/CODAMAG_INPUT.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="AMPLITUDE_DYN_PARS_DBL.html" target="_top" title="AMPLITUDE_DYN_PARS_DBL" alt="" coords="229,5,533,93">
+<area shape="rect" id="node2" href="AMPLITUDE.html" target="_top" title="AMPLITUDE" alt="" coords="5,952,171,1069">
+<area shape="rect" id="node3" href="AMPLITUDE_DYN_PARS_INT.html" target="_top" title="AMPLITUDE_DYN_PARS_INT" alt="" coords="232,111,530,199">
+<area shape="rect" id="node4" href="AMPLITUDE_DYN_PARS_STR.html" target="_top" title="AMPLITUDE_DYN_PARS_STR" alt="" coords="229,216,532,304">
+<area shape="rect" id="node5" href="CODAMAG_INPUT.html" target="_top" title="CODAMAG_INPUT" alt="" coords="215,321,547,1564">
+<area shape="rect" id="node6" href="CODAMAG_OUTPUT.html" target="_top" title="CODAMAG_OUTPUT" alt="" coords="591,353,823,471">
+<area shape="rect" id="node7" href="MSVMAX_DESCRIPT.html" target="_top" title="MSVMAX_DESCRIPT" alt="" coords="264,1581,498,1669">
+<area shape="rect" id="node8" href="STA_CODA_SPECTRUM.html" target="_top" title="STA_CODA_SPECTRUM" alt="" coords="251,1687,511,1775">
+<area shape="rect" id="node9" href="STAMAG.html" target="_top" title="STAMAG" alt="" coords="310,1792,452,1880">
+<area shape="rect" id="node10" href="STAYIELD.html" target="_top" title="STAYIELD" alt="" coords="305,1897,457,1985">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/CODAMAG_INPUT.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

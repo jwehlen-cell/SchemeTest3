@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>usndc_schema.public</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="index.html" class="navbar-brand"><b>usndc_schema</b></a><span class="navbar-brand" style="padding-left: 0">.public</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>Utility Tables</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Orphan Tables</h3>
+                        </div>
+                        <div class="box-body">
+                            <div id="grid" data-columns>
+                                <div class="item">
+<img id="orphans" src="diagrams/orphans/orphans.png" usemap="#orphans" style="max-width:100%;" border="0" align="top">
+<map id="orphans" name="orphans">
+<area shape="rect" id="node1" href="tables/active_id.html" target="_top" title="active_id" alt="" coords="94,29843,338,30088">
+<area shape="rect" id="node2" href="tables/affiliation.html" target="_top" title="affiliation" alt="" coords="98,29609,334,29825">
+<area shape="rect" id="node3" href="tables/alphasite.html" target="_top" title="alphasite" alt="" coords="86,29259,346,29592">
+<area shape="rect" id="node4" href="tables/ampdescript.html" target="_top" title="ampdescript" alt="" coords="86,28937,346,29241">
+<area shape="rect" id="node5" href="tables/aoi.html" target="_top" title="aoi" alt="" coords="69,28557,363,28920">
+<area shape="rect" id="node6" href="tables/assoc_ga.html" target="_top" title="assoc_ga" alt="" coords="98,27913,334,28540">
+<area shape="rect" id="node7" href="tables/bulletin_release.html" target="_top" title="bulletin_release" alt="" coords="35,27475,397,27896">
+<area shape="rect" id="node8" href="tables/bulletin_release_export.html" target="_top" title="bulletin_release_export" alt="" coords="25,27241,407,27457">
+<area shape="rect" id="node9" href="tables/butterworth_filter.html" target="_top" title="butterworth_filter" alt="" coords="60,26920,372,27224">
+<area shape="rect" id="node10" href="tables/chan_groups.html" target="_top" title="chan_groups" alt="" coords="84,26569,348,26903">
+<area shape="rect" id="node11" href="tables/channame.html" target="_top" title="channame" alt="" coords="82,26248,350,26552">
+<area shape="rect" id="node12" href="tables/classification_level.html" target="_top" title="classification_level" alt="" coords="50,26015,382,26231">
+<area shape="rect" id="node13" href="tables/classification_lookup.html" target="_top" title="classification_lookup" alt="" coords="37,25693,395,25997">
+<area shape="rect" id="node14" href="tables/classification_refer_to.html" target="_top" title="classification_refer_to" alt="" coords="32,25489,400,25676">
+<area shape="rect" id="node15" href="tables/cluster_magref.html" target="_top" title="cluster_magref" alt="" coords="73,25080,359,25472">
+<area shape="rect" id="node16" href="tables/cluster_mec.html" target="_top" title="cluster_mec" alt="" coords="95,24700,337,25063">
+<area shape="rect" id="node17" href="tables/cluster_override.html" target="_top" title="cluster_override" alt="" coords="19,24027,413,24683">
+<area shape="rect" id="node18" href="tables/cluster_phase_override.html" target="_top" title="cluster_phase_override" alt="" coords="5,23617,427,24009">
+<area shape="rect" id="node19" href="tables/cluster_threshold.html" target="_top" title="cluster_threshold" alt="" coords="18,23208,414,23600">
+<area shape="rect" id="node20" href="tables/codamag_output.html" target="_top" title="codamag_output" alt="" coords="63,22623,369,23191">
+<area shape="rect" id="node21" href="tables/continuous_data_status.html" target="_top" title="continuous_data_status" alt="" coords="21,22272,411,22605">
+<area shape="rect" id="node22" href="tables/da_interval.html" target="_top" title="da_interval" alt="" coords="67,21833,365,22255">
+<area shape="rect" id="node23" href="tables/da_refsta_latency.html" target="_top" title="da_refsta_latency" alt="" coords="55,21453,377,21816">
+<area shape="rect" id="node24" href="tables/da_refsta_summary.html" target="_top" title="da_refsta_summary" alt="" coords="46,21132,386,21436">
+<area shape="rect" id="node25" href="tables/da_sitechan_latency.html" target="_top" title="da_sitechan_latency" alt="" coords="42,20723,390,21115">
+<area shape="rect" id="node26" href="tables/deconvolution.html" target="_top" title="deconvolution" alt="" coords="78,20343,354,20705">
+<area shape="rect" id="node27" href="tables/detection_threshold.html" target="_top" title="detection_threshold" alt="" coords="13,19728,419,20325">
+<area shape="rect" id="node28" href="tables/dlman.html" target="_top" title="dlman" alt="" coords="83,19377,349,19711">
+<area shape="rect" id="node29" href="tables/doppler_detection.html" target="_top" title="doppler_detection" alt="" coords="32,18616,400,19360">
+<area shape="rect" id="node30" href="tables/ecm_constant.html" target="_top" title="ecm_constant" alt="" coords="79,18441,353,18599">
+<area shape="rect" id="node31" href="tables/event.html" target="_top" title="event" alt="" coords="103,18179,329,18424">
+<area shape="rect" id="node32" href="tables/event_correlation.html" target="_top" title="event_correlation" alt="" coords="52,17535,380,18161">
+<area shape="rect" id="node33" href="tables/feedback_cataffiliation.html" target="_top" title="feedback_cataffiliation" alt="" coords="30,17272,402,17517">
+<area shape="rect" id="node34" href="tables/feedback_categories.html" target="_top" title="feedback_categories" alt="" coords="41,17009,391,17255">
+<area shape="rect" id="node35" href="tables/feedback_state.html" target="_top" title="feedback_state" alt="" coords="60,16747,372,16992">
+<area shape="rect" id="node36" href="tables/feedback_state_categories.html" target="_top" title="feedback_state_categories" alt="" coords="6,16484,426,16729">
+<area shape="rect" id="node37" href="tables/filter_coefficients.html" target="_top" title="filter_coefficients" alt="" coords="60,16251,372,16467">
+<area shape="rect" id="node38" href="tables/filter_values_double.html" target="_top" title="filter_values_double" alt="" coords="43,16047,389,16233">
+<area shape="rect" id="node39" href="tables/filter_values_integer.html" target="_top" title="filter_values_integer" alt="" coords="43,15843,389,16029">
+<area shape="rect" id="node40" href="tables/filter_values_string.html" target="_top" title="filter_values_string" alt="" coords="49,15639,383,15825">
+<area shape="rect" id="node41" href="tables/ftplogin.html" target="_top" title="ftplogin" alt="" coords="88,15435,344,15621">
+<area shape="rect" id="node42" href="tables/ga_tag.html" target="_top" title="ga_tag" alt="" coords="80,15084,352,15417">
+<area shape="rect" id="node43" href="tables/gregion.html" target="_top" title="gregion" alt="" coords="105,14909,327,15067">
+<area shape="rect" id="node44" href="tables/hydro_arr_group.html" target="_top" title="hydro_arr_group" alt="" coords="63,14559,369,14892">
+<area shape="rect" id="node45" href="tables/hydro_arrival.html" target="_top" title="hydro_arrival" alt="" coords="70,13885,362,14541">
+<area shape="rect" id="node46" href="tables/hydro_assoc.html" target="_top" title="hydro_assoc" alt="" coords="84,13681,348,13868">
+<area shape="rect" id="node47" href="tables/hydro_origin.html" target="_top" title="hydro_origin" alt="" coords="72,13331,360,13664">
+<area shape="rect" id="node48" href="tables/mdac_fd.html" target="_top" title="mdac_fd" alt="" coords="82,12804,350,13313">
+<area shape="rect" id="node49" href="tables/msgdatatype.html" target="_top" title="msgdatatype" alt="" coords="84,12512,348,12787">
+<area shape="rect" id="node50" href="tables/network.html" target="_top" title="network" alt="" coords="78,12132,354,12495">
+<area shape="rect" id="node51" href="tables/omitted_channels.html" target="_top" title="omitted_channels" alt="" coords="57,11840,375,12115">
+<area shape="rect" id="node52" href="tables/origerr_ga.html" target="_top" title="origerr_ga" alt="" coords="94,11167,338,11823">
+<area shape="rect" id="node53" href="tables/origin_ga.html" target="_top" title="origin_ga" alt="" coords="98,10347,334,11149">
+<area shape="rect" id="node54" href="tables/outage_station_data.html" target="_top" title="outage_station_data" alt="" coords="43,10055,389,10329">
+<area shape="rect" id="node55" href="tables/outage_station_receive.html" target="_top" title="outage_station_receive" alt="" coords="26,9733,406,10037">
+<area shape="rect" id="node56" href="tables/process_tracking.html" target="_top" title="process_tracking" alt="" coords="60,9324,372,9716">
+<area shape="rect" id="node57" href="tables/processing_recipe.html" target="_top" title="processing_recipe" alt="" coords="53,9032,379,9307">
+<area shape="rect" id="node58" href="tables/remark.html" target="_top" title="remark" alt="" coords="103,8828,329,9015">
+<area shape="rect" id="node59" href="tables/removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="40,8683,392,8811">
+<area shape="rect" id="node60" href="tables/request.html" target="_top" title="request" alt="" coords="92,8127,340,8665">
+<area shape="rect" id="node61" href="tables/sado_email_history.html" target="_top" title="sado_email_history" alt="" coords="47,7835,385,8109">
+<area shape="rect" id="node62" href="tables/sado_report_landmarks.html" target="_top" title="sado_report_landmarks" alt="" coords="23,7425,409,7817">
+<area shape="rect" id="node63" href="tables/sado_state.html" target="_top" title="sado_state" alt="" coords="43,7163,389,7408">
+<area shape="rect" id="node64" href="tables/sado_users.html" target="_top" title="sado_users" alt="" coords="78,6900,354,7145">
+<area shape="rect" id="node65" href="tables/site.html" target="_top" title="site" alt="" coords="102,6461,330,6883">
+<area shape="rect" id="node66" href="tables/siteaux.html" target="_top" title="siteaux" alt="" coords="100,5876,332,6444">
+<area shape="rect" id="node67" href="tables/sitechan.html" target="_top" title="sitechan" alt="" coords="102,5467,330,5859">
+<area shape="rect" id="node68" href="tables/spatial_ref_sys.html" target="_top" title="spatial_ref_sys" alt="" coords="83,5233,349,5449">
+<area shape="rect" id="node69" href="tables/sregion.html" target="_top" title="sregion" alt="" coords="105,5059,327,5216">
+<area shape="rect" id="node70" href="tables/stanet.html" target="_top" title="stanet" alt="" coords="103,4825,329,5041">
+<area shape="rect" id="node71" href="tables/staqual_dnames.html" target="_top" title="staqual_dnames" alt="" coords="65,4504,367,4808">
+<area shape="rect" id="node72" href="tables/station_processing.html" target="_top" title="station_processing" alt="" coords="49,4271,383,4487">
+<area shape="rect" id="node73" href="tables/station_quality.html" target="_top" title="station_quality" alt="" coords="75,3627,357,4253">
+<area shape="rect" id="node74" href="tables/taper.html" target="_top" title="taper" alt="" coords="82,3335,350,3609">
+<area shape="rect" id="node75" href="tables/test_table.html" target="_top" title="test_table" alt="" coords="111,3189,321,3317">
+<area shape="rect" id="node76" href="tables/test_usndc.html" target="_top" title="test_usndc" alt="" coords="102,3044,330,3172">
+<area shape="rect" id="node77" href="tables/timestamp.html" target="_top" title="timestamp" alt="" coords="94,2840,338,3027">
+<area shape="rect" id="node78" href="tables/tomo_info.html" target="_top" title="tomo_info" alt="" coords="96,2401,336,2823">
+<area shape="rect" id="node79" href="tables/user_filter.html" target="_top" title="user_filter" alt="" coords="90,2168,342,2384">
+<area shape="rect" id="node80" href="tables/user_privileges.html" target="_top" title="user_privileges" alt="" coords="71,1964,361,2151">
+<area shape="rect" id="node81" href="tables/wfactivity.html" target="_top" title="wfactivity" alt="" coords="83,1643,349,1947">
+<area shape="rect" id="node82" href="tables/wfaudit.html" target="_top" title="wfaudit" alt="" coords="83,1321,349,1625">
+<area shape="rect" id="node83" href="tables/wfconv.html" target="_top" title="wfconv" alt="" coords="100,824,332,1304">
+<area shape="rect" id="node84" href="tables/wffile.html" target="_top" title="wffile" alt="" coords="98,297,334,807">
+<area shape="rect" id="node85" href="tables/xtag.html" target="_top" title="xtag" alt="" coords="98,5,334,280">
+</map>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src=""></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>

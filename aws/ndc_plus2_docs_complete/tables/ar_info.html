@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ar_info - usndc_schema.public</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>usndc_schema</b></a><span class="navbar-brand" style="padding-left: 0">.public</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>ar_info</h1><p><span id="recordNumber">-1</span> rows</p><br />
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-file-text-o"></i>
+                            <h3 id="Description" class="box-title">Description</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-body clearfix">
+                            <p>The ar_info table contains information about arrival observa tions used in event location. This includes the predicted ob servation values, the model used to predict the values, and all uncertainties associated with that observation.</p>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="orid">orid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="ar_info.orid references origin.orid via ar_info_origin_orid_fk"><a href='origin.html'>origin</a><span class='relatedKey'>.orid</span></td>
+                                                <td class="constraint detail">ar_info_origin_orid_fk</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Origin identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="arid">arid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Arrival identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="time_error_code">time_error_code</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Time error code</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="az_error_code">az_error_code</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Azimuth error code</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="slow_error_code">slow_error_code</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Slowness error code</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="src_dpnt_corr_type">src_dpnt_corr_type</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Correction code (TT, AZ, SLO)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="vmodel">vmodel</span></td>
+                                    <td>varchar</td>
+                                    <td>16</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Velocity model for theoretical travel time (TT) and slowness (SLO)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="total_travel_time">total_travel_time</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Predicted travel time including all corrections (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="tt_table_value">tt_table_value</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Base model travel time (uncorrect)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ellip_corr">ellip_corr</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Time correction due to earth&rsquo;s ellipticity (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="elev_corr">elev_corr</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Time correction due to station elevation (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="bulk_static_sta_corr">bulk_static_sta_corr</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Static station correction to travel time (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="tt_src_dpnt_corr">tt_src_dpnt_corr</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Source-specific travel time correction (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="tt_model_error">tt_model_error</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Travel time model uncertainty (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="tt_meas_error">tt_meas_error</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Travel time measurement uncertainty (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="tt_model_plus_meas_error">tt_model_plus_meas_error</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Combined travel time model and measurement uncertainty (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="az_src_dpnt_corr">az_src_dpnt_corr</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Source-specific azimuth correction (degrees)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="az_model_error">az_model_error</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Azimuth model uncertainty (degrees)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="az_meas_error">az_meas_error</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Azimuth measurement uncertainty (degrees)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="az_model_plus_meas_error">az_model_plus_meas_error</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Combined azimuth model and measurement uncertainty (degrees)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="sl_src_dpnt_corr">sl_src_dpnt_corr</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Source-specific slowness correction (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="sl_model_error">sl_model_error</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Slowness model uncertainty (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="sl_meas_error">sl_meas_error</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Slowness measurement uncertainty (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="sl_model_plus_meas_error">sl_model_plus_meas_error</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Combined slowness model and measurement uncertainty (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="time_import">time_import</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Weight applied to travel time in event solution</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="az_import">az_import</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Weight applied to azimuth in event solution</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="slow_import">slow_import</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Weight applied to slowness in event solution</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="slow_vec_res">slow_vec_res</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Residual between predicted and observed FK vector (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="lddate">lddate</span></td>
+                                    <td>timestamp</td>
+                                    <td>29,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="ar_info.lddate&#39;s name implies that it&#39;s a child of removed_beam_dfile.lddate, but it doesn&#39;t reference that column."><a href='removed_beam_dfile.html'>removed_beam_dfile</a><span class='relatedKey'>.lddate</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Load date</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> ar_info_pkey</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>arid</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 class="box-title">Check Constraints</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="check_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Constraint</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>ar_info__arid__ck</td>
+                                    <td>((arid &gt; 0))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__time_import__ck</td>
+                                    <td>((((time_import &gt;&#61; (0.0)::double precision) AND (time_import &lt;&#61; (1.0)::double precision)) OR (time_import &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__sl_model_error__ck</td>
+                                    <td>(((sl_model_error &gt; (0.0)::double precision) OR (sl_model_error &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__slow_import__ck</td>
+                                    <td>((((slow_import &gt;&#61; (0.0)::double precision) AND (slow_import &lt;&#61; (1.0)::double precision)) OR (slow_import &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__tt_meas_error__ck</td>
+                                    <td>(((tt_meas_error &gt; (0.0)::double precision) OR (tt_meas_error &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__orid__ck</td>
+                                    <td>((orid &gt; 0))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__slow_vec_res__ck</td>
+                                    <td>((((slow_vec_res &gt;&#61; (&#39;-1000.0&#39;::numeric)::double precision) AND (slow_vec_res &lt;&#61; (1000.0)::double precision)) OR (slow_vec_res &#61; (&#39;-999&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__src_dpnt_corr_ty__ck</td>
+                                    <td>((((src_dpnt_corr_type &gt; 0) AND (src_dpnt_corr_type &lt;&#61; 15)) OR (src_dpnt_corr_type &#61; 0)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__tt_table_value__ck</td>
+                                    <td>((((tt_table_value &gt; (0.0)::double precision) AND (tt_table_value &lt;&#61; (86400)::double precision)) OR (tt_table_value &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__az_src_dpnt_corr__ck</td>
+                                    <td>(((az_src_dpnt_corr &gt;&#61; (&#39;-180.0&#39;::numeric)::double precision) AND (az_src_dpnt_corr &lt;&#61; (180.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__tt_model_error__ck</td>
+                                    <td>(((tt_model_error &gt; (0.0)::double precision) OR (tt_model_error &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__sl_src_dpnt_corr__ck</td>
+                                    <td>(((sl_src_dpnt_corr &gt;&#61; (&#39;-50.0&#39;::numeric)::double precision) AND (sl_src_dpnt_corr &lt;&#61; (50.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__total_travel_time__ck</td>
+                                    <td>((((total_travel_time &gt; (0.0)::double precision) AND (total_travel_time &lt;&#61; (86400)::double precision)) OR (total_travel_time &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__ellip_corr__ck</td>
+                                    <td>(((ellip_corr &gt;&#61; (&#39;-50.0&#39;::numeric)::double precision) AND (ellip_corr &lt;&#61; (50.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__az_import__ck</td>
+                                    <td>((((az_import &gt;&#61; (0.0)::double precision) AND (az_import &lt;&#61; (1.0)::double precision)) OR (az_import &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__tt_src_dpnt_corr__ck</td>
+                                    <td>(((tt_src_dpnt_corr &gt;&#61; (&#39;-50.0&#39;::numeric)::double precision) AND (tt_src_dpnt_corr &lt;&#61; (50.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__blk_stat_sta_corr__ck</td>
+                                    <td>(((bulk_static_sta_corr &gt;&#61; (&#39;-50.0&#39;::numeric)::double precision) AND (bulk_static_sta_corr &lt;&#61; (50.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__elev_corr__ck</td>
+                                    <td>(((elev_corr &gt;&#61; (&#39;-50.0&#39;::numeric)::double precision) AND (elev_corr &lt;&#61; (50.0)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__az_model_error__ck</td>
+                                    <td>((((az_model_error &gt; (0.0)::double precision) AND (az_model_error &lt;&#61; (180.0)::double precision)) OR (az_model_error &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__sl_meas_error__ck</td>
+                                    <td>(((sl_meas_error &gt; (0.0)::double precision) OR (sl_meas_error &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__az_meas_error__ck</td>
+                                    <td>((((az_meas_error &gt; (0.0)::double precision) AND (az_meas_error &lt;&#61; (180.0)::double precision)) OR (az_meas_error &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__tt_mod_pls_ms_err__ck</td>
+                                    <td>(((tt_model_plus_meas_error &gt; (0.0)::double precision) OR (tt_model_plus_meas_error &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__slow_error_code__ck</td>
+                                    <td>(((slow_error_code &gt;&#61; 0) AND (slow_error_code &lt;&#61; 19)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__sl_mod_pls_ms_err__ck</td>
+                                    <td>(((sl_model_plus_meas_error &gt; (0.0)::double precision) OR (sl_model_plus_meas_error &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__az_error_code__ck</td>
+                                    <td>(((az_error_code &gt;&#61; 0) AND (az_error_code &lt;&#61; 19)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__time_error_code__ck</td>
+                                    <td>(((time_error_code &gt;&#61; 0) AND (time_error_code &lt;&#61; 19)))</td>
+                                </tr>
+                                <tr>
+                                    <td>ar_info__az_mod_pls_ms_err__ck</td>
+                                    <td>((((az_model_plus_meas_error &gt; (0.0)::double precision) AND (az_model_plus_meas_error &lt;&#61; (360.0)::double precision)) OR (az_model_plus_meas_error &#61; (&#39;-1.0&#39;::numeric)::double precision)))</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
+                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="ar_info.html" target="_top" title="ar_info" alt="" coords="171,61,546,981">
+<area shape="rect" id="node2" href="origin.html" target="_top" title="origin" alt="" coords="5,5,127,299">
+</map>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/ar_info.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="ar_info.html" target="_top" title="ar_info" alt="" coords="171,5,546,925">
+<area shape="rect" id="node2" href="origin.html" target="_top" title="origin" alt="" coords="5,1619,127,1912">
+<area shape="rect" id="node3" href="assoc.html" target="_top" title="assoc" alt="" coords="299,943,418,1031">
+<area shape="rect" id="node4" href="discrimuse.html" target="_top" title="discrimuse" alt="" coords="280,1048,437,1136">
+<area shape="rect" id="node5" href="discrimvote.html" target="_top" title="discrimvote" alt="" coords="277,1153,440,1241">
+<area shape="rect" id="node6" href="ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="240,1259,476,1347">
+<area shape="rect" id="node7" href="ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="250,1364,467,1452">
+<area shape="rect" id="node8" href="ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="250,1469,467,1557">
+<area shape="rect" id="node9" href="ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="271,1575,446,1663">
+<area shape="rect" id="node10" href="envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="236,1680,480,1768">
+<area shape="rect" id="node11" href="event_control.html" target="_top" title="event_control" alt="" coords="270,1785,447,1873">
+<area shape="rect" id="node12" href="event_quality.html" target="_top" title="event_quality" alt="" coords="271,1891,446,1979">
+<area shape="rect" id="node13" href="netmag.html" target="_top" title="netmag" alt="" coords="294,1996,423,2084">
+<area shape="rect" id="node14" href="netyield.html" target="_top" title="netyield" alt="" coords="292,2101,425,2189">
+<area shape="rect" id="node15" href="origerr.html" target="_top" title="origerr" alt="" coords="296,2207,420,2295">
+<area shape="rect" id="node16" href="origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="256,2312,461,2400">
+<area shape="rect" id="node17" href="origin_tag.html" target="_top" title="origin_tag" alt="" coords="283,2417,434,2505">
+<area shape="rect" id="node18" href="stamag.html" target="_top" title="stamag" alt="" coords="294,2523,423,2611">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/ar_info.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="ar_info.html" target="_top" title="ar_info" alt="" coords="447,5,822,925">
+<area shape="rect" id="node2" href="removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,477,238,595">
+<area shape="rect" id="node3" href="origin.html" target="_top" title="origin" alt="" coords="282,101,403,395">
+</map>
+                                        <a name='diagram'><img id="oneimpliedDegreeImg" src="../diagrams/tables/ar_info.implied1degrees.png" usemap="#oneDegreeRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="active_id.html" target="_top" title="active_id" alt="" coords="1385,1287,1527,1375">
+<area shape="rect" id="node2" href="removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,4955,238,5043">
+<area shape="rect" id="node3" href="wftag.html" target="_top" title="wftag" alt="" coords="1032,3861,1148,3949">
+<area shape="rect" id="node32" href="wfdisc.html" target="_top" title="wfdisc" alt="" coords="669,6423,792,6511">
+<area shape="rect" id="node4" href="affiliation.html" target="_top" title="affiliation" alt="" coords="659,139,803,227">
+<area shape="rect" id="node5" href="stanet.html" target="_top" title="stanet" alt="" coords="360,491,481,579">
+<area shape="rect" id="node6" href="algorithm.html" target="_top" title="algorithm" alt="" coords="348,918,493,1006">
+<area shape="rect" id="node7" href="alphasite.html" target="_top" title="alphasite" alt="" coords="659,669,802,757">
+<area shape="rect" id="node8" href="dlman.html" target="_top" title="dlman" alt="" coords="360,669,481,757">
+<area shape="rect" id="node9" href="amp3c.html" target="_top" title="amp3c" alt="" coords="1998,6215,2123,6303">
+<area shape="rect" id="node10" href="arrival.html" target="_top" title="arrival" alt="" coords="1706,4182,1828,4270">
+<area shape="rect" id="node13" href="user_privileges.html" target="_top" title="user_privileges" alt="" coords="325,4127,516,4215">
+<area shape="rect" id="node14" href="msvmax_results.html" target="_top" title="msvmax_results" alt="" coords="1356,4182,1555,4270">
+<area shape="rect" id="node11" href="ampdescript.html" target="_top" title="ampdescript" alt="" coords="336,1522,505,1610">
+<area shape="rect" id="node12" href="amplitude.html" target="_top" title="amplitude" alt="" coords="657,1273,805,1361">
+<area shape="rect" id="node114" href="msvmax_descript.html" target="_top" title="msvmax_descript" alt="" coords="986,4182,1194,4270">
+<area shape="rect" id="node15" href="amplitude_dyn_pars_dbl.html" target="_top" title="amplitude_dyn_pars_dbl" alt="" coords="959,731,1221,819">
+<area shape="rect" id="node16" href="amplitude_dyn_pars_int.html" target="_top" title="amplitude_dyn_pars_int" alt="" coords="961,873,1219,961">
+<area shape="rect" id="node17" href="amplitude_dyn_pars_str.html" target="_top" title="amplitude_dyn_pars_str" alt="" coords="961,978,1219,1066">
+<area shape="rect" id="node18" href="aoi.html" target="_top" title="aoi" alt="" coords="369,6102,472,6190">
+<area shape="rect" id="node19" href="apma.html" target="_top" title="apma" alt="" coords="2003,4517,2118,4605">
+<area shape="rect" id="node20" href="ar_info.html" target="_top" title="ar_info" alt="" coords="902,1898,1278,2818">
+<area shape="rect" id="node21" href="origin.html" target="_top" title="origin" alt="" coords="672,3398,790,3486">
+<area shape="rect" id="node100" href="gregion.html" target="_top" title="gregion" alt="" coords="355,3362,486,3450">
+<area shape="rect" id="node123" href="sregion.html" target="_top" title="sregion" alt="" coords="355,3503,486,3591">
+<area shape="rect" id="node22" href="arrival_dyn_pars_dbl.html" target="_top" title="arrival_dyn_pars_dbl" alt="" coords="1944,1102,2177,1190">
+<area shape="rect" id="node23" href="arrival_dyn_pars_int.html" target="_top" title="arrival_dyn_pars_int" alt="" coords="1946,2242,2175,2330">
+<area shape="rect" id="node24" href="arrival_dyn_pars_str.html" target="_top" title="arrival_dyn_pars_str" alt="" coords="1945,4622,2176,4710">
+<area shape="rect" id="node25" href="arrival_tag.html" target="_top" title="arrival_tag" alt="" coords="1984,4727,2137,4815">
+<area shape="rect" id="node26" href="origin_tag.html" target="_top" title="origin_tag" alt="" coords="1014,4645,1166,4733">
+<area shape="rect" id="node27" href="assoc.html" target="_top" title="assoc" alt="" coords="2001,4181,2120,4269">
+<area shape="rect" id="node28" href="assoc_ga.html" target="_top" title="assoc_ga" alt="" coords="348,1381,493,1469">
+<area shape="rect" id="node29" href="assoc_ga_del.html" target="_top" title="assoc_ga_del" alt="" coords="1001,6027,1179,6115">
+<area shape="rect" id="node30" href="origin_ga_del.html" target="_top" title="origin_ga_del" alt="" coords="642,5226,820,5314">
+<area shape="rect" id="node31" href="beam.html" target="_top" title="beam" alt="" coords="1032,6994,1148,7082">
+<area shape="rect" id="node112" href="msgdatatype.html" target="_top" title="msgdatatype" alt="" coords="334,7171,507,7259">
+<area shape="rect" id="node33" href="bulletin_release.html" target="_top" title="bulletin_release" alt="" coords="634,3753,828,3841">
+<area shape="rect" id="node34" href="bulletin_release_export.html" target="_top" title="bulletin_release_export" alt="" coords="964,3719,1216,3807">
+<area shape="rect" id="node35" href="butterworth_filter.html" target="_top" title="butterworth_filter" alt="" coords="628,1738,834,1826">
+<area shape="rect" id="node36" href="chan_groups.html" target="_top" title="chan_groups" alt="" coords="334,1807,507,1895">
+<area shape="rect" id="node37" href="channame.html" target="_top" title="channame" alt="" coords="344,1913,497,2001">
+<area shape="rect" id="node38" href="classification.html" target="_top" title="classification" alt="" coords="1002,5823,1178,5911">
+<area shape="rect" id="node39" href="classification_opr.html" target="_top" title="classification_opr" alt="" coords="626,6002,836,6090">
+<area shape="rect" id="node40" href="classification_level.html" target="_top" title="classification_level" alt="" coords="621,1879,840,1967">
+<area shape="rect" id="node41" href="classification_lookup.html" target="_top" title="classification_lookup" alt="" coords="613,2057,849,2145">
+<area shape="rect" id="node42" href="classification_refer_to.html" target="_top" title="classification_refer_to" alt="" coords="609,2234,852,2322">
+<area shape="rect" id="node43" href="cluster_info.html" target="_top" title="cluster_info" alt="" coords="649,3503,813,3591">
+<area shape="rect" id="node44" href="cluster_magref.html" target="_top" title="cluster_magref" alt="" coords="1362,3223,1550,3311">
+<area shape="rect" id="node45" href="cluster_station.html" target="_top" title="cluster_station" alt="" coords="996,3329,1184,3417">
+<area shape="rect" id="node46" href="cluster_override.html" target="_top" title="cluster_override" alt="" coords="1668,3362,1866,3450">
+<area shape="rect" id="node47" href="cluster_phase_override.html" target="_top" title="cluster_phase_override" alt="" coords="1330,3329,1582,3417">
+<area shape="rect" id="node48" href="cluster_threshold.html" target="_top" title="cluster_threshold" alt="" coords="1352,4287,1559,4375">
+<area shape="rect" id="node49" href="codamag_input.html" target="_top" title="codamag_input" alt="" coords="994,1333,1186,1421">
+<area shape="rect" id="node50" href="codamag_output.html" target="_top" title="codamag_output" alt="" coords="630,2339,832,2427">
+<area shape="rect" id="node51" href="continuous_data_status.html" target="_top" title="continuous_data_status" alt="" coords="292,2725,549,2813">
+<area shape="rect" id="node52" href="da_interval.html" target="_top" title="da_interval" alt="" coords="652,2445,810,2533">
+<area shape="rect" id="node53" href="da_refsta_latency.html" target="_top" title="da_refsta_latency" alt="" coords="316,2866,525,2954">
+<area shape="rect" id="node54" href="da_refsta_summary.html" target="_top" title="da_refsta_summary" alt="" coords="308,2971,533,3059">
+<area shape="rect" id="node55" href="da_sitechan_latency.html" target="_top" title="da_sitechan_latency" alt="" coords="306,3077,535,3165">
+<area shape="rect" id="node56" href="datauser.html" target="_top" title="datauser" alt="" coords="350,8903,491,8991">
+<area shape="rect" id="node57" href="deconvolution.html" target="_top" title="deconvolution" alt="" coords="640,2586,822,2674">
+<area shape="rect" id="node58" href="defining_obstypes.html" target="_top" title="defining_obstypes" alt="" coords="313,314,528,402">
+<area shape="rect" id="node59" href="defining_rules.html" target="_top" title="defining_rules" alt="" coords="639,245,822,333">
+<area shape="rect" id="node60" href="defining_values.html" target="_top" title="defining_values" alt="" coords="324,209,517,297">
+<area shape="rect" id="node61" href="detection.html" target="_top" title="detection" alt="" coords="2255,4249,2400,4337">
+<area shape="rect" id="node62" href="detection_threshold.html" target="_top" title="detection_threshold" alt="" coords="618,2691,844,2779">
+<area shape="rect" id="node63" href="discrim_param.html" target="_top" title="discrim_param" alt="" coords="1362,7391,1549,7479">
+<area shape="rect" id="node64" href="mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="1023,7670,1157,7758">
+<area shape="rect" id="node65" href="polygon.html" target="_top" title="polygon" alt="" coords="663,7597,798,7685">
+<area shape="rect" id="node71" href="ecm_constant.html" target="_top" title="ecm_constant" alt="" coords="330,7809,511,7897">
+<area shape="rect" id="node66" href="discrimuse.html" target="_top" title="discrimuse" alt="" coords="1377,4393,1535,4481">
+<area shape="rect" id="node67" href="discrimvote.html" target="_top" title="discrimvote" alt="" coords="1008,4359,1172,4447">
+<area shape="rect" id="node68" href="doppler_detection.html" target="_top" title="doppler_detection" alt="" coords="2221,7895,2434,7983">
+<area shape="rect" id="node69" href="ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="1338,7602,1574,7690">
+<area shape="rect" id="node70" href="ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="1634,7602,1900,7690">
+<area shape="rect" id="node78" href="ecm_ref_event.html" target="_top" title="ecm_ref_event" alt="" coords="638,6107,824,6195">
+<area shape="rect" id="node72" href="ecm_cov.html" target="_top" title="ecm_cov" alt="" coords="1696,5211,1838,5299">
+<area shape="rect" id="node73" href="ecm_ref_discrim.html" target="_top" title="ecm_ref_discrim" alt="" coords="990,5110,1190,5198">
+<area shape="rect" id="node74" href="ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="1368,5143,1543,5231">
+<area shape="rect" id="node77" href="rda_param.html" target="_top" title="rda_param" alt="" coords="1012,6570,1168,6658">
+<area shape="rect" id="node75" href="ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="1347,4859,1565,4947">
+<area shape="rect" id="node76" href="ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="1347,5038,1565,5126">
+<area shape="rect" id="node79" href="ecm_region_pref_version.html" target="_top" title="ecm_region_pref_version" alt="" coords="1322,6570,1590,6658">
+<area shape="rect" id="node80" href="ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="1335,7497,1577,7585">
+<area shape="rect" id="node81" href="envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="968,3614,1212,3702">
+<area shape="rect" id="node82" href="event.html" target="_top" title="event" alt="" coords="673,2797,788,2885">
+<area shape="rect" id="node83" href="event_control.html" target="_top" title="event_control" alt="" coords="1001,2835,1179,2923">
+<area shape="rect" id="node84" href="event_correlation.html" target="_top" title="event_correlation" alt="" coords="317,5115,524,5203">
+<area shape="rect" id="node85" href="event_quality.html" target="_top" title="event_quality" alt="" coords="1002,3223,1178,3311">
+<area shape="rect" id="node86" href="feedback_cataffiliation.html" target="_top" title="feedback_cataffiliation" alt="" coords="298,5257,543,5345">
+<area shape="rect" id="node87" href="feedback_categories.html" target="_top" title="feedback_categories" alt="" coords="305,5362,536,5450">
+<area shape="rect" id="node88" href="feedback_state.html" target="_top" title="feedback_state" alt="" coords="326,5467,515,5555">
+<area shape="rect" id="node89" href="feedback_state_categories.html" target="_top" title="feedback_state_categories" alt="" coords="282,5573,559,5661">
+<area shape="rect" id="node90" href="filter_coefficients.html" target="_top" title="filter_coefficients" alt="" coords="628,8002,834,8090">
+<area shape="rect" id="node91" href="user_filter.html" target="_top" title="user_filter" alt="" coords="345,8019,496,8107">
+<area shape="rect" id="node92" href="filter_values_double.html" target="_top" title="filter_values_double" alt="" coords="306,5750,535,5838">
+<area shape="rect" id="node93" href="filter_values_integer.html" target="_top" title="filter_values_integer" alt="" coords="306,5855,535,5943">
+<area shape="rect" id="node94" href="filter_values_string.html" target="_top" title="filter_values_string" alt="" coords="310,5961,531,6049">
+<area shape="rect" id="node95" href="fk_processing.html" target="_top" title="fk_processing" alt="" coords="1970,4073,2151,4161">
+<area shape="rect" id="node96" href="ftpfailed.html" target="_top" title="ftpfailed" alt="" coords="1022,8211,1158,8299">
+<area shape="rect" id="node97" href="ftplogin.html" target="_top" title="ftplogin" alt="" coords="665,8143,796,8231">
+<area shape="rect" id="node98" href="msgdisc.html" target="_top" title="msgdisc" alt="" coords="662,8769,800,8857">
+<area shape="rect" id="node99" href="ga_tag.html" target="_top" title="ga_tag" alt="" coords="669,5755,793,5843">
+<area shape="rect" id="node101" href="historic_info_cylinder.html" target="_top" title="historic_info_cylinder" alt="" coords="611,846,850,934">
+<area shape="rect" id="node102" href="historic_info_shell.html" target="_top" title="historic_info_shell" alt="" coords="623,1023,838,1111">
+<area shape="rect" id="node103" href="historic_info_sta_phase.html" target="_top" title="historic_info_sta_phase" alt="" coords="962,626,1218,714">
+<area shape="rect" id="node104" href="hydro_arr_group.html" target="_top" title="hydro_arr_group" alt="" coords="630,350,832,438">
+<area shape="rect" id="node105" href="hydro_arrival.html" target="_top" title="hydro_arrival" alt="" coords="333,6495,508,6583">
+<area shape="rect" id="node106" href="hydro_assoc.html" target="_top" title="hydro_assoc" alt="" coords="334,6601,507,6689">
+<area shape="rect" id="node107" href="hydro_origin.html" target="_top" title="hydro_origin" alt="" coords="335,6706,506,6794">
+<area shape="rect" id="node108" href="instrument.html" target="_top" title="instrument" alt="" coords="342,8410,499,8498">
+<area shape="rect" id="node109" href="interval.html" target="_top" title="interval" alt="" coords="666,6318,796,6406">
+<area shape="rect" id="node110" href="mdac_fd.html" target="_top" title="mdac_fd" alt="" coords="1991,7654,2130,7742">
+<area shape="rect" id="node111" href="msgaux.html" target="_top" title="msgaux" alt="" coords="1023,9149,1157,9237">
+<area shape="rect" id="node113" href="msgdest.html" target="_top" title="msgdest" alt="" coords="1020,8737,1160,8825">
+<area shape="rect" id="node115" href="net_coda_spectrum.html" target="_top" title="net_coda_spectrum" alt="" coords="1344,1119,1568,1207">
+<area shape="rect" id="node116" href="netmag.html" target="_top" title="netmag" alt="" coords="1025,1119,1155,1207">
+<area shape="rect" id="node117" href="network.html" target="_top" title="network" alt="" coords="663,527,798,615">
+<area shape="rect" id="node118" href="netyield.html" target="_top" title="netyield" alt="" coords="1023,1579,1157,1667">
+<area shape="rect" id="node119" href="omitted_channels.html" target="_top" title="omitted_channels" alt="" coords="626,2902,836,2990">
+<area shape="rect" id="node120" href="origerr.html" target="_top" title="origerr" alt="" coords="1028,2941,1152,3029">
+<area shape="rect" id="node121" href="origerr_ga.html" target="_top" title="origerr_ga" alt="" coords="344,7349,497,7437">
+<area shape="rect" id="node122" href="origerr_ga_del.html" target="_top" title="origerr_ga_del" alt="" coords="998,6330,1182,6418">
+<area shape="rect" id="node124" href="origin_ga.html" target="_top" title="origin_ga" alt="" coords="658,3113,804,3201">
+<area shape="rect" id="node125" href="origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="987,3046,1193,3134">
+<area shape="rect" id="node126" href="outage_station_data.html" target="_top" title="outage_station_data" alt="" coords="306,7598,535,7686">
+<area shape="rect" id="node127" href="outage_station_receive.html" target="_top" title="outage_station_receive" alt="" coords="295,7703,546,7791">
+<area shape="rect" id="node128" href="polypoint.html" target="_top" title="polypoint" alt="" coords="1018,7207,1162,7295">
+<area shape="rect" id="node129" href="process_tracking.html" target="_top" title="process_tracking" alt="" coords="318,7914,523,8002">
+<area shape="rect" id="node130" href="processing_recipe.html" target="_top" title="processing_recipe" alt="" coords="623,3007,838,3095">
+<area shape="rect" id="node131" href="qcmaskdef.html" target="_top" title="qcmaskdef" alt="" coords="653,6213,809,6301">
+<area shape="rect" id="node132" href="qcmaskinfo.html" target="_top" title="qcmaskinfo" alt="" coords="1009,6711,1171,6799">
+<area shape="rect" id="node133" href="qcmaskseg.html" target="_top" title="qcmaskseg" alt="" coords="1376,6711,1536,6799">
+<area shape="rect" id="node134" href="qshell_interval.html" target="_top" title="qshell_interval" alt="" coords="997,6817,1183,6905">
+<area shape="rect" id="node135" href="reg_ratio_discrim.html" target="_top" title="reg_ratio_discrim" alt="" coords="1352,7957,1559,8045">
+<area shape="rect" id="node136" href="remark.html" target="_top" title="remark" alt="" coords="357,8305,484,8393">
+<area shape="rect" id="node137" href="request.html" target="_top" title="request" alt="" coords="1390,9221,1521,9309">
+<area shape="rect" id="node138" href="sado_email_history.html" target="_top" title="sado_email_history" alt="" coords="309,8515,532,8603">
+<area shape="rect" id="node139" href="sado_report_landmarks.html" target="_top" title="sado_report_landmarks" alt="" coords="603,6565,858,6653">
+<area shape="rect" id="node140" href="sado_state.html" target="_top" title="sado_state" alt="" coords="342,8657,499,8745">
+<area shape="rect" id="node141" href="sado_users.html" target="_top" title="sado_users" alt="" coords="340,8762,501,8850">
+<area shape="rect" id="node142" href="sensor.html" target="_top" title="sensor" alt="" coords="668,8355,794,8443">
+<area shape="rect" id="node143" href="site.html" target="_top" title="site" alt="" coords="681,6670,781,6758">
+<area shape="rect" id="node144" href="siteaux.html" target="_top" title="siteaux" alt="" coords="667,5439,795,5527">
+<area shape="rect" id="node145" href="sitechan.html" target="_top" title="sitechan" alt="" coords="352,9045,489,9133">
+<area shape="rect" id="node146" href="snr_phase.html" target="_top" title="snr_phase" alt="" coords="1379,7779,1533,7867">
+<area shape="rect" id="node147" href="sta_coda_spectrum.html" target="_top" title="sta_coda_spectrum" alt="" coords="978,1438,1202,1526">
+<area shape="rect" id="node148" href="stamag.html" target="_top" title="stamag" alt="" coords="1025,1685,1155,1773">
+<area shape="rect" id="node149" href="staqual_dnames.html" target="_top" title="staqual_dnames" alt="" coords="321,9258,520,9346">
+<area shape="rect" id="node150" href="station_processing.html" target="_top" title="station_processing" alt="" coords="1346,4498,1566,4586">
+<area shape="rect" id="node151" href="station_quality.html" target="_top" title="station_quality" alt="" coords="638,5545,824,5633">
+<area shape="rect" id="node152" href="stayield.html" target="_top" title="stayield" alt="" coords="1390,1517,1522,1605">
+<area shape="rect" id="node153" href="taper.html" target="_top" title="taper" alt="" coords="675,5650,787,5738">
+<area shape="rect" id="node154" href="timestamp.html" target="_top" title="timestamp" alt="" coords="344,9507,497,9595">
+<area shape="rect" id="node155" href="tomo_info.html" target="_top" title="tomo_info" alt="" coords="656,5897,806,5985">
+<area shape="rect" id="node156" href="wfactivity.html" target="_top" title="wfactivity" alt="" coords="348,9649,493,9737">
+<area shape="rect" id="node157" href="wfconv.html" target="_top" title="wfconv" alt="" coords="356,9754,485,9842">
+<area shape="rect" id="node158" href="wffile.html" target="_top" title="wffile" alt="" coords="364,9859,477,9947">
+<area shape="rect" id="node159" href="xtag.html" target="_top" title="xtag" alt="" coords="368,9965,473,10053">
+</map>
+                                        <a name='diagram'><img id="twoimpliedDegreeImg" src="../diagrams/tables/ar_info.implied2degrees.png" usemap="#twoDegreesRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

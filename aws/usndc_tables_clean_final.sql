@@ -1,0 +1,2799 @@
+-- USNDC Database Schema for PostgreSQL
+-- Generated from USNDC_Tables_A_to_Z.html
+-- Compatible with AWS RDS PostgreSQL
+-- Drop existing tables (in dependency order)
+DROP TABLE IF EXISTS XTAG CASCADE;
+DROP TABLE IF EXISTS WFTAG CASCADE;
+DROP TABLE IF EXISTS WFFILE CASCADE;
+DROP TABLE IF EXISTS WFDISC CASCADE;
+DROP TABLE IF EXISTS WFCONV CASCADE;
+DROP TABLE IF EXISTS WFAUDIT CASCADE;
+DROP TABLE IF EXISTS WFACTIVITY CASCADE;
+DROP TABLE IF EXISTS USER_PRIVILEGES CASCADE;
+DROP TABLE IF EXISTS USER_FILTER CASCADE;
+DROP TABLE IF EXISTS TOMO_INFO CASCADE;
+DROP TABLE IF EXISTS TIMESTAMP CASCADE;
+DROP TABLE IF EXISTS TAPER CASCADE;
+DROP TABLE IF EXISTS SVDDISC_CHAN_ORDER CASCADE;
+DROP TABLE IF EXISTS SVDDISC CASCADE;
+DROP TABLE IF EXISTS STA_CODA_SPECTRUM CASCADE;
+DROP TABLE IF EXISTS STAYIELD CASCADE;
+DROP TABLE IF EXISTS STATION_QUALITY CASCADE;
+DROP TABLE IF EXISTS STATION_PROCESSING CASCADE;
+DROP TABLE IF EXISTS STAQUAL_DNAMES CASCADE;
+DROP TABLE IF EXISTS STANET CASCADE;
+DROP TABLE IF EXISTS STAMAG CASCADE;
+DROP TABLE IF EXISTS SREGION CASCADE;
+DROP TABLE IF EXISTS SNR_PHASE CASCADE;
+DROP TABLE IF EXISTS SITECHAN CASCADE;
+DROP TABLE IF EXISTS SITEAUX CASCADE;
+DROP TABLE IF EXISTS SITE CASCADE;
+DROP TABLE IF EXISTS SENSOR CASCADE;
+DROP TABLE IF EXISTS SADO_USERS CASCADE;
+DROP TABLE IF EXISTS SADO_STATE_CATEGORIES CASCADE;
+DROP TABLE IF EXISTS SADO_STATE CASCADE;
+DROP TABLE IF EXISTS SADO_SCREENSHOTS CASCADE;
+DROP TABLE IF EXISTS SADO_REPORT_LANDMARKS CASCADE;
+DROP TABLE IF EXISTS SADO_REPORT CASCADE;
+DROP TABLE IF EXISTS SADO_PDF_REPORTS CASCADE;
+DROP TABLE IF EXISTS SADO_EMAIL_HISTORY CASCADE;
+DROP TABLE IF EXISTS REQUEST CASCADE;
+DROP TABLE IF EXISTS REMOVED_BEAM_DFILE CASCADE;
+DROP TABLE IF EXISTS REMARK CASCADE;
+DROP TABLE IF EXISTS REMAP CASCADE;
+DROP TABLE IF EXISTS REG_RATIO_DISCRIM CASCADE;
+DROP TABLE IF EXISTS RDA_PARAM CASCADE;
+DROP TABLE IF EXISTS QSHELL_INTERVAL CASCADE;
+DROP TABLE IF EXISTS QCMASKSEG CASCADE;
+DROP TABLE IF EXISTS QCMASKINFO CASCADE;
+DROP TABLE IF EXISTS QCMASKDEF CASCADE;
+DROP TABLE IF EXISTS PROCESS_TRACKING CASCADE;
+DROP TABLE IF EXISTS PROCESSING_RECIPE CASCADE;
+DROP TABLE IF EXISTS POLYPOINT CASCADE;
+DROP TABLE IF EXISTS POLYGON CASCADE;
+DROP TABLE IF EXISTS OUTAGE_STATION_RECEIVE CASCADE;
+DROP TABLE IF EXISTS OUTAGE_STATION_DATA CASCADE;
+DROP TABLE IF EXISTS ORIGIN_TAG CASCADE;
+DROP TABLE IF EXISTS ORIGIN_SDO CASCADE;
+DROP TABLE IF EXISTS ORIGIN_MEA_TRACE CASCADE;
+DROP TABLE IF EXISTS ORIGIN_GA_DEL CASCADE;
+DROP TABLE IF EXISTS ORIGIN_GA CASCADE;
+DROP TABLE IF EXISTS ORIGIN CASCADE;
+DROP TABLE IF EXISTS ORIGERR_GA_DEL CASCADE;
+DROP TABLE IF EXISTS ORIGERR_GA CASCADE;
+DROP TABLE IF EXISTS ORIGERR CASCADE;
+DROP TABLE IF EXISTS OMITTED_CHANNELS CASCADE;
+DROP TABLE IF EXISTS NET_CODA_SPECTRUM CASCADE;
+DROP TABLE IF EXISTS NETYIELD CASCADE;
+DROP TABLE IF EXISTS NETWORK CASCADE;
+DROP TABLE IF EXISTS NETMAG CASCADE;
+DROP TABLE IF EXISTS MSVMAX_RESULTS CASCADE;
+DROP TABLE IF EXISTS MSVMAX_DESCRIPT CASCADE;
+DROP TABLE IF EXISTS MSGDISC CASCADE;
+DROP TABLE IF EXISTS MSGDEST CASCADE;
+DROP TABLE IF EXISTS MSGDATATYPE CASCADE;
+DROP TABLE IF EXISTS MSGAUX CASCADE;
+DROP TABLE IF EXISTS MDAC_FI CASCADE;
+DROP TABLE IF EXISTS MDAC_FD CASCADE;
+DROP TABLE IF EXISTS INTERVAL CASCADE;
+DROP TABLE IF EXISTS INSTRUMENT CASCADE;
+DROP TABLE IF EXISTS HYDRO_ORIGIN CASCADE;
+DROP TABLE IF EXISTS HYDRO_ASSOC CASCADE;
+DROP TABLE IF EXISTS HYDRO_ARR_GROUP CASCADE;
+DROP TABLE IF EXISTS HYDRO_ARRIVAL CASCADE;
+DROP TABLE IF EXISTS HISTORIC_INFO_STA_PHASE CASCADE;
+DROP TABLE IF EXISTS HISTORIC_INFO_SHELL CASCADE;
+DROP TABLE IF EXISTS HISTORIC_INFO_CYLINDER CASCADE;
+DROP TABLE IF EXISTS GREGION CASCADE;
+DROP TABLE IF EXISTS GA_TAG CASCADE;
+DROP TABLE IF EXISTS FTPLOGIN CASCADE;
+DROP TABLE IF EXISTS FTPFAILED CASCADE;
+DROP TABLE IF EXISTS FK_PROCESSING CASCADE;
+DROP TABLE IF EXISTS FILTER_VALUES_STRING CASCADE;
+DROP TABLE IF EXISTS FILTER_VALUES_INTEGER CASCADE;
+DROP TABLE IF EXISTS FILTER_VALUES_DOUBLE CASCADE;
+DROP TABLE IF EXISTS FILTER_GROUP CASCADE;
+DROP TABLE IF EXISTS FILTER_COEFFICIENTS CASCADE;
+DROP TABLE IF EXISTS FILTER CASCADE;
+DROP TABLE IF EXISTS FEEDBACK_STATE_CATEGORIES CASCADE;
+DROP TABLE IF EXISTS FEEDBACK_STATE CASCADE;
+DROP TABLE IF EXISTS FEEDBACK_SCREENSHOTS CASCADE;
+DROP TABLE IF EXISTS FEEDBACK_CATEGORIES CASCADE;
+DROP TABLE IF EXISTS FEEDBACK_CATAFFILIATION CASCADE;
+DROP TABLE IF EXISTS FEEDBACK CASCADE;
+DROP TABLE IF EXISTS EVENT_QUALITY CASCADE;
+DROP TABLE IF EXISTS EVENT_CORRELATION CASCADE;
+DROP TABLE IF EXISTS EVENT_CONTROL CASCADE;
+DROP TABLE IF EXISTS EVENT CASCADE;
+DROP TABLE IF EXISTS ENVELOPE_CONTRIBUTION CASCADE;
+DROP TABLE IF EXISTS ECM_STA_PREF_VERSION CASCADE;
+DROP TABLE IF EXISTS ECM_SOURCES CASCADE;
+DROP TABLE IF EXISTS ECM_REGION_PREF_VERSION CASCADE;
+DROP TABLE IF EXISTS ECM_REF_EVENT CASCADE;
+DROP TABLE IF EXISTS ECM_REF_DISCRIM CASCADE;
+DROP TABLE IF EXISTS ECM_REF_CHAN_AMPLITUDE CASCADE;
+DROP TABLE IF EXISTS ECM_EVENT_RESULTS CASCADE;
+DROP TABLE IF EXISTS ECM_DISCRIMINANTS CASCADE;
+DROP TABLE IF EXISTS ECM_COV CASCADE;
+DROP TABLE IF EXISTS ECM_CONSTANT CASCADE;
+DROP TABLE IF EXISTS ECM_CHAN_AMPLITUDE CASCADE;
+DROP TABLE IF EXISTS DOPPLER_DETECTION CASCADE;
+DROP TABLE IF EXISTS DLMAN CASCADE;
+DROP TABLE IF EXISTS DISCRIM_PARAM CASCADE;
+DROP TABLE IF EXISTS DISCRIMVOTE CASCADE;
+DROP TABLE IF EXISTS DISCRIMUSE CASCADE;
+DROP TABLE IF EXISTS DETECTION_THRESHOLD CASCADE;
+DROP TABLE IF EXISTS DETECTION CASCADE;
+DROP TABLE IF EXISTS DEFINING_VALUES CASCADE;
+DROP TABLE IF EXISTS DEFINING_RULES CASCADE;
+DROP TABLE IF EXISTS DEFINING_OBSTYPES CASCADE;
+DROP TABLE IF EXISTS DECONVOLUTION CASCADE;
+DROP TABLE IF EXISTS DA_SITECHAN_LATENCY CASCADE;
+DROP TABLE IF EXISTS DA_REFSTA_SUMMARY CASCADE;
+DROP TABLE IF EXISTS DA_REFSTA_LATENCY CASCADE;
+DROP TABLE IF EXISTS DA_INTERVAL CASCADE;
+DROP TABLE IF EXISTS DATAUSER CASCADE;
+DROP TABLE IF EXISTS CONTINUOUS_DATA_STATUS CASCADE;
+DROP TABLE IF EXISTS CODAMAG_OUTPUT CASCADE;
+DROP TABLE IF EXISTS CODAMAG_INPUT CASCADE;
+DROP TABLE IF EXISTS CLUSTER_THRESHOLD CASCADE;
+DROP TABLE IF EXISTS CLUSTER_STATION CASCADE;
+DROP TABLE IF EXISTS CLUSTER_PHASE_OVERRIDE CASCADE;
+DROP TABLE IF EXISTS CLUSTER_OVERRIDE CASCADE;
+DROP TABLE IF EXISTS CLUSTER_ORID CASCADE;
+DROP TABLE IF EXISTS CLUSTER_MEC CASCADE;
+DROP TABLE IF EXISTS CLUSTER_MAGREF CASCADE;
+DROP TABLE IF EXISTS CLUSTER_INFO CASCADE;
+DROP TABLE IF EXISTS CLASS_DISSEM_ID CASCADE;
+DROP TABLE IF EXISTS CLASS_DERIVED_ID CASCADE;
+DROP TABLE IF EXISTS CLASS_DECLASS_ID CASCADE;
+DROP TABLE IF EXISTS CLASSIFICATION_REFER_TO CASCADE;
+DROP TABLE IF EXISTS CLASSIFICATION_OPR CASCADE;
+DROP TABLE IF EXISTS CLASSIFICATION_LOOKUP CASCADE;
+DROP TABLE IF EXISTS CLASSIFICATION_LEVEL CASCADE;
+DROP TABLE IF EXISTS CLASSIFICATION CASCADE;
+DROP TABLE IF EXISTS CHAN_GROUPS CASCADE;
+DROP TABLE IF EXISTS CHANNAME CASCADE;
+DROP TABLE IF EXISTS BUTTERWORTH_FILTER CASCADE;
+DROP TABLE IF EXISTS BULLETIN_RELEASE_EXPORT CASCADE;
+DROP TABLE IF EXISTS BULLETIN_RELEASE CASCADE;
+DROP TABLE IF EXISTS BEAM CASCADE;
+DROP TABLE IF EXISTS ASSOC_GA_DEL CASCADE;
+DROP TABLE IF EXISTS ASSOC_GA CASCADE;
+DROP TABLE IF EXISTS ASSOC CASCADE;
+DROP TABLE IF EXISTS AR_INFO CASCADE;
+DROP TABLE IF EXISTS ARRIVAL_TAG CASCADE;
+DROP TABLE IF EXISTS ARRIVAL_DYN_PARS_STR CASCADE;
+DROP TABLE IF EXISTS ARRIVAL_DYN_PARS_INT CASCADE;
+DROP TABLE IF EXISTS ARRIVAL_DYN_PARS_DBL CASCADE;
+DROP TABLE IF EXISTS ARRIVAL CASCADE;
+DROP TABLE IF EXISTS APMA CASCADE;
+DROP TABLE IF EXISTS AOI CASCADE;
+DROP TABLE IF EXISTS AMPLITUDE_DYN_PARS_STR CASCADE;
+DROP TABLE IF EXISTS AMPLITUDE_DYN_PARS_INT CASCADE;
+DROP TABLE IF EXISTS AMPLITUDE_DYN_PARS_DBL CASCADE;
+DROP TABLE IF EXISTS AMPLITUDE CASCADE;
+DROP TABLE IF EXISTS AMPDESCRIPT CASCADE;
+DROP TABLE IF EXISTS AMP3C CASCADE;
+DROP TABLE IF EXISTS ALPHASITE CASCADE;
+DROP TABLE IF EXISTS ALGORITHM CASCADE;
+DROP TABLE IF EXISTS AFFILIATION CASCADE;
+DROP TABLE IF EXISTS ACTIVE_ID CASCADE;
+-- Create tables
+-- The active_id table is used to track events or arrivals bein g actively worked interactively to prevent the same event/ar rival from being worked by more than one individual.
+CREATE TABLE ACTIVE_ID (
+    TAGNAME VARCHAR(8)
+    TAGID BIGINT
+    CLIENT_INFO VARCHAR(64)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The affiliation table groups stations into networks.
+CREATE TABLE AFFILIATION (
+    NET VARCHAR(8)
+    STA VARCHAR(6)
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_affiliation PRIMARY KEY (NET, STA, TIME)
+);
+
+-- The algorithm table describes the algorithm and valid time p eriod
+CREATE TABLE ALGORITHM (
+    ALGORITHM_ID BIGINT
+    ALGORITHM_NAME VARCHAR(64)
+    DESCRIPTION VARCHAR(4000)
+    ON_DATE TIMESTAMP
+    OFF_DATE TIMESTAMP
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_algorithm PRIMARY KEY (ALGORITHM_ID)
+);
+
+-- The alphasite table is used for tracking continuous data con nections by the DLMan application. For a given station, ther e must be a row in the table for each address from which the station may send continuous data. The columns prefdlid and prefport describe the preferred DLMan connection for the sta tion. DLMan fills in dlid and time while a station is active ly connected. The column dlid indicates to which dlid the st ation is currently connected (may be different from prefdlid ) and the column time is the system time for the last activi ty on the station's connection (not the time of any data rec eived). For stations that are not connected, time and dlid a re zero.
+CREATE TABLE ALPHASITE (
+    STA VARCHAR(6)
+    ADDRESS VARCHAR(16)
+    PREFDLID BIGINT
+    PREFPORT INTEGER
+    CON_ALLOWED VARCHAR(1)
+    DLID BIGINT
+    TIME DOUBLE PRECISION
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The amp3c table contains amplitude measurements made on thre e-component data for a specific detection.
+CREATE TABLE AMP3C (
+    ARID BIGINT
+    CFREQ REAL
+    VAMP REAL
+    VSNR REAL
+    HAMP REAL
+    HSNR REAL
+    HTOV REAL
+    RID VARCHAR(8)
+    LDDATE TIMESTAMP
+);
+
+-- The ampdescript table contains descriptions of how amplitude measurements in amplitude were made.
+CREATE TABLE AMPDESCRIPT (
+    AMPTYPE VARCHAR(8)
+    TOFF REAL
+    TLEN REAL
+    GVLO REAL
+    GVHI REAL
+    MTYPE VARCHAR(8)
+    AMPDESCR VARCHAR(255)
+    LDDATE TIMESTAMP
+);
+
+-- The amplitude table contains arrival-based and origin-based amplitude measurements. The amplitude measurement is describ ed in ampdescript.
+CREATE TABLE AMPLITUDE (
+    AMPID BIGINT
+    ARID BIGINT
+    PARID BIGINT
+    CHAN VARCHAR(8)
+    AMP REAL
+    PER REAL
+    SNR REAL
+    AMPTIME DOUBLE PRECISION
+    TIME DOUBLE PRECISION
+    DURATION REAL
+    DELTAF REAL
+    AMPTYPE VARCHAR(8)
+    UNITS VARCHAR(15)
+    CLIP VARCHAR(1)
+    INARRIVAL VARCHAR(1)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_amplitude PRIMARY KEY (AMPID)
+);
+
+-- The amplitude_dyn_pars_dbl table will store amplitude parame ters and metadata (float values). Each record will contain o nly one piece of information.
+CREATE TABLE AMPLITUDE_DYN_PARS_DBL (
+    AMPID BIGINT
+    GROUP_NAME VARCHAR(48)
+    PARAM_NAME VARCHAR(48)
+    D_VALUE DOUBLE PRECISION
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_amplitude_dyn_pars_dbl PRIMARY KEY (AMPID)
+);
+
+-- The amplitude_dyn_pars_int table will store amplitude parame ters and metadata (integer values). Each record will contain only one piece of information.
+CREATE TABLE AMPLITUDE_DYN_PARS_INT (
+    AMPID BIGINT
+    GROUP_NAME VARCHAR(48)
+    PARAM_NAME VARCHAR(48)
+    I_VALUE BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_amplitude_dyn_pars_int PRIMARY KEY (AMPID)
+);
+
+-- The amplitude_dyn_pars_str table will store amplitude parame ters and metadata (string values). Each record will contain only one piece of information.
+CREATE TABLE AMPLITUDE_DYN_PARS_STR (
+    AMPID BIGINT
+    GROUP_NAME VARCHAR(48)
+    PARAM_NAME VARCHAR(48)
+    S_VALUE VARCHAR(1024)
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_amplitude_dyn_pars_str PRIMARY KEY (AMPID)
+);
+
+-- The aoi table contains geographic characteristics of a parti cluar region of the Earth, based on five criteria: aoi_geoch ar, depth_geochar, lfaoi_geochar, seismic_geochar, and terra in_geochar. The entire content of this table is classified S ECRET.
+CREATE TABLE AOI (
+    LAT DOUBLE PRECISION
+    LON DOUBLE PRECISION
+    AOI_GEOCHAR VARCHAR(1)
+    LFAOI_GEOCHAR VARCHAR(1)
+    DEPTH_GEOCHAR VARCHAR(1)
+    SEISMIC_GEOCHAR VARCHAR(1)
+    TERRAIN_GEOCHAR VARCHAR(1)
+    ONDATE INTEGER
+    OFFDATE INTEGER
+    LDDATE TIMESTAMP
+);
+
+-- The apma table contains results of particle motion analysis for a specific detection.
+CREATE TABLE APMA (
+    PHASE VARCHAR(8)
+    ARID BIGINT
+    FREQ REAL
+    SNR REAL
+    AMPP REAL
+    AMPS REAL
+    AMPLR REAL
+    RECT REAL
+    PLANS REAL
+    PLANLR REAL
+    HVRATP REAL
+    HVRAT REAL
+    HMXMN REAL
+    INANG3 REAL
+    SEAZP REAL
+    SEAZS REAL
+    SEAZLR REAL
+    INANG1 REAL
+    PPHASETIME DOUBLE PRECISION
+    SPHASETIME DOUBLE PRECISION
+    AUTH VARCHAR(15)
+    APMARID BIGINT
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The arrival table contains summary information about arrival s.
+CREATE TABLE ARRIVAL (
+    STA VARCHAR(6)
+    TIME DOUBLE PRECISION
+    ARID BIGINT
+    JDATE INTEGER
+    STASSID BIGINT
+    CHANID BIGINT
+    CHAN VARCHAR(8)
+    IPHASE VARCHAR(8)
+    STYPE VARCHAR(1)
+    DELTIM REAL
+    AZIMUTH REAL
+    DELAZ REAL
+    SLOW REAL
+    DELSLO REAL
+    EMA REAL
+    RECT REAL
+    AMP REAL
+    PER REAL
+    LOGAT REAL
+    CLIP VARCHAR(1)
+    FM VARCHAR(2)
+    SNR REAL
+    QUAL VARCHAR(1)
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_arrival PRIMARY KEY (ARID)
+);
+
+-- The arrival_dyn_pars_dbl table will store arrival parameters and metadata (float values). Each record will contain only one piece of information.
+CREATE TABLE ARRIVAL_DYN_PARS_DBL (
+    ARID BIGINT
+    GROUP_NAME VARCHAR(48)
+    PARAM_NAME VARCHAR(48)
+    D_VALUE DOUBLE PRECISION
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_arrival_dyn_pars_dbl PRIMARY KEY (ARID)
+);
+
+-- The arrival_dyn_pars_int table will store arrival parameters and metadata (integer values). Each record will contain onl y one piece of information.
+CREATE TABLE ARRIVAL_DYN_PARS_INT (
+    ARID BIGINT
+    GROUP_NAME VARCHAR(48)
+    PARAM_NAME VARCHAR(48)
+    I_VALUE BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_arrival_dyn_pars_int PRIMARY KEY (ARID)
+);
+
+-- The arrival_dyn_pars_str table will store arrival parameters and metadata (string values). Each record will contain only one piece of information.
+CREATE TABLE ARRIVAL_DYN_PARS_STR (
+    ARID BIGINT
+    GROUP_NAME VARCHAR(48)
+    PARAM_NAME VARCHAR(48)
+    S_VALUE VARCHAR(1024)
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_arrival_dyn_pars_str PRIMARY KEY (ARID)
+);
+
+-- The arrival_tag table contains information to indicate which mode was used to generate the arrival.
+CREATE TABLE ARRIVAL_TAG (
+    ARID BIGINT
+    PROCESS_MODE VARCHAR(32)
+    PROCESS_ATTRIBUTE VARCHAR(32)
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_arrival_tag PRIMARY KEY (ARID)
+);
+
+-- The ar_info table contains information about arrival observa tions used in event location. This includes the predicted ob servation values, the model used to predict the values, and all uncertainties associated with that observation.
+CREATE TABLE AR_INFO (
+    ORID BIGINT
+    ARID BIGINT
+    TIME_ERROR_CODE INTEGER
+    AZ_ERROR_CODE INTEGER
+    SLOW_ERROR_CODE INTEGER
+    SRC_DPNT_CORR_TYPE INTEGER
+    VMODEL VARCHAR(16)
+    TOTAL_TRAVEL_TIME REAL
+    TT_TABLE_VALUE REAL
+    ELLIP_CORR REAL
+    ELEV_CORR REAL
+    BULK_STATIC_STA_CORR REAL
+    TT_SRC_DPNT_CORR REAL
+    TT_MODEL_ERROR REAL
+    TT_MEAS_ERROR REAL
+    TT_MODEL_PLUS_MEAS_ERROR REAL
+    AZ_SRC_DPNT_CORR REAL
+    AZ_MODEL_ERROR REAL
+    AZ_MEAS_ERROR REAL
+    AZ_MODEL_PLUS_MEAS_ERROR REAL
+    SL_SRC_DPNT_CORR REAL
+    SL_MODEL_ERROR REAL
+    SL_MEAS_ERROR REAL
+    SL_MODEL_PLUS_MEAS_ERROR REAL
+    TIME_IMPORT REAL
+    AZ_IMPORT REAL
+    SLOW_IMPORT REAL
+    SLOW_VEC_RES REAL
+    LDDATE TIMESTAMP
+);
+
+-- The assoc table contains information that connects arrivals (entries in the arrival table) to a particular origin.
+CREATE TABLE ASSOC (
+    ARID BIGINT
+    ORID BIGINT
+    STA VARCHAR(6)
+    PHASE VARCHAR(8)
+    BELIEF REAL
+    DELTA REAL
+    SEAZ REAL
+    ESAZ REAL
+    TIMERES REAL
+    TIMEDEF VARCHAR(1)
+    AZRES REAL
+    AZDEF VARCHAR(1)
+    SLORES REAL
+    SLODEF VARCHAR(1)
+    EMARES REAL
+    WGT REAL
+    VMODEL VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_assoc PRIMARY KEY (ARID, ORID)
+);
+
+-- The assoc_ga table is used by the GA application to store te mporary associations.
+CREATE TABLE ASSOC_GA (
+    ARID BIGINT
+    ORID BIGINT
+    STA VARCHAR(6)
+    PHASE VARCHAR(8)
+    BELIEF REAL
+    DELTA REAL
+    SEAZ REAL
+    ESAZ REAL
+    TIMERES REAL
+    TIMEDEF VARCHAR(1)
+    AZRES REAL
+    AZDEF VARCHAR(1)
+    SLORES REAL
+    SLODEF VARCHAR(1)
+    EMARES REAL
+    WGT REAL
+    VMODEL VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The assoc_ga_del table is used by the GA application to stor e deleted associations for later reference, if necessary.
+CREATE TABLE ASSOC_GA_DEL (
+    ARID BIGINT
+    ORID BIGINT
+    STA VARCHAR(6)
+    PHASE VARCHAR(8)
+    BELIEF REAL
+    DELTA REAL
+    SEAZ REAL
+    ESAZ REAL
+    TIMERES REAL
+    TIMEDEF VARCHAR(1)
+    AZRES REAL
+    AZDEF VARCHAR(1)
+    SLORES REAL
+    SLODEF VARCHAR(1)
+    EMARES REAL
+    WGT REAL
+    VMODEL VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The beam table stores the azimuth and slowness used during t he production of a beam. Whenever an origin beam is produced , a beam record is also produced and linked through the wfid to the beam waveform stored in the wfdisc table.
+CREATE TABLE BEAM (
+    WFID BIGINT
+    FILTERID BIGINT
+    AZIMUTH REAL
+    SLOW REAL
+    DESCRIP VARCHAR(50)
+    LDDATE TIMESTAMP
+);
+
+-- The bulletin release table contains .
+CREATE TABLE BULLETIN_RELEASE (
+    ERPID BIGINT
+    ORID BIGINT
+    EVID BIGINT
+    MAGID BIGINT
+    AOI_GEOCHAR VARCHAR(1)
+    CLASSIFICATION_COMMENTS VARCHAR(4000)
+    CLASSIFICATION_RESULTS VARCHAR(4000)
+    GRNAME VARCHAR(40)
+    RELEASE_STATUS VARCHAR(16)
+    AUTH VARCHAR(15)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The bulletin release export table contains information to tr ack Event Release files in the event they are not recieved a t the intended destination.
+CREATE TABLE BULLETIN_RELEASE_EXPORT (
+    ERP_SEQ BIGINT
+    MAX_ERPID BIGINT
+    AUTH VARCHAR(15)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The butterworth_filter table stores filter processing parame ter.
+CREATE TABLE BUTTERWORTH_FILTER (
+    FILTERID BIGINT
+    FILTER_TYPE VARCHAR(16)
+    FILTER_ORDER SMALLINT
+    FILTER_LOW REAL
+    FILTER_HIGH REAL
+    FILTER_ZEROPH SMALLINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The channame table provides mapping between channel and stat ion names.
+CREATE TABLE CHANNAME (
+    EXTERN_STA VARCHAR(6)
+    EXTERN_CHAN VARCHAR(8)
+    EXTERN_AUTH VARCHAR(20)
+    INTERN_STA VARCHAR(6)
+    INTERN_CHAN VARCHAR(8)
+    INTERN_CHANID BIGINT
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The chan_groups table is used to indicate which sta/chan pai rs belong to a given class/name (wfactivity) group.
+CREATE TABLE CHAN_GROUPS (
+    CLASS VARCHAR(16)
+    NAME VARCHAR(20)
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    DURATION REAL
+    INWFACTIVITY SMALLINT
+    ONDATE INTEGER
+    OFFDATE INTEGER
+    LDDATE TIMESTAMP
+);
+
+-- Contains the table ID information for other tables. Makes u p the overall classification consisting of classification le vel, control markings office of primary responsibility, sour ce used for classification and declassification instructions .
+CREATE TABLE CLASSIFICATION (
+    CLASSIFICATION_ID BIGINT
+    DESCRIPTION VARCHAR(64)
+    CLASS_LEVEL_ID BIGINT
+    CLASS_DISSEM_ID BIGINT
+    CLASS_DERIVED_ID BIGINT
+    CLASS_DECLASS_ID BIGINT
+    CLASS_REFER_ID BIGINT
+    CLASS_OPR_ID BIGINT
+    ON_DATE TIMESTAMP
+    OFF_DATE TIMESTAMP
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+    MODDATE TIMESTAMP
+);
+
+-- Provides the overall classification for marking the top and bottom of documents.
+CREATE TABLE CLASSIFICATION_LEVEL (
+    CLASS_LEVEL_ID BIGINT
+    CLASS_LEVEL VARCHAR(64)
+    PARAGRAPH_MARK VARCHAR(16)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- Looks up the classification information in the classificatio n table.
+CREATE TABLE CLASSIFICATION_LOOKUP (
+    CLASS_LOOKUP_ID BIGINT
+    APPLICATION VARCHAR(64)
+    CLASSIFICATION_ID BIGINT
+    ON_DATE TIMESTAMP
+    OFF_DATE TIMESTAMP
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+    MODDATE TIMESTAMP
+);
+
+-- Used to contain the agency, office (or OPR) responsible for classification
+CREATE TABLE CLASSIFICATION_OPR (
+    CLASS_OPR_ID BIGINT
+    CLASS_OPR VARCHAR(64)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The classification_refer_to table will contain the &quot;Refer to :...&quot; information for the Exective Order Box.
+CREATE TABLE CLASSIFICATION_REFER_TO (
+    CLASS_REFER_ID BIGINT
+    CLASS_REFER VARCHAR(4000)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- Contains the declassification date and reference information . Used as part of the Executive Order Box.
+CREATE TABLE CLASS_DECLASS_ID (
+    CLASS_DECLASS_ID BIGINT
+    CLASS_DECLASS VARCHAR(4000)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- Identification of the source of classification (Classified b y or Derived From line). Part of the Executive Order Box.
+CREATE TABLE CLASS_DERIVED_ID (
+    CLASS_DERIVED_ID BIGINT
+    CLASS_DERIVED VARCHAR(4000)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- Contains the control markings of the overall security markin g. i.e. FOUO, NOFORN
+CREATE TABLE CLASS_DISSEM_ID (
+    CLASS_DISSEM_ID BIGINT
+    CLASS_DISSEM VARCHAR(64)
+    PARAGRAPH_MARK VARCHAR(16)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The cluster_info table contains information relating to the cluster of events. It relates to versions of the same cluste r (same events) together. It also contains the orid of the e vent closest to the center of the cluster and the radius of the cluster.
+CREATE TABLE CLUSTER_INFO (
+    CLUID BIGINT
+    DESCRIP VARCHAR(50)
+    PREFOR BIGINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The cluster_magref table provides the magnitude reference ev ent for the cluster. This reference event will be used in de termining the relative magnitude of new events found using t he SSD. Each cluster will need a magnitude reference event t o make a relative magnitude calculation on events identified by the SSD. If the magnitude reference event was not seen a t a refsta we will be unable to perform a relative magnitude calculation for that refsta.
+CREATE TABLE CLUSTER_MAGREF (
+    CLUSTAID BIGINT
+    ACTIVETIME DOUBLE PRECISION
+    ORID BIGINT
+    AMPTYPE VARCHAR(8)
+    MTYPE VARCHAR(15)
+    MVALUE REAL
+    FILTERID BIGINT
+    LEAD REAL
+    DURATION REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The cluster_mec table provides the location correction infor mation for a sta (element). This information is used to refi ne the locations of origins. The flat file database (fdb) th at is imported into this table should not include commented lines. The cluster_mec's format is the current output of jhd sat. It will have to be augmented by the addition of clustai d when it is imported into a US NDC cluster_mec table. This will make it possible to distinguish between two different e vent clusters for the same station.
+CREATE TABLE CLUSTER_MEC (
+    CLUSTAID BIGINT
+    STA VARCHAR(6)
+    PHASE VARCHAR(8)
+    ACTIVETIME DOUBLE PRECISION
+    CORR_TYPE VARCHAR(16)
+    CORRECTION REAL
+    UNCERTAINTY REAL
+    ONDATE INTEGER
+    OFFDATE INTEGER
+    TOTAL_EVENTS SMALLINT
+);
+
+-- The cluster_orid table provides the cluster to orid mapping.
+CREATE TABLE CLUSTER_ORID (
+    CLUSTAID BIGINT
+    ORID BIGINT
+    ACTIVETIME DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- The cluster_override table contains Multiple Event Analysis (MEA) parameter file overrides for historical purposes. This table is populated when a new cluster version is pushed int o the NDC database with the previous override values.
+CREATE TABLE CLUSTER_OVERRIDE (
+    CLUSTAID BIGINT
+    ACTIVETIME DOUBLE PRECISION
+    THRESHOLD REAL
+    SSD_DIMENSION INTEGER
+    SVD_LEAD REAL
+    MIN_DETECTION_INTERVAL REAL
+    PREFPHASE VARCHAR(16)
+    LEAD REAL
+    LAG REAL
+    BEST_EVENT_MATCH_MULTIPLE REAL
+    PHASE_ONSET_MULTIPLE REAL
+    DET_TRACE_TRIM_MULTIPLE REAL
+    CHANNEL_MASKING_THRESHOLD REAL
+    PFA REAL
+    THRESHOLD_PERCENT_OVERLAP INTEGER
+    PHASE_SPECIFIC_OVERRIDE_REC VARCHAR(32)
+    MAX_DELAZ REAL
+    MAX_DELSLOW REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The cluster_phase_override table contains Multiple Event Ana lysis (MEA) parameter file overrides for historical purposes . This table is populated when a new cluster version is push ed into the NDC database with the previous override values.
+CREATE TABLE CLUSTER_PHASE_OVERRIDE (
+    CLUSTAID BIGINT
+    ACTIVETIME DOUBLE PRECISION
+    PHASE_SPECIFIC_OVERRIDE_REC VARCHAR(32)
+    PHASE VARCHAR(8)
+    LEAD REAL
+    LAG REAL
+    FLO REAL
+    FHI REAL
+    MAXADJ REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The cluster_station table is used to store station-specific (not element-specific) information, e.g., stations used in c luster, azimuth limits, slowness limits.
+CREATE TABLE CLUSTER_STATION (
+    CLUSTAID BIGINT
+    ACTIVETIME DOUBLE PRECISION
+    CLUID BIGINT
+    STA VARCHAR(6)
+    MAX_DELAZ REAL
+    MAX_DELSLOW REAL
+    SSD_DIMENSION INTEGER
+    SVD_LEAD REAL
+    SVD_LAG REAL
+    PREFPHASE VARCHAR(16)
+    LEAD REAL
+    LAG REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The cluster_threshold table provides the threshold informati on for the cluster. It is possible for a cluster to have sev eral different threshold values.
+CREATE TABLE CLUSTER_THRESHOLD (
+    CLUSTAID BIGINT
+    DETECTOR_TYPE VARCHAR(16)
+    SSD_DIMENSION INTEGER
+    ACTIVETIME DOUBLE PRECISION
+    ORID BIGINT
+    THRESHOLD REAL
+    PFA REAL
+    OVERLAP INTEGER
+    CHANNEL_MASKING_THRESHOLD REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The codamag_input table contains key input parameters that a re used to calculate coda amplitudes, including the boundari es of the noise and signal windows and the path and site cor rection values.
+CREATE TABLE CODAMAG_INPUT (
+    AMPID BIGINT
+    FLO REAL
+    FHI REAL
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    ORID BIGINT
+    ARID BIGINT
+    AMPDEF VARCHAR(1)
+    DELTA REAL
+    BWRATIO REAL
+    SAMPRATE REAL
+    ENVSLOW REAL
+    HWIDE REAL
+    POLYID BIGINT
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    NOISE_START_TIME DOUBLE PRECISION
+    NOISE_END_TIME DOUBLE PRECISION
+    TMEAS DOUBLE PRECISION
+    SHAPE_SPREADING REAL
+    SHAPE_DECAY REAL
+    SHAPEDMIN REAL
+    SHAPEDMAX REAL
+    PEAK_VELOCITY REAL
+    VGDMIN REAL
+    VGDMAX REAL
+    PATH_COR_TYPE VARCHAR(8)
+    PATH_COR REAL
+    SITE_COR REAL
+    SITEUNIT VARCHAR(9)
+    WMODEL_NAME VARCHAR(50)
+    YINTERCEPT REAL
+    YSLOPE REAL
+    FFACTOR REAL
+    SRC_REGION VARCHAR(50)
+    MBINTERCEPT REAL
+    MBSLOPE REAL
+    MBSIGMA REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The codamag_output table contains raw and corrected coda amp litudes for each station/channel/frequency band.
+CREATE TABLE CODAMAG_OUTPUT (
+    AMPID BIGINT
+    FLO REAL
+    FHI REAL
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    ORID BIGINT
+    ARID BIGINT
+    DELTA REAL
+    RAW_AMP REAL
+    UNCERTAINTY REAL
+    NOISE_AMP REAL
+    AMPCOR REAL
+    AMP_WGT REAL
+    MB_CODA REAL
+    YIELD REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- A table tracking the SOH indicators embedded in the CD1.1 Da ta Frame
+CREATE TABLE CONTINUOUS_DATA_STATUS (
+    STATUS_ID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    INDICATOR VARCHAR(64)
+    START_DATE TIMESTAMP
+    END_DATE TIMESTAMP
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The datauser table tracks authorized users of the Message an d Subscription Subsystems. Each user is identified by a (uni que) username and domain, which must match all e-mail header s. The priority column specifies the class of user, and serv icetime is the last time a request from the user was process ed. Priority and servicetime are considered when selecting t he order in which requests will be processed. The status can either be active or inactive.
+CREATE TABLE DATAUSER (
+    USERID BIGINT
+    POCID BIGINT
+    USERNAME VARCHAR(24)
+    DOMAIN VARCHAR(48)
+    MSGTYPE VARCHAR(16)
+    USERSTATUS VARCHAR(24)
+    PRIORITY SMALLINT
+    COMMID BIGINT
+    EMAILLIMIT INTEGER
+    SERVICETIME DOUBLE PRECISION
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_datauser PRIMARY KEY (USERNAME)
+);
+
+-- The da_interval table defines units of processing for data a cquistion . The time, endtime, and name types indicate proce ssing times for a named object. The class type allows a sing le interval table to be used for different classes of object s.
+CREATE TABLE DA_INTERVAL (
+    INTVLID BIGINT
+    CLASS VARCHAR(16)
+    NAME VARCHAR(20)
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    STATE VARCHAR(16)
+    AUTH VARCHAR(15)
+    PERCENT_AVAILABLE DOUBLE PRECISION
+    PROC_START_DATE TIMESTAMP
+    PROC_END_DATE TIMESTAMP
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The da_refsta_latency table contains latency data for the re ference stations.
+CREATE TABLE DA_REFSTA_LATENCY (
+    LATENCY_ID BIGINT
+    STA VARCHAR(6)
+    INTERVAL_START_TIME TIMESTAMP
+    INTERVAL_END_TIME TIMESTAMP
+    MIN_LATENCY_SECS DOUBLE PRECISION
+    MAX_LATENCY_SECS DOUBLE PRECISION
+    TOTAL_SECS DOUBLE PRECISION
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- Summary of expected percentage of data available for a refer ence station.
+CREATE TABLE DA_REFSTA_SUMMARY (
+    SUMMARY_ID BIGINT
+    STA VARCHAR(6)
+    INTERVAL_START_TIME TIMESTAMP
+    INTERVAL_END_TIME TIMESTAMP
+    PERCENT DOUBLE PRECISION
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The da_sitechan_latency table contains latency data for the stations and channels.
+CREATE TABLE DA_SITECHAN_LATENCY (
+    LATENCY_ID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    INTERVAL_START_TIME TIMESTAMP
+    INTERVAL_END_TIME TIMESTAMP
+    MIN_LATENCY_SECS DOUBLE PRECISION
+    MAX_LATENCY_SECS DOUBLE PRECISION
+    TOTAL_SECS DOUBLE PRECISION
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The deconvolution table provides some of the parameters nece ssary for deconvolution of the instrument response. The inst rument response information for a particular station at a ce rtain time is contained in the sensor and instrument table. The sensor and instrument tables provide the instrument resp onse, type (measured or theoretical), and units. Once the in strument response is removed it will be necessary to convert everything to the same unit.
+CREATE TABLE DECONVOLUTION (
+    DECONID BIGINT
+    TYPE VARCHAR(16)
+    LOWCUTFRAC REAL
+    LOWPASSFREQ REAL
+    HIGHCUTFRAC REAL
+    HIGHPASSFREQ REAL
+    WATERLEVEL REAL
+    FINALUNITS VARCHAR(1)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- Defines and describes all valid observation types that can b e used as defining for the USNDC.
+CREATE TABLE DEFINING_OBSTYPES (
+    OBSTYPE_ID BIGINT
+    CLASS VARCHAR(16)
+    TYPE VARCHAR(10)
+    DESCRIPTION VARCHAR(4000)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- Provides the rules for when an observation can be defining a nd the appropriate default value to be assigned.
+CREATE TABLE DEFINING_RULES (
+    RULE_ID BIGINT
+    NET VARCHAR(8)
+    REFSTA VARCHAR(6)
+    SITE VARCHAR(6)
+    PHASE VARCHAR(8)
+    OBSTYPE_ID BIGINT
+    VALUE_ID BIGINT
+    ON_DATE TIMESTAMP
+    OFF_DATE TIMESTAMP
+    AUTHOR VARCHAR(64)
+    PRIORITY INTEGER
+    COMMENTS VARCHAR(4000)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- Defines and describes all valid defining values that can be assigned to an observation type in the USNDC.
+CREATE TABLE DEFINING_VALUES (
+    VALUE_ID BIGINT
+    VALUE VARCHAR(1)
+    DESCRIPTION VARCHAR(4000)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The detection table contains summary information about wavef orms.
+CREATE TABLE DETECTION (
+    ARID BIGINT
+    JDATE INTEGER
+    TIME DOUBLE PRECISION
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    BMTYP VARCHAR(4)
+    SPROID BIGINT
+    CFREQ REAL
+    SEAZ REAL
+    DELAZ REAL
+    SLOW REAL
+    DELSLO REAL
+    SNR REAL
+    STAV REAL
+    FSTAT REAL
+    DELTIM REAL
+    BANDW REAL
+    FKQUAL SMALLINT
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The detection_threshold table contains the calculated thresh old for the timeframe processed.
+CREATE TABLE DETECTION_THRESHOLD (
+    CLUSTAID BIGINT
+    ORID BIGINT
+    DETECTOR_TYPE VARCHAR(16)
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    THRESHOLD REAL
+    NUM_DETECTIONS INTEGER
+    STA VARCHAR(6)
+    PFA REAL
+    OVERLAP INTEGER
+    CHANNEL_MASKING_THRESHOLD REAL
+    SSD_DIMENSION INTEGER
+    DOF REAL
+    DATA_MASKED INTEGER
+    TOTAL_DATA INTEGER
+    DESCRIPT VARCHAR(100)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The discrimuse table contains the use/nonuse of station data in discriminant voting. It identifies, for each station ass ociated to the origin, the use or non-use of that station's data in the discriminant vote for six different discriminant s. The votes are then combined to determine the overall even t classification (see the discrimvote table).
+CREATE TABLE DISCRIMUSE (
+    ORID BIGINT
+    DISCRIMTYPE VARCHAR(10)
+    STA VARCHAR(6)
+    DISCRIM_FLAG VARCHAR(1)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The discrimvote table identifies the vote value for each of six discriminants (discrimtypes). These votes are combined t o determine the overall event classification. When the vote is overridden, it includes evaluator's comments.
+CREATE TABLE DISCRIMVOTE (
+    ORID BIGINT
+    DISCRIMTYPE VARCHAR(10)
+    STA VARCHAR(6)
+    VOTE VARCHAR(1)
+    COMMID BIGINT
+    OVERRIDE INTEGER
+    EVAL_COMMENT VARCHAR(22)
+    LDDATE TIMESTAMP
+);
+
+-- The discrim_param table contains group velocities for each p olyid and station.
+CREATE TABLE DISCRIM_PARAM (
+    POLYID BIGINT
+    AMPCOR_VERID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    PARAMSETID BIGINT
+    LOWCUTFRAC REAL
+    MINLOWPASSFREQ REAL
+    HIGHPASSFRAC REAL
+    HIGHCUTFRAC REAL
+    PNGV1 REAL
+    PNGV2 REAL
+    PNINT DOUBLE PRECISION
+    PGGV1 REAL
+    PGGV2 REAL
+    PGINT DOUBLE PRECISION
+    SNGV1 REAL
+    SNGV2 REAL
+    SNINT DOUBLE PRECISION
+    LGGV1 REAL
+    LGGV2 REAL
+    LGINT DOUBLE PRECISION
+    TFACTOR REAL
+    TAPERWIDTH REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The dlman table keeps track of currently running DLMan insta nces. The column machine is the host on which this dlid runs (it may not run elsewhere). The column running indicates wh ether that DLMan is currently operational. The table also pr ovides the ports that this dlid is currently using to listen to other processes.
+CREATE TABLE DLMAN (
+    DLID BIGINT
+    MACHINE VARCHAR(32)
+    RUNNING VARCHAR(1)
+    CONNMANPORT INTEGER
+    CONTROLPORT INTEGER
+    ARCHIVEPORT INTEGER
+    FORWARDPORT INTEGER
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The doppler_detection table contains summary information abo ut waveforms.
+CREATE TABLE DOPPLER_DETECTION (
+    DOPPLERID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    EVENT_TIME DOUBLE PRECISION
+    DURATION REAL
+    SNR REAL
+    AZIMUTH REAL
+    ETYPE VARCHAR(7)
+    CFREQ REAL
+    RANGE_MINFREQ REAL
+    RANGE_MAXFREQ REAL
+    TRACE_MINFREQ REAL
+    TRACE_MAXFREQ REAL
+    USE_AS_REFERENCE_EVENT VARCHAR(1)
+    FILTER_STRING VARCHAR(2000)
+    CONF REAL
+    COMMENTS VARCHAR(4000)
+    INTERNAL_COMMENTS VARCHAR(4000)
+    ANALYST VARCHAR(32)
+    TIMESENT DOUBLE PRECISION
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_chan_amplitude table contains time windows (start an d end times), raw amplitude, and MDAC for each orid, station , channel, phase and frequency bin. These measurements are c ombined according to the parameters of the discriminant bein g calculated.
+CREATE TABLE ECM_CHAN_AMPLITUDE (
+    ORID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    PHASE VARCHAR(8)
+    LFREQ DOUBLE PRECISION
+    HFREQ DOUBLE PRECISION
+    AMPCOR_VERID BIGINT
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    AMPRAW DOUBLE PRECISION
+    AMPMDAC DOUBLE PRECISION
+    AMPDAC DOUBLE PRECISION
+    AMPMAC DOUBLE PRECISION
+    NTIME DOUBLE PRECISION
+    NENDTIME DOUBLE PRECISION
+    SNR DOUBLE PRECISION
+    AMPDEF VARCHAR(1)
+    AUTH VARCHAR(15)
+    COMMENTS VARCHAR(4000)
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_constant table contains calibration constants for EC M. This table is for lone constants that are not dependant on which channel, phase, station, or polyid being looked at.
+CREATE TABLE ECM_CONSTANT (
+    NAME VARCHAR(30)
+    VALUE DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_cov table contains a covariance for each polyid, sou rce type, and pair of discriminants. All records with the s ame polyid and source type will combine to define a single c ovariance matrix used for combining discriminants.
+CREATE TABLE ECM_COV (
+    POLYID BIGINT
+    COV_VERID BIGINT
+    SOURCE_TYPE VARCHAR(15)
+    DISCRIM_NAME_1 VARCHAR(10)
+    DISCRIM_NAME_2 VARCHAR(10)
+    COVARIANCE DOUBLE PRECISION
+    MEAN_1 DOUBLE PRECISION
+    AUTH VARCHAR(15)
+    COMMENTS VARCHAR(4000)
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_discriminants table contains p-values for each evid and discriminant name.
+CREATE TABLE ECM_DISCRIMINANTS (
+    ORID BIGINT
+    DISCRIM_NAME VARCHAR(15)
+    COV_VERID BIGINT
+    DISCRIM_P_VALUE DOUBLE PRECISION
+    DISCRIM_DEF VARCHAR(1)
+    EXPLANATION VARCHAR(4000)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_event_results table contains the classification for each event.
+CREATE TABLE ECM_EVENT_RESULTS (
+    ORID BIGINT
+    EVID BIGINT
+    COV_VERID BIGINT
+    RDA_VERID BIGINT
+    CLASS_TYPE VARCHAR(15)
+    CLASS_TYPE_OVRD VARCHAR(15)
+    COMMENTS VARCHAR(4000)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_ref_chan_amplitude table contains reference time win dows (start and end times), raw amplitude, and MDAC for each evid, station, channel, phase and frequency bin. These meas urements were combined according to the parameters of the di scriminant that was calculated.
+CREATE TABLE ECM_REF_CHAN_AMPLITUDE (
+    EVID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    PHASE VARCHAR(8)
+    LFREQ DOUBLE PRECISION
+    HFREQ DOUBLE PRECISION
+    AMPCOR_VERID BIGINT
+    POLYID BIGINT
+    DELTA REAL
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    AMPRAW DOUBLE PRECISION
+    AMPMDAC DOUBLE PRECISION
+    AMPDAC DOUBLE PRECISION
+    AMPMAC DOUBLE PRECISION
+    NTIME DOUBLE PRECISION
+    NENDTIME DOUBLE PRECISION
+    SNR DOUBLE PRECISION
+    AMPDEF VARCHAR(1)
+    AUTH VARCHAR(15)
+    COMMENTS VARCHAR(4000)
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_ref_discrim table contains a p-value for each refid and discriminant. The refid relates to a specific reference event in the ecm_ref_event.
+CREATE TABLE ECM_REF_DISCRIM (
+    EVID BIGINT
+    COV_VERID BIGINT
+    DISCRIM_NAME VARCHAR(15)
+    DISCRIM_P_VALUE DOUBLE PRECISION
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_ref_event table contains event data for each event u sed to calibrate the ECM.
+CREATE TABLE ECM_REF_EVENT (
+    EVID BIGINT
+    TIME DOUBLE PRECISION
+    LAT DOUBLE PRECISION
+    LON DOUBLE PRECISION
+    DEPTH REAL
+    MB REAL
+    MS REAL
+    MW REAL
+    SOURCE_TYPE VARCHAR(7)
+    SUB_TYPE VARCHAR(10)
+    POLYID BIGINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_region_pref_version table contains _________________ _______
+CREATE TABLE ECM_REGION_PREF_VERSION (
+    POLYID BIGINT
+    COV_VERID BIGINT
+    RDA_VERID BIGINT
+    AUTH VARCHAR(15)
+    COMMENTS VARCHAR(4000)
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_sources table contains aggregate p-values and poster iori probabilities for each evid and source type.
+CREATE TABLE ECM_SOURCES (
+    ORID BIGINT
+    SOURCE_TYPE VARCHAR(15)
+    COV_VERID BIGINT
+    RDA_VERID BIGINT
+    POP_MEM DOUBLE PRECISION
+    CON_PROB DOUBLE PRECISION
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The ecm_sta_pref_version table contains ____________________ ____
+CREATE TABLE ECM_STA_PREF_VERSION (
+    POLYID BIGINT
+    STA VARCHAR(6)
+    AMPCOR_VERID BIGINT
+    AUTH VARCHAR(15)
+    COMMENTS VARCHAR(4000)
+    LDDATE TIMESTAMP
+);
+
+-- The envelope_contribution table contains information as to w hich frequency bands are defining or nondefining for coda ma gnitude calculation. Bands may be set defining or nondefinin g either automatically by DFX or manually by an analyst.
+CREATE TABLE ENVELOPE_CONTRIBUTION (
+    FLO REAL
+    FHI REAL
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    ORID BIGINT
+    ARID BIGINT
+    AMPDEF VARCHAR(1)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The event table contains a list of events. Multiple origins may be defined for any one event. The column prefor points t o the preferred origin.
+CREATE TABLE EVENT (
+    EVID BIGINT
+    EVNAME VARCHAR(32)
+    PREFOR BIGINT
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_event PRIMARY KEY (EVID)
+);
+
+-- The event_control table contains event location and magnitud e control parameters. This information acts as an archive of the specific user-defined controls that were used to determ ine the location and magnitude of a given orid. The table al so includes two measurement columns (cov_sm_axes and cov_dep th_time) that allow the coverage ellipse to be determined fr om the confidence ellipse axes.
+CREATE TABLE EVENT_CONTROL (
+    ORID BIGINT
+    EVID BIGINT
+    PREFER_LOC VARCHAR(1)
+    CONSTRAIN_OT SMALLINT
+    CONSTRAIN_LATLON SMALLINT
+    CONSTRAIN_DEPTH SMALLINT
+    SRC_DPNT_CORR SMALLINT
+    LOC_SRC_DPNT_REG VARCHAR(15)
+    LOC_SDV_SCREEN SMALLINT
+    LOC_SDV_MULT REAL
+    LOC_ALPHA_ONLY SMALLINT
+    LOC_ALL_STAS SMALLINT
+    LOC_DIST_VARWGT SMALLINT
+    LOC_USER_VARWGT REAL
+    MAG_SRC_DPNT_REG VARCHAR(15)
+    MAG_SDV_SCREEN SMALLINT
+    MAG_SDV_MULT REAL
+    MAG_ALPHA_ONLY SMALLINT
+    MAG_ALL_STAS SMALLINT
+    MB_MIN_DIST REAL
+    MB_MAX_DIST REAL
+    MMODEL VARCHAR(15)
+    COV_SM_AXES REAL
+    COV_DEPTH_TIME REAL
+    OBS_CORR_METHOD SMALLINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_event_control PRIMARY KEY (EVID)
+);
+
+-- The event_Correlation table containts correlations between s ource events in the NDC operational database to reference ev ents in the NDC archive databases for time periods as great as 15 years.
+CREATE TABLE EVENT_CORRELATION (
+    CORR_ID BIGINT
+    SOURCE_ORID BIGINT
+    SOURCE_EVID BIGINT
+    SOURCE_STARTTIME DOUBLE PRECISION
+    SOURCE_SECS DOUBLE PRECISION
+    REFERENCE_ORID BIGINT
+    REFERENCE_EVID BIGINT
+    REFERENCE_STARTTIME DOUBLE PRECISION
+    REFERENCE_SECS DOUBLE PRECISION
+    STA VARCHAR(6)
+    FILTER_STRING VARCHAR(2000)
+    NUM_CHAN INTEGER
+    CHAN_LIST VARCHAR(2000)
+    CORR_COEF DOUBLE PRECISION
+    CORR_TIME DOUBLE PRECISION
+    SCAN_TYPE VARCHAR(32)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The event_quality table holds the event quality attributes t hat are calculated by various processes such as EvLoc, ARS, and GAConflict using the Event Quality Generator.
+CREATE TABLE EVENT_QUALITY (
+    EQID BIGINT
+    ORID BIGINT
+    EVQUAL REAL
+    NETPROB REAL
+    DETPROB REAL
+    HISTPROB REAL
+    NNDEF REAL
+    NSMAJAX REAL
+    NDELTA_STA REAL
+    NTIMERES REAL
+    NAZRES REAL
+    NSLORES REAL
+    NAMPRES REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The feedback table contains analyst feedback from one analys t regarding a discrepancy made by another analyst' work in t he Analyst Review System (ARS).
+CREATE TABLE FEEDBACK (
+    FEEDBACK_ID BIGINT
+    EVID BIGINT
+    ORID BIGINT
+    EVENT_TIME DOUBLE PRECISION
+    TITLE VARCHAR(64)
+    ANALYST VARCHAR(32)
+    ACCOUNT VARCHAR(15)
+    FEEDBACK_ANALYST VARCHAR(32)
+    FEEDBACK_ACCOUNT VARCHAR(15)
+    RESPONSE VARCHAR(4000)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The feedback_cataffiliation contains foregin keys to the fee dback table and feedback_categories table to assign categori cal affiliation(s) to each feedback.
+CREATE TABLE FEEDBACK_CATAFFILIATION (
+    FBAFFILIATION_ID BIGINT
+    FEEDBACK_ID BIGINT
+    FBCATEGORY_ID BIGINT
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The feedback_categories table contains descriptions of each feedback category referenced by the feedback_cataffiliation table.
+CREATE TABLE FEEDBACK_CATEGORIES (
+    FBCATEGORY_ID BIGINT
+    TITLE VARCHAR(64)
+    DESCRIPTION VARCHAR(4000)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The feedback_screenshots table contains image files related to feedback entries.
+CREATE TABLE FEEDBACK_SCREENSHOTS (
+    FBSCREENSHOT_ID BIGINT
+    FEEDBACK_ID BIGINT
+    TITLE VARCHAR(64)
+    DESCRIPTION VARCHAR(4000)
+    TYPE VARCHAR(10)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The feedback_state table contains one or more states a feedb ack is currently in or has formerly been in. A Feedback entr y can only be in one state at a time, such as saved or rejec ted. As a feedback progresses through its lifecycle, it will have more than one state per feedback entry, and the latest one entered in this table will always be the current state.
+CREATE TABLE FEEDBACK_STATE (
+    FBSTATE_ID BIGINT
+    FEEDBACK_ID BIGINT
+    FBSTATECATEGORY_ID BIGINT
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The feedback_state_category contains descriptions of the var ious states a feedback record can be in such as saved or rej ected.
+CREATE TABLE FEEDBACK_STATE_CATEGORIES (
+    FBSTATECATEGORY_ID BIGINT
+    TITLE VARCHAR(64)
+    DESCRIPTION VARCHAR(4000)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The filter table will contain the core information needed to identify filters. The attributes in this table will be high ly indexed for fast searching. The attributes will allow app lication to quickly access enough information to 1) determin e the type of filter so that an application can branch accor dingly to efficiently handle loading or 2) determine uniquen ess when assessing if a filter does or does not exist.
+CREATE TABLE FILTER (
+    FILTERID BIGINT
+    FILTER_METHOD VARCHAR(2)
+    FILTER_STRING VARCHAR(2000)
+    FILTER_HASH VARCHAR(2000)
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_filter PRIMARY KEY (FILTERID)
+);
+
+-- The filter_coefficients table contains a collection of doubl e precision coefficients for a filter. For the persistent pa rameters bundle, the filter_coefficients table will be used to store numerator and denominator coefficients for a coeffi cient configured filter, identified by a parent record in th e filter table.
+CREATE TABLE FILTER_COEFFICIENTS (
+    FILTERID BIGINT
+    VALUE_NAME VARCHAR(48)
+    COL_SEQ INTEGER
+    D_VALUE DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- The filter_group table is used to link together the individu al filters of a compound filter. The parent filter record of a compound filter will have a compound_filter indicator val ue of 'Y' and may have a filter method of 'Cascade' or 'AR'. The filter_group table will contain one record for each fil ter in the compound filter group, all sharing a common paren t filter record. For Flexibility, the key to the record is p arent_filterid-child_filterid-child_sequence, to allow compl ex compound filters to use a filter more than once.
+CREATE TABLE FILTER_GROUP (
+    PARENT_FILTERID BIGINT
+    CHILD_FILTERID BIGINT
+    CHILD_SEQUENCE INTEGER
+    LDDATE TIMESTAMP
+);
+
+-- The filter_values_double table will store filter parameters and metadata (float values). Each record will contain only o ne piece of information. Each filter type will store only th ose pieces of information that are pertinent to that filter type. A butterworth filter will have fhi and flo attribute r ecords while digital filters may have num_numerator_coeffs o r compute_time_shift attributes.
+CREATE TABLE FILTER_VALUES_DOUBLE (
+    FILTERID BIGINT
+    VALUE_NAME VARCHAR(48)
+    D_VALUE DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- The filter_values_double table will store filter parameters and metadata (integer values). Each record will contain only one piece of information. Each filter type will store only those pieces of information that are pertinent to that filte r type. A butterworth filter will have fhi and flo attribute records while digital filters may have num_numerator_coeffs or compute_time_shift attributes.
+CREATE TABLE FILTER_VALUES_INTEGER (
+    FILTERID BIGINT
+    VALUE_NAME VARCHAR(48)
+    I_VALUE BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The filter_values_string table will store filter parameters and metadata (string values). Each record will contain only one piece of information. Each filter type will store only those pieces of information that are pertinent to that filte r type. A butterworth filter will have fhi and flo attribute records while digital filters may have num_numerator_coeffs or compute_time_shift attributes.
+CREATE TABLE FILTER_VALUES_STRING (
+    FILTERID BIGINT
+    VALUE_NAME VARCHAR(48)
+    S_VALUE VARCHAR(1024)
+    LDDATE TIMESTAMP
+);
+
+-- The fk_processing table contains identifiers to link paramet ers for fk processing. It provides an override of the defaul t processing for a station and phase. This override is speci fied on a per arrival basis.
+CREATE TABLE FK_PROCESSING (
+    ARID BIGINT
+    PROCID BIGINT
+    LEAD REAL
+    LAG REAL
+    FKFHI REAL
+    FKFLO REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The ftpfailed table facilitates ftp retrieval and the placem ent of data messages between contributing systems.
+CREATE TABLE FTPFAILED (
+    MSGID BIGINT
+    FTP_ADDRESS VARCHAR(64)
+    NUMFAILEDATTEMPT SMALLINT
+    LASTFAILEDTIME DOUBLE PRECISION
+    FTPSTATUS VARCHAR(8)
+    LDDATE TIMESTAMP
+);
+
+-- The ftplogin table is used by the auxiliary data retrieval s ystem to obtain data via ftp from auxiliary stations.
+CREATE TABLE FTPLOGIN (
+    FTP_ADDRESS VARCHAR(64)
+    USERNAME VARCHAR(24)
+    PASSWORD VARCHAR(16)
+    LDDATE TIMESTAMP
+);
+
+-- The ga_tag table contains information on the use of arrivals and origins in the GA application.
+CREATE TABLE GA_TAG (
+    OBJTYPE VARCHAR(1)
+    ID BIGINT
+    PROCESS_STATE VARCHAR(20)
+    LAT REAL
+    LON REAL
+    TIME DOUBLE PRECISION
+    EVID_REJECT BIGINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The gregion table contains geographic region numbers and the ir equivalent descriptions.
+CREATE TABLE GREGION (
+    GRN INTEGER
+    GRNAME VARCHAR(40)
+    LDDATE TIMESTAMP
+);
+
+-- The historic_info_cylinder table is used to describe the cyl inder (ga_grid) in a shell.
+CREATE TABLE HISTORIC_INFO_CYLINDER (
+    HISTORIC_INFO_CYLINDER_ID BIGINT
+    LAT DOUBLE PRECISION
+    LON DOUBLE PRECISION
+    RADIUS REAL
+    DEPTH REAL
+    LOWER_DEPTH REAL
+    UPPER_DEPTH REAL
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The historic_info_shell table is used to describe the shell containing cylinders for specific station and phase.
+CREATE TABLE HISTORIC_INFO_SHELL (
+    HISTORIC_INFO_SHELL_ID BIGINT
+    ALGORITHM_ID BIGINT
+    LAT DOUBLE PRECISION
+    LON DOUBLE PRECISION
+    INNER_RADIUS REAL
+    OUTER_RADIUS REAL
+    DEPTH REAL
+    LOWER_DEPTH REAL
+    UPPER_DEPTH REAL
+    MIN_AZIMUTH REAL
+    MAX_AZIMUTH REAL
+    REFSTA VARCHAR(6)
+    PHASE VARCHAR(8)
+    THRESHOLD REAL
+    UNCERTAINTY REAL
+    RELIABILITY REAL
+    NUM_OBSERVATIONS INTEGER
+    PROCESSING_MODE SMALLINT
+    ON_DATE TIMESTAMP
+    OFF_DATE TIMESTAMP
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The historic_info_sta_phase table describes the station and phase information for a given time used to compute the histo ric cylinders and shells.
+CREATE TABLE HISTORIC_INFO_STA_PHASE (
+    HISTORIC_INFO_STA_PHASE_ID BIGINT
+    HISTORIC_INFO_CYLINDER_ID BIGINT
+    ALGORITHM_ID BIGINT
+    REFSTA VARCHAR(6)
+    PHASE VARCHAR(8)
+    THRESHOLD REAL
+    UNCERTAINTY REAL
+    RELIABILITY REAL
+    NUM_OBSERVATIONS INTEGER
+    PROCESSING_MODE SMALLINT
+    ON_DATE TIMESTAMP
+    OFF_DATE TIMESTAMP
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The hydro_arrival table contains hydroacoustic arrival infor mation such as duration and the crossing point lag of the si gnal, autocorrelation bubble pulse frequency, autocovariance peak ratio (rt), cepstrum bubble pulse, bubble pulse amplit ude versus root mean square (rms), filter ratio, normalized amplitude, sensor yield, and sensor yield error.
+CREATE TABLE HYDRO_ARRIVAL (
+    ARID BIGINT
+    STA VARCHAR(6)
+    DURONSET DOUBLE PRECISION
+    DUREND DOUBLE PRECISION
+    ONSET_TIME DOUBLE PRECISION
+    TERMINATION_TIME DOUBLE PRECISION
+    CPLAG REAL
+    BPFRQAC REAL
+    RT REAL
+    BPFRQCEP REAL
+    RMS REAL
+    FLT_RTO REAL
+    NORMAMP REAL
+    AMPCORCLIP REAL
+    AMPCORDIST REAL
+    AMPCORDEPTH REAL
+    YIELD REAL
+    YLDERR REAL
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The hydro_arr_group table contains hydroacoustic arrival-bas ed estimates of slowness and azimuth.
+CREATE TABLE HYDRO_ARR_GROUP (
+    HYDRO_ID BIGINT
+    AZ1 REAL
+    AZ2 REAL
+    SLOW REAL
+    DELAZ REAL
+    NHYDARR SMALLINT
+    NET VARCHAR(8)
+    HYD_GRP_PHASE VARCHAR(8)
+    LDDATE TIMESTAMP
+);
+
+-- The hydro_assoc table contains the azimuth contribution info rmation for an arrival that is connected to a particular hyd ro arrival group.
+CREATE TABLE HYDRO_ASSOC (
+    ARID BIGINT
+    HYDRO_ID BIGINT
+    AZCONTRIB VARCHAR(1)
+    LDDATE TIMESTAMP
+);
+
+-- The hydro_origin table contains a summary of AFTAC-specific hydroacoustic origin information such as Type of origin loca tion, determined from: Seismic system. Various unique hydroa coustic signal types, volcanic underwater, or undetermined. Bubble pulse frequency used to calculate the yield value and that yield value error. This table also identifies if this origin is part of a series and the unique identifier for tha t series.
+CREATE TABLE HYDRO_ORIGIN (
+    ORID BIGINT
+    HYDROLOC_CODE INTEGER
+    HYDROYIELD REAL
+    HYDROYLDERR REAL
+    NUM_IN_SERIES INTEGER
+    SERID BIGINT
+    HYD_CLASS_CODE INTEGER
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The instrument table contains ancillary calibration informat ion. It holds nominal one-frequency calibration factors for each instrument and pointers to nominal frequency-dependent calibration for an instrument. This table also holds pointer s to the exact calibrations obtained by direct measurement o n a particular instrument (see sensor).
+CREATE TABLE INSTRUMENT (
+    INID BIGINT
+    INSNAME VARCHAR(50)
+    INSTYPE VARCHAR(6)
+    BAND VARCHAR(1)
+    DIGITAL VARCHAR(1)
+    SAMPRATE REAL
+    NCALIB REAL
+    NCALPER REAL
+    DIR VARCHAR(64)
+    DFILE VARCHAR(32)
+    RSPTYPE VARCHAR(6)
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_instrument PRIMARY KEY (INID)
+);
+
+-- The interval table defines units of processing. The time, en dtime, and name types indicate processing times for a named object. The class type allows a single interval table to be used for different classes of objects.
+CREATE TABLE INTERVAL (
+    INTVLID BIGINT
+    CLASS VARCHAR(16)
+    NAME VARCHAR(20)
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    STATE VARCHAR(16)
+    AUTH VARCHAR(15)
+    PERCENT_AVAILABLE DOUBLE PRECISION
+    PROC_START_DATE TIMESTAMP
+    PROC_END_DATE TIMESTAMP
+    MODDATE TIMESTAMP
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The mdac_fd table contains frequency dependent MDAC paramete rs for each corrid, frequency, and channel. (corrid is an in ternal id that relates to an mdac_fi record which is depende nt on polyid, phase, and station.)
+CREATE TABLE MDAC_FD (
+    FDID BIGINT
+    AMPCOR_VERID BIGINT
+    CORRID BIGINT
+    LFREQ REAL
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    TOMOID BIGINT
+    POLYID BIGINT
+    A DOUBLE PRECISION
+    B DOUBLE PRECISION
+    C DOUBLE PRECISION
+    SITEFACT DOUBLE PRECISION
+    ALGOID BIGINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The mdac_fi table contains frequency independent MDAC parame ters for each polyid, phase, and station.
+CREATE TABLE MDAC_FI (
+    CORRID BIGINT
+    AMPCOR_VERID BIGINT
+    POLYID BIGINT
+    STA VARCHAR(6)
+    PHASE VARCHAR(8)
+    CHAN VARCHAR(8)
+    CORRNAME VARCHAR(32)
+    SIGMA DOUBLE PRECISION
+    DELSIGMA DOUBLE PRECISION
+    PSI REAL
+    DELPSI REAL
+    Q0 DOUBLE PRECISION
+    DELQ0 DOUBLE PRECISION
+    GAMMA REAL
+    DELGAMMA REAL
+    ZETA REAL
+    M0_REF DOUBLE PRECISION
+    U0 REAL
+    ETA REAL
+    DELETA REAL
+    DISTCRIT DOUBLE PRECISION
+    ALPHAS REAL
+    BETAS REAL
+    RHOS DOUBLE PRECISION
+    ALPHAR REAL
+    BETAR REAL
+    RHOR DOUBLE PRECISION
+    RADPATP REAL
+    RADPATS REAL
+    SNR1 DOUBLE PRECISION
+    SNR2 DOUBLE PRECISION
+    NOISETYPE VARCHAR(15)
+    MAGID BIGINT
+    MAGTYPE VARCHAR(6)
+    ALGOID BIGINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The msgaux table contains records of unsuccessfully processe d Automatic Data Request Manager (AutoDRM) messages.
+CREATE TABLE MSGAUX (
+    MSGID BIGINT
+    MSGROW SMALLINT
+    STATECOUNT INTEGER
+    COMMAND VARCHAR(24)
+    SUB_STATUS VARCHAR(24)
+    LDDATE TIMESTAMP
+);
+
+-- The msgdatatype table supports data tracking by recording ea ch data section in a message for incoming and outgoing messa ges.
+CREATE TABLE MSGDATATYPE (
+    MSGID BIGINT
+    MSGDTYPE VARCHAR(16)
+    MSGDFORMAT VARCHAR(16)
+    MSGSTATUS VARCHAR(32)
+    FOFF BIGINT
+    MSIZE INTEGER
+    LDDATE TIMESTAMP
+);
+
+-- The msgdest table contains information about messages sent.
+CREATE TABLE MSGDEST (
+    MSGDID BIGINT
+    MSGID BIGINT
+    TRANSMETH VARCHAR(16)
+    EMAILTO VARCHAR(64)
+    MSGSTATUS VARCHAR(32)
+    ITIME DOUBLE PRECISION
+    TIMESENT DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- The msgdisc table contains information pertinent to messages including the date and time that the message was sent or re ceived, identification information, and where the message is stored.
+CREATE TABLE MSGDISC (
+    MSGID BIGINT
+    USERID BIGINT
+    MSGVER VARCHAR(8)
+    MSGTYPE VARCHAR(16)
+    SUBTYPE VARCHAR(20)
+    EXTMSGID VARCHAR(20)
+    INTID BIGINT
+    INTIDTYPE VARCHAR(16)
+    MSGSRC VARCHAR(16)
+    ITIME DOUBLE PRECISION
+    IDATE INTEGER
+    IMETHOD VARCHAR(8)
+    ISRC VARCHAR(64)
+    MSIZE INTEGER
+    MSGSTATUS VARCHAR(32)
+    SUBJECT VARCHAR(64)
+    DIR VARCHAR(64)
+    DFILE VARCHAR(32)
+    FOFF BIGINT
+    MFOFF INTEGER
+    FILEOFF INTEGER
+    FILESIZE INTEGER
+    SIGTYPE VARCHAR(64)
+    VERIFSTATUS VARCHAR(4)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The msvmax_descript is the child of arrival and amplitude ta bles. It is the parent of the msvmax_results table.
+CREATE TABLE MSVMAX_DESCRIPT (
+    AMPID BIGINT
+    STA VARCHAR(6)
+    ORID BIGINT
+    ARID BIGINT
+    HIGH_SNR_COUNT SMALLINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The msvmax_results table is the child of the msvmax_descript table.
+CREATE TABLE MSVMAX_RESULTS (
+    AMPID BIGINT
+    PER REAL
+    MEASTYPE VARCHAR(1)
+    AMP REAL
+    AMPTIME DOUBLE PRECISION
+    INS_RESPONSE REAL
+    AMPCOR REAL
+    MAGNITUDE REAL
+    UNCERTAINTY REAL
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- The netmag table contain estimates of network magnitudes of different types for an event. Each network magnitude has a u nique magid. Station magnitudes used to compute the network magnitude are in the stamag table.
+CREATE TABLE NETMAG (
+    MAGID BIGINT
+    NET VARCHAR(8)
+    ORID BIGINT
+    EVID BIGINT
+    MAGTYPE VARCHAR(6)
+    NSTA INTEGER
+    MAGNITUDE REAL
+    UNCERTAINTY REAL
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_netmag PRIMARY KEY (MAGID)
+);
+
+-- The network table contains general information about seismic networks (see affiliation).
+CREATE TABLE NETWORK (
+    NETWORKID BIGINT
+    NET VARCHAR(8)
+    NETWORK_NAME VARCHAR(32)
+    DESCRIPTION VARCHAR(4000)
+    NETWORK_TYPE VARCHAR(15)
+    ON_DATE TIMESTAMP
+    OFF_DATE TIMESTAMP
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The netyield table contains network-wide yield values obtain ed from the yield values at all available stations for an ev ent.
+CREATE TABLE NETYIELD (
+    YIELDID BIGINT
+    NET VARCHAR(8)
+    ORID BIGINT
+    EVID BIGINT
+    YIELD REAL
+    NSTA INTEGER
+    FFACTOR REAL
+    WMODEL_NAME VARCHAR(50)
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The net_coda_spectrum table contains the theoretical source spectrum for an event, used to obtain the network moment mag nitude values. The theoretical spectrum is fit to the observ ed spectrum in all frequency bands for a station that are se t to defining in the envelope_contribution table.
+CREATE TABLE NET_CODA_SPECTRUM (
+    MAGID BIGINT
+    FREQ REAL
+    AMPCOR REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The omitted_channels table identifies time intervals for whi ch channel masks exist. Channel masks are used to exclude wa veform data for the specified station, channel, time and end time from interactive and automatic data processing due to d ata quality problems (timing, calibration, etc.).
+CREATE TABLE OMITTED_CHANNELS (
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    COMMID BIGINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The origerr table contains summaries of confidence bounds in origin estimations. The origerr_ga table is used by the GA application to store temporary origin error information. The measurement types are the elements of the location covarian ce matrix. The descriptive types give the uncertainties in l ocation, depth, and origin time. These quantities are calcul ated from the covariance matrix, assuming gaussian errors an d a confidence level conf.
+CREATE TABLE ORIGERR (
+    ORID BIGINT
+    SXX REAL
+    SYY REAL
+    SZZ REAL
+    STT REAL
+    SXY REAL
+    SXZ REAL
+    SYZ REAL
+    STX REAL
+    STY REAL
+    STZ REAL
+    SDOBS REAL
+    SMAJAX REAL
+    SMINAX REAL
+    STRIKE REAL
+    SDEPTH REAL
+    STIME REAL
+    CONF REAL
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The origerr table contains summaries of confidence bounds in origin estimations. The origerr_ga table is used by the GA application to store temporary origin error information. The measurement types are the elements of the location covarian ce matrix. The descriptive types give the uncertainties in l ocation, depth, and origin time. These quantities are calcul ated from the covariance matrix, assuming gaussian errors an d a confidence level conf.
+CREATE TABLE ORIGERR_GA (
+    ORID BIGINT
+    SXX REAL
+    SYY REAL
+    SZZ REAL
+    STT REAL
+    SXY REAL
+    SXZ REAL
+    SYZ REAL
+    STX REAL
+    STY REAL
+    STZ REAL
+    SDOBS REAL
+    SMAJAX REAL
+    SMINAX REAL
+    STRIKE REAL
+    SDEPTH REAL
+    STIME REAL
+    CONF REAL
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The origerr_ga_del table contains summaries of confidence bo unds in origin estimations.
+CREATE TABLE ORIGERR_GA_DEL (
+    ORID BIGINT
+    SXX REAL
+    SYY REAL
+    SZZ REAL
+    STT REAL
+    SXY REAL
+    SXZ REAL
+    SYZ REAL
+    STX REAL
+    STY REAL
+    STZ REAL
+    SDOBS REAL
+    SMAJAX REAL
+    SMINAX REAL
+    STRIKE REAL
+    SDEPTH REAL
+    STIME REAL
+    CONF REAL
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The origin tables contain information describing a derived o r reported origin for a particular event.
+CREATE TABLE ORIGIN (
+    LAT REAL
+    LON REAL
+    DEPTH REAL
+    TIME DOUBLE PRECISION
+    ORID BIGINT
+    EVID BIGINT
+    JDATE INTEGER
+    NASS SMALLINT
+    NDEF SMALLINT
+    NDP SMALLINT
+    GRN INTEGER
+    SRN INTEGER
+    ETYPE VARCHAR(7)
+    DEPDP REAL
+    DTYPE VARCHAR(1)
+    MB REAL
+    MBID BIGINT
+    MS REAL
+    MSID BIGINT
+    ML REAL
+    MLID BIGINT
+    ALGORITHM VARCHAR(15)
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_origin PRIMARY KEY (ORID)
+);
+
+-- The origin and origin_ga tables contain information describi ng a derived or reported origin for a particular event.
+CREATE TABLE ORIGIN_GA (
+    LAT REAL
+    LON REAL
+    DEPTH REAL
+    TIME DOUBLE PRECISION
+    ORID BIGINT
+    EVID BIGINT
+    JDATE INTEGER
+    NASS SMALLINT
+    NDEF SMALLINT
+    NDP SMALLINT
+    GRN INTEGER
+    SRN INTEGER
+    ETYPE VARCHAR(7)
+    DEPDP REAL
+    DTYPE VARCHAR(1)
+    MB REAL
+    MBID BIGINT
+    MS REAL
+    MSID BIGINT
+    ML REAL
+    MLID BIGINT
+    ALGORITHM VARCHAR(15)
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_origin_ga PRIMARY KEY (ORID)
+);
+
+-- The origin_ga_del table contains information describing a de rived or reported origin for a particular event that was del eted and may be needed for later reference.
+CREATE TABLE ORIGIN_GA_DEL (
+    LAT REAL
+    LON REAL
+    DEPTH REAL
+    TIME DOUBLE PRECISION
+    ORID BIGINT
+    EVID BIGINT
+    JDATE INTEGER
+    NASS SMALLINT
+    NDEF SMALLINT
+    NDP SMALLINT
+    GRN INTEGER
+    SRN INTEGER
+    ETYPE VARCHAR(7)
+    DEPDP REAL
+    DTYPE VARCHAR(1)
+    MB REAL
+    MBID BIGINT
+    MS REAL
+    MSID BIGINT
+    ML REAL
+    MLID BIGINT
+    ALGORITHM VARCHAR(15)
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_origin_ga_del PRIMARY KEY (ORID)
+);
+
+-- The origin_mea_trace table contains important information ne cessary to trace the subspace detection.
+CREATE TABLE ORIGIN_MEA_TRACE (
+    ORID BIGINT
+    CLUSTAID BIGINT
+    ACTIVETIME_LOOKUP DOUBLE PRECISION
+    BEST_REF_MATCH_ORID BIGINT
+    APPLIED_THRESHOLD REAL
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_origin_mea_trace PRIMARY KEY (ORID)
+);
+
+-- The origin_sdo table contains the point geometry, coverage e llipse polygon, confidence ellipse polygon for an origin.
+CREATE TABLE ORIGIN_SDO (
+    ORID BIGINT
+    CONSTRAINT pk_origin_sdo PRIMARY KEY (ORID)
+);
+
+-- The origin_tag table contains information to indicate which mode was used to generate the origin (i.e. automated process ing mode of defining arrivals for an automated event or anal ysis mode for a reviewed event).
+CREATE TABLE ORIGIN_TAG (
+    ORID BIGINT
+    PROCESS_MODE VARCHAR(32)
+    PROCESS_ATTRIBUTE VARCHAR(32)
+    NDEF SMALLINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_origin_tag PRIMARY KEY (ORID)
+);
+
+-- The outage_station_data table provides tracking of station a vailability.
+CREATE TABLE OUTAGE_STATION_DATA (
+    OUTAGE_ID BIGINT
+    STA VARCHAR(6)
+    START_DATE TIMESTAMP
+    END_DATE TIMESTAMP
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The outage_station_receive table provides tracking of pipeli ne availability for both the operational and alternate US ND C systems.
+CREATE TABLE OUTAGE_STATION_RECEIVE (
+    OUTAGE_ID BIGINT
+    STA VARCHAR(6)
+    START_DATE TIMESTAMP
+    END_DATE TIMESTAMP
+    ENDTIME DOUBLE PRECISION
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The polygon table contains the name for each polyid.
+CREATE TABLE POLYGON (
+    POLYID BIGINT
+    REGION_NAME VARCHAR(30)
+    PERIMETERTYPE VARCHAR(8)
+    INSIDEFLAG VARCHAR(1)
+    OUTSIDEFLAG VARCHAR(1)
+    EDGEFLAG VARCHAR(1)
+    AUTH VARCHAR(15)
+    COMMENTS VARCHAR(4000)
+    LDDATE TIMESTAMP
+);
+
+-- The polypoint table contains a polyid, sequence number, lati tude, and longitude for each point of a polygon. All record s with the same polyid will combine to define a single polyg on.
+CREATE TABLE POLYPOINT (
+    POLYID BIGINT
+    SEQUENCE BIGINT
+    LAT DOUBLE PRECISION
+    LON DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- The processing_recipe table provides the types of waveform p rocessing and the order in which they should be applied. Thi s table allows each cluster station to be processed in diffe rent ways for different proctypes (SVD, CORR, and AMP).
+CREATE TABLE PROCESSING_RECIPE (
+    PROCID BIGINT
+    PROCMETHOD VARCHAR(20)
+    IDNAME VARCHAR(15)
+    IDVALUE BIGINT
+    PROCORDER INTEGER
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The process_tracking table provides tracking of pipeline ava ilability for both the operational and alternate systems.
+CREATE TABLE PROCESS_TRACKING (
+    TRACKINGID BIGINT
+    PROCESS VARCHAR(256)
+    MACHINE VARCHAR(128)
+    SYS_AREA VARCHAR(128)
+    SYS_SITE VARCHAR(128)
+    PROC_START_DATE TIMESTAMP
+    PROC_END_DATE TIMESTAMP
+    STATE VARCHAR(16)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The qcmaskdef table contains information defining the parame ters that went into the calculation of the QC mask.
+CREATE TABLE QCMASKDEF (
+    QCDEFID BIGINT
+    FIX SMALLINT
+    NTAPER INTEGER
+    DROP_THR INTEGER
+    SINGLE_TRACE_SPIKE_THR DOUBLE PRECISION
+    NITER INTEGER
+    NSAMP INTEGER
+    NOVER INTEGER
+    SPIKE_THR DOUBLE PRECISION
+    SPIKE_STAT INTEGER
+    SPIKE_VAL DOUBLE PRECISION
+    SPIKE_NPWIN INTEGER
+    SPIKE_DSET INTEGER
+    NOISE_THRESH DOUBLE PRECISION
+    SPIKE_WINLEN INTEGER
+    INTERQUAR_COEF DOUBLE PRECISION
+    NOISE_NSAMP INTEGER
+    NOISE_NOVERLAP INTEGER
+    ALGORITHM_LIST VARCHAR(100)
+    ONDATE INTEGER
+    OFFDATE INTEGER
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The qcmaskinfo table contains QC mask data information about a channel and time interval for which QC processing was per formed.
+CREATE TABLE QCMASKINFO (
+    QCMASKID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    SAMPRATE REAL
+    NSEG INTEGER
+    QCDEFID BIGINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The qcmaskseg table contains information about masked data s egments resulting from QC processing.
+CREATE TABLE QCMASKSEG (
+    QCMASKID BIGINT
+    STARTSAMPLE INTEGER
+    ENDSAMPLE INTEGER
+    MASKTYPE INTEGER
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The qshell_interval table records processing that was perfor med against interval table rows. It records the start and e nd dates of execution of each process name in the processing sequence for the interval class.
+CREATE TABLE QSHELL_INTERVAL (
+    QSHELL_INTVLID BIGINT
+    INTVLID BIGINT
+    CLASS VARCHAR(16)
+    NAME VARCHAR(20)
+    PROC_START_DATE TIMESTAMP
+    PROC_END_DATE TIMESTAMP
+    STATE VARCHAR(16)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The rda_param table contains the Regularized Discrimination Analysis (RDA) parameters for each polyid.
+CREATE TABLE RDA_PARAM (
+    POLYID BIGINT
+    RDA_VERID BIGINT
+    GAMMA DOUBLE PRECISION
+    LAMBDA DOUBLE PRECISION
+    CLASS_DECISION_THRESH DOUBLE PRECISION
+    AUTH VARCHAR(15)
+    COMMENTS VARCHAR(4000)
+    LDDATE TIMESTAMP
+);
+
+-- The reg_ratio_discrim table contains variances and means for each polyid, numerator phase and frequency, and denominator phase and frequency. These parameters are used for discrim inants which are ratios of two phases.
+CREATE TABLE REG_RATIO_DISCRIM (
+    POLYID BIGINT
+    COV_VERID BIGINT
+    NUMERATOR_PHASE VARCHAR(8)
+    DENOMINATOR_PHASE VARCHAR(8)
+    NUM_LOW_FREQ DOUBLE PRECISION
+    NUM_HI_FREQ DOUBLE PRECISION
+    DEN_LOW_FREQ DOUBLE PRECISION
+    DEN_HI_FREQ DOUBLE PRECISION
+    MEAN_EX_VAL DOUBLE PRECISION
+    NUM_STATION_VAR DOUBLE PRECISION
+    DEN_STATION_VAR DOUBLE PRECISION
+    NUM_EVENT_VAR DOUBLE PRECISION
+    DEN_EVENT_VAR DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- &nbsp;
+CREATE TABLE REMAP (
+    SOURCE VARCHAR(512)
+    ID_NAME VARCHAR(12)
+    ORIGINAL_ID BIGINT
+    CURRENT_ID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The remark table contains comments. This table may be used t o store free-form comments that embellish records of other t ables. The commid type in many tables refers to a record in the remark table. If commid is NA (1) in a record of any oth er table, no comments are stored for that record.
+CREATE TABLE REMARK (
+    COMMID BIGINT
+    LINENO INTEGER
+    REMARK VARCHAR(160)
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_remark PRIMARY KEY (COMMID)
+);
+
+-- This table contains a list of beam files that have been remo ved from the USNDC. It is used to clean up orphaned beam fil es on the non-mission system side since they are only remove d on the mission side.
+CREATE TABLE REMOVED_BEAM_DFILE (
+    DFILE VARCHAR(32)
+    LDDATE TIMESTAMP
+);
+
+-- The request table defines segments of auxiliary waveform dat a to be acquired. The time, endtime, sta, and chan types def ine a single unit of data. Data import programs must succeed in acquiring all the data for a time interval before changi ng the state to indicate success.
+CREATE TABLE REQUEST (
+    REQID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    ARRAY VARCHAR(8)
+    ORID BIGINT
+    EVID BIGINT
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    CLASS VARCHAR(16)
+    REQ_STATE VARCHAR(16)
+    STATECOUNT INTEGER
+    COMPLETE INTEGER
+    REQUESTOR VARCHAR(15)
+    MODTIME DOUBLE PRECISION
+    MODAUTHOR VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The SADO table contains the email history of reports sent by users using the SADO Tool.
+CREATE TABLE SADO_EMAIL_HISTORY (
+    SADO_EMAIL_ID BIGINT
+    REPORT_ID BIGINT
+    SUBJECT VARCHAR(1000)
+    RECIPIENTS VARCHAR(4000)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The SADO table contains the binary stored pdf reports and as sociated id numbers.
+CREATE TABLE SADO_PDF_REPORTS (
+    SADO_PDF_REPORT_ID BIGINT
+    REPORT_ID BIGINT
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The SADO table contains data about the SADO report and the e vent for the report.
+CREATE TABLE SADO_REPORT (
+    REPORT_ID BIGINT
+    EVID BIGINT
+    ORID BIGINT
+    GRN INTEGER
+    EVENT_TIME DOUBLE PRECISION
+    TITLE VARCHAR(64)
+    ANALYST VARCHAR(32)
+    ACCOUNT VARCHAR(15)
+    CLASSIFICATION VARCHAR(256)
+    TTGE VARCHAR(1)
+    SADO_RELEASED VARCHAR(1)
+    ALERT_MANAGER_CALLED VARCHAR(1)
+    EXERCISE VARCHAR(1)
+    EMAIL_TYPE VARCHAR(32)
+    ALERT_MANAGER VARCHAR(64)
+    YIELD_CALCULATOR_REGION_SELECT VARCHAR(64)
+    FINAL_DETERMINATION VARCHAR(32)
+    MAG_MAGTYPE VARCHAR(32)
+    OVERBURDEN_SET VARCHAR(1)
+    OVERBURDEN REAL
+    COMMENTS VARCHAR(4000)
+    ECM_DETERMINATION VARCHAR(32)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The SADO table contains landmarks and information about land marks related to the event
+CREATE TABLE SADO_REPORT_LANDMARKS (
+    REPORT_LANDMARKS_ID BIGINT
+    REPORT_ID BIGINT
+    LOCATION_ID BIGINT
+    TESTSITE VARCHAR(1)
+    NAME VARCHAR(64)
+    LAT REAL
+    LON REAL
+    DISTANCE REAL
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The SADO table contains image files related to SADO reports
+CREATE TABLE SADO_SCREENSHOTS (
+    SADO_SCREENSHOT_ID BIGINT
+    REPORT_ID BIGINT
+    TYPE VARCHAR(10)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The SADO table contains the current state of the reports. T he reports can be new, saved, submitted, or modified.
+CREATE TABLE SADO_STATE (
+    SADO_STATE_ID BIGINT
+    REPORT_ID BIGINT
+    SADO_STATE_CATEGORY_ID BIGINT
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The SADO table contains descriptions of the various states a report can be in.
+CREATE TABLE SADO_STATE_CATEGORIES (
+    SADO_STATE_CATEGORY_ID BIGINT
+    TITLE VARCHAR(64)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The SADO_USERS table contains the first and last name of the SADO to be used for and appear in SADO reports.
+CREATE TABLE SADO_USERS (
+    SADO_USERS_ID BIGINT
+    SADO_NAME VARCHAR(64)
+    OFFICE_SYMBOL VARCHAR(64)
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The sensor table contains calibration information for specif ic sensor channels. This table provides a record of updates in the calibration factor or clock error of each instrument and links a sta/chan/time to a complete instrument response in the instrument table. Waveform data are converted into ph ysical units through multiplication by the calib type locate d in wfdisc. The correct value of calib may not be accuratel y known when the wfdisc record is entered into the database. The sensor table provides the mechanism (calratio and calpe r) to update calib, without requiring possibly hundreds of w fdisc records to be updated. Through the foreign key inid, t his table is linked to instrument, which has types pointing to flat files holding detailed calibration information in a variety of formats (see instrument).
+CREATE TABLE SENSOR (
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    INID BIGINT
+    CHANID BIGINT
+    JDATE INTEGER
+    CALRATIO REAL
+    CALPER REAL
+    TSHIFT REAL
+    INSTANT VARCHAR(1)
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_sensor PRIMARY KEY (STA, CHAN, TIME, ENDTIME)
+);
+
+-- The site table contains station location information. It nam es and describes a point on the earth where measurements are made (e.g., the location of an instrument or array of instr uments). This table contains information that normally chang es infrequently, such as location. In addition, the site tab le contains types that describe the offset of a station rela tive to an array reference location. Global data integrity i mplies that the sta/ondate in site be consistent with the st a/chan/ondate in the sitechan table.
+CREATE TABLE SITE (
+    STA VARCHAR(6)
+    ONDATE INTEGER
+    OFFDATE INTEGER
+    LAT DOUBLE PRECISION
+    LON DOUBLE PRECISION
+    ELEV REAL
+    STANAME VARCHAR(50)
+    STATYPE VARCHAR(4)
+    REFSTA VARCHAR(6)
+    DNORTH REAL
+    DEAST REAL
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_site PRIMARY KEY (STA, ONDATE)
+);
+
+-- The siteaux table contains additional site-dependent paramet ers that are not included in the site table.
+CREATE TABLE SITEAUX (
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    TIME DOUBLE PRECISION
+    NOIS REAL
+    NOISSD REAL
+    AMCOR REAL
+    AMCORSD REAL
+    SNTHRSH REAL
+    RELY REAL
+    PTMCOR REAL
+    STMCOR REAL
+    STAPER REAL
+    DELK REAL
+    DELS REAL
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The sitechan table contains station-channel information. It describes the orientation of a recording channel at the site referenced by sta. The table provides information about the various channels that are available at a station and mainta ins a record of the physical channel configuration at a site .
+CREATE TABLE SITECHAN (
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    ONDATE INTEGER
+    CHANID BIGINT
+    OFFDATE INTEGER
+    CTYPE VARCHAR(4)
+    EDEPTH REAL
+    HANG REAL
+    VANG REAL
+    DESCRIP VARCHAR(50)
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_sitechan PRIMARY KEY (STA, CHAN, ONDATE)
+);
+
+-- The snr_phase table contains the minimum number of stations and signal-to-noise ratio needed to measure each phase in ea ch region for each station and channel. These parameters ar e used for discriminants which are ratios of two phases.
+CREATE TABLE SNR_PHASE (
+    POLYID BIGINT
+    AMPCOR_VERID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    PHASE VARCHAR(8)
+    MIN_NUM_ELEM SMALLINT
+    SNR_THRESH DOUBLE PRECISION
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The sregion table contains seismic region numbers and their equivalent descriptions.
+CREATE TABLE SREGION (
+    SRN INTEGER
+    SRNAME VARCHAR(40)
+    LDDATE TIMESTAMP
+);
+
+-- The stamag table contains station magnitude estimates based upon measurements made on specific seismic phases. Values in the stamag table are used to calculate network magnitudes s tored in the netmag table.
+CREATE TABLE STAMAG (
+    MAGID BIGINT
+    AMPID BIGINT
+    STA VARCHAR(6)
+    ARID BIGINT
+    ORID BIGINT
+    EVID BIGINT
+    PHASE VARCHAR(8)
+    DELTA REAL
+    MAGTYPE VARCHAR(6)
+    MAGNITUDE REAL
+    UNCERTAINTY REAL
+    MAGRES REAL
+    MAGDEF VARCHAR(1)
+    MMODEL VARCHAR(15)
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_stamag PRIMARY KEY (MAGID)
+);
+
+-- The stanet table is used for Distributed Processing. It cont ains station to array mapping.
+CREATE TABLE STANET (
+    NET VARCHAR(8)
+    STA VARCHAR(6)
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- The staqual_dnames table contains reference data of the Stat ion and the associated detection beam for use with staqual_d aily_summary table to determine which dname is used for a pa rticular station quality measurement.
+CREATE TABLE STAQUAL_DNAMES (
+    ID BIGINT
+    STA VARCHAR(6)
+    DNAME VARCHAR(8)
+    ON_TIME DOUBLE PRECISION
+    OFF_TIME DOUBLE PRECISION
+    AUTHOR VARCHAR(64)
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The station_processing table provides a link between the sta tion and the cluster and the processing recipe for that proc essing type.
+CREATE TABLE STATION_PROCESSING (
+    CLUSTAID BIGINT
+    ACTIVETIME DOUBLE PRECISION
+    PROCID BIGINT
+    PROCTYPE VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The station_quality table holds station quality attributes c alculated and stored by DFX.
+CREATE TABLE STATION_QUALITY (
+    SQID BIGINT
+    STA VARCHAR(6)
+    DNAME VARCHAR(8)
+    TIME DOUBLE PRECISION
+    ENDTIME DOUBLE PRECISION
+    JDATE INTEGER
+    AVGCHANS REAL
+    EXPECTED DOUBLE PRECISION
+    RETRIEVED DOUBLE PRECISION
+    MASKED DOUBLE PRECISION
+    MASKS INTEGER
+    NDET_THRES REAL
+    AZIMUTH REAL
+    SLOW REAL
+    NOISE REAL
+    NOISEDEV REAL
+    NOISETYPE VARCHAR(10)
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The stayield table contains yield values calculated from cod a amplitudes obtained for a single station.
+CREATE TABLE STAYIELD (
+    YIELDID BIGINT
+    AMPID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    ORID BIGINT
+    ARID BIGINT
+    YIELD REAL
+    FFACTOR REAL
+    WMODEL_NAME VARCHAR(50)
+    AUTH VARCHAR(15)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The sta_coda_spectrum table contains the theoretical source spectrum for an event, used to obtain the station moment mag nitude values. The theoretical spectrum is fit to the observ ed spectrum in all frequency bands for a station that are se t to defining in the envelope_contribution table.
+CREATE TABLE STA_CODA_SPECTRUM (
+    AMPID BIGINT
+    FREQ REAL
+    AMPCOR REAL
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The svddisc table contains a left singular vector (LSV) head er file and descriptive information. This table provides a p ointer (or index) to singular value decompositions stored on disk. The LSVs are stored in ordinary disk files called svd disc or '.lsv' files as a sequence of binary four byte float values.
+CREATE TABLE SVDDISC (
+    LSVID BIGINT
+    CLUSTAID BIGINT
+    ACTIVETIME DOUBLE PRECISION
+    STA VARCHAR(6)
+    NSAMP INTEGER
+    SAMPRATE REAL
+    SINGULAR_VALUE REAL
+    UNITS VARCHAR(1)
+    DIR VARCHAR(64)
+    DFILE VARCHAR(32)
+    FOFF BIGINT
+    COMMID BIGINT
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The svddisc_chan_order table contains the order in which the sta and chans were combined together to form the input sent to the SVD. This is the order in which the sta and chans ar e passed to the SVD must be the same as the order of the sta and chans of the observed data passed to the SVD.
+CREATE TABLE SVDDISC_CHAN_ORDER (
+    CLUSTAID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(6)
+    ACTIVETIME DOUBLE PRECISION
+    SORT_ORDER INTEGER
+);
+
+-- The taper table contains processing parameter.
+CREATE TABLE TAPER (
+    TAPERID BIGINT
+    TAPER_TYPE VARCHAR(16)
+    TAPER_PERCT REAL
+    TAPER_MAXPTS INTEGER
+    TAPER_MINPTS INTEGER
+    AUTH VARCHAR(15)
+    LDDATE TIMESTAMP
+);
+
+-- The timestamp table is used by automated processing to recor d time milestones associated with time-series data.
+CREATE TABLE TIMESTAMP (
+    PROCCLASS VARCHAR(16)
+    PROCNAME VARCHAR(16)
+    TIME DOUBLE PRECISION
+    LDDATE TIMESTAMP
+);
+
+-- The tomo_info table contains pointers to the storage locatio n of the tomography grids used by coda magnitude processing to obtain the path correction values.
+CREATE TABLE TOMO_INFO (
+    TOMOID BIGINT
+    MINLAT REAL
+    MAXLAT REAL
+    DLAT REAL
+    MINLON REAL
+    MAXLON REAL
+    DLON REAL
+    DIR VARCHAR(64)
+    DFILE VARCHAR(32)
+    AUTH VARCHAR(15)
+    DESCRIP VARCHAR(50)
+    LDDATE TIMESTAMP
+);
+
+-- The user_filter table is used to store the list of filters d esignated by a user to be their filter selection list option s.
+CREATE TABLE USER_FILTER (
+    OSUSER VARCHAR(30)
+    SEQ INTEGER
+    FILTER_STRING VARCHAR(1024)
+    FILTERID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- This table lists the users who are allowed to apply channel masks to waveform data and the maximum time duration each us er can apply a channel mask (applies to omitted_channels tab le). This table also lists the users who are allowed to appl y nondefining location and magnitude indicators (timedef, az def, slodef and magdef) without respect to time duration (ap plies to nondefining table).
+CREATE TABLE USER_PRIVILEGES (
+    AUTH VARCHAR(15)
+    MAX_DURATION INTEGER
+    APP_TABLE VARCHAR(32)
+    LDDATE TIMESTAMP
+);
+
+-- The wfactivity table describes activity in the wfdisc table for a channel group and time region.
+CREATE TABLE WFACTIVITY (
+    CLASS VARCHAR(16)
+    NAME VARCHAR(20)
+    TIME DOUBLE PRECISION
+    DURATION REAL
+    MIN_TIME DOUBLE PRECISION
+    MAX_ENDTIME NUMERIC
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The wfaudit table contains records describing the sequences of changes made to rows in the wfdisc table for continuous ( raw) waveform data
+CREATE TABLE WFAUDIT (
+    WFAUDITID BIGINT
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    OLD_TIME DOUBLE PRECISION
+    NEW_TIME DOUBLE PRECISION
+    OLD_ENDTIME DOUBLE PRECISION
+    NEW_ENDTIME DOUBLE PRECISION
+    MODDATE TIMESTAMP
+);
+
+-- The wfconv table contains data translations that are to be p erformed on incoming data before they are written to disk by the DLMan application. Data compression types include &quot;-&quot; i f the data is not compressed or &quot;CA&quot; for Canadian compressio n. &quot;Type&quot; in columns intype and outtype is the fixed-width d ata type (e.g., &quot;s4&quot;) or - if not applicable (i.e., if the d ata is compressed). An insamp value of zero (0) indicates th at the number of samples varies. Values less than zero in co lumns insamp and outsamp indicate that the total number of s amples must be evenly divisible by insamp. Strip indicates w hether to strip the authentication headers from the data; &quot;y &quot; means strip them and n means do not strip them.
+CREATE TABLE WFCONV (
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    CHANID BIGINT
+    INAUTH VARCHAR(1)
+    INCOMP VARCHAR(2)
+    INTYPE VARCHAR(2)
+    INSAMP INTEGER
+    OUTAUTH VARCHAR(1)
+    OUTCOMP VARCHAR(2)
+    OUTTYPE VARCHAR(2)
+    OUTSAMP INTEGER
+    STRIP VARCHAR(1)
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+);
+
+-- The wfdisc table contains a waveform header file and descrip tive information. This table provides a pointer (or index) t o waveforms stored on disk. The waveforms themselves are sto red in ordinary disk files called wfdisc or '.w' files as a sequence of sample values (usually in binary representation) .
+CREATE TABLE WFDISC (
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    TIME DOUBLE PRECISION
+    WFID BIGINT
+    CHANID BIGINT
+    JDATE INTEGER
+    ENDTIME DOUBLE PRECISION
+    NSAMP INTEGER
+    SAMPRATE REAL
+    CALIB REAL
+    CALPER REAL
+    INSTYPE VARCHAR(6)
+    SEGTYPE VARCHAR(1)
+    DATATYPE VARCHAR(2)
+    CLIP VARCHAR(1)
+    DIR VARCHAR(64)
+    DFILE VARCHAR(32)
+    FOFF BIGINT
+    COMMID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_wfdisc PRIMARY KEY (WFID)
+);
+
+-- The wffile table describes the files used in the Wave Form F iles managed by the Continuous Data Services Subsystem.
+CREATE TABLE WFFILE (
+    WFFID BIGINT
+    DIR VARCHAR(64)
+    DFILE VARCHAR(32)
+    MACHINE VARCHAR(32)
+    LOCAL_DIR VARCHAR(64)
+    TLEN REAL
+    TIME DOUBLE PRECISION
+    REAPTIME DOUBLE PRECISION
+    STA VARCHAR(6)
+    CHAN VARCHAR(8)
+    SAMPRATE REAL
+    CHANID BIGINT
+    WFMID BIGINT
+    MODDATE TIMESTAMP
+    LDDATE TIMESTAMP
+);
+
+-- The wftag table links various identifiers (e.g., orid, arid, and stassid to wfid). Linkages can also be determined indir ectly using sta/chan/time; however, it is more efficient to use the wftag table.
+CREATE TABLE WFTAG (
+    TAGNAME VARCHAR(8)
+    TAGID BIGINT
+    WFID BIGINT
+    LDDATE TIMESTAMP
+    CONSTRAINT pk_wftag PRIMARY KEY (TAGID, WFID)
+);
+
+-- The xtag table links various identifiers (e.g., orid, arid, stassid, and wfid) to other identifiers. This table is a gen eralization of the wftag table, which is limited to linking exclusively to the wfdisc table. The thisdb column describes the database account for the record specified by thisid and thisname; thatdb describes the database account for the rec ord specified by thatid and thatname. When a parent/child ta ble exists between the records thisid should designate the p arent and thatid should designate the child.
+CREATE TABLE XTAG (
+    THISID BIGINT
+    THATID BIGINT
+    THISNAME VARCHAR(8)
+    THATNAME VARCHAR(8)
+    THISDB VARCHAR(32)
+    THATDB VARCHAR(32)
+    LDDATE TIMESTAMP
+);
+
+-- Add Foreign Key Constraints
+-- Create Indexes for Performance

@@ -1,0 +1,16 @@
+site.comments=Seismic monitoring station locations and geographic coordinates
+origin.comments=Earthquake and explosion origin data including location, time, magnitude, and uncertainty estimates  
+arrival.comments=Seismic phase arrival times at monitoring stations
+assoc.comments=Association table linking arrival observations to origin events
+wfdisc.comments=Waveform file descriptor table with metadata about digital seismic waveform files
+wftag.comments=Waveform tag information for data quality assessment and processing status tracking
+sitechan.comments=Site-channel information describing instrument characteristics and response parameters
+affiliation.comments=Network affiliation data linking stations to seismic monitoring networks
+sensor.comments=Sensor instrument specifications and deployment information for seismic monitoring equipment
+instrument.comments=Instrument response and calibration data for seismic recording equipment
+gregion.comments=Geographic region definitions and boundaries for seismic monitoring areas
+lastid.comments=Auto-increment ID tracking table for maintaining unique identifiers
+network.comments=Seismic monitoring network information including operational parameters
+netmag.comments=Network magnitude calculations and estimates from multiple station observations
+origerr.comments=Origin error and uncertainty estimates including confidence ellipses
+stamag.comments=Station-specific magnitude calculations from individual seismic monitoring stations

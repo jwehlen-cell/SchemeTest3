@@ -1,0 +1,11 @@
+# USNDC Database Connection Information
+# Generated: 2025-11-07
+
+DB_HOST="usndc-schema-usndc-schematest3-clone.c0320kayk04f.us-east-1.rds.amazonaws.com"
+DB_PORT="5432"
+DB_NAME="usndc_schema"
+DB_USER="schemaadmin"
+DB_PASSWORD="SchemaTest2024!"
+
+# Connection String
+CONNECTION_STRING="postgresql://schemaadmin:SchemaTest2024!@usndc-schema-usndc-schematest3-clone.c0320kayk04f.us-east-1.rds.amazonaws.com:5432/usndc_schema"

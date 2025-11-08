@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NDC Schema Browser - Live Database Documentation</title>
+    <title>USNDC Oracle Schema Browser</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -22,6 +22,42 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         .header {
+            .er-wrapper {
+                margin-top: 50px;
+                background: #f8f9fb;
+                border: 1px solid #e0e6ed;
+                border-radius: 12px;
+                padding: 25px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            }
+            .er-wrapper h3 {
+                margin-top: 0;
+                font-weight: 600;
+                color: #2c3e50;
+            }
+            .er-diagram-container {
+                overflow: auto;
+                max-height: 70vh;
+                border: 1px solid #d5dde5;
+                background: #ffffff;
+                padding: 10px;
+            }
+            .er-diagram-container img {
+                width: 100%;
+                height: auto;
+                image-rendering: crisp-edges;
+            }
+            .er-actions {
+                margin-top: 12px;
+                text-align: right;
+                font-size: 0.9em;
+            }
+            .er-actions a {
+                color: #2980b9;
+                text-decoration: none;
+                margin-left: 15px;
+            }
+            .er-actions a:hover { text-decoration: underline; }
             text-align: center;
             margin-bottom: 40px;
             padding-bottom: 20px;
@@ -120,70 +156,86 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🗄️ NDC Schema Browser</h1>
-            <h2>Live Database Documentation</h2>
-            <div class="status">✅ Connected to Local PostgreSQL</div>
+            <h1>� USNDC Oracle Schema Browser</h1>
+            <h2>RDS 19c Schema Documentation</h2>
+            <div class="status">✅ Oracle RDS 19c • US-East-1</div>
         </div>
 
         <div class="db-info">
             <strong>📡 Database Connection Info:</strong><br>
-            🏠 Host: localhost:5432<br>
-            🔐 Authentication: schemaadmin<br>
-            📊 Engine: PostgreSQL 14.x<br>
+            🏠 Host: usndc-oracle-db.c0320kayk04f.us-east-1.rds.amazonaws.com:1521/ORCL<br>
+            🔐 User/Schema: ORACLEADMIN<br>
+            📊 Engine: Oracle Database 19c<br>
             🕒 Generated: <span id="timestamp"></span>
         </div>
 
         <div class="schemas">
             <div class="schema-card">
-                <div class="schema-title">🏛️ Legacy Schema</div>
+                <div class="schema-title">🟦 USNDC Oracle Schema</div>
                 <div class="schema-description">
-                    Traditional pharmacy and insurance tables with established relationships and constraints.
-                    Contains 17 tables covering core business operations.
+                    Operational Oracle schema (RDS 19c) for seismic/event processing: 177 tables, 101 foreign keys.
+                    Includes full constraint pages and relationship graphics.
                 </div>
-                <a href="docs/legacy/index.html" class="btn">📊 View Live Documentation</a>
-            </div>
-
-            <div class="schema-card">
-                <div class="schema-title">🚀 NDC PLUS Schema</div>
-                <div class="schema-description">
-                    Enhanced NDC (National Drug Code) tables with extended functionality and modern architecture.
-                    Contains 35 tables with comprehensive drug and pricing information.
-                </div>
-                <a href="docs/ndc_plus/index.html" class="btn">📊 View Live Documentation</a>
+                <a href="docs/oracle/index.html" class="btn">📊 View Live Documentation</a>
             </div>
         </div>
 
         <div class="features">
-            <h3>🔍 Live Documentation Features</h3>
+            <h3>🔍 Oracle Documentation Features</h3>
             <div class="feature-list">
                 <div class="feature-item">
-                    <strong>🔗 Real-time Relationships</strong><br>
-                    Interactive ER diagrams showing actual foreign key constraints
+                    <strong>🔗 Oracle Relationships</strong><br>
+                    Interactive ER diagrams showing live foreign key constraints
                 </div>
                 <div class="feature-item">
-                    <strong>📋 Live Table Analysis</strong><br>
-                    Current table structures, indexes, and constraints
+                    <strong>📋 Table/Index/Constraint Views</strong><br>
+                    Current table structures, indexes, checks and uniques
                 </div>
                 <div class="feature-item">
-                    <strong>🎯 Cross-Schema Views</strong><br>
-                    Navigate between Legacy and NDC PLUS schemas
+                    <strong>🧭 Diagram Navigation</strong><br>
+                    One/two-degree relationship navigation per table
                 </div>
                 <div class="feature-item">
-                    <strong>⚡ Performance Insights</strong><br>
-                    Index usage and optimization recommendations
+                    <strong>📈 At-a-glance Metrics</strong><br>
+                    Schema overview, relationship summaries, and orphans
                 </div>
             </div>
         </div>
 
+        <div class="er-wrapper">
+            <h3>🧬 Global ER Diagram</h3>
+            <p style="color:#555; margin-top:-5px;">Complete schema relationship graph (177 tables, 101 foreign keys). Scroll to explore or open full size.</p>
+            <div class="er-diagram-container">
+                <img id="global-er" src="er/er.png" alt="Global ER Diagram" onclick="toggleZoom()" style="cursor: zoom-in;">
+            </div>
+            <div class="er-actions">
+                <a href="er/er.png" target="_blank" rel="noopener">Open Full Size</a>
+                <a href="docs/oracle/relationships.html" target="_blank" rel="noopener">Interactive View</a>
+                <a href="mermaid-evid-arid-orid.html" target="_blank" rel="noopener">Mermaid (EVID/ARID/ORID)</a>
+                <a href="er/er-mermaid.svg" target="_blank" rel="noopener">Mermaid SVG</a>
+                <a href="USNDC_Tables_A_to_Z.html" target="_blank" rel="noopener">📋 Tables A-Z</a>
+            </div>
+        </div>
+
         <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #666;">
-            <p>🏠 <a href="../index.html" style="color: #3498db;">Return to Static Version</a> | 
-               📈 <a href="docs/legacy/index.html" style="color: #3498db;">Legacy Analysis</a> | 
-               📊 <a href="docs/ndc_plus/index.html" style="color: #3498db;">NDC PLUS Analysis</a></p>
+            <p>� <a href="docs/oracle/index.html" style="color: #3498db;">Open USNDC Oracle Documentation</a></p>
         </div>
     </div>
 
     <script>
         document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        let zoomed = false;
+        function toggleZoom(){
+            const img = document.getElementById('global-er');
+            zoomed = !zoomed;
+            if(zoomed){
+                img.style.width = '200%';
+                img.style.cursor = 'zoom-out';
+            } else {
+                img.style.width = '100%';
+                img.style.cursor = 'zoom-in';
+            }
+        }
     </script>
 </body>
 </html>

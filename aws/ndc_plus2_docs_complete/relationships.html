@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>usndc_schema.public</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="index.html" class="navbar-brand"><b>usndc_schema</b></a><span class="navbar-brand" style="padding-left: 0">.public</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>All Relationships</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Diagrams</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom">
+                                <!-- Tabs within a box -->
+                                <h5>By default only columns that are primary keys, foreign keys or indexes are shown.</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#compactDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact</a></li>
+                                    <li class=""><a href="#largeDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large</a></li>
+                                    <li class=""><a href="#compactimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact Implied</a></li>
+                                    <li class=""><a href="#largeimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large Implied</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="compactDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="compactRelationshipsDiagram" name="compactRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/qcmaskseg.html" target="_top" title="qcmaskseg" alt="" coords="808,10100,969,10276">
+<area shape="rect" id="node43" href="tables/qcmaskinfo.html" target="_top" title="qcmaskinfo" alt="" coords="499,10100,660,10335">
+<area shape="rect" id="node2" href="tables/polygon.html" target="_top" title="polygon" alt="" coords="502,8507,657,8712">
+<area shape="rect" id="node3" href="tables/amplitude_dyn_pars_int.html" target="_top" title="amplitude_dyn_pars_int" alt="" coords="451,3784,708,3960">
+<area shape="rect" id="node41" href="tables/amplitude.html" target="_top" title="amplitude" alt="" coords="214,4171,362,4435">
+<area shape="rect" id="node4" href="tables/sta_coda_spectrum.html" target="_top" title="sta_coda_spectrum" alt="" coords="468,3977,691,4153">
+<area shape="rect" id="node5" href="tables/netyield.html" target="_top" title="netyield" alt="" coords="500,7868,659,8103">
+<area shape="rect" id="node27" href="tables/origin.html" target="_top" title="origin" alt="" coords="227,6503,348,6796">
+<area shape="rect" id="node6" href="tables/fk_processing.html" target="_top" title="fk_processing" alt="" coords="197,3368,379,3573">
+<area shape="rect" id="node65" href="tables/arrival.html" target="_top" title="arrival" alt="" coords="5,3659,127,3893">
+<area shape="rect" id="node7" href="tables/apma.html" target="_top" title="apma" alt="" coords="219,3591,356,3767">
+<area shape="rect" id="node8" href="tables/origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="476,8120,683,8296">
+<area shape="rect" id="node9" href="tables/datauser.html" target="_top" title="datauser" alt="" coords="218,2595,358,2741">
+<area shape="rect" id="node10" href="tables/historic_info_cylinder.html" target="_top" title="historic_info_cylinder" alt="" coords="460,1927,699,2103">
+<area shape="rect" id="node11" href="tables/classification.html" target="_top" title="classification" alt="" coords="798,1675,978,1880">
+<area shape="rect" id="node79" href="tables/classification_opr.html" target="_top" title="classification_opr" alt="" coords="475,1704,684,1880">
+<area shape="rect" id="node12" href="tables/sensor.html" target="_top" title="sensor" alt="" coords="826,1481,951,1657">
+<area shape="rect" id="node74" href="tables/instrument.html" target="_top" title="instrument" alt="" coords="501,1511,658,1657">
+<area shape="rect" id="node13" href="tables/discrimvote.html" target="_top" title="discrimvote" alt="" coords="498,8313,661,8489">
+<area shape="rect" id="node14" href="tables/mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="812,8869,965,9075">
+<area shape="rect" id="node15" href="tables/historic_info_sta_phase.html" target="_top" title="historic_info_sta_phase" alt="" coords="760,1897,1017,2103">
+<area shape="rect" id="node62" href="tables/algorithm.html" target="_top" title="algorithm" alt="" coords="494,2135,666,2281">
+<area shape="rect" id="node16" href="tables/arrival_dyn_pars_int.html" target="_top" title="arrival_dyn_pars_int" alt="" coords="173,3784,403,3960">
+<area shape="rect" id="node17" href="tables/discrim_param.html" target="_top" title="discrim_param" alt="" coords="795,9092,982,9327">
+<area shape="rect" id="node18" href="tables/historic_info_shell.html" target="_top" title="historic_info_shell" alt="" coords="781,2120,996,2325">
+<area shape="rect" id="node19" href="tables/ar_info.html" target="_top" title="ar_info" alt="" coords="450,5196,710,5372">
+<area shape="rect" id="node20" href="tables/arrival_tag.html" target="_top" title="arrival_tag" alt="" coords="196,3977,379,4153">
+<area shape="rect" id="node21" href="tables/snr_phase.html" target="_top" title="snr_phase" alt="" coords="806,9344,971,9549">
+<area shape="rect" id="node22" href="tables/ftpfailed.html" target="_top" title="ftpfailed" alt="" coords="797,2343,980,2519">
+<area shape="rect" id="node46" href="tables/msgdisc.html" target="_top" title="msgdisc" alt="" coords="511,2565,648,2771">
+<area shape="rect" id="node23" href="tables/amplitude_dyn_pars_str.html" target="_top" title="amplitude_dyn_pars_str" alt="" coords="451,4171,708,4347">
+<area shape="rect" id="node24" href="tables/origin_tag.html" target="_top" title="origin_tag" alt="" coords="488,5389,671,5565">
+<area shape="rect" id="node25" href="tables/assoc.html" target="_top" title="assoc" alt="" coords="520,5003,639,5179">
+<area shape="rect" id="node26" href="tables/ecm_cov.html" target="_top" title="ecm_cov" alt="" coords="801,7475,976,7709">
+<area shape="rect" id="node28" href="tables/qcmaskdef.html" target="_top" title="qcmaskdef" alt="" coords="176,10159,399,10335">
+<area shape="rect" id="node29" href="tables/stamag.html" target="_top" title="stamag" alt="" coords="512,4780,647,4985">
+<area shape="rect" id="node30" href="tables/origin_ga_del.html" target="_top" title="origin_ga_del" alt="" coords="491,1199,668,1463">
+<area shape="rect" id="node31" href="tables/interval.html" target="_top" title="interval" alt="" coords="488,945,671,1151">
+<area shape="rect" id="node32" href="tables/msgdest.html" target="_top" title="msgdest" alt="" coords="819,2536,958,2712">
+<area shape="rect" id="node33" href="tables/ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="461,5583,698,5847">
+<area shape="rect" id="node34" href="tables/qshell_interval.html" target="_top" title="qshell_interval" alt="" coords="796,916,981,1092">
+<area shape="rect" id="node35" href="tables/reg_ratio_discrim.html" target="_top" title="reg_ratio_discrim" alt="" coords="785,7727,992,7932">
+<area shape="rect" id="node36" href="tables/arrival_dyn_pars_dbl.html" target="_top" title="arrival_dyn_pars_dbl" alt="" coords="171,4452,405,4628">
+<area shape="rect" id="node37" href="tables/ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="756,9567,1021,9860">
+<area shape="rect" id="node48" href="tables/ecm_ref_event.html" target="_top" title="ecm_ref_event" alt="" coords="487,9723,672,9928">
+<area shape="rect" id="node38" href="tables/origerr.html" target="_top" title="origerr" alt="" coords="517,5864,642,6011">
+<area shape="rect" id="node39" href="tables/polypoint.html" target="_top" title="polypoint" alt="" coords="816,7949,961,8155">
+<area shape="rect" id="node40" href="tables/ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="492,6028,667,6292">
+<area shape="rect" id="node42" href="tables/wfdisc.html" target="_top" title="wfdisc" alt="" coords="518,717,641,893">
+<area shape="rect" id="node44" href="tables/detection.html" target="_top" title="detection" alt="" coords="216,2759,360,2964">
+<area shape="rect" id="node45" href="tables/netmag.html" target="_top" title="netmag" alt="" coords="512,6309,647,6544">
+<area shape="rect" id="node47" href="tables/wftag.html" target="_top" title="wftag" alt="" coords="831,559,946,735">
+<area shape="rect" id="node49" href="tables/amp3c.html" target="_top" title="amp3c" alt="" coords="226,2981,350,3157">
+<area shape="rect" id="node50" href="tables/rda_param.html" target="_top" title="rda_param" alt="" coords="778,8172,998,8377">
+<area shape="rect" id="node51" href="tables/beam.html" target="_top" title="beam" alt="" coords="831,752,946,899">
+<area shape="rect" id="node52" href="tables/ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="471,6561,688,6767">
+<area shape="rect" id="node53" href="tables/codamag_input.html" target="_top" title="codamag_input" alt="" coords="484,4364,675,4569">
+<area shape="rect" id="node54" href="tables/defining_rules.html" target="_top" title="defining_rules" alt="" coords="797,280,980,515">
+<area shape="rect" id="node66" href="tables/defining_obstypes.html" target="_top" title="defining_obstypes" alt="" coords="472,263,687,439">
+<area shape="rect" id="node70" href="tables/defining_values.html" target="_top" title="defining_values" alt="" coords="483,456,676,632">
+<area shape="rect" id="node55" href="tables/event_quality.html" target="_top" title="event_quality" alt="" coords="492,6784,667,6989">
+<area shape="rect" id="node56" href="tables/ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="768,8395,1009,8600">
+<area shape="rect" id="node57" href="tables/envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="457,7007,702,7212">
+<area shape="rect" id="node58" href="tables/msgaux.html" target="_top" title="msgaux" alt="" coords="822,2729,955,2905">
+<area shape="rect" id="node59" href="tables/ecm_region_pref_version.html" target="_top" title="ecm_region_pref_version" alt="" coords="754,8617,1023,8852">
+<area shape="rect" id="node60" href="tables/ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="471,7229,688,7464">
+<area shape="rect" id="node61" href="tables/cluster_info.html" target="_top" title="cluster_info" alt="" coords="497,35,662,211">
+<area shape="rect" id="node63" href="tables/cluster_station.html" target="_top" title="cluster_station" alt="" coords="795,5,982,211">
+<area shape="rect" id="node64" href="tables/amplitude_dyn_pars_dbl.html" target="_top" title="amplitude_dyn_pars_dbl" alt="" coords="449,4587,710,4763">
+<area shape="rect" id="node67" href="tables/discrimuse.html" target="_top" title="discrimuse" alt="" coords="501,7481,658,7687">
+<area shape="rect" id="node68" href="tables/assoc_ga_del.html" target="_top" title="assoc_ga_del" alt="" coords="800,1153,977,1300">
+<area shape="rect" id="node69" href="tables/ecm_ref_discrim.html" target="_top" title="ecm_ref_discrim" alt="" coords="788,9877,989,10083">
+<area shape="rect" id="node71" href="tables/arrival_dyn_pars_str.html" target="_top" title="arrival_dyn_pars_str" alt="" coords="172,3175,403,3351">
+<area shape="rect" id="node72" href="tables/stayield.html" target="_top" title="stayield" alt="" coords="500,3368,659,3573">
+<area shape="rect" id="node73" href="tables/origerr_ga_del.html" target="_top" title="origerr_ga_del" alt="" coords="796,1317,981,1464">
+<area shape="rect" id="node75" href="tables/event_control.html" target="_top" title="event_control" alt="" coords="484,7704,676,7851">
+<area shape="rect" id="node76" href="tables/msvmax_descript.html" target="_top" title="msvmax_descript" alt="" coords="475,3591,684,3767">
+<area shape="rect" id="node77" href="tables/msvmax_results.html" target="_top" title="msvmax_results" alt="" coords="789,3591,988,3767">
+<area shape="rect" id="node78" href="tables/net_coda_spectrum.html" target="_top" title="net_coda_spectrum" alt="" coords="776,6309,1001,6485">
+</map>
+                                        <a name='diagram'><img id="compactDegreeImg" src="diagrams/summary/relationships.real.compact.png" usemap="#compactRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="largeDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="largeRelationshipsDiagram" name="largeRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/qcmaskseg.html" target="_top" title="qcmaskseg" alt="" coords="808,22665,969,22905">
+<area shape="rect" id="node43" href="tables/qcmaskinfo.html" target="_top" title="qcmaskinfo" alt="" coords="499,22665,660,23023">
+<area shape="rect" id="node2" href="tables/polygon.html" target="_top" title="polygon" alt="" coords="502,18867,657,19195">
+<area shape="rect" id="node3" href="tables/amplitude_dyn_pars_int.html" target="_top" title="amplitude_dyn_pars_int" alt="" coords="451,8659,708,8869">
+<area shape="rect" id="node41" href="tables/amplitude.html" target="_top" title="amplitude" alt="" coords="214,9115,362,9677">
+<area shape="rect" id="node4" href="tables/sta_coda_spectrum.html" target="_top" title="sta_coda_spectrum" alt="" coords="468,8887,691,9097">
+<area shape="rect" id="node5" href="tables/netyield.html" target="_top" title="netyield" alt="" coords="500,17889,659,18276">
+<area shape="rect" id="node27" href="tables/origin.html" target="_top" title="origin" alt="" coords="227,15143,348,15940">
+<area shape="rect" id="node6" href="tables/fk_processing.html" target="_top" title="fk_processing" alt="" coords="197,7587,379,7885">
+<area shape="rect" id="node65" href="tables/arrival.html" target="_top" title="arrival" alt="" coords="5,8252,127,9079">
+<area shape="rect" id="node7" href="tables/apma.html" target="_top" title="apma" alt="" coords="219,7903,356,8671">
+<area shape="rect" id="node8" href="tables/origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="476,18293,683,18533">
+<area shape="rect" id="node9" href="tables/datauser.html" target="_top" title="datauser" alt="" coords="218,5941,358,6328">
+<area shape="rect" id="node10" href="tables/historic_info_cylinder.html" target="_top" title="historic_info_cylinder" alt="" coords="460,4377,699,4735">
+<area shape="rect" id="node11" href="tables/classification.html" target="_top" title="classification" alt="" coords="798,3885,978,4331">
+<area shape="rect" id="node79" href="tables/classification_opr.html" target="_top" title="classification_opr" alt="" coords="475,4091,684,4272">
+<area shape="rect" id="node12" href="tables/sensor.html" target="_top" title="sensor" alt="" coords="826,3452,951,3868">
+<area shape="rect" id="node74" href="tables/instrument.html" target="_top" title="instrument" alt="" coords="501,3569,658,3985">
+<area shape="rect" id="node13" href="tables/discrimvote.html" target="_top" title="discrimvote" alt="" coords="498,18551,661,18849">
+<area shape="rect" id="node14" href="tables/mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="812,19252,965,20401">
+<area shape="rect" id="node15" href="tables/historic_info_sta_phase.html" target="_top" title="historic_info_sta_phase" alt="" coords="760,4348,1017,4852">
+<area shape="rect" id="node62" href="tables/algorithm.html" target="_top" title="algorithm" alt="" coords="494,4825,666,5124">
+<area shape="rect" id="node16" href="tables/arrival_dyn_pars_int.html" target="_top" title="arrival_dyn_pars_int" alt="" coords="173,8688,403,8899">
+<area shape="rect" id="node17" href="tables/discrim_param.html" target="_top" title="discrim_param" alt="" coords="795,20419,982,21216">
+<area shape="rect" id="node18" href="tables/historic_info_shell.html" target="_top" title="historic_info_shell" alt="" coords="781,4869,996,5608">
+<area shape="rect" id="node19" href="tables/ar_info.html" target="_top" title="ar_info" alt="" coords="450,12044,710,12959">
+<area shape="rect" id="node20" href="tables/arrival_tag.html" target="_top" title="arrival_tag" alt="" coords="196,8916,379,9097">
+<area shape="rect" id="node21" href="tables/snr_phase.html" target="_top" title="snr_phase" alt="" coords="806,21233,971,21561">
+<area shape="rect" id="node22" href="tables/ftpfailed.html" target="_top" title="ftpfailed" alt="" coords="797,5625,980,5865">
+<area shape="rect" id="node46" href="tables/msgdisc.html" target="_top" title="msgdisc" alt="" coords="511,5912,648,6739">
+<area shape="rect" id="node23" href="tables/amplitude_dyn_pars_str.html" target="_top" title="amplitude_dyn_pars_str" alt="" coords="451,9115,708,9325">
+<area shape="rect" id="node24" href="tables/origin_tag.html" target="_top" title="origin_tag" alt="" coords="488,12976,671,13187">
+<area shape="rect" id="node25" href="tables/assoc.html" target="_top" title="assoc" alt="" coords="520,11405,639,12027">
+<area shape="rect" id="node26" href="tables/ecm_cov.html" target="_top" title="ecm_cov" alt="" coords="801,17327,976,17684">
+<area shape="rect" id="node28" href="tables/qcmaskdef.html" target="_top" title="qcmaskdef" alt="" coords="176,22871,399,23609">
+<area shape="rect" id="node29" href="tables/stamag.html" target="_top" title="stamag" alt="" coords="512,10825,647,11388">
+<area shape="rect" id="node30" href="tables/origin_ga_del.html" target="_top" title="origin_ga_del" alt="" coords="491,2413,668,3211">
+<area shape="rect" id="node31" href="tables/interval.html" target="_top" title="interval" alt="" coords="488,1697,671,2143">
+<area shape="rect" id="node32" href="tables/msgdest.html" target="_top" title="msgdest" alt="" coords="819,5883,958,6181">
+<area shape="rect" id="node33" href="tables/ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="461,13204,698,13855">
+<area shape="rect" id="node34" href="tables/qshell_interval.html" target="_top" title="qshell_interval" alt="" coords="796,1668,981,2025">
+<area shape="rect" id="node35" href="tables/reg_ratio_discrim.html" target="_top" title="reg_ratio_discrim" alt="" coords="785,17701,992,18176">
+<area shape="rect" id="node36" href="tables/arrival_dyn_pars_dbl.html" target="_top" title="arrival_dyn_pars_dbl" alt="" coords="171,9695,405,9905">
+<area shape="rect" id="node37" href="tables/ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="756,21579,1021,22288">
+<area shape="rect" id="node48" href="tables/ecm_ref_event.html" target="_top" title="ecm_ref_event" alt="" coords="487,21891,672,22336">
+<area shape="rect" id="node38" href="tables/origerr.html" target="_top" title="origerr" alt="" coords="517,13872,642,14523">
+<area shape="rect" id="node39" href="tables/polypoint.html" target="_top" title="polypoint" alt="" coords="816,18193,961,18404">
+<area shape="rect" id="node40" href="tables/ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="492,14540,667,14839">
+<area shape="rect" id="node42" href="tables/wfdisc.html" target="_top" title="wfdisc" alt="" coords="518,1029,641,1680">
+<area shape="rect" id="node44" href="tables/detection.html" target="_top" title="detection" alt="" coords="216,6345,360,6996">
+<area shape="rect" id="node45" href="tables/netmag.html" target="_top" title="netmag" alt="" coords="512,14856,647,15243">
+<area shape="rect" id="node47" href="tables/wftag.html" target="_top" title="wftag" alt="" coords="831,989,946,1171">
+<area shape="rect" id="node49" href="tables/amp3c.html" target="_top" title="amp3c" alt="" coords="226,7013,350,7341">
+<area shape="rect" id="node50" href="tables/rda_param.html" target="_top" title="rda_param" alt="" coords="778,18421,998,18720">
+<area shape="rect" id="node51" href="tables/beam.html" target="_top" title="beam" alt="" coords="831,1188,946,1428">
+<area shape="rect" id="node52" href="tables/ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="471,15260,688,15559">
+<area shape="rect" id="node53" href="tables/codamag_input.html" target="_top" title="codamag_input" alt="" coords="484,9343,675,10580">
+<area shape="rect" id="node54" href="tables/defining_rules.html" target="_top" title="defining_rules" alt="" coords="797,497,980,972">
+<area shape="rect" id="node66" href="tables/defining_obstypes.html" target="_top" title="defining_obstypes" alt="" coords="472,436,687,705">
+<area shape="rect" id="node70" href="tables/defining_values.html" target="_top" title="defining_values" alt="" coords="483,723,676,963">
+<area shape="rect" id="node55" href="tables/event_quality.html" target="_top" title="event_quality" alt="" coords="492,15576,667,16080">
+<area shape="rect" id="node56" href="tables/ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="768,18737,1009,18977">
+<area shape="rect" id="node57" href="tables/envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="457,16097,702,16425">
+<area shape="rect" id="node58" href="tables/msgaux.html" target="_top" title="msgaux" alt="" coords="822,6199,955,6439">
+<area shape="rect" id="node59" href="tables/ecm_region_pref_version.html" target="_top" title="ecm_region_pref_version" alt="" coords="754,18995,1023,19235">
+<area shape="rect" id="node60" href="tables/ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="471,16443,688,16771">
+<area shape="rect" id="node61" href="tables/cluster_info.html" target="_top" title="cluster_info" alt="" coords="497,64,662,275">
+<area shape="rect" id="node63" href="tables/cluster_station.html" target="_top" title="cluster_station" alt="" coords="795,5,982,480">
+<area shape="rect" id="node64" href="tables/amplitude_dyn_pars_dbl.html" target="_top" title="amplitude_dyn_pars_dbl" alt="" coords="449,10597,710,10808">
+<area shape="rect" id="node67" href="tables/discrimuse.html" target="_top" title="discrimuse" alt="" coords="501,16788,658,17028">
+<area shape="rect" id="node68" href="tables/assoc_ga_del.html" target="_top" title="assoc_ga_del" alt="" coords="800,2145,977,2767">
+<area shape="rect" id="node69" href="tables/ecm_ref_discrim.html" target="_top" title="ecm_ref_discrim" alt="" coords="788,22305,989,22545">
+<area shape="rect" id="node71" href="tables/arrival_dyn_pars_str.html" target="_top" title="arrival_dyn_pars_str" alt="" coords="172,7359,403,7569">
+<area shape="rect" id="node72" href="tables/stayield.html" target="_top" title="stayield" alt="" coords="500,7939,659,8355">
+<area shape="rect" id="node73" href="tables/origerr_ga_del.html" target="_top" title="origerr_ga_del" alt="" coords="796,2784,981,3435">
+<area shape="rect" id="node75" href="tables/event_control.html" target="_top" title="event_control" alt="" coords="484,17045,676,17872">
+<area shape="rect" id="node76" href="tables/msvmax_descript.html" target="_top" title="msvmax_descript" alt="" coords="475,8372,684,8641">
+<area shape="rect" id="node77" href="tables/msvmax_results.html" target="_top" title="msvmax_results" alt="" coords="789,8372,988,8788">
+<area shape="rect" id="node78" href="tables/net_coda_spectrum.html" target="_top" title="net_coda_spectrum" alt="" coords="776,14856,1001,15067">
+</map>
+                                        <a name='diagram'><img id="largeDegreeImg" src="diagrams/summary/relationships.real.large.png" usemap="#largeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="compactimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="compactImpliedRelationshipsDiagram" name="compactImpliedRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/qcmaskseg.html" target="_top" title="qcmaskseg" alt="" coords="1271,2581,1431,2757">
+<area shape="rect" id="node46" href="tables/removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,8901,238,9019">
+<area shape="rect" id="node88" href="tables/qcmaskinfo.html" target="_top" title="qcmaskinfo" alt="" coords="962,2275,1124,2509">
+<area shape="rect" id="node150" href="tables/user_privileges.html" target="_top" title="user_privileges" alt="" coords="325,4199,516,4345">
+<area shape="rect" id="node2" href="tables/polygon.html" target="_top" title="polygon" alt="" coords="659,1319,813,1524">
+<area shape="rect" id="node67" href="tables/ecm_constant.html" target="_top" title="ecm_constant" alt="" coords="330,1341,511,1488">
+<area shape="rect" id="node3" href="tables/bulletin_release.html" target="_top" title="bulletin_release" alt="" coords="617,2461,855,2637">
+<area shape="rect" id="node4" href="tables/siteaux.html" target="_top" title="siteaux" alt="" coords="672,2799,800,2975">
+<area shape="rect" id="node5" href="tables/xtag.html" target="_top" title="xtag" alt="" coords="360,10923,480,11069">
+<area shape="rect" id="node6" href="tables/amplitude_dyn_pars_int.html" target="_top" title="amplitude_dyn_pars_int" alt="" coords="1843,9041,2101,9217">
+<area shape="rect" id="node81" href="tables/amplitude.html" target="_top" title="amplitude" alt="" coords="1589,7407,1737,7671">
+<area shape="rect" id="node7" href="tables/sta_coda_spectrum.html" target="_top" title="sta_coda_spectrum" alt="" coords="1860,3948,2083,4124">
+<area shape="rect" id="node8" href="tables/tomo_info.html" target="_top" title="tomo_info" alt="" coords="661,5084,811,5289">
+<area shape="rect" id="node9" href="tables/deconvolution.html" target="_top" title="deconvolution" alt="" coords="645,5307,827,5483">
+<area shape="rect" id="node10" href="tables/cluster_override.html" target="_top" title="cluster_override" alt="" coords="1529,3219,1797,3453">
+<area shape="rect" id="node30" href="tables/cluster_phase_override.html" target="_top" title="cluster_phase_override" alt="" coords="1217,3463,1485,3668">
+<area shape="rect" id="node124" href="tables/cluster_station.html" target="_top" title="cluster_station" alt="" coords="949,3339,1136,3544">
+<area shape="rect" id="node11" href="tables/da_sitechan_latency.html" target="_top" title="da_sitechan_latency" alt="" coords="306,11087,535,11233">
+<area shape="rect" id="node12" href="tables/netyield.html" target="_top" title="netyield" alt="" coords="963,7204,1122,7439">
+<area shape="rect" id="node17" href="tables/stanet.html" target="_top" title="stanet" alt="" coords="360,9796,481,9943">
+<area shape="rect" id="node52" href="tables/origin.html" target="_top" title="origin" alt="" coords="675,8576,797,8869">
+<area shape="rect" id="node13" href="tables/fk_processing.html" target="_top" title="fk_processing" alt="" coords="1572,7688,1754,7893">
+<area shape="rect" id="node131" href="tables/arrival.html" target="_top" title="arrival" alt="" coords="1290,8173,1412,8408">
+<area shape="rect" id="node14" href="tables/apma.html" target="_top" title="apma" alt="" coords="1594,7911,1732,8087">
+<area shape="rect" id="node15" href="tables/detection_threshold.html" target="_top" title="detection_threshold" alt="" coords="603,5500,869,5676">
+<area shape="rect" id="node16" href="tables/processing_recipe.html" target="_top" title="processing_recipe" alt="" coords="628,5693,844,5869">
+<area shape="rect" id="node18" href="tables/origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="939,9057,1146,9233">
+<area shape="rect" id="node19" href="tables/datauser.html" target="_top" title="datauser" alt="" coords="350,11631,491,11777">
+<area shape="rect" id="node20" href="tables/sado_report_landmarks.html" target="_top" title="sado_report_landmarks" alt="" coords="608,529,864,705">
+<area shape="rect" id="node136" href="tables/aoi.html" target="_top" title="aoi" alt="" coords="331,975,510,1121">
+<area shape="rect" id="node21" href="tables/historic_info_cylinder.html" target="_top" title="historic_info_cylinder" alt="" coords="616,5,856,181">
+<area shape="rect" id="node22" href="tables/classification.html" target="_top" title="classification" alt="" coords="953,4753,1133,4959">
+<area shape="rect" id="node159" href="tables/classification_opr.html" target="_top" title="classification_opr" alt="" coords="631,4783,841,4959">
+<area shape="rect" id="node23" href="tables/sensor.html" target="_top" title="sensor" alt="" coords="673,11987,799,12163">
+<area shape="rect" id="node149" href="tables/instrument.html" target="_top" title="instrument" alt="" coords="342,11939,499,12085">
+<area shape="rect" id="node24" href="tables/feedback_state.html" target="_top" title="feedback_state" alt="" coords="325,12139,516,12285">
+<area shape="rect" id="node25" href="tables/cluster_magref.html" target="_top" title="cluster_magref" alt="" coords="1257,3685,1445,3920">
+<area shape="rect" id="node130" href="tables/ampdescript.html" target="_top" title="ampdescript" alt="" coords="958,3705,1127,3852">
+<area shape="rect" id="node26" href="tables/discrimvote.html" target="_top" title="discrimvote" alt="" coords="961,10123,1124,10299">
+<area shape="rect" id="node27" href="tables/user_filter.html" target="_top" title="user_filter" alt="" coords="345,12303,496,12449">
+<area shape="rect" id="node28" href="tables/da_refsta_summary.html" target="_top" title="da_refsta_summary" alt="" coords="308,12503,533,12649">
+<area shape="rect" id="node29" href="tables/hydro_origin.html" target="_top" title="hydro_origin" alt="" coords="334,12667,506,12813">
+<area shape="rect" id="node31" href="tables/mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="966,1112,1119,1317">
+<area shape="rect" id="node32" href="tables/historic_info_sta_phase.html" target="_top" title="historic_info_sta_phase" alt="" coords="914,100,1171,305">
+<area shape="rect" id="node122" href="tables/algorithm.html" target="_top" title="algorithm" alt="" coords="334,293,506,440">
+<area shape="rect" id="node33" href="tables/arrival_dyn_pars_int.html" target="_top" title="arrival_dyn_pars_int" alt="" coords="1548,8140,1778,8316">
+<area shape="rect" id="node34" href="tables/da_interval.html" target="_top" title="da_interval" alt="" coords="645,5887,827,6092">
+<area shape="rect" id="node35" href="tables/discrim_param.html" target="_top" title="discrim_param" alt="" coords="1257,307,1444,541">
+<area shape="rect" id="node36" href="tables/historic_info_shell.html" target="_top" title="historic_info_shell" alt="" coords="628,271,844,476">
+<area shape="rect" id="node37" href="tables/mdac_fd.html" target="_top" title="mdac_fd" alt="" coords="1895,1880,2048,2115">
+<area shape="rect" id="node69" href="tables/ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="1530,1224,1796,1517">
+<area shape="rect" id="node38" href="tables/continuous_data_status.html" target="_top" title="continuous_data_status" alt="" coords="292,12831,549,12977">
+<area shape="rect" id="node39" href="tables/filter_values_string.html" target="_top" title="filter_values_string" alt="" coords="310,12995,531,13141">
+<area shape="rect" id="node40" href="tables/ar_info.html" target="_top" title="ar_info" alt="" coords="913,9539,1173,9715">
+<area shape="rect" id="node41" href="tables/arrival_tag.html" target="_top" title="arrival_tag" alt="" coords="1572,8985,1754,9161">
+<area shape="rect" id="node49" href="tables/origin_tag.html" target="_top" title="origin_tag" alt="" coords="951,8828,1134,9004">
+<area shape="rect" id="node42" href="tables/snr_phase.html" target="_top" title="snr_phase" alt="" coords="1268,559,1434,764">
+<area shape="rect" id="node43" href="tables/wfactivity.html" target="_top" title="wfactivity" alt="" coords="345,13159,496,13305">
+<area shape="rect" id="node44" href="tables/alphasite.html" target="_top" title="alphasite" alt="" coords="663,13340,809,13516">
+<area shape="rect" id="node54" href="tables/dlman.html" target="_top" title="dlman" alt="" coords="345,13323,496,13469">
+<area shape="rect" id="node45" href="tables/ftpfailed.html" target="_top" title="ftpfailed" alt="" coords="951,11431,1134,11607">
+<area shape="rect" id="node95" href="tables/msgdisc.html" target="_top" title="msgdisc" alt="" coords="667,11604,805,11809">
+<area shape="rect" id="node106" href="tables/ftplogin.html" target="_top" title="ftplogin" alt="" coords="666,11395,806,11541">
+<area shape="rect" id="node47" href="tables/amplitude_dyn_pars_str.html" target="_top" title="amplitude_dyn_pars_str" alt="" coords="1843,9844,2101,10020">
+<area shape="rect" id="node48" href="tables/gregion.html" target="_top" title="gregion" alt="" coords="355,8995,486,9141">
+<area shape="rect" id="node50" href="tables/assoc.html" target="_top" title="assoc" alt="" coords="1604,8792,1722,8968">
+<area shape="rect" id="node51" href="tables/ecm_cov.html" target="_top" title="ecm_cov" alt="" coords="1576,2235,1750,2469">
+<area shape="rect" id="node75" href="tables/ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="1263,2264,1438,2528">
+<area shape="rect" id="node139" href="tables/ecm_ref_discrim.html" target="_top" title="ecm_ref_discrim" alt="" coords="942,1721,1143,1927">
+<area shape="rect" id="node77" href="tables/sregion.html" target="_top" title="sregion" alt="" coords="355,9159,486,9305">
+<area shape="rect" id="node53" href="tables/qcmaskdef.html" target="_top" title="qcmaskdef" alt="" coords="625,2088,847,2264">
+<area shape="rect" id="node55" href="tables/stamag.html" target="_top" title="stamag" alt="" coords="1904,8017,2039,8223">
+<area shape="rect" id="node56" href="tables/origin_ga_del.html" target="_top" title="origin_ga_del" alt="" coords="647,9276,825,9540">
+<area shape="rect" id="node57" href="tables/remark.html" target="_top" title="remark" alt="" coords="357,13523,484,13669">
+<area shape="rect" id="node58" href="tables/interval.html" target="_top" title="interval" alt="" coords="645,7921,827,8127">
+<area shape="rect" id="node59" href="tables/site.html" target="_top" title="site" alt="" coords="679,723,793,899">
+<area shape="rect" id="node60" href="tables/event_correlation.html" target="_top" title="event_correlation" alt="" coords="317,13687,524,13833">
+<area shape="rect" id="node61" href="tables/affiliation.html" target="_top" title="affiliation" alt="" coords="664,9665,808,9841">
+<area shape="rect" id="node62" href="tables/msgdest.html" target="_top" title="msgdest" alt="" coords="973,11624,1112,11800">
+<area shape="rect" id="node63" href="tables/ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="1233,817,1469,1081">
+<area shape="rect" id="node64" href="tables/qshell_interval.html" target="_top" title="qshell_interval" alt="" coords="950,7649,1136,7825">
+<area shape="rect" id="node65" href="tables/reg_ratio_discrim.html" target="_top" title="reg_ratio_discrim" alt="" coords="1247,1429,1454,1635">
+<area shape="rect" id="node66" href="tables/filter_values_integer.html" target="_top" title="filter_values_integer" alt="" coords="306,13851,535,13997">
+<area shape="rect" id="node68" href="tables/arrival_dyn_pars_dbl.html" target="_top" title="arrival_dyn_pars_dbl" alt="" coords="1546,8333,1780,8509">
+<area shape="rect" id="node100" href="tables/ecm_ref_event.html" target="_top" title="ecm_ref_event" alt="" coords="643,1649,829,1855">
+<area shape="rect" id="node70" href="tables/request.html" target="_top" title="request" alt="" coords="1285,11835,1417,12040">
+<area shape="rect" id="node113" href="tables/msgaux.html" target="_top" title="msgaux" alt="" coords="976,11817,1110,11993">
+<area shape="rect" id="node71" href="tables/origerr.html" target="_top" title="origerr" alt="" coords="980,9775,1105,9921">
+<area shape="rect" id="node72" href="tables/ga_tag.html" target="_top" title="ga_tag" alt="" coords="658,952,814,1157">
+<area shape="rect" id="node73" href="tables/sado_users.html" target="_top" title="sado_users" alt="" coords="340,14015,501,14161">
+<area shape="rect" id="node74" href="tables/polypoint.html" target="_top" title="polypoint" alt="" coords="970,709,1115,915">
+<area shape="rect" id="node103" href="tables/rda_param.html" target="_top" title="rda_param" alt="" coords="933,1944,1153,2149">
+<area shape="rect" id="node76" href="tables/butterworth_filter.html" target="_top" title="butterworth_filter" alt="" coords="633,6109,839,6285">
+<area shape="rect" id="node78" href="tables/assoc_ga.html" target="_top" title="assoc_ga" alt="" coords="348,14179,493,14325">
+<area shape="rect" id="node79" href="tables/bulletin_release_export.html" target="_top" title="bulletin_release_export" alt="" coords="916,2635,1169,2840">
+<area shape="rect" id="node80" href="tables/staqual_dnames.html" target="_top" title="staqual_dnames" alt="" coords="321,14343,520,14489">
+<area shape="rect" id="node153" href="tables/msvmax_results.html" target="_top" title="msvmax_results" alt="" coords="943,7456,1142,7632">
+<area shape="rect" id="node82" href="tables/codamag_output.html" target="_top" title="codamag_output" alt="" coords="635,6303,837,6479">
+<area shape="rect" id="node83" href="tables/event.html" target="_top" title="event" alt="" coords="678,6496,794,6672">
+<area shape="rect" id="node84" href="tables/process_tracking.html" target="_top" title="process_tracking" alt="" coords="318,14507,523,14653">
+<area shape="rect" id="node85" href="tables/wfdisc.html" target="_top" title="wfdisc" alt="" coords="674,11129,798,11305">
+<area shape="rect" id="node102" href="tables/msgdatatype.html" target="_top" title="msgdatatype" alt="" coords="334,11467,507,11613">
+<area shape="rect" id="node86" href="tables/sado_email_history.html" target="_top" title="sado_email_history" alt="" coords="309,14671,532,14817">
+<area shape="rect" id="node87" href="tables/outage_station_receive.html" target="_top" title="outage_station_receive" alt="" coords="295,14835,546,14981">
+<area shape="rect" id="node89" href="tables/timestamp.html" target="_top" title="timestamp" alt="" coords="344,14999,497,15145">
+<area shape="rect" id="node90" href="tables/cluster_mec.html" target="_top" title="cluster_mec" alt="" coords="1267,3299,1434,3445">
+<area shape="rect" id="node91" href="tables/detection.html" target="_top" title="detection" alt="" coords="1900,10688,2044,10893">
+<area shape="rect" id="node101" href="tables/amp3c.html" target="_top" title="amp3c" alt="" coords="1601,10809,1725,10985">
+<area shape="rect" id="node92" href="tables/filter_values_double.html" target="_top" title="filter_values_double" alt="" coords="306,15163,535,15309">
+<area shape="rect" id="node93" href="tables/origerr_ga.html" target="_top" title="origerr_ga" alt="" coords="344,15327,497,15473">
+<area shape="rect" id="node94" href="tables/netmag.html" target="_top" title="netmag" alt="" coords="975,9287,1110,9521">
+<area shape="rect" id="node96" href="tables/wftag.html" target="_top" title="wftag" alt="" coords="985,11037,1100,11213">
+<area shape="rect" id="node97" href="tables/feedback_categories.html" target="_top" title="feedback_categories" alt="" coords="305,15491,536,15637">
+<area shape="rect" id="node98" href="tables/network.html" target="_top" title="network" alt="" coords="655,9931,817,10107">
+<area shape="rect" id="node99" href="tables/origin_ga.html" target="_top" title="origin_ga" alt="" coords="663,8995,809,9259">
+<area shape="rect" id="node104" href="tables/beam.html" target="_top" title="beam" alt="" coords="985,11231,1100,11377">
+<area shape="rect" id="node105" href="tables/ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="1242,4513,1460,4719">
+<area shape="rect" id="node107" href="tables/classification_lookup.html" target="_top" title="classification_lookup" alt="" coords="618,6689,854,6865">
+<area shape="rect" id="node108" href="tables/codamag_input.html" target="_top" title="codamag_input" alt="" coords="1876,4364,2067,4569">
+<area shape="rect" id="node109" href="tables/defining_rules.html" target="_top" title="defining_rules" alt="" coords="644,10497,828,10732">
+<area shape="rect" id="node134" href="tables/defining_obstypes.html" target="_top" title="defining_obstypes" alt="" coords="313,10212,528,10388">
+<area shape="rect" id="node140" href="tables/defining_values.html" target="_top" title="defining_values" alt="" coords="324,10405,517,10581">
+<area shape="rect" id="node110" href="tables/event_quality.html" target="_top" title="event_quality" alt="" coords="955,8173,1130,8379">
+<area shape="rect" id="node111" href="tables/ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="1230,1207,1472,1412">
+<area shape="rect" id="node112" href="tables/envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="920,7879,1165,8084">
+<area shape="rect" id="node114" href="tables/omitted_channels.html" target="_top" title="omitted_channels" alt="" coords="631,6883,841,7059">
+<area shape="rect" id="node115" href="tables/wffile.html" target="_top" title="wffile" alt="" coords="360,15655,480,15831">
+<area shape="rect" id="node116" href="tables/active_id.html" target="_top" title="active_id" alt="" coords="1280,11196,1422,11343">
+<area shape="rect" id="node117" href="tables/ecm_region_pref_version.html" target="_top" title="ecm_region_pref_version" alt="" coords="1217,1724,1485,1959">
+<area shape="rect" id="node118" href="tables/ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="1242,2012,1460,2247">
+<area shape="rect" id="node119" href="tables/cluster_info.html" target="_top" title="cluster_info" alt="" coords="654,3388,818,3564">
+<area shape="rect" id="node120" href="tables/classification_refer_to.html" target="_top" title="classification_refer_to" alt="" coords="614,7076,858,7252">
+<area shape="rect" id="node121" href="tables/spatial_ref_sys.html" target="_top" title="spatial_ref_sys" alt="" coords="1569,647,1757,764">
+<area shape="rect" id="node123" href="tables/cluster_threshold.html" target="_top" title="cluster_threshold" alt="" coords="1218,3076,1484,3281">
+<area shape="rect" id="node125" href="tables/hydro_assoc.html" target="_top" title="hydro_assoc" alt="" coords="334,15848,507,15995">
+<area shape="rect" id="node126" href="tables/amplitude_dyn_pars_dbl.html" target="_top" title="amplitude_dyn_pars_dbl" alt="" coords="1841,10343,2103,10519">
+<area shape="rect" id="node127" href="tables/filter_coefficients.html" target="_top" title="filter_coefficients" alt="" coords="633,12320,839,12496">
+<area shape="rect" id="node128" href="tables/taper.html" target="_top" title="taper" alt="" coords="659,7269,813,7445">
+<area shape="rect" id="node129" href="tables/station_processing.html" target="_top" title="station_processing" alt="" coords="1241,2775,1461,2951">
+<area shape="rect" id="node132" href="tables/feedback_state_categories.html" target="_top" title="feedback_state_categories" alt="" coords="282,16012,559,16159">
+<area shape="rect" id="node133" href="tables/channame.html" target="_top" title="channame" alt="" coords="344,16176,497,16323">
+<area shape="rect" id="node135" href="tables/discrimuse.html" target="_top" title="discrimuse" alt="" coords="1272,10123,1430,10328">
+<area shape="rect" id="node137" href="tables/chan_groups.html" target="_top" title="chan_groups" alt="" coords="334,16340,507,16487">
+<area shape="rect" id="node138" href="tables/assoc_ga_del.html" target="_top" title="assoc_ga_del" alt="" coords="954,10341,1132,10488">
+<area shape="rect" id="node141" href="tables/arrival_dyn_pars_str.html" target="_top" title="arrival_dyn_pars_str" alt="" coords="1548,8527,1778,8703">
+<area shape="rect" id="node142" href="tables/sado_state.html" target="_top" title="sado_state" alt="" coords="305,16504,536,16651">
+<area shape="rect" id="node143" href="tables/station_quality.html" target="_top" title="station_quality" alt="" coords="643,7463,829,7639">
+<area shape="rect" id="node144" href="tables/classification_level.html" target="_top" title="classification_level" alt="" coords="626,7692,846,7868">
+<area shape="rect" id="node145" href="tables/wfconv.html" target="_top" title="wfconv" alt="" coords="356,16668,485,16844">
+<area shape="rect" id="node146" href="tables/stayield.html" target="_top" title="stayield" alt="" coords="1892,4141,2051,4347">
+<area shape="rect" id="node147" href="tables/feedback_cataffiliation.html" target="_top" title="feedback_cataffiliation" alt="" coords="298,16861,543,17008">
+<area shape="rect" id="node148" href="tables/origerr_ga_del.html" target="_top" title="origerr_ga_del" alt="" coords="950,10537,1135,10684">
+<area shape="rect" id="node151" href="tables/event_control.html" target="_top" title="event_control" alt="" coords="947,9952,1139,10099">
+<area shape="rect" id="node152" href="tables/msvmax_descript.html" target="_top" title="msvmax_descript" alt="" coords="632,4589,840,4765">
+<area shape="rect" id="node154" href="tables/hydro_arrival.html" target="_top" title="hydro_arrival" alt="" coords="332,17025,509,17172">
+<area shape="rect" id="node155" href="tables/sitechan.html" target="_top" title="sitechan" alt="" coords="352,17189,489,17336">
+<area shape="rect" id="node156" href="tables/net_coda_spectrum.html" target="_top" title="net_coda_spectrum" alt="" coords="1239,9287,1463,9463">
+<area shape="rect" id="node157" href="tables/hydro_arr_group.html" target="_top" title="hydro_arr_group" alt="" coords="635,10124,837,10300">
+<area shape="rect" id="node158" href="tables/doppler_detection.html" target="_top" title="doppler_detection" alt="" coords="1854,10911,2089,11116">
+<area shape="rect" id="node160" href="tables/da_refsta_latency.html" target="_top" title="da_refsta_latency" alt="" coords="316,17353,525,17500">
+<area shape="rect" id="node161" href="tables/outage_station_data.html" target="_top" title="outage_station_data" alt="" coords="306,17517,535,17664">
+<area shape="rect" id="node162" href="tables/geography_columns.html" target="_top" title="geography_columns" alt="" coords="1858,592,2086,685">
+<area shape="rect" id="node163" href="tables/geometry_columns.html" target="_top" title="geometry_columns" alt="" coords="1863,703,2081,796">
+</map>
+                                        <a name='diagram'><img id="compactimpliedDegreeImg" src="diagrams/summary/relationships.implied.compact.png" usemap="#compactImpliedRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="largeimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="largeImpliedRelationshipsDiagram" name="largeImpliedRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/qcmaskseg.html" target="_top" title="qcmaskseg" alt="" coords="1271,4572,1431,4812">
+<area shape="rect" id="node46" href="tables/removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,15697,238,15820">
+<area shape="rect" id="node88" href="tables/qcmaskinfo.html" target="_top" title="qcmaskinfo" alt="" coords="962,4185,1124,4543">
+<area shape="rect" id="node150" href="tables/user_privileges.html" target="_top" title="user_privileges" alt="" coords="325,7111,516,7292">
+<area shape="rect" id="node2" href="tables/polygon.html" target="_top" title="polygon" alt="" coords="659,2636,813,2964">
+<area shape="rect" id="node67" href="tables/ecm_constant.html" target="_top" title="ecm_constant" alt="" coords="330,2712,511,2864">
+<area shape="rect" id="node3" href="tables/bulletin_release.html" target="_top" title="bulletin_release" alt="" coords="617,4704,855,5120">
+<area shape="rect" id="node4" href="tables/siteaux.html" target="_top" title="siteaux" alt="" coords="672,5209,800,5772">
+<area shape="rect" id="node5" href="tables/xtag.html" target="_top" title="xtag" alt="" coords="360,18888,480,19157">
+<area shape="rect" id="node6" href="tables/amplitude_dyn_pars_int.html" target="_top" title="amplitude_dyn_pars_int" alt="" coords="1843,13023,2101,13233">
+<area shape="rect" id="node81" href="tables/amplitude.html" target="_top" title="amplitude" alt="" coords="1589,11280,1737,11843">
+<area shape="rect" id="node7" href="tables/sta_coda_spectrum.html" target="_top" title="sta_coda_spectrum" alt="" coords="1860,6881,2083,7092">
+<area shape="rect" id="node8" href="tables/tomo_info.html" target="_top" title="tomo_info" alt="" coords="661,8087,811,8503">
+<area shape="rect" id="node9" href="tables/deconvolution.html" target="_top" title="deconvolution" alt="" coords="645,8520,827,8877">
+<area shape="rect" id="node10" href="tables/cluster_override.html" target="_top" title="cluster_override" alt="" coords="1529,5349,1797,6000">
+<area shape="rect" id="node30" href="tables/cluster_phase_override.html" target="_top" title="cluster_phase_override" alt="" coords="1217,5965,1485,6352">
+<area shape="rect" id="node124" href="tables/cluster_station.html" target="_top" title="cluster_station" alt="" coords="949,5821,1136,6296">
+<area shape="rect" id="node11" href="tables/da_sitechan_latency.html" target="_top" title="da_sitechan_latency" alt="" coords="306,19175,535,19561">
+<area shape="rect" id="node12" href="tables/netyield.html" target="_top" title="netyield" alt="" coords="963,11071,1122,11457">
+<area shape="rect" id="node17" href="tables/stanet.html" target="_top" title="stanet" alt="" coords="360,17111,481,17321">
+<area shape="rect" id="node52" href="tables/origin.html" target="_top" title="origin" alt="" coords="675,14299,797,15096">
+<area shape="rect" id="node13" href="tables/fk_processing.html" target="_top" title="fk_processing" alt="" coords="1572,11860,1754,12159">
+<area shape="rect" id="node131" href="tables/arrival.html" target="_top" title="arrival" alt="" coords="1290,12729,1412,13556">
+<area shape="rect" id="node14" href="tables/apma.html" target="_top" title="apma" alt="" coords="1594,12176,1732,12944">
+<area shape="rect" id="node15" href="tables/detection_threshold.html" target="_top" title="detection_threshold" alt="" coords="603,8895,869,9487">
+<area shape="rect" id="node16" href="tables/processing_recipe.html" target="_top" title="processing_recipe" alt="" coords="628,9504,844,9773">
+<area shape="rect" id="node18" href="tables/origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="939,14409,1146,14649">
+<area shape="rect" id="node19" href="tables/datauser.html" target="_top" title="datauser" alt="" coords="350,20081,491,20468">
+<area shape="rect" id="node20" href="tables/sado_report_landmarks.html" target="_top" title="sado_report_landmarks" alt="" coords="608,1273,864,1660">
+<area shape="rect" id="node136" href="tables/aoi.html" target="_top" title="aoi" alt="" coords="331,2081,510,2439">
+<area shape="rect" id="node21" href="tables/historic_info_cylinder.html" target="_top" title="historic_info_cylinder" alt="" coords="616,35,856,392">
+<area shape="rect" id="node22" href="tables/classification.html" target="_top" title="classification" alt="" coords="953,7385,1133,7831">
+<area shape="rect" id="node159" href="tables/classification_opr.html" target="_top" title="classification_opr" alt="" coords="631,7385,841,7567">
+<area shape="rect" id="node23" href="tables/sensor.html" target="_top" title="sensor" alt="" coords="673,20957,799,21373">
+<area shape="rect" id="node149" href="tables/instrument.html" target="_top" title="instrument" alt="" coords="342,20629,499,21045">
+<area shape="rect" id="node24" href="tables/feedback_state.html" target="_top" title="feedback_state" alt="" coords="325,21099,516,21339">
+<area shape="rect" id="node25" href="tables/cluster_magref.html" target="_top" title="cluster_magref" alt="" coords="1257,6369,1445,6756">
+<area shape="rect" id="node130" href="tables/ampdescript.html" target="_top" title="ampdescript" alt="" coords="958,6457,1127,6756">
+<area shape="rect" id="node26" href="tables/discrimvote.html" target="_top" title="discrimvote" alt="" coords="961,17147,1124,17445">
+<area shape="rect" id="node27" href="tables/user_filter.html" target="_top" title="user_filter" alt="" coords="345,21356,496,21567">
+<area shape="rect" id="node28" href="tables/da_refsta_summary.html" target="_top" title="da_refsta_summary" alt="" coords="308,21620,533,21919">
+<area shape="rect" id="node29" href="tables/hydro_origin.html" target="_top" title="hydro_origin" alt="" coords="334,21936,506,22264">
+<area shape="rect" id="node31" href="tables/mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="966,1707,1119,2856">
+<area shape="rect" id="node32" href="tables/historic_info_sta_phase.html" target="_top" title="historic_info_sta_phase" alt="" coords="914,5,1171,509">
+<area shape="rect" id="node122" href="tables/algorithm.html" target="_top" title="algorithm" alt="" coords="334,511,506,809">
+<area shape="rect" id="node33" href="tables/arrival_dyn_pars_int.html" target="_top" title="arrival_dyn_pars_int" alt="" coords="1548,12997,1778,13208">
+<area shape="rect" id="node34" href="tables/da_interval.html" target="_top" title="da_interval" alt="" coords="645,9791,827,10207">
+<area shape="rect" id="node35" href="tables/discrim_param.html" target="_top" title="discrim_param" alt="" coords="1257,788,1444,1585">
+<area shape="rect" id="node36" href="tables/historic_info_shell.html" target="_top" title="historic_info_shell" alt="" coords="628,481,844,1220">
+<area shape="rect" id="node37" href="tables/mdac_fd.html" target="_top" title="mdac_fd" alt="" coords="1895,3561,2048,4065">
+<area shape="rect" id="node69" href="tables/ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="1530,2648,1796,3357">
+<area shape="rect" id="node38" href="tables/continuous_data_status.html" target="_top" title="continuous_data_status" alt="" coords="292,22281,549,22609">
+<area shape="rect" id="node39" href="tables/filter_values_string.html" target="_top" title="filter_values_string" alt="" coords="310,22627,531,22808">
+<area shape="rect" id="node40" href="tables/ar_info.html" target="_top" title="ar_info" alt="" coords="913,14667,1173,15581">
+<area shape="rect" id="node41" href="tables/arrival_tag.html" target="_top" title="arrival_tag" alt="" coords="1572,18943,1754,19124">
+<area shape="rect" id="node49" href="tables/origin_tag.html" target="_top" title="origin_tag" alt="" coords="951,18805,1134,19016">
+<area shape="rect" id="node42" href="tables/snr_phase.html" target="_top" title="snr_phase" alt="" coords="1268,1603,1434,1931">
+<area shape="rect" id="node43" href="tables/wfactivity.html" target="_top" title="wfactivity" alt="" coords="345,22825,496,23124">
+<area shape="rect" id="node44" href="tables/alphasite.html" target="_top" title="alphasite" alt="" coords="663,23103,809,23431">
+<area shape="rect" id="node54" href="tables/dlman.html" target="_top" title="dlman" alt="" coords="345,23141,496,23469">
+<area shape="rect" id="node45" href="tables/ftpfailed.html" target="_top" title="ftpfailed" alt="" coords="951,19783,1134,20023">
+<area shape="rect" id="node95" href="tables/msgdisc.html" target="_top" title="msgdisc" alt="" coords="667,20005,805,20832">
+<area shape="rect" id="node106" href="tables/ftplogin.html" target="_top" title="ftplogin" alt="" coords="666,19771,806,19952">
+<area shape="rect" id="node47" href="tables/amplitude_dyn_pars_str.html" target="_top" title="amplitude_dyn_pars_str" alt="" coords="1843,13525,2101,13736">
+<area shape="rect" id="node48" href="tables/gregion.html" target="_top" title="gregion" alt="" coords="355,15420,486,15572">
+<area shape="rect" id="node50" href="tables/assoc.html" target="_top" title="assoc" alt="" coords="1604,14708,1722,15329">
+<area shape="rect" id="node51" href="tables/ecm_cov.html" target="_top" title="ecm_cov" alt="" coords="1576,4191,1750,4548">
+<area shape="rect" id="node75" href="tables/ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="1263,4220,1438,4519">
+<area shape="rect" id="node139" href="tables/ecm_ref_discrim.html" target="_top" title="ecm_ref_discrim" alt="" coords="942,3504,1143,3744">
+<area shape="rect" id="node77" href="tables/sregion.html" target="_top" title="sregion" alt="" coords="355,15645,486,15797">
+<area shape="rect" id="node53" href="tables/qcmaskdef.html" target="_top" title="qcmaskdef" alt="" coords="625,3768,847,4507">
+<area shape="rect" id="node55" href="tables/stamag.html" target="_top" title="stamag" alt="" coords="1904,11893,2039,12456">
+<area shape="rect" id="node56" href="tables/origin_ga_del.html" target="_top" title="origin_ga_del" alt="" coords="647,15928,825,16725">
+<area shape="rect" id="node57" href="tables/remark.html" target="_top" title="remark" alt="" coords="357,23523,484,23704">
+<area shape="rect" id="node58" href="tables/interval.html" target="_top" title="interval" alt="" coords="645,13404,827,13849">
+<area shape="rect" id="node59" href="tables/site.html" target="_top" title="site" alt="" coords="679,1677,793,2093">
+<area shape="rect" id="node60" href="tables/event_correlation.html" target="_top" title="event_correlation" alt="" coords="317,23721,524,24343">
+<area shape="rect" id="node61" href="tables/affiliation.html" target="_top" title="affiliation" alt="" coords="664,16887,808,17097">
+<area shape="rect" id="node62" href="tables/msgdest.html" target="_top" title="msgdest" alt="" coords="973,20193,1112,20492">
+<area shape="rect" id="node63" href="tables/ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="1233,1984,1469,2635">
+<area shape="rect" id="node64" href="tables/qshell_interval.html" target="_top" title="qshell_interval" alt="" coords="950,13163,1136,13520">
+<area shape="rect" id="node65" href="tables/reg_ratio_discrim.html" target="_top" title="reg_ratio_discrim" alt="" coords="1247,3017,1454,3492">
+<area shape="rect" id="node66" href="tables/filter_values_integer.html" target="_top" title="filter_values_integer" alt="" coords="306,24360,535,24541">
+<area shape="rect" id="node68" href="tables/arrival_dyn_pars_dbl.html" target="_top" title="arrival_dyn_pars_dbl" alt="" coords="1546,13225,1780,13436">
+<area shape="rect" id="node100" href="tables/ecm_ref_event.html" target="_top" title="ecm_ref_event" alt="" coords="643,3089,829,3535">
+<area shape="rect" id="node70" href="tables/request.html" target="_top" title="request" alt="" coords="1285,20435,1417,20968">
+<area shape="rect" id="node113" href="tables/msgaux.html" target="_top" title="msgaux" alt="" coords="976,20664,1110,20904">
+<area shape="rect" id="node71" href="tables/origerr.html" target="_top" title="origerr" alt="" coords="980,15599,1105,16249">
+<area shape="rect" id="node72" href="tables/ga_tag.html" target="_top" title="ga_tag" alt="" coords="658,2147,814,2475">
+<area shape="rect" id="node73" href="tables/sado_users.html" target="_top" title="sado_users" alt="" coords="340,24559,501,24799">
+<area shape="rect" id="node74" href="tables/polypoint.html" target="_top" title="polypoint" alt="" coords="970,1299,1115,1509">
+<area shape="rect" id="node103" href="tables/rda_param.html" target="_top" title="rda_param" alt="" coords="933,3761,1153,4060">
+<area shape="rect" id="node76" href="tables/butterworth_filter.html" target="_top" title="butterworth_filter" alt="" coords="633,10224,839,10523">
+<area shape="rect" id="node78" href="tables/assoc_ga.html" target="_top" title="assoc_ga" alt="" coords="348,24816,493,25437">
+<area shape="rect" id="node79" href="tables/bulletin_release_export.html" target="_top" title="bulletin_release_export" alt="" coords="916,4675,1169,4885">
+<area shape="rect" id="node80" href="tables/staqual_dnames.html" target="_top" title="staqual_dnames" alt="" coords="321,25455,520,25753">
+<area shape="rect" id="node153" href="tables/msvmax_results.html" target="_top" title="msvmax_results" alt="" coords="943,11655,1142,12071">
+<area shape="rect" id="node82" href="tables/codamag_output.html" target="_top" title="codamag_output" alt="" coords="635,10540,837,11103">
+<area shape="rect" id="node83" href="tables/event.html" target="_top" title="event" alt="" coords="678,11120,794,11360">
+<area shape="rect" id="node84" href="tables/process_tracking.html" target="_top" title="process_tracking" alt="" coords="318,25771,523,26157">
+<area shape="rect" id="node85" href="tables/wfdisc.html" target="_top" title="wfdisc" alt="" coords="674,19031,798,19681">
+<area shape="rect" id="node102" href="tables/msgdatatype.html" target="_top" title="msgdatatype" alt="" coords="334,19687,507,19956">
+<area shape="rect" id="node86" href="tables/sado_email_history.html" target="_top" title="sado_email_history" alt="" coords="309,26175,532,26444">
+<area shape="rect" id="node87" href="tables/outage_station_receive.html" target="_top" title="outage_station_receive" alt="" coords="295,26461,546,26760">
+<area shape="rect" id="node89" href="tables/timestamp.html" target="_top" title="timestamp" alt="" coords="344,26777,497,26959">
+<area shape="rect" id="node90" href="tables/cluster_mec.html" target="_top" title="cluster_mec" alt="" coords="1267,5591,1434,5948">
+<area shape="rect" id="node91" href="tables/detection.html" target="_top" title="detection" alt="" coords="1900,14187,2044,14837">
+<area shape="rect" id="node101" href="tables/amp3c.html" target="_top" title="amp3c" alt="" coords="1601,14363,1725,14691">
+<area shape="rect" id="node92" href="tables/filter_values_double.html" target="_top" title="filter_values_double" alt="" coords="306,26976,535,27157">
+<area shape="rect" id="node93" href="tables/origerr_ga.html" target="_top" title="origerr_ga" alt="" coords="344,27175,497,27825">
+<area shape="rect" id="node94" href="tables/netmag.html" target="_top" title="netmag" alt="" coords="975,13969,1110,14356">
+<area shape="rect" id="node96" href="tables/wftag.html" target="_top" title="wftag" alt="" coords="985,19285,1100,19467">
+<area shape="rect" id="node97" href="tables/feedback_categories.html" target="_top" title="feedback_categories" alt="" coords="305,27843,536,28083">
+<area shape="rect" id="node98" href="tables/network.html" target="_top" title="network" alt="" coords="655,17187,817,17544">
+<area shape="rect" id="node99" href="tables/origin_ga.html" target="_top" title="origin_ga" alt="" coords="663,15113,809,15911">
+<area shape="rect" id="node104" href="tables/beam.html" target="_top" title="beam" alt="" coords="985,19484,1100,19724">
+<area shape="rect" id="node105" href="tables/ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="1242,7884,1460,8183">
+<area shape="rect" id="node107" href="tables/classification_lookup.html" target="_top" title="classification_lookup" alt="" coords="618,11377,854,11676">
+<area shape="rect" id="node108" href="tables/codamag_input.html" target="_top" title="codamag_input" alt="" coords="1876,7543,2067,8780">
+<area shape="rect" id="node109" href="tables/defining_rules.html" target="_top" title="defining_rules" alt="" coords="644,18087,828,18561">
+<area shape="rect" id="node134" href="tables/defining_obstypes.html" target="_top" title="defining_obstypes" alt="" coords="313,17948,528,18217">
+<area shape="rect" id="node140" href="tables/defining_values.html" target="_top" title="defining_values" alt="" coords="324,18235,517,18475">
+<area shape="rect" id="node110" href="tables/event_quality.html" target="_top" title="event_quality" alt="" coords="955,12569,1130,13073">
+<area shape="rect" id="node111" href="tables/ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="1230,2760,1472,3000">
+<area shape="rect" id="node112" href="tables/envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="920,12224,1165,12552">
+<area shape="rect" id="node114" href="tables/omitted_channels.html" target="_top" title="omitted_channels" alt="" coords="631,11693,841,11963">
+<area shape="rect" id="node115" href="tables/wffile.html" target="_top" title="wffile" alt="" coords="360,28100,480,28604">
+<area shape="rect" id="node116" href="tables/active_id.html" target="_top" title="active_id" alt="" coords="1280,19420,1422,19660">
+<area shape="rect" id="node117" href="tables/ecm_region_pref_version.html" target="_top" title="ecm_region_pref_version" alt="" coords="1217,3617,1485,3857">
+<area shape="rect" id="node118" href="tables/ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="1242,3875,1460,4203">
+<area shape="rect" id="node119" href="tables/cluster_info.html" target="_top" title="cluster_info" alt="" coords="654,6329,818,6540">
+<area shape="rect" id="node120" href="tables/classification_refer_to.html" target="_top" title="classification_refer_to" alt="" coords="614,11980,858,12161">
+<area shape="rect" id="node121" href="tables/spatial_ref_sys.html" target="_top" title="spatial_ref_sys" alt="" coords="1569,1720,1757,1931">
+<area shape="rect" id="node123" href="tables/cluster_threshold.html" target="_top" title="cluster_threshold" alt="" coords="1218,5187,1484,5573">
+<area shape="rect" id="node125" href="tables/hydro_assoc.html" target="_top" title="hydro_assoc" alt="" coords="334,28621,507,28803">
+<area shape="rect" id="node126" href="tables/amplitude_dyn_pars_dbl.html" target="_top" title="amplitude_dyn_pars_dbl" alt="" coords="1841,13891,2103,14101">
+<area shape="rect" id="node127" href="tables/filter_coefficients.html" target="_top" title="filter_coefficients" alt="" coords="633,21403,839,21613">
+<area shape="rect" id="node128" href="tables/taper.html" target="_top" title="taper" alt="" coords="659,12179,813,12448">
+<area shape="rect" id="node129" href="tables/station_processing.html" target="_top" title="station_processing" alt="" coords="1241,4836,1461,5047">
+<area shape="rect" id="node132" href="tables/feedback_state_categories.html" target="_top" title="feedback_state_categories" alt="" coords="282,28820,559,29060">
+<area shape="rect" id="node133" href="tables/channame.html" target="_top" title="channame" alt="" coords="344,29077,497,29376">
+<area shape="rect" id="node135" href="tables/discrimuse.html" target="_top" title="discrimuse" alt="" coords="1272,17147,1430,17387">
+<area shape="rect" id="node137" href="tables/chan_groups.html" target="_top" title="chan_groups" alt="" coords="334,29393,507,29721">
+<area shape="rect" id="node138" href="tables/assoc_ga_del.html" target="_top" title="assoc_ga_del" alt="" coords="954,17463,1132,18084">
+<area shape="rect" id="node141" href="tables/arrival_dyn_pars_str.html" target="_top" title="arrival_dyn_pars_str" alt="" coords="1548,13453,1778,13664">
+<area shape="rect" id="node142" href="tables/sado_state.html" target="_top" title="sado_state" alt="" coords="305,29739,536,29979">
+<area shape="rect" id="node143" href="tables/station_quality.html" target="_top" title="station_quality" alt="" coords="643,12465,829,13087">
+<area shape="rect" id="node144" href="tables/classification_level.html" target="_top" title="classification_level" alt="" coords="626,13104,846,13315">
+<area shape="rect" id="node145" href="tables/wfconv.html" target="_top" title="wfconv" alt="" coords="356,29996,485,30471">
+<area shape="rect" id="node146" href="tables/stayield.html" target="_top" title="stayield" alt="" coords="1892,7109,2051,7525">
+<area shape="rect" id="node147" href="tables/feedback_cataffiliation.html" target="_top" title="feedback_cataffiliation" alt="" coords="298,30488,543,30728">
+<area shape="rect" id="node148" href="tables/origerr_ga_del.html" target="_top" title="origerr_ga_del" alt="" coords="950,18101,1135,18752">
+<area shape="rect" id="node151" href="tables/event_control.html" target="_top" title="event_control" alt="" coords="947,16303,1139,17129">
+<area shape="rect" id="node152" href="tables/msvmax_descript.html" target="_top" title="msvmax_descript" alt="" coords="632,7692,840,7961">
+<area shape="rect" id="node154" href="tables/hydro_arrival.html" target="_top" title="hydro_arrival" alt="" coords="332,30745,509,31396">
+<area shape="rect" id="node155" href="tables/sitechan.html" target="_top" title="sitechan" alt="" coords="352,31413,489,31800">
+<area shape="rect" id="node156" href="tables/net_coda_spectrum.html" target="_top" title="net_coda_spectrum" alt="" coords="1239,13969,1463,14180">
+<area shape="rect" id="node157" href="tables/hydro_arr_group.html" target="_top" title="hydro_arr_group" alt="" coords="635,17561,837,17889">
+<area shape="rect" id="node158" href="tables/doppler_detection.html" target="_top" title="doppler_detection" alt="" coords="1854,16996,2089,17735">
+<area shape="rect" id="node160" href="tables/da_refsta_latency.html" target="_top" title="da_refsta_latency" alt="" coords="316,31817,525,32175">
+<area shape="rect" id="node161" href="tables/outage_station_data.html" target="_top" title="outage_station_data" alt="" coords="306,32192,535,32461">
+<area shape="rect" id="node162" href="tables/geography_columns.html" target="_top" title="geography_columns" alt="" coords="1858,1443,2086,1688">
+<area shape="rect" id="node163" href="tables/geometry_columns.html" target="_top" title="geometry_columns" alt="" coords="1863,1705,2081,1951">
+</map>
+                                        <a name='diagram'><img id="largeimpliedDegreeImg" src="diagrams/summary/relationships.implied.large.png" usemap="#largeImpliedRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="relationships.js"></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>

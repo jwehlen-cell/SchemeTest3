@@ -1,0 +1,236 @@
+erDiagram
+  EVENT {
+    NUMBER evid PK
+  }
+  ARRIVAL {
+    NUMBER arid PK
+  }
+  ORIGIN {
+    NUMBER orid PK
+  }
+  BULLETIN_RELEASE {
+    NUMBER evid
+  }
+  BULLETIN_RELEASE }o--|| EVENT : "EVID"
+  ECM_EVENT_RESULTS {
+    NUMBER evid
+  }
+  ECM_EVENT_RESULTS }o--|| EVENT : "EVID"
+  ECM_REF_CHAN_AMPLITUDE {
+    NUMBER evid
+  }
+  ECM_REF_CHAN_AMPLITUDE }o--|| EVENT : "EVID"
+  ECM_REF_DISCRIM {
+    NUMBER evid
+  }
+  ECM_REF_DISCRIM }o--|| EVENT : "EVID"
+  ECM_REF_EVENT {
+    NUMBER evid
+  }
+  ECM_REF_EVENT }o--|| EVENT : "EVID"
+  EVENT_CONTROL {
+    NUMBER evid
+  }
+  EVENT_CONTROL }o--|| EVENT : "EVID"
+  FEEDBACK {
+    NUMBER evid
+  }
+  FEEDBACK }o--|| EVENT : "EVID"
+  NETMAG {
+    NUMBER evid
+  }
+  NETMAG }o--|| EVENT : "EVID"
+  NETYIELD {
+    NUMBER evid
+  }
+  NETYIELD }o--|| EVENT : "EVID"
+  ORIGIN }o--|| EVENT : "EVID"
+  ORIGIN_GA {
+    NUMBER evid
+  }
+  ORIGIN_GA }o--|| EVENT : "EVID"
+  ORIGIN_GA_DEL {
+    NUMBER evid
+  }
+  ORIGIN_GA_DEL }o--|| EVENT : "EVID"
+  REQUEST {
+    NUMBER evid
+  }
+  REQUEST }o--|| EVENT : "EVID"
+  SADO_REPORT {
+    NUMBER evid
+  }
+  SADO_REPORT }o--|| EVENT : "EVID"
+  STAMAG {
+    NUMBER evid
+  }
+  STAMAG }o--|| EVENT : "EVID"
+  AMP3C {
+    NUMBER arid
+  }
+  AMP3C }o--|| ARRIVAL : "ARID"
+  AMPLITUDE {
+    NUMBER arid
+  }
+  AMPLITUDE }o--|| ARRIVAL : "ARID"
+  APMA {
+    NUMBER arid
+  }
+  APMA }o--|| ARRIVAL : "ARID"
+  ARRIVAL_DYN_PARS_DBL {
+    NUMBER arid
+  }
+  ARRIVAL_DYN_PARS_DBL }o--|| ARRIVAL : "ARID"
+  ARRIVAL_DYN_PARS_INT {
+    NUMBER arid
+  }
+  ARRIVAL_DYN_PARS_INT }o--|| ARRIVAL : "ARID"
+  ARRIVAL_DYN_PARS_STR {
+    NUMBER arid
+  }
+  ARRIVAL_DYN_PARS_STR }o--|| ARRIVAL : "ARID"
+  ARRIVAL_TAG {
+    NUMBER arid
+  }
+  ARRIVAL_TAG }o--|| ARRIVAL : "ARID"
+  AR_INFO {
+    NUMBER arid
+  }
+  AR_INFO }o--|| ARRIVAL : "ARID"
+  ASSOC {
+    NUMBER arid
+  }
+  ASSOC }o--|| ARRIVAL : "ARID"
+  ASSOC_GA {
+    NUMBER arid
+  }
+  ASSOC_GA }o--|| ARRIVAL : "ARID"
+  ASSOC_GA_DEL {
+    NUMBER arid
+  }
+  ASSOC_GA_DEL }o--|| ARRIVAL : "ARID"
+  CODAMAG_INPUT {
+    NUMBER arid
+  }
+  CODAMAG_INPUT }o--|| ARRIVAL : "ARID"
+  CODAMAG_OUTPUT {
+    NUMBER arid
+  }
+  CODAMAG_OUTPUT }o--|| ARRIVAL : "ARID"
+  DETECTION {
+    NUMBER arid
+  }
+  DETECTION }o--|| ARRIVAL : "ARID"
+  ENVELOPE_CONTRIBUTION {
+    NUMBER arid
+  }
+  ENVELOPE_CONTRIBUTION }o--|| ARRIVAL : "ARID"
+  FK_PROCESSING {
+    NUMBER arid
+  }
+  FK_PROCESSING }o--|| ARRIVAL : "ARID"
+  HYDRO_ARRIVAL {
+    NUMBER arid
+  }
+  HYDRO_ARRIVAL }o--|| ARRIVAL : "ARID"
+  HYDRO_ASSOC {
+    NUMBER arid
+  }
+  HYDRO_ASSOC }o--|| ARRIVAL : "ARID"
+  MSVMAX_DESCRIPT {
+    NUMBER arid
+  }
+  MSVMAX_DESCRIPT }o--|| ARRIVAL : "ARID"
+  STAMAG }o--|| ARRIVAL : "ARID"
+  STAYIELD {
+    NUMBER arid
+  }
+  STAYIELD }o--|| ARRIVAL : "ARID"
+  AR_INFO }o--|| ORIGIN : "ORID"
+  ASSOC }o--|| ORIGIN : "ORID"
+  ASSOC_GA }o--|| ORIGIN : "ORID"
+  ASSOC_GA_DEL }o--|| ORIGIN : "ORID"
+  BULLETIN_RELEASE }o--|| ORIGIN : "ORID"
+  CLUSTER_MAGREF {
+    NUMBER orid
+  }
+  CLUSTER_MAGREF }o--|| ORIGIN : "ORID"
+  CLUSTER_ORID {
+    NUMBER orid
+  }
+  CLUSTER_ORID }o--|| ORIGIN : "ORID"
+  CLUSTER_THRESHOLD {
+    NUMBER orid
+  }
+  CLUSTER_THRESHOLD }o--|| ORIGIN : "ORID"
+  CODAMAG_INPUT }o--|| ORIGIN : "ORID"
+  CODAMAG_OUTPUT }o--|| ORIGIN : "ORID"
+  DETECTION_THRESHOLD {
+    NUMBER orid
+  }
+  DETECTION_THRESHOLD }o--|| ORIGIN : "ORID"
+  DISCRIMUSE {
+    NUMBER orid
+  }
+  DISCRIMUSE }o--|| ORIGIN : "ORID"
+  DISCRIMVOTE {
+    NUMBER orid
+  }
+  DISCRIMVOTE }o--|| ORIGIN : "ORID"
+  ECM_CHAN_AMPLITUDE {
+    NUMBER orid
+  }
+  ECM_CHAN_AMPLITUDE }o--|| ORIGIN : "ORID"
+  ECM_DISCRIMINANTS {
+    NUMBER orid
+  }
+  ECM_DISCRIMINANTS }o--|| ORIGIN : "ORID"
+  ECM_EVENT_RESULTS }o--|| ORIGIN : "ORID"
+  ECM_SOURCES {
+    NUMBER orid
+  }
+  ECM_SOURCES }o--|| ORIGIN : "ORID"
+  ENVELOPE_CONTRIBUTION }o--|| ORIGIN : "ORID"
+  EVENT_CONTROL }o--|| ORIGIN : "ORID"
+  EVENT_QUALITY {
+    NUMBER orid
+  }
+  EVENT_QUALITY }o--|| ORIGIN : "ORID"
+  FEEDBACK }o--|| ORIGIN : "ORID"
+  HYDRO_ORIGIN {
+    NUMBER orid
+  }
+  HYDRO_ORIGIN }o--|| ORIGIN : "ORID"
+  MSVMAX_DESCRIPT }o--|| ORIGIN : "ORID"
+  NETMAG }o--|| ORIGIN : "ORID"
+  NETYIELD }o--|| ORIGIN : "ORID"
+  ORIGERR {
+    NUMBER orid
+  }
+  ORIGERR }o--|| ORIGIN : "ORID"
+  ORIGERR_GA {
+    NUMBER orid
+  }
+  ORIGERR_GA }o--|| ORIGIN : "ORID"
+  ORIGERR_GA_DEL {
+    NUMBER orid
+  }
+  ORIGERR_GA_DEL }o--|| ORIGIN : "ORID"
+  ORIGIN_GA }o--|| ORIGIN : "ORID"
+  ORIGIN_GA_DEL }o--|| ORIGIN : "ORID"
+  ORIGIN_MEA_TRACE {
+    NUMBER orid
+  }
+  ORIGIN_MEA_TRACE }o--|| ORIGIN : "ORID"
+  ORIGIN_SDO {
+    NUMBER orid
+  }
+  ORIGIN_SDO }o--|| ORIGIN : "ORID"
+  ORIGIN_TAG {
+    NUMBER orid
+  }
+  ORIGIN_TAG }o--|| ORIGIN : "ORID"
+  REQUEST }o--|| ORIGIN : "ORID"
+  SADO_REPORT }o--|| ORIGIN : "ORID"
+  STAMAG }o--|| ORIGIN : "ORID"
+  STAYIELD }o--|| ORIGIN : "ORID"

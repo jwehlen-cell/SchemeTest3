@@ -1,0 +1,193 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'USNDC Oracle Database Infrastructure'
+
+Parameters:
+  DBInstanceClass:
+    Type: String
+    Default: db.t3.small
+    Description: RDS instance class for Oracle database
+  
+  AllocatedStorage:
+    Type: Number
+    Default: 100
+    MinValue: 20
+    MaxValue: 1000
+    Description: Storage size in GB (minimum 20GB for Oracle)
+
+  MasterUsername:
+    Type: String
+    Default: oracleadmin
+    Description: Master username for Oracle database
+
+  MasterPassword:
+    Type: String
+    Default: OracleTest2024!
+    NoEcho: true
+    Description: Master password for Oracle database
+
+Resources:
+  # VPC for the database
+  USNDCOracleVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: USNDC-Oracle-VPC
+
+  # Internet Gateway
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: USNDC-Oracle-IGW
+
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref USNDCOracleVPC
+      InternetGatewayId: !Ref InternetGateway
+
+  # Public Subnets for RDS (Oracle requires multi-AZ for production)
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref USNDCOracleVPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: !Select [0, !GetAZs '']
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: USNDC-Oracle-Public-Subnet-1
+
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref USNDCOracleVPC
+      CidrBlock: 10.0.2.0/24
+      AvailabilityZone: !Select [1, !GetAZs '']
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: USNDC-Oracle-Public-Subnet-2
+
+  # Route Table
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref USNDCOracleVPC
+      Tags:
+        - Key: Name
+          Value: USNDC-Oracle-Public-RT
+
+  PublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  PublicSubnetRouteTableAssociation1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet1
+      RouteTableId: !Ref PublicRouteTable
+
+  PublicSubnetRouteTableAssociation2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet2
+      RouteTableId: !Ref PublicRouteTable
+
+  # Security Group for Oracle Database
+  OracleSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for USNDC Oracle database
+      VpcId: !Ref USNDCOracleVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 1521
+          ToPort: 1521
+          CidrIp: 0.0.0.0/0
+          Description: Oracle database port
+      Tags:
+        - Key: Name
+          Value: USNDC-Oracle-SG
+
+  # DB Subnet Group
+  DBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: Subnet group for USNDC Oracle database
+      SubnetIds:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      Tags:
+        - Key: Name
+          Value: USNDC-Oracle-SubnetGroup
+
+  # Oracle RDS Instance
+  OracleDatabase:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: usndc-oracle-db
+      DBInstanceClass: !Ref DBInstanceClass
+      Engine: oracle-se2
+      EngineVersion: 19.0.0.0.ru-2023-07.rur-2023-07.r1
+      AllocatedStorage: !Ref AllocatedStorage
+      StorageType: gp2
+      StorageEncrypted: false
+      
+      MasterUsername: !Ref MasterUsername
+      MasterUserPassword: !Ref MasterPassword
+      
+      VPCSecurityGroups:
+        - !Ref OracleSecurityGroup
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      
+      BackupRetentionPeriod: 7
+      DeleteAutomatedBackups: true
+      DeletionProtection: false
+      
+      # Oracle-specific settings
+      LicenseModel: license-included
+      CharacterSetName: AL32UTF8
+      
+      PubliclyAccessible: true
+      Port: 1521
+      
+      Tags:
+        - Key: Name
+          Value: USNDC-Oracle-Database
+        - Key: Environment
+          Value: Development
+
+Outputs:
+  OracleEndpoint:
+    Description: Oracle database endpoint
+    Value: !GetAtt OracleDatabase.Endpoint.Address
+    Export:
+      Name: !Sub "${AWS::StackName}-OracleEndpoint"
+
+  OraclePort:
+    Description: Oracle database port
+    Value: !GetAtt OracleDatabase.Endpoint.Port
+    Export:
+      Name: !Sub "${AWS::StackName}-OraclePort"
+
+  DatabaseName:
+    Description: Oracle database name (SID)
+    Value: ORCL
+    Export:
+      Name: !Sub "${AWS::StackName}-DatabaseName"
+
+  MasterUsername:
+    Description: Master username
+    Value: !Ref MasterUsername
+    Export:
+      Name: !Sub "${AWS::StackName}-MasterUsername"

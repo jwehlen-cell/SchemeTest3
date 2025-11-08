@@ -1,0 +1,264 @@
+#!/usr/bin/env python3
+"""
+Create a working deployment by using proven manual approach with systematic batch processing
+"""
+
+import re
+
+# Read original schema
+with open('usndc_schema.sql', 'r') as f:
+    content = f.read()
+
+# Let's use a simpler approach: take the working tables we already have and extend them
+working_tables = [
+    "ACTIVE_ID", "AFFILIATION", "ALGORITHM"
+]
+
+# Get list of all table names from the original schema
+table_names = []
+lines = content.split('\n')
+
+for line in lines:
+    if line.strip().upper().startswith('CREATE TABLE'):
+        match = re.search(r'CREATE\s+TABLE\s+(\w+)', line, re.IGNORECASE)
+        if match:
+            table_name = match.group(1).upper()
+            if table_name not in working_tables and table_name not in table_names:
+                table_names.append(table_name)
+
+print(f"Found {len(table_names)} additional tables to deploy")
+print(f"Already deployed: {working_tables}")
+
+# Create a simple test deployment with just a few key tables
+key_tables = [
+    "SITE", "SITECHAN", "ARRIVAL", "ORIGIN", "ASSOC", "WFDISC", 
+    "INSTRUMENT", "SENSOR", "NETWORK", "STAMAG", "NETMAG"
+]
+
+print(f"\nCreating deployment script for key tables...")
+
+with open('deploy_key_tables.sql', 'w') as f:
+    f.write("-- Deploy Key USNDC Tables\n")
+    f.write("-- These are the most commonly used tables in seismic analysis\n\n")
+    
+    # Create simplified versions of key tables
+    f.write("""
+-- Drop tables if they exist
+DROP TABLE IF EXISTS SITE CASCADE;
+DROP TABLE IF EXISTS SITECHAN CASCADE; 
+DROP TABLE IF EXISTS ARRIVAL CASCADE;
+DROP TABLE IF EXISTS ORIGIN CASCADE;
+DROP TABLE IF EXISTS ASSOC CASCADE;
+DROP TABLE IF EXISTS WFDISC CASCADE;
+DROP TABLE IF EXISTS INSTRUMENT CASCADE;
+DROP TABLE IF EXISTS SENSOR CASCADE;
+DROP TABLE IF EXISTS NETWORK CASCADE;
+DROP TABLE IF EXISTS STAMAG CASCADE;
+DROP TABLE IF EXISTS NETMAG CASCADE;
+
+-- Create essential tables (simplified versions without complex constraints)
+CREATE TABLE SITE (
+    STA VARCHAR(6) PRIMARY KEY,
+    ONDATE INTEGER,
+    OFFDATE INTEGER,
+    LAT DOUBLE PRECISION,
+    LON DOUBLE PRECISION,
+    ELEV REAL,
+    STANAME VARCHAR(50),
+    STATYPE VARCHAR(4),
+    REFSTA VARCHAR(6),
+    DNORTH REAL,
+    DEAST REAL,
+    LDDATE TIMESTAMP
+);
+
+CREATE TABLE SITECHAN (
+    STA VARCHAR(6),
+    CHAN VARCHAR(8),
+    ONDATE INTEGER,
+    CHANID INTEGER,
+    OFFDATE INTEGER,
+    CTYPE VARCHAR(4),
+    EDEPTH REAL,
+    HANG REAL,
+    VANG REAL,
+    DESCRIP VARCHAR(50),
+    LDDATE TIMESTAMP,
+    PRIMARY KEY (STA, CHAN, ONDATE)
+);
+
+CREATE TABLE ARRIVAL (
+    STA VARCHAR(6),
+    TIME DOUBLE PRECISION,
+    ARID BIGINT PRIMARY KEY,
+    JDATE INTEGER,
+    STASSID INTEGER,
+    CHANID INTEGER,
+    CHAN VARCHAR(8),
+    IPHASE VARCHAR(8),
+    STYPE VARCHAR(1),
+    DELTIM REAL,
+    AZIMUTH REAL,
+    DELAZ REAL,
+    SLOW REAL,
+    DELSLO REAL,
+    EMA REAL,
+    RECT REAL,
+    AMP REAL,
+    PER REAL,
+    LOGAT REAL,
+    CLIP VARCHAR(1),
+    FM VARCHAR(2),
+    SNR REAL,
+    QUAL VARCHAR(1),
+    AUTH VARCHAR(20),
+    COMMID INTEGER,
+    LDDATE TIMESTAMP
+);
+
+CREATE TABLE ORIGIN (
+    LAT DOUBLE PRECISION,
+    LON DOUBLE PRECISION,
+    DEPTH REAL,
+    TIME DOUBLE PRECISION,
+    ORID BIGINT PRIMARY KEY,
+    EVID BIGINT,
+    JDATE INTEGER,
+    NASS INTEGER,
+    NDEF INTEGER,
+    NDFS INTEGER,
+    GRNAME VARCHAR(40),
+    SRNAME VARCHAR(40),
+    ETYPE VARCHAR(7),
+    REVIEW VARCHAR(4),
+    DEPDP REAL,
+    DTYPE VARCHAR(1),
+    MB REAL,
+    MBID INTEGER,
+    MS REAL,
+    MSID INTEGER,
+    ML REAL,
+    MLID INTEGER,
+    ALGORITHM VARCHAR(15),
+    AUTH VARCHAR(20),
+    COMMID INTEGER,
+    LDDATE TIMESTAMP
+);
+
+CREATE TABLE ASSOC (
+    ARID BIGINT,
+    ORID BIGINT,
+    STA VARCHAR(6),
+    PHASE VARCHAR(8),
+    BELIEF REAL,
+    DELTA REAL,
+    SEAZ REAL,
+    ESAZ REAL,
+    TIMERES REAL,
+    TIMEDEF VARCHAR(1),
+    AZRES REAL,
+    AZDEF VARCHAR(1),
+    SLORES REAL,
+    SLODEF VARCHAR(1),
+    EMARES REAL,
+    WGT REAL,
+    VMODEL VARCHAR(15),
+    COMMID INTEGER,
+    LDDATE TIMESTAMP,
+    PRIMARY KEY (ARID, ORID)
+);
+
+CREATE TABLE WFDISC (
+    STA VARCHAR(6),
+    CHAN VARCHAR(8),
+    TIME DOUBLE PRECISION,
+    WFID BIGINT PRIMARY KEY,
+    CHANID INTEGER,
+    JDATE INTEGER,
+    ENDTIME DOUBLE PRECISION,
+    NSAMP INTEGER,
+    SAMPRATE REAL,
+    CALIB REAL,
+    CALPER REAL,
+    INSTYPE VARCHAR(6),
+    SEGTYPE VARCHAR(1),
+    DATATYPE VARCHAR(2),
+    CLIP VARCHAR(1),
+    DIR VARCHAR(64),
+    DFILE VARCHAR(32),
+    FOFF INTEGER,
+    COMMID INTEGER,
+    LDDATE TIMESTAMP
+);
+
+CREATE TABLE NETWORK (
+    NET VARCHAR(8) PRIMARY KEY,
+    NETNAME VARCHAR(80),
+    NETTYPE VARCHAR(4),
+    AUTH VARCHAR(20),
+    COMMID INTEGER,
+    LDDATE TIMESTAMP
+);
+
+CREATE TABLE INSTRUMENT (
+    INID INTEGER PRIMARY KEY,
+    INSNAME VARCHAR(50),
+    INSTYPE VARCHAR(6),
+    BAND VARCHAR(1),
+    DIGITAL VARCHAR(1),
+    SAMPRATE REAL,
+    NCALIB REAL,
+    NCALPER REAL,
+    DIR VARCHAR(64),
+    DFILE VARCHAR(32),
+    RSPTYPE VARCHAR(6),
+    LDDATE TIMESTAMP
+);
+
+CREATE TABLE SENSOR (
+    STA VARCHAR(6),
+    CHAN VARCHAR(8),
+    TIME DOUBLE PRECISION,
+    ENDTIME DOUBLE PRECISION,
+    INID INTEGER,
+    CHANID INTEGER,
+    JDATE INTEGER,
+    CALRATIO REAL,
+    CALPER REAL,
+    TSHIFT REAL,
+    INSTANT VARCHAR(1),
+    LDDATE TIMESTAMP,
+    PRIMARY KEY (STA, CHAN, TIME, ENDTIME)
+);
+
+CREATE TABLE STAMAG (
+    MAGID INTEGER PRIMARY KEY,
+    STA VARCHAR(6),
+    ARID BIGINT,
+    ORID BIGINT,
+    EVID BIGINT,
+    PHASE VARCHAR(8),
+    MAGTYPE VARCHAR(6),
+    MAGNITUDE REAL,
+    UNCERTAINTY REAL,
+    AUTH VARCHAR(20),
+    COMMID INTEGER,
+    LDDATE TIMESTAMP
+);
+
+CREATE TABLE NETMAG (
+    MAGID INTEGER PRIMARY KEY,
+    NET VARCHAR(8),
+    ORID BIGINT,
+    EVID BIGINT,
+    MAGTYPE VARCHAR(6),
+    NSTA INTEGER,
+    MAGNITUDE REAL,
+    UNCERTAINTY REAL,
+    AUTH VARCHAR(20),
+    COMMID INTEGER,
+    LDDATE TIMESTAMP
+);
+""")
+
+print("Created deploy_key_tables.sql with essential seismic tables")

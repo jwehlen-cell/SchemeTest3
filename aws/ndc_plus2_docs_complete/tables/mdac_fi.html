@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>mdac_fi - usndc_schema.public</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>usndc_schema</b></a><span class="navbar-brand" style="padding-left: 0">.public</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>mdac_fi</h1><p><span id="recordNumber">-1</span> rows</p><br />
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-file-text-o"></i>
+                            <h3 id="Description" class="box-title">Description</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-body clearfix">
+                            <p>The mdac_fi table contains frequency independent MDAC parame ters for each polyid, phase, and station.</p>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><span id="corrid">corrid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Correction identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ampcor_verid">ampcor_verid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="discrim_param.ampcor_verid&#39;s name implies that it&#39;s a child of mdac_fi.ampcor_verid, but it doesn&#39;t reference that column."><a href='discrim_param.html'>discrim_param</a><span class='relatedKey'>.ampcor_verid</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="ecm_chan_amplitude.ampcor_verid&#39;s name implies that it&#39;s a child of mdac_fi.ampcor_verid, but it doesn&#39;t reference that column."><a href='ecm_chan_amplitude.html'>ecm_chan_amplitude</a><span class='relatedKey'>.ampcor_verid</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="ecm_ref_chan_amplitude.ampcor_verid&#39;s name implies that it&#39;s a child of mdac_fi.ampcor_verid, but it doesn&#39;t reference that column."><a href='ecm_ref_chan_amplitude.html'>ecm_ref_chan_amplitude</a><span class='relatedKey'>.ampcor_verid</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="ecm_sta_pref_version.ampcor_verid&#39;s name implies that it&#39;s a child of mdac_fi.ampcor_verid, but it doesn&#39;t reference that column."><a href='ecm_sta_pref_version.html'>ecm_sta_pref_version</a><span class='relatedKey'>.ampcor_verid</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="mdac_fd.ampcor_verid&#39;s name implies that it&#39;s a child of mdac_fi.ampcor_verid, but it doesn&#39;t reference that column."><a href='mdac_fd.html'>mdac_fd</a><span class='relatedKey'>.ampcor_verid</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="snr_phase.ampcor_verid&#39;s name implies that it&#39;s a child of mdac_fi.ampcor_verid, but it doesn&#39;t reference that column."><a href='snr_phase.html'>snr_phase</a><span class='relatedKey'>.ampcor_verid</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>amplitude correction version identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="polyid">polyid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="mdac_fi.polyid references polygon.polyid via mdac_fi_polygon_polyid_fk"><a href='polygon.html'>polygon</a><span class='relatedKey'>.polyid</span></td>
+                                                <td class="constraint detail">mdac_fi_polygon_polyid_fk</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Polygon identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="sta">sta</span></td>
+                                    <td>varchar</td>
+                                    <td>6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Station name</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="phase">phase</span></td>
+                                    <td>varchar</td>
+                                    <td>8</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Phase of interest</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="chan">chan</span></td>
+                                    <td>varchar</td>
+                                    <td>8</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Channel name</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="corrname">corrname</span></td>
+                                    <td>varchar</td>
+                                    <td>32</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Name of correction parameter set</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="sigma">sigma</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Stress-drop in pascals</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="delsigma">delsigma</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Stress-drop in pascals uncertainty</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="psi">psi</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Exponent controlling moment-corner frequency scaling</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="delpsi">delpsi</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Uncertainty of psi</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="q0">q0</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Attenuation at 1 Hz</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="delq0">delq0</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Uncertainty of q0</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="gamma">gamma</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Frequency exponent of attenuation</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="delgamma">delgamma</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Frequency exponent of attenuation uncertainty</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="zeta">zeta</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Ratio of P and S wave corner frequencies</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="m0_ref">m0_ref</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Reference seismic moment used with psi in Nm</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="u0">u0</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Velocity of phase in m/s</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="eta">eta</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Geometric spreading exponent</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="deleta">deleta</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Geometric spreading exponent uncertainty</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="distcrit">distcrit</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Critical distance for geometric spreading function in meters</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="alphas">alphas</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>P velocity at the source in m/s</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="betas">betas</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>S velocity at the source in m/s</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="rhos">rhos</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Density at the source in kg/m3</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="alphar">alphar</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>P velocity at the receiver in m/s</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="betar">betar</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>S velocity at the receiver in m/s</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="rhor">rhor</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Density at the receiver in kg/m3</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="radpatp">radpatp</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Radiation pattern excitation factor for P waves</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="radpats">radpats</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Radiation pattern excitation factor for S waves</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="snr1">snr1</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Minimum signal-to-noise ratio used to select spectral amplitudes</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="snr2">snr2</span></td>
+                                    <td>float8</td>
+                                    <td>17,17</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Minimum signal-to-noise for applying MDAC parameters</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="noisetype">noisetype</span></td>
+                                    <td>varchar</td>
+                                    <td>15</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Noise identifier e.g. pre-event or pre-phase</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="magid">magid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Magnitude identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="magtype">magtype</span></td>
+                                    <td>varchar</td>
+                                    <td>6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Magnitude type</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="algoid">algoid</span></td>
+                                    <td>int8</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Algorithm used</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="auth">auth</span></td>
+                                    <td>varchar</td>
+                                    <td>15</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="mdac_fi.auth&#39;s name implies that it&#39;s a child of user_privileges.auth, but it doesn&#39;t reference that column."><a href='user_privileges.html'>user_privileges</a><span class='relatedKey'>.auth</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Author</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="lddate">lddate</span></td>
+                                    <td>timestamp</td>
+                                    <td>29,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="mdac_fi.lddate&#39;s name implies that it&#39;s a child of removed_beam_dfile.lddate, but it doesn&#39;t reference that column."><a href='removed_beam_dfile.html'>removed_beam_dfile</a><span class='relatedKey'>.lddate</span></td>
+                                                <td class="constraint detail">Implied Constraint</td>
+                                                <td class="constraint detail"><span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Load date (format YY/MM/DD HH24:MI:SS</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> mdac_fi_pkey</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>ampcor_verid</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 class="box-title">Check Constraints</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="check_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Constraint</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>mdac_fi__deleta__ck</td>
+                                    <td>(((deleta &gt;&#61; (0)::double precision) OR (deleta &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__betas__ck</td>
+                                    <td>(((betas &gt; (0)::double precision) OR (betas &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__gamma__ck</td>
+                                    <td>(((gamma &gt; (0)::double precision) OR (gamma &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__rhor__ck</td>
+                                    <td>((rhor &gt; (0)::double precision))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__radpats__ck</td>
+                                    <td>((((radpats &gt;&#61; (0)::double precision) AND (radpats &lt;&#61; (1)::double precision)) OR (radpats &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__polyid__ck</td>
+                                    <td>((polyid &gt; 0))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__algoid__ck</td>
+                                    <td>(((algoid &gt;&#61; 0) OR (algoid &#61; &#39;-1&#39;::integer)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__delgamma__ck</td>
+                                    <td>(((delgamma &gt;&#61; (0)::double precision) OR (delgamma &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__m0_ref__ck</td>
+                                    <td>((m0_ref &gt; (0)::double precision))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__snr1__ck</td>
+                                    <td>(((snr1 &gt; (0)::double precision) OR (snr1 &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__corrid__ck</td>
+                                    <td>((corrid &gt; 0))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__magid__ck</td>
+                                    <td>(((magid &gt;&#61; 0) OR (magid &#61; &#39;-1&#39;::integer)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__sigma__ck</td>
+                                    <td>((sigma &gt; (0)::double precision))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__alphar__ck</td>
+                                    <td>(((alphar &gt; (0)::double precision) OR (alphar &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__zeta__ck</td>
+                                    <td>((zeta &gt;&#61; (1)::double precision))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__alphas__ck</td>
+                                    <td>(((alphas &gt; (0)::double precision) OR (alphas &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__betar__ck</td>
+                                    <td>(((betar &gt; (0)::double precision) OR (betar &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__distcrit__ck</td>
+                                    <td>((distcrit &gt; (0)::double precision))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__psi__ck</td>
+                                    <td>(((psi &gt;&#61; (0)::double precision) AND (psi &lt;&#61; (1)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__snr2__ck</td>
+                                    <td>(((snr2 &gt; (0)::double precision) OR (snr2 &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__u0__ck</td>
+                                    <td>((u0 &gt; (0)::double precision))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__delq0__ck</td>
+                                    <td>(((delq0 &gt;&#61; (0)::double precision) OR (delq0 &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__delsigma__ck</td>
+                                    <td>(((delsigma &gt;&#61; (0)::double precision) OR (delsigma &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__ampcor_verid__ck</td>
+                                    <td>((ampcor_verid &gt; 0))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__eta__ck</td>
+                                    <td>((eta &gt; (0)::double precision))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__q0__ck</td>
+                                    <td>(((q0 &gt; (0)::double precision) OR (q0 &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__delpsi__ck</td>
+                                    <td>(((delpsi &gt;&#61; (0)::double precision) OR (delpsi &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__radpatp__ck</td>
+                                    <td>((((radpatp &gt;&#61; (0)::double precision) AND (radpatp &lt;&#61; (1)::double precision)) OR (radpatp &#61; (&#39;-1&#39;::integer)::double precision)))</td>
+                                </tr>
+                                <tr>
+                                    <td>mdac_fi__rhos__ck</td>
+                                    <td>((rhos &gt; (0)::double precision))</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
+                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="204,5,473,1160">
+<area shape="rect" id="node2" href="polygon.html" target="_top" title="polygon" alt="" coords="5,67,160,272">
+</map>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/mdac_fi.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="discrim_param.html" target="_top" title="discrim_param" alt="" coords="245,5,432,93">
+<area shape="rect" id="node2" href="polygon.html" target="_top" title="polygon" alt="" coords="5,509,160,715">
+<area shape="rect" id="node3" href="ecm_cov.html" target="_top" title="ecm_cov" alt="" coords="268,111,409,199">
+<area shape="rect" id="node4" href="ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="206,216,471,304">
+<area shape="rect" id="node5" href="ecm_region_pref_version.html" target="_top" title="ecm_region_pref_version" alt="" coords="204,321,472,409">
+<area shape="rect" id="node6" href="ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="218,427,459,515">
+<area shape="rect" id="node7" href="mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="204,532,473,1687">
+<area shape="rect" id="node8" href="polypoint.html" target="_top" title="polypoint" alt="" coords="266,1704,410,1792">
+<area shape="rect" id="node9" href="rda_param.html" target="_top" title="rda_param" alt="" coords="261,1809,416,1897">
+<area shape="rect" id="node10" href="reg_ratio_discrim.html" target="_top" title="reg_ratio_discrim" alt="" coords="235,1915,442,2003">
+<area shape="rect" id="node11" href="snr_phase.html" target="_top" title="snr_phase" alt="" coords="262,2020,415,2108">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/mdac_fi.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="discrim_param.html" target="_top" title="discrim_param" alt="" coords="1055,5,1242,240">
+<area shape="rect" id="node2" href="mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="715,259,984,1413">
+<area shape="rect" id="node3" href="user_privileges.html" target="_top" title="user_privileges" alt="" coords="282,1375,473,1521">
+<area shape="rect" id="node4" href="removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,1404,238,1521">
+<area shape="rect" id="node5" href="polygon.html" target="_top" title="polygon" alt="" coords="517,1280,671,1485">
+<area shape="rect" id="node6" href="ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="1031,367,1267,631">
+<area shape="rect" id="node7" href="ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="1314,1069,1579,1363">
+<area shape="rect" id="node8" href="ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="1028,1263,1270,1468">
+<area shape="rect" id="node9" href="mdac_fd.html" target="_top" title="mdac_fd" alt="" coords="1623,1347,1777,1581">
+<area shape="rect" id="node10" href="snr_phase.html" target="_top" title="snr_phase" alt="" coords="1066,1485,1232,1691">
+</map>
+                                        <a name='diagram'><img id="oneimpliedDegreeImg" src="../diagrams/tables/mdac_fi.implied1degrees.png" usemap="#oneDegreeRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="active_id.html" target="_top" title="active_id" alt="" coords="1278,5,1420,93">
+<area shape="rect" id="node2" href="removed_beam_dfile.html" target="_top" title="removed_beam_dfile" alt="" coords="5,6208,238,6296">
+<area shape="rect" id="node3" href="wftag.html" target="_top" title="wftag" alt="" coords="979,41,1094,129">
+<area shape="rect" id="node32" href="wfdisc.html" target="_top" title="wfdisc" alt="" coords="669,272,792,360">
+<area shape="rect" id="node4" href="affiliation.html" target="_top" title="affiliation" alt="" coords="659,1277,803,1365">
+<area shape="rect" id="node5" href="stanet.html" target="_top" title="stanet" alt="" coords="360,1487,481,1575">
+<area shape="rect" id="node6" href="algorithm.html" target="_top" title="algorithm" alt="" coords="348,2768,493,2856">
+<area shape="rect" id="node7" href="alphasite.html" target="_top" title="alphasite" alt="" coords="659,8876,802,8964">
+<area shape="rect" id="node8" href="dlman.html" target="_top" title="dlman" alt="" coords="360,8843,481,8931">
+<area shape="rect" id="node9" href="amp3c.html" target="_top" title="amp3c" alt="" coords="1892,8735,2016,8823">
+<area shape="rect" id="node10" href="arrival.html" target="_top" title="arrival" alt="" coords="1599,6551,1721,6639">
+<area shape="rect" id="node13" href="user_privileges.html" target="_top" title="user_privileges" alt="" coords="325,5563,516,5651">
+<area shape="rect" id="node14" href="msvmax_results.html" target="_top" title="msvmax_results" alt="" coords="1250,6251,1449,6339">
+<area shape="rect" id="node11" href="ampdescript.html" target="_top" title="ampdescript" alt="" coords="336,4608,505,4696">
+<area shape="rect" id="node12" href="amplitude.html" target="_top" title="amplitude" alt="" coords="657,4324,805,4412">
+<area shape="rect" id="node114" href="msvmax_descript.html" target="_top" title="msvmax_descript" alt="" coords="932,6179,1141,6267">
+<area shape="rect" id="node15" href="amplitude_dyn_pars_dbl.html" target="_top" title="amplitude_dyn_pars_dbl" alt="" coords="906,4115,1168,4203">
+<area shape="rect" id="node16" href="amplitude_dyn_pars_int.html" target="_top" title="amplitude_dyn_pars_int" alt="" coords="908,4220,1166,4308">
+<area shape="rect" id="node17" href="amplitude_dyn_pars_str.html" target="_top" title="amplitude_dyn_pars_str" alt="" coords="908,4325,1166,4413">
+<area shape="rect" id="node18" href="aoi.html" target="_top" title="aoi" alt="" coords="369,2663,472,2751">
+<area shape="rect" id="node19" href="apma.html" target="_top" title="apma" alt="" coords="1896,6691,2011,6779">
+<area shape="rect" id="node20" href="ar_info.html" target="_top" title="ar_info" alt="" coords="973,1169,1100,1257">
+<area shape="rect" id="node21" href="origin.html" target="_top" title="origin" alt="" coords="672,2699,790,2787">
+<area shape="rect" id="node100" href="gregion.html" target="_top" title="gregion" alt="" coords="355,2167,486,2255">
+<area shape="rect" id="node123" href="sregion.html" target="_top" title="sregion" alt="" coords="355,2061,486,2149">
+<area shape="rect" id="node22" href="arrival_dyn_pars_dbl.html" target="_top" title="arrival_dyn_pars_dbl" alt="" coords="1837,7017,2071,7105">
+<area shape="rect" id="node23" href="arrival_dyn_pars_int.html" target="_top" title="arrival_dyn_pars_int" alt="" coords="1839,7565,2069,7653">
+<area shape="rect" id="node24" href="arrival_dyn_pars_str.html" target="_top" title="arrival_dyn_pars_str" alt="" coords="1838,8556,2069,8644">
+<area shape="rect" id="node25" href="arrival_tag.html" target="_top" title="arrival_tag" alt="" coords="1877,6443,2031,6531">
+<area shape="rect" id="node26" href="origin_tag.html" target="_top" title="origin_tag" alt="" coords="961,5860,1112,5948">
+<area shape="rect" id="node27" href="assoc.html" target="_top" title="assoc" alt="" coords="1894,6337,2013,6425">
+<area shape="rect" id="node28" href="assoc_ga.html" target="_top" title="assoc_ga" alt="" coords="348,8948,493,9036">
+<area shape="rect" id="node29" href="assoc_ga_del.html" target="_top" title="assoc_ga_del" alt="" coords="948,676,1126,764">
+<area shape="rect" id="node30" href="origin_ga_del.html" target="_top" title="origin_ga_del" alt="" coords="642,2028,820,2116">
+<area shape="rect" id="node31" href="beam.html" target="_top" title="beam" alt="" coords="979,252,1094,340">
+<area shape="rect" id="node112" href="msgdatatype.html" target="_top" title="msgdatatype" alt="" coords="334,307,507,395">
+<area shape="rect" id="node33" href="bulletin_release.html" target="_top" title="bulletin_release" alt="" coords="634,7103,828,7191">
+<area shape="rect" id="node34" href="bulletin_release_export.html" target="_top" title="bulletin_release_export" alt="" coords="910,7103,1163,7191">
+<area shape="rect" id="node35" href="butterworth_filter.html" target="_top" title="butterworth_filter" alt="" coords="628,6047,834,6135">
+<area shape="rect" id="node36" href="chan_groups.html" target="_top" title="chan_groups" alt="" coords="334,9053,507,9141">
+<area shape="rect" id="node37" href="channame.html" target="_top" title="channame" alt="" coords="344,9159,497,9247">
+<area shape="rect" id="node38" href="classification.html" target="_top" title="classification" alt="" coords="949,7984,1124,8072">
+<area shape="rect" id="node39" href="classification_opr.html" target="_top" title="classification_opr" alt="" coords="626,7984,836,8072">
+<area shape="rect" id="node40" href="classification_level.html" target="_top" title="classification_level" alt="" coords="621,6152,840,6240">
+<area shape="rect" id="node41" href="classification_lookup.html" target="_top" title="classification_lookup" alt="" coords="613,6257,849,6345">
+<area shape="rect" id="node42" href="classification_refer_to.html" target="_top" title="classification_refer_to" alt="" coords="609,6363,852,6451">
+<area shape="rect" id="node43" href="cluster_info.html" target="_top" title="cluster_info" alt="" coords="649,4969,813,5057">
+<area shape="rect" id="node44" href="cluster_magref.html" target="_top" title="cluster_magref" alt="" coords="1255,4968,1443,5056">
+<area shape="rect" id="node45" href="cluster_station.html" target="_top" title="cluster_station" alt="" coords="943,5181,1130,5269">
+<area shape="rect" id="node46" href="cluster_override.html" target="_top" title="cluster_override" alt="" coords="1561,5483,1759,5571">
+<area shape="rect" id="node47" href="cluster_phase_override.html" target="_top" title="cluster_phase_override" alt="" coords="1223,5824,1475,5912">
+<area shape="rect" id="node48" href="cluster_threshold.html" target="_top" title="cluster_threshold" alt="" coords="1246,5179,1453,5267">
+<area shape="rect" id="node49" href="codamag_input.html" target="_top" title="codamag_input" alt="" coords="941,4503,1132,4591">
+<area shape="rect" id="node50" href="codamag_output.html" target="_top" title="codamag_output" alt="" coords="630,6468,832,6556">
+<area shape="rect" id="node51" href="continuous_data_status.html" target="_top" title="continuous_data_status" alt="" coords="292,9264,549,9352">
+<area shape="rect" id="node52" href="da_interval.html" target="_top" title="da_interval" alt="" coords="652,6573,810,6661">
+<area shape="rect" id="node53" href="da_refsta_latency.html" target="_top" title="da_refsta_latency" alt="" coords="316,9369,525,9457">
+<area shape="rect" id="node54" href="da_refsta_summary.html" target="_top" title="da_refsta_summary" alt="" coords="308,9475,533,9563">
+<area shape="rect" id="node55" href="da_sitechan_latency.html" target="_top" title="da_sitechan_latency" alt="" coords="306,9580,535,9668">
+<area shape="rect" id="node56" href="datauser.html" target="_top" title="datauser" alt="" coords="350,629,491,717">
+<area shape="rect" id="node57" href="deconvolution.html" target="_top" title="deconvolution" alt="" coords="640,6679,822,6767">
+<area shape="rect" id="node58" href="defining_obstypes.html" target="_top" title="defining_obstypes" alt="" coords="313,1204,528,1292">
+<area shape="rect" id="node59" href="defining_rules.html" target="_top" title="defining_rules" alt="" coords="639,1172,822,1260">
+<area shape="rect" id="node60" href="defining_values.html" target="_top" title="defining_values" alt="" coords="324,1309,517,1397">
+<area shape="rect" id="node61" href="detection.html" target="_top" title="detection" alt="" coords="2149,8661,2293,8749">
+<area shape="rect" id="node62" href="detection_threshold.html" target="_top" title="detection_threshold" alt="" coords="618,6784,844,6872">
+<area shape="rect" id="node63" href="discrim_param.html" target="_top" title="discrim_param" alt="" coords="1256,3053,1443,3141">
+<area shape="rect" id="node64" href="mdac_fi.html" target="_top" title="mdac_fi" alt="" coords="902,1948,1171,3103">
+<area shape="rect" id="node65" href="polygon.html" target="_top" title="polygon" alt="" coords="663,3193,798,3281">
+<area shape="rect" id="node71" href="ecm_constant.html" target="_top" title="ecm_constant" alt="" coords="330,3159,511,3247">
+<area shape="rect" id="node66" href="discrimuse.html" target="_top" title="discrimuse" alt="" coords="1270,887,1428,975">
+<area shape="rect" id="node67" href="discrimvote.html" target="_top" title="discrimvote" alt="" coords="955,887,1118,975">
+<area shape="rect" id="node68" href="doppler_detection.html" target="_top" title="doppler_detection" alt="" coords="2115,8784,2327,8872">
+<area shape="rect" id="node69" href="ecm_chan_amplitude.html" target="_top" title="ecm_chan_amplitude" alt="" coords="1231,1932,1467,2020">
+<area shape="rect" id="node70" href="ecm_ref_chan_amplitude.html" target="_top" title="ecm_ref_chan_amplitude" alt="" coords="1527,2741,1793,2829">
+<area shape="rect" id="node78" href="ecm_ref_event.html" target="_top" title="ecm_ref_event" alt="" coords="638,3552,824,3640">
+<area shape="rect" id="node72" href="ecm_cov.html" target="_top" title="ecm_cov" alt="" coords="1589,3991,1731,4079">
+<area shape="rect" id="node73" href="ecm_ref_discrim.html" target="_top" title="ecm_ref_discrim" alt="" coords="936,3693,1137,3781">
+<area shape="rect" id="node74" href="ecm_sources.html" target="_top" title="ecm_sources" alt="" coords="1262,3991,1437,4079">
+<area shape="rect" id="node77" href="rda_param.html" target="_top" title="rda_param" alt="" coords="959,3904,1114,3992">
+<area shape="rect" id="node75" href="ecm_discriminants.html" target="_top" title="ecm_discriminants" alt="" coords="1240,3620,1458,3708">
+<area shape="rect" id="node76" href="ecm_event_results.html" target="_top" title="ecm_event_results" alt="" coords="1240,3725,1458,3813">
+<area shape="rect" id="node79" href="ecm_region_pref_version.html" target="_top" title="ecm_region_pref_version" alt="" coords="1215,3885,1483,3973">
+<area shape="rect" id="node80" href="ecm_sta_pref_version.html" target="_top" title="ecm_sta_pref_version" alt="" coords="1228,2037,1470,2125">
+<area shape="rect" id="node81" href="envelope_contribution.html" target="_top" title="envelope_contribution" alt="" coords="914,3552,1159,3640">
+<area shape="rect" id="node82" href="event.html" target="_top" title="event" alt="" coords="673,6889,788,6977">
+<area shape="rect" id="node83" href="event_control.html" target="_top" title="event_control" alt="" coords="948,1275,1126,1363">
+<area shape="rect" id="node84" href="event_correlation.html" target="_top" title="event_correlation" alt="" coords="317,9685,524,9773">
+<area shape="rect" id="node85" href="event_quality.html" target="_top" title="event_quality" alt="" coords="949,5965,1124,6053">
+<area shape="rect" id="node86" href="feedback_cataffiliation.html" target="_top" title="feedback_cataffiliation" alt="" coords="298,9791,543,9879">
+<area shape="rect" id="node87" href="feedback_categories.html" target="_top" title="feedback_categories" alt="" coords="305,9896,536,9984">
+<area shape="rect" id="node88" href="feedback_state.html" target="_top" title="feedback_state" alt="" coords="326,10001,515,10089">
+<area shape="rect" id="node89" href="feedback_state_categories.html" target="_top" title="feedback_state_categories" alt="" coords="282,10107,559,10195">
+<area shape="rect" id="node90" href="filter_coefficients.html" target="_top" title="filter_coefficients" alt="" coords="628,10212,834,10300">
+<area shape="rect" id="node91" href="user_filter.html" target="_top" title="user_filter" alt="" coords="345,10248,496,10336">
+<area shape="rect" id="node92" href="filter_values_double.html" target="_top" title="filter_values_double" alt="" coords="306,10353,535,10441">
+<area shape="rect" id="node93" href="filter_values_integer.html" target="_top" title="filter_values_integer" alt="" coords="306,10459,535,10547">
+<area shape="rect" id="node94" href="filter_values_string.html" target="_top" title="filter_values_string" alt="" coords="310,10564,531,10652">
+<area shape="rect" id="node95" href="fk_processing.html" target="_top" title="fk_processing" alt="" coords="1863,6549,2045,6637">
+<area shape="rect" id="node96" href="ftpfailed.html" target="_top" title="ftpfailed" alt="" coords="969,147,1104,235">
+<area shape="rect" id="node97" href="ftplogin.html" target="_top" title="ftplogin" alt="" coords="665,167,796,255">
+<area shape="rect" id="node98" href="msgdisc.html" target="_top" title="msgdisc" alt="" coords="662,488,800,576">
+<area shape="rect" id="node99" href="ga_tag.html" target="_top" title="ga_tag" alt="" coords="669,2981,793,3069">
+<area shape="rect" id="node101" href="historic_info_cylinder.html" target="_top" title="historic_info_cylinder" alt="" coords="611,2311,850,2399">
+<area shape="rect" id="node102" href="historic_info_shell.html" target="_top" title="historic_info_shell" alt="" coords="623,2840,838,2928">
+<area shape="rect" id="node103" href="historic_info_sta_phase.html" target="_top" title="historic_info_sta_phase" alt="" coords="908,1064,1165,1152">
+<area shape="rect" id="node104" href="hydro_arr_group.html" target="_top" title="hydro_arr_group" alt="" coords="630,1383,832,1471">
+<area shape="rect" id="node105" href="hydro_arrival.html" target="_top" title="hydro_arrival" alt="" coords="333,10669,508,10757">
+<area shape="rect" id="node106" href="hydro_assoc.html" target="_top" title="hydro_assoc" alt="" coords="334,10775,507,10863">
+<area shape="rect" id="node107" href="hydro_origin.html" target="_top" title="hydro_origin" alt="" coords="335,10880,506,10968">
+<area shape="rect" id="node108" href="instrument.html" target="_top" title="instrument" alt="" coords="342,11021,499,11109">
+<area shape="rect" id="node109" href="interval.html" target="_top" title="interval" alt="" coords="666,8411,796,8499">
+<area shape="rect" id="node110" href="mdac_fd.html" target="_top" title="mdac_fd" alt="" coords="1884,3115,2023,3203">
+<area shape="rect" id="node111" href="msgaux.html" target="_top" title="msgaux" alt="" coords="970,393,1104,481">
+<area shape="rect" id="node113" href="msgdest.html" target="_top" title="msgdest" alt="" coords="967,499,1106,587">
+<area shape="rect" id="node115" href="net_coda_spectrum.html" target="_top" title="net_coda_spectrum" alt="" coords="1237,6033,1461,6121">
+<area shape="rect" id="node116" href="netmag.html" target="_top" title="netmag" alt="" coords="972,5395,1102,5483">
+<area shape="rect" id="node117" href="network.html" target="_top" title="network" alt="" coords="663,1560,798,1648">
+<area shape="rect" id="node118" href="netyield.html" target="_top" title="netyield" alt="" coords="970,3799,1104,3887">
+<area shape="rect" id="node119" href="omitted_channels.html" target="_top" title="omitted_channels" alt="" coords="626,7208,836,7296">
+<area shape="rect" id="node120" href="origerr.html" target="_top" title="origerr" alt="" coords="974,1380,1099,1468">
+<area shape="rect" id="node121" href="origerr_ga.html" target="_top" title="origerr_ga" alt="" coords="344,11127,497,11215">
+<area shape="rect" id="node122" href="origerr_ga_del.html" target="_top" title="origerr_ga_del" alt="" coords="944,781,1129,869">
+<area shape="rect" id="node124" href="origin_ga.html" target="_top" title="origin_ga" alt="" coords="658,2133,804,2221">
+<area shape="rect" id="node125" href="origin_mea_trace.html" target="_top" title="origin_mea_trace" alt="" coords="934,1485,1140,1573">
+<area shape="rect" id="node126" href="outage_station_data.html" target="_top" title="outage_station_data" alt="" coords="306,11232,535,11320">
+<area shape="rect" id="node127" href="outage_station_receive.html" target="_top" title="outage_station_receive" alt="" coords="295,11337,546,11425">
+<area shape="rect" id="node128" href="polypoint.html" target="_top" title="polypoint" alt="" coords="964,1807,1109,1895">
+<area shape="rect" id="node129" href="process_tracking.html" target="_top" title="process_tracking" alt="" coords="318,11443,523,11531">
+<area shape="rect" id="node130" href="processing_recipe.html" target="_top" title="processing_recipe" alt="" coords="623,7313,838,7401">
+<area shape="rect" id="node131" href="qcmaskdef.html" target="_top" title="qcmaskdef" alt="" coords="653,8161,809,8249">
+<area shape="rect" id="node132" href="qcmaskinfo.html" target="_top" title="qcmaskinfo" alt="" coords="956,8161,1118,8249">
+<area shape="rect" id="node133" href="qcmaskseg.html" target="_top" title="qcmaskseg" alt="" coords="1269,8161,1429,8249">
+<area shape="rect" id="node134" href="qshell_interval.html" target="_top" title="qshell_interval" alt="" coords="944,8447,1130,8535">
+<area shape="rect" id="node135" href="reg_ratio_discrim.html" target="_top" title="reg_ratio_discrim" alt="" coords="1246,3372,1453,3460">
+<area shape="rect" id="node136" href="remark.html" target="_top" title="remark" alt="" coords="357,11548,484,11636">
+<area shape="rect" id="node137" href="request.html" target="_top" title="request" alt="" coords="1284,356,1415,444">
+<area shape="rect" id="node138" href="sado_email_history.html" target="_top" title="sado_email_history" alt="" coords="309,11653,532,11741">
+<area shape="rect" id="node139" href="sado_report_landmarks.html" target="_top" title="sado_report_landmarks" alt="" coords="603,2452,858,2540">
+<area shape="rect" id="node140" href="sado_state.html" target="_top" title="sado_state" alt="" coords="342,11759,499,11847">
+<area shape="rect" id="node141" href="sado_users.html" target="_top" title="sado_users" alt="" coords="340,11864,501,11952">
+<area shape="rect" id="node142" href="sensor.html" target="_top" title="sensor" alt="" coords="668,10984,794,11072">
+<area shape="rect" id="node143" href="site.html" target="_top" title="site" alt="" coords="681,2557,781,2645">
+<area shape="rect" id="node144" href="siteaux.html" target="_top" title="siteaux" alt="" coords="667,7419,795,7507">
+<area shape="rect" id="node145" href="sitechan.html" target="_top" title="sitechan" alt="" coords="352,11969,489,12057">
+<area shape="rect" id="node146" href="snr_phase.html" target="_top" title="snr_phase" alt="" coords="1272,3231,1426,3319">
+<area shape="rect" id="node147" href="sta_coda_spectrum.html" target="_top" title="sta_coda_spectrum" alt="" coords="925,4608,1148,4696">
+<area shape="rect" id="node148" href="stamag.html" target="_top" title="stamag" alt="" coords="972,4009,1102,4097">
+<area shape="rect" id="node149" href="staqual_dnames.html" target="_top" title="staqual_dnames" alt="" coords="321,12075,520,12163">
+<area shape="rect" id="node150" href="station_processing.html" target="_top" title="station_processing" alt="" coords="1239,5073,1459,5161">
+<area shape="rect" id="node151" href="station_quality.html" target="_top" title="station_quality" alt="" coords="638,7524,824,7612">
+<area shape="rect" id="node152" href="stayield.html" target="_top" title="stayield" alt="" coords="1283,4591,1415,4679">
+<area shape="rect" id="node153" href="taper.html" target="_top" title="taper" alt="" coords="675,7629,787,7717">
+<area shape="rect" id="node154" href="timestamp.html" target="_top" title="timestamp" alt="" coords="344,12180,497,12268">
+<area shape="rect" id="node155" href="tomo_info.html" target="_top" title="tomo_info" alt="" coords="656,7735,806,7823">
+<area shape="rect" id="node156" href="wfactivity.html" target="_top" title="wfactivity" alt="" coords="348,12285,493,12373">
+<area shape="rect" id="node157" href="wfconv.html" target="_top" title="wfconv" alt="" coords="356,12391,485,12479">
+<area shape="rect" id="node158" href="wffile.html" target="_top" title="wffile" alt="" coords="364,12496,477,12584">
+<area shape="rect" id="node159" href="xtag.html" target="_top" title="xtag" alt="" coords="368,12601,473,12689">
+</map>
+                                        <a name='diagram'><img id="twoimpliedDegreeImg" src="../diagrams/tables/mdac_fi.implied2degrees.png" usemap="#twoDegreesRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

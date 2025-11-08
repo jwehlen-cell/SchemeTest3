@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AR_INFO - ORCL.ORACLEADMIN</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>ORCL</b></a><span class="navbar-brand" style="padding-left: 0">.ORACLEADMIN</span>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>AR_INFO</h1><br />
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-file-text-o"></i>
+                            <h3 id="Description" class="box-title">Description</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-body clearfix">
+                            <p>The ar_info table contains information about arrival observa tions used in event location. This includes the predicted ob servation values, the model used to predict the values, and all uncertainties associated with that observation.</p>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="standard_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><span id="ORID">ORID</span></td>
+                                    <td>NUMBER</td>
+                                    <td>18</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Origin identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ARID">ARID</span></td>
+                                    <td>NUMBER</td>
+                                    <td>18</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Arrival identifier</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TIME_ERROR_CODE">TIME_ERROR_CODE</span></td>
+                                    <td>NUMBER</td>
+                                    <td>9</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Time error code</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="AZ_ERROR_CODE">AZ_ERROR_CODE</span></td>
+                                    <td>NUMBER</td>
+                                    <td>9</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Azimuth error code</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SLOW_ERROR_CODE">SLOW_ERROR_CODE</span></td>
+                                    <td>NUMBER</td>
+                                    <td>9</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Slowness error code</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SRC_DPNT_CORR_TYPE">SRC_DPNT_CORR_TYPE</span></td>
+                                    <td>NUMBER</td>
+                                    <td>9</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Correction code (TT, AZ, SLO)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="VMODEL">VMODEL</span></td>
+                                    <td>VARCHAR2</td>
+                                    <td>16</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Velocity model for theoretical travel time (TT) and slowness (SLO)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TOTAL_TRAVEL_TIME">TOTAL_TRAVEL_TIME</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Predicted travel time including all corrections (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TT_TABLE_VALUE">TT_TABLE_VALUE</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Base model travel time (uncorrect)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ELLIP_CORR">ELLIP_CORR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Time correction due to earth&rsquo;s ellipticity (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ELEV_CORR">ELEV_CORR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Time correction due to station elevation (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="BULK_STATIC_STA_CORR">BULK_STATIC_STA_CORR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Static station correction to travel time (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TT_SRC_DPNT_CORR">TT_SRC_DPNT_CORR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Source-specific travel time correction (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TT_MODEL_ERROR">TT_MODEL_ERROR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Travel time model uncertainty (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TT_MEAS_ERROR">TT_MEAS_ERROR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Travel time measurement uncertainty (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TT_MODEL_PLUS_MEAS_ERROR">TT_MODEL_PLUS_MEAS_ERROR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Combined travel time model and measurement uncertainty (seconds)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="AZ_SRC_DPNT_CORR">AZ_SRC_DPNT_CORR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Source-specific azimuth correction (degrees)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="AZ_MODEL_ERROR">AZ_MODEL_ERROR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Azimuth model uncertainty (degrees)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="AZ_MEAS_ERROR">AZ_MEAS_ERROR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Azimuth measurement uncertainty (degrees)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="AZ_MODEL_PLUS_MEAS_ERROR">AZ_MODEL_PLUS_MEAS_ERROR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Combined azimuth model and measurement uncertainty (degrees)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SL_SRC_DPNT_CORR">SL_SRC_DPNT_CORR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Source-specific slowness correction (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SL_MODEL_ERROR">SL_MODEL_ERROR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Slowness model uncertainty (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SL_MEAS_ERROR">SL_MEAS_ERROR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Slowness measurement uncertainty (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SL_MODEL_PLUS_MEAS_ERROR">SL_MODEL_PLUS_MEAS_ERROR</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Combined slowness model and measurement uncertainty (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="TIME_IMPORT">TIME_IMPORT</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Weight applied to travel time in event solution</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="AZ_IMPORT">AZ_IMPORT</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Weight applied to azimuth in event solution</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SLOW_IMPORT">SLOW_IMPORT</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Weight applied to slowness in event solution</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="SLOW_VEC_RES">SLOW_VEC_RES</span></td>
+                                    <td>FLOAT</td>
+                                    <td>24</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Residual between predicted and observed FK vector (s/deg)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="LDDATE">LDDATE</span></td>
+                                    <td>DATE</td>
+                                    <td>7</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Load date</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="indexes_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> AR_INFO_PK</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>ARID</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 class="box-title">Check Constraints</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="check_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Constraint</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>AR_INFO__TT_MEAS_ERROR__CK</td>
+                                    <td>(tt_meas_error &gt; 0.0) OR tt_meas_error &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__AZ_MOD_PLS_MS_ERR__CK</td>
+                                    <td>(az_model_plus_meas_error &gt; 0.0 AND az_model_plus_meas_error &lt;&#61; 360.0) OR az_model_plus_meas_error &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__AZ_MEAS_ERROR__CK</td>
+                                    <td>(az_meas_error &gt; 0.0 AND az_meas_error &lt;&#61; 180.0) OR az_meas_error&#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__AZ_IMPORT__CK</td>
+                                    <td>(az_import &gt;&#61; 0.0 AND az_import &lt;&#61; 1.0) OR az_import &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__TIME_IMPORT__CK</td>
+                                    <td>(time_import &gt;&#61; 0.0 AND time_import &lt;&#61; 1.0) OR time_import &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__SL_MODEL_ERROR__CK</td>
+                                    <td>(sl_model_error &gt; 0.0) OR sl_model_error &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__SRC_DPNT_CORR_TY__CK</td>
+                                    <td>(src_dpnt_corr_type &gt; 0 AND src_dpnt_corr_type &lt;&#61; 15) OR src_dpnt_corr_type &#61; 0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__ORID__CK</td>
+                                    <td>orid &gt; 0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__SLOW_IMPORT__CK</td>
+                                    <td>(slow_import &gt;&#61; 0.0 AND slow_import &lt;&#61; 1.0) OR slow_import &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__TOTAL_TRAVEL_TIME__CK</td>
+                                    <td>(total_travel_time &gt; 0.0 AND total_travel_time &lt;&#61; 86400) OR total_travel_time &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__SLOW_VEC_RES__CK</td>
+                                    <td>(slow_vec_res &gt;&#61; -1000.0 AND slow_vec_res &lt;&#61; 1000.0) OR slow_vec_res &#61; -999</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__SL_SRC_DPNT_CORR__CK</td>
+                                    <td>sl_src_dpnt_corr &gt;&#61; -50.0 AND sl_src_dpnt_corr &lt;&#61; 50.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__ELEV_CORR__CK</td>
+                                    <td>elev_corr &gt;&#61; -50.0 AND elev_corr &lt;&#61; 50.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__TT_SRC_DPNT_CORR__CK</td>
+                                    <td>tt_src_dpnt_corr &gt;&#61; -50.0 AND tt_src_dpnt_corr &lt;&#61; 50.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__TT_TABLE_VALUE__CK</td>
+                                    <td>(tt_table_value &gt; 0.0 AND tt_table_value &lt;&#61; 86400) OR tt_table_value &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__AZ_MODEL_ERROR__CK</td>
+                                    <td>(az_model_error &gt; 0.0 AND az_model_error &lt;&#61; 180.0) OR az_model_error &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__AZ_SRC_DPNT_CORR__CK</td>
+                                    <td>az_src_dpnt_corr &gt;&#61; -180.0 AND az_src_dpnt_corr &lt;&#61; 180.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__ELLIP_CORR__CK</td>
+                                    <td>ellip_corr &gt;&#61; -50.0 AND ellip_corr &lt;&#61; 50.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__TT_MOD_PLS_MS_ERR__CK</td>
+                                    <td>(tt_model_plus_meas_error &gt; 0.0) OR tt_model_plus_meas_error &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__SLOW_ERROR_CODE__CK</td>
+                                    <td>slow_error_code &gt;&#61; 0 AND slow_error_code &lt;&#61; 19</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__BLK_STAT_STA_CORR__CK</td>
+                                    <td>bulk_static_sta_corr &gt;&#61; -50.0 AND bulk_static_sta_corr &lt;&#61; 50.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__ARID__CK</td>
+                                    <td>arid &gt; 0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__AZ_ERROR_CODE__CK</td>
+                                    <td>az_error_code &gt;&#61; 0 AND az_error_code &lt;&#61; 19</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__TT_MODEL_ERROR__CK</td>
+                                    <td>(tt_model_error &gt; 0.0) OR tt_model_error &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__SL_MEAS_ERROR__CK</td>
+                                    <td>(sl_meas_error &gt; 0.0) OR sl_meas_error &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__SL_MOD_PLS_MS_ERR__CK</td>
+                                    <td>(sl_model_plus_meas_error &gt; 0.0) OR sl_model_plus_meas_error &#61; -1.0</td>
+                                </tr>
+                                <tr>
+                                    <td>AR_INFO__TIME_ERROR_CODE__CK</td>
+                                    <td>time_error_code &gt;&#61; 0 AND time_error_code &lt;&#61; 19</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="AR_INFO.html" target="_top" title="AR_INFO" alt="" coords="5,5,409,925">
+</map>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/AR_INFO.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.2.4</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

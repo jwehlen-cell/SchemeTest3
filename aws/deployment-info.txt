@@ -1,0 +1,24 @@
+USNDC Schema Documentation Deployment
+=====================================
+
+Website URL: http://usndc-schema-docs-1762553193.s3-website-us-east-1.amazonaws.com
+Interactive Browser: http://usndc-schema-docs-1762553193.s3-website-us-east-1.amazonaws.com
+Documentation: http://usndc-schema-docs-1762553193.s3-website-us-east-1.amazonaws.com/usndc_schema_documentation.html
+Schema API: http://usndc-schema-docs-1762553193.s3-website-us-east-1.amazonaws.com/schema_metadata.json
+
+S3 Bucket: usndc-schema-docs-1762553193
+Region: us-east-1
+Deployment Date: Fri Nov  7 17:06:38 EST 2025
+
+Database Connection:
+Host: usndc-schema-usndc-schematest3-clone.c0320kayk04f.us-east-1.rds.amazonaws.com
+Port: 5432
+Database: usndc_schema
+Username: schemaadmin
+
+Features:
+- Interactive table browser
+- SQL query builder with samples
+- Connection examples
+- Mobile responsive
+- Live database access

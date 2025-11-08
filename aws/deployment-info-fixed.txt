@@ -1,0 +1,19 @@
+USNDC Schema Documentation Deployment
+====================================
+
+Bucket: usndc-schema-docs-1762553276
+Region: us-east-1
+Website URL: https://usndc-schema-docs-1762553276.s3.us-east-1.amazonaws.com
+
+Files Deployed:
+- schema_browser.html (Interactive Explorer)
+- usndc_schema_documentation.html (Full Documentation)  
+- schema_metadata.json (API Data)
+
+Database Details:
+- Host: usndc-schema-usndc-schematest3-clone.c0320kayk04f.us-east-1.rds.amazonaws.com
+- Port: 5432
+- Database: usndc_schema
+- Tables: 16 core seismic analysis tables
+
+Deployment Date: Fri Nov  7 17:08:02 EST 2025

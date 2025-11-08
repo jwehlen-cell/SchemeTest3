@@ -1,0 +1,16 @@
+site
+origin
+instrument
+network
+arrival
+assoc
+sensor
+wfdisc
+netmag
+stamag
+active_id
+affiliation
+algorithm
+sitechan
+test_table
+test_usndc

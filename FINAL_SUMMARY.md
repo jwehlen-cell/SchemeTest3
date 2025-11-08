@@ -112,3 +112,58 @@ SchemaTest2/
 
 ---
 *Project completed successfully with comprehensive dual-schema documentation, interactive browsing, and professional visual diagrams.*
+
+---
+
+## 🟦 Oracle USNDC Schema Deployment (Extended Phase)
+
+### Overview
+An additional phase deployed the full USNDC Oracle operational schema to AWS RDS (Oracle 19c) and reconciled all tables and relational integrity constraints. This goes beyond the original dual Legacy/NDC PLUS documentation and represents the live seismic/event processing data model.
+
+### Live Oracle Schema Statistics
+| Metric | Count |
+| ------ | ----- |
+| Tables | 177 |
+| Columns | 1,887 |
+| Indexes | 196 |
+| Primary Keys | 175 |
+| Foreign Keys | 101 |
+| Unique Constraints | 18 |
+| Check Constraints | 1,060 |
+
+Special cases:
+- `WFDISC` has a unique key (`WFDISC_UK`) instead of a declared PK (historical schema convention).
+- `REMAP` intentionally has only NOT NULL / check constraints (acts as a remapping ledger, no natural PK required yet).
+
+### Foreign Key Normalization Decisions
+Corrupted source DDL contained split identifiers (e.g. `CLUSTAI D`, `SOURCE_ORI D`) and fragmented single-column FKs where a composite was required. Resolution strategy:
+- Cluster family (`CLUSTER_*`, `STATION_PROCESSING`, `SVDDISC*`) uses composite `(CLUSTAID, ACTIVETIME)` referencing `CLUSTER_STATION (CLUSTAID, ACTIVETIME)` ensured with a dedicated unique constraint.
+- CODAMAG relationships consolidated into a composite `(AMPID, FLO, FHI)` FK for `CODAMAG_OUTPUT → CODAMAG_INPUT` with supporting unique constraint.
+- EVENT correlation references normalized to existing parent keys: `EVENT_CORRELATION.SOURCE_EVID → EVENT.EVID` and `EVENT_CORRELATION.SOURCE_ORID → ORIGIN.ORID` (original `SOURCE_EVID`/`SOURCE_ORID` parent columns did not exist—mapped to canonical identifiers).
+- Cylinder linkage fixed: `HISTORIC_INFO_STA_PHASE(HISTORIC_INFO_CYLINDER_ID) → HISTORIC_INFO_CYLINDER(HISTORIC_INFO_CYLINDER_ID)` (discarded phantom `CYLINDER_ID`).
+- FILTER_GROUP parent/child standardized to `FILTER(FILTERID)` eliminating invalid target column variants.
+
+### Verification & Tooling Added
+Scripts introduced for reproducible integrity assurance:
+- `export_foreign_keys.py` – Exports current live FKs to `oracle_foreign_keys_clean.sql` (authoritative set of 101 constraints).
+- `schema_inventory_report.py` – Emits full counts and highlights tables lacking PKs.
+- `repair_remaining_fks.py` – Idempotent FK repair utility (composite enforcement and uniqueness provisioning).
+
+### Legacy vs Clean FK Lists
+`oracle_foreign_keys.sql` retains the raw, corrupted extraction for historical comparison. The normalized, machine-exported list is `oracle_foreign_keys_clean.sql` and should be used going forward.
+
+### Future Enhancement Options
+1. Add surrogate PK to `REMAP` (e.g. generated numeric key) if audit joins expand.
+2. Promote `WFDISC_UK` to a formal PK if downstream tooling requires explicit PK semantics.
+3. Automated nightly integrity audit using the inventory script and alert on drift (count or checksum change of FK list).
+4. Extend documentation generation to include constraint lineage pages.
+
+### Quick Re-run (Local)
+```bash
+python3 schema_inventory_report.py
+python3 export_foreign_keys.py
+```
+
+---
+
+*Oracle USNDC schema successfully deployed and validated; relational integrity normalized and documented.*
